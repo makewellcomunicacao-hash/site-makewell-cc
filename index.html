@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Makewell Comunicação — Marketing que gera receita | Maceió e São Paulo</title>
+<meta name="description" content="Agência de marketing digital com mais de 8 anos transformando marcas. Branding, Tráfego Pago, SEO, Social Selling e Automação. ROI comprovado: +26x. Maceió AL e São Paulo SP.">
+<meta name="keywords" content="agência de marketing digital, tráfego pago, branding, SEO, social selling, automação, CRM, Maceió, São Paulo, Makewell">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Makewell Comunicação">
+<link rel="canonical" href="https://makewellcomunicacao-hash.github.io/ClaudeCode/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Makewell — Marketing não é caro quando gera receita">
+<meta property="og:description" content="Agência de marketing digital com método comprovado. +26x ROI, 100+ clientes/mês. Diagnóstico gratuito.">
+<meta property="og:url" content="https://makewellcomunicacao-hash.github.io/ClaudeCode/">
+<meta property="og:site_name" content="Makewell Comunicação">
+<meta property="og:locale" content="pt_BR">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Makewell — Marketing que gera receita">
+<meta name="twitter:description" content="Agência de marketing digital com +8 anos transformando marcas. ROI comprovado.">
+
+<!-- Schema.org JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MarketingAgency",
+  "name": "Makewell Comunicação",
+  "description": "Agência de marketing digital com mais de 8 anos transformando marcas com método, estratégia e propósito.",
+  "url": "https://makewellcomunicacao-hash.github.io/ClaudeCode/",
+  "foundingDate": "2016",
+  "areaServed": "BR",
+  "address": [
+    {
+      "@type": "PostalAddress",
+      "addressLocality": "Maceió",
+      "addressRegion": "AL",
+      "streetAddress": "Av. Gov. Osman Loureiro, 171",
+      "addressCountry": "BR"
+    },
+    {
+      "@type": "PostalAddress",
+      "addressLocality": "São Paulo",
+      "addressRegion": "SP",
+      "addressCountry": "BR"
+    }
+  ],
+  "employee": [
+    {
+      "@type": "Person",
+      "name": "Giuliana Castela",
+      "jobTitle": "Diretora de Operação e Estratégia Criativa"
+    },
+    {
+      "@type": "Person",
+      "name": "Ismael Martins",
+      "jobTitle": "Diretor de Vendas e Administrativo"
+    }
+  ],
+  "serviceType": ["Branding", "Tráfego Pago", "SEO", "Social Selling", "Automação", "CRM", "SPIN Selling"]
+}
+</script>
+
+<style>
+  :root {
+    --gold: #F07820;
+    --gold-light: #F5A623;
+    --dark: #080808;
+    --dark2: #111111;
+    --dark3: #1a1a1a;
+    --gray: #888;
+    --light: #f5f0e8;
+    --white: #ffffff;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--dark);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* CURSOR — desktop only */
+  @media (hover: hover) and (pointer: fine) {
+    body { cursor: none; }
+    .cursor {
+      position: fixed; width: 10px; height: 10px;
+      background: var(--gold); border-radius: 50%;
+      pointer-events: none; z-index: 9999;
+      transition: transform .15s ease;
+      mix-blend-mode: difference;
+    }
+    .cursor-ring {
+      position: fixed; width: 36px; height: 36px;
+      border: 1.5px solid var(--gold); border-radius: 50%;
+      pointer-events: none; z-index: 9998;
+      transition: all .25s ease; opacity: .5;
+    }
+  }
+
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-left { opacity: 0; transform: translateX(-50px); transition: opacity .9s ease, transform .9s ease; }
+  .reveal-left.visible { opacity: 1; transform: translateX(0); }
+  .reveal-right { opacity: 0; transform: translateX(50px); transition: opacity .9s ease, transform .9s ease; }
+  .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+  /* UTILS */
+  .tag { font-size: 9px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); }
+  .gold { color: var(--gold); }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    height: 72px; display: flex; align-items: center;
+    justify-content: space-between; padding: 0 60px;
+    transition: background .4s, border-color .4s;
+  }
+  nav.scrolled { background: rgba(8,8,8,.96); border-bottom: 1px solid #1e1e1e; backdrop-filter: blur(14px); }
+
+  .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .nav-icon { width: 38px; height: 38px; border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; transform: rotate(45deg); flex-shrink: 0; }
+  .nav-icon span { transform: rotate(-45deg); font-weight: 900; font-size: 16px; color: var(--gold); }
+  .nav-wordmark strong { font-size: 18px; font-weight: 900; color: #fff; }
+  .nav-wordmark small { display: block; font-size: 7px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #444; margin-top: 2px; }
+
+  .nav-right { display: flex; align-items: center; gap: 36px; }
+  .nav-links { display: flex; align-items: center; gap: 28px; }
+  .nav-links a { font-size: 13px; font-weight: 500; color: #999; text-decoration: none; transition: color .2s; }
+  .nav-links a:hover { color: #fff; }
+  .btn-nav { background: var(--gold); color: #fff; border: none; padding: 11px 22px; font-weight: 800; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border-radius: 6px; transition: background .2s, transform .2s; white-space: nowrap; }
+  .btn-nav:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* Hamburger */
+  .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: #fff; transition: all .3s; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none; position: fixed; inset: 72px 0 0 0;
+    background: rgba(8,8,8,.98); z-index: 199; backdrop-filter: blur(14px);
+    flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-size: 22px; font-weight: 700; color: #ccc; text-decoration: none; }
+  .mobile-menu a:hover { color: #fff; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center; padding: 120px 60px 80px; gap: 60px;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 80% 50%, #C8922A0a 0%, transparent 70%); }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at center, black 20%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 80%);
+  }
+  .hero-left { position: relative; z-index: 2; }
+  .hero-pill {
+    display: inline-flex; align-items: center; gap: 10px;
+    border: 1px solid #C8922A44; border-radius: 99px; padding: 8px 20px;
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--gold); background: #C8922A0a; margin-bottom: 36px;
+  }
+  .hero-pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 2s infinite; flex-shrink: 0; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)} }
+  h1.hero-h1 { font-size: clamp(40px, 5.5vw, 76px); font-weight: 900; line-height: 1.02; letter-spacing: -3px; color: #fff; margin-bottom: 28px; }
+  h1.hero-h1 em { font-style: normal; color: var(--gold); }
+  .hero-p { font-size: 16px; color: #bbb; line-height: 1.85; max-width: 440px; margin-bottom: 44px; }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  .btn-primary { background: var(--gold); color: #fff; border: none; padding: 16px 34px; font-weight: 800; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border-radius: 8px; transition: all .25s; }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 32px #C8922A33; }
+  .btn-outline { background: transparent; color: #fff; border: 1px solid #ffffff22; padding: 16px 30px; font-weight: 700; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border-radius: 8px; transition: all .25s; }
+  .btn-outline:hover { border-color: #ffffff55; background: #ffffff08; transform: translateY(-2px); }
+  .btn-outline-dark { background: transparent; color: #111; border: 1.5px solid #11111130; padding: 12px 26px; font-weight: 700; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border-radius: 6px; transition: all .25s; white-space: nowrap; }
+  .btn-outline-dark:hover { border-color: #111; background: #11111108; }
+
+  .hero-right { position: relative; z-index: 2; }
+  .hero-card { background: #111; border: 1px solid #222; border-radius: 16px; overflow: hidden; }
+  .hero-card-header { background: var(--gold); padding: 14px 24px; display: flex; justify-content: space-between; }
+  .hero-card-header span { font-size: 9px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: #fff; }
+  .hero-stats { display: grid; grid-template-columns: 1fr 1fr; }
+  .hero-stat { padding: 32px 28px; border-right: 1px solid #1e1e1e; border-bottom: 1px solid #1e1e1e; }
+  .hero-stat:nth-child(2n) { border-right: none; }
+  .hero-stat:nth-last-child(-n+2) { border-bottom: none; }
+  .hero-stat-value { font-size: 48px; font-weight: 900; line-height: 1; color: #fff; margin-bottom: 8px; }
+  .hero-stat-value.accent { color: var(--gold); }
+  .hero-stat-label { font-size: 8px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #555; }
+  .hero-tag-bar { padding: 18px 24px; border-top: 1px solid #1e1e1e; display: flex; gap: 8px; flex-wrap: wrap; }
+  .htag { font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #666; padding: 5px 10px; border: 1px solid #222; border-radius: 4px; }
+
+  /* ── TICKER ── */
+  .ticker { background: var(--gold); padding: 13px 0; overflow: hidden; white-space: nowrap; }
+  .ticker-track { display: inline-flex; animation: ticker 30s linear infinite; }
+  @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+  .ticker-item { font-family: 'Courier New', monospace; font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #fff; padding: 0 28px; }
+  .ticker-sep { color: rgba(255,255,255,.35); padding: 0; }
+
+  /* ── NUMBERS ── */
+  .numbers { display: grid; grid-template-columns: repeat(4, 1fr); background: #1a1a1a; gap: 1px; }
+  .number-item { background: var(--dark); padding: 56px 44px; }
+  .number-value { font-size: clamp(48px, 5vw, 68px); font-weight: 900; line-height: 1; color: #fff; margin-bottom: 12px; }
+  .number-value .accent { color: var(--gold); }
+  .number-desc { font-size: 13px; color: #555; line-height: 1.65; max-width: 170px; }
+
+  /* ── MÉTODO ── */
+  .metodo { padding: 120px 60px; background: var(--light); }
+  .metodo-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 64px; gap: 32px; }
+  .metodo-right { display: flex; flex-direction: column; align-items: flex-end; gap: 16px; }
+  h2.metodo-h2 { font-size: clamp(32px, 4vw, 52px); font-weight: 900; letter-spacing: -1.5px; color: #111; margin-top: 14px; }
+  .metodo-sub { font-size: 14px; color: #666; max-width: 300px; line-height: 1.7; text-align: right; }
+  .metodo-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; }
+  .step { background: #fff; padding: 36px 22px; position: relative; overflow: hidden; transition: transform .3s, box-shadow .3s; cursor: default; }
+  .step:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,.1); z-index: 1; }
+  .step::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gold); }
+  .step.active { background: #111; }
+  .step.active .step-title { color: var(--gold); }
+  .step.active .step-desc { color: #888; }
+  .step-num { font-family: 'Courier New', monospace; font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--gold); margin-bottom: 18px; }
+  .step-title { font-size: 12px; font-weight: 900; letter-spacing: .5px; text-transform: uppercase; color: #111; margin-bottom: 10px; }
+  .step-desc { font-size: 12px; color: #666; line-height: 1.75; }
+
+  /* ── SERVIÇOS ── */
+  .services { padding: 120px 60px; border-bottom: 1px solid #1a1a1a; }
+  .services-header { margin-bottom: 64px; }
+  h2.services-h2 { font-size: clamp(32px, 4vw, 52px); font-weight: 900; letter-spacing: -1.5px; color: #fff; margin-top: 14px; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: #1a1a1a; }
+  .service-card { background: var(--dark); padding: 40px 34px; position: relative; overflow: hidden; transition: background .3s; cursor: default; display: flex; flex-direction: column; }
+  .service-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, #C8922A08, transparent 60%); opacity: 0; transition: opacity .4s; }
+  .service-card:hover { background: #111; }
+  .service-card:hover::after { opacity: 1; }
+  .service-icon { width: 46px; height: 46px; border: 1px solid #C8922A33; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 26px; font-size: 20px; }
+  .service-tag { font-size: 9px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  .service-title { font-size: 19px; font-weight: 800; color: #fff; margin-bottom: 12px; line-height: 1.3; }
+  .service-desc { font-size: 13px; color: #666; line-height: 1.8; margin-bottom: 24px; flex: 1; }
+  .service-list { display: flex; flex-direction: column; gap: 8px; list-style: none; }
+  .service-list li { font-size: 12px; color: #aaa; display: flex; gap: 10px; }
+  .service-list li::before { content: '→'; color: var(--gold); flex-shrink: 0; }
+
+  /* ── CASES ── */
+  .cases { padding: 120px 60px; background: var(--light); }
+  .cases-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 64px; gap: 24px; }
+  h2.cases-h2 { font-size: clamp(32px, 4vw, 52px); font-weight: 900; letter-spacing: -1.5px; color: #111; margin-top: 14px; }
+  .cases-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-bottom: 3px; }
+  .case-card { background: #111; overflow: hidden; transition: transform .3s; cursor: default; }
+  .case-card:hover { transform: scale(1.01); }
+  .case-header { background: var(--gold); padding: 15px 28px; display: flex; justify-content: space-between; align-items: center; }
+  .case-sector { font-size: 9px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: #fff; }
+  .case-roi { font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,.8); }
+  .case-body { padding: 32px 28px; }
+  .case-title { font-size: 22px; font-weight: 900; color: #fff; margin-bottom: 4px; }
+  .case-sub { font-family: 'Courier New', monospace; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: #555; margin-bottom: 24px; }
+  .case-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #222; border-radius: 8px; overflow: hidden; margin-bottom: 20px; }
+  .case-metric { background: #161616; padding: 18px 12px; text-align: center; }
+  .case-metric-value { font-size: 30px; font-weight: 900; color: #fff; }
+  .case-metric-value.accent { color: var(--gold); }
+  .case-metric-label { font-size: 7px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #555; margin-top: 5px; }
+  .case-quote { padding: 14px 18px; background: #161616; border-left: 2px solid var(--gold); border-radius: 0 8px 8px 0; }
+  .case-quote p { font-size: 12px; color: #ccc; line-height: 1.7; font-style: italic; margin-bottom: 7px; }
+  .case-quote cite { font-size: 8px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #555; font-style: normal; }
+  .cases-cta { background: #111; padding: 34px 38px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+  .cases-cta-text .tag { margin-bottom: 8px; }
+  .cases-cta-text strong { font-size: 21px; font-weight: 900; color: #fff; }
+  .cases-cta-text strong em { font-style: normal; color: var(--gold); }
+
+  /* ── SOBRE ── */
+  .about { padding: 120px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; border-bottom: 1px solid #1a1a1a; }
+  h2.about-h2 { font-size: clamp(32px, 4vw, 50px); font-weight: 900; letter-spacing: -1.5px; color: #fff; margin-top: 14px; margin-bottom: 22px; }
+  .about-p { font-size: 15px; color: #888; line-height: 1.9; margin-bottom: 22px; }
+  .about-quote { padding: 20px 22px; background: #111; border: 1px solid #222; border-left: 3px solid var(--gold); border-radius: 0 10px 10px 0; margin-bottom: 32px; }
+  .about-quote p { font-size: 14px; color: #ccc; line-height: 1.75; font-style: italic; }
+  .team { display: flex; flex-direction: column; gap: 12px; margin-bottom: 12px; }
+  .team-card { background: #111; border: 1px solid #1e1e1e; border-radius: 12px; padding: 22px 26px; display: flex; align-items: center; gap: 18px; transition: border-color .3s; cursor: default; }
+  .team-card:hover { border-color: #C8922A44; }
+  .team-avatar { width: 52px; height: 52px; border-radius: 50%; background: #1e1e1e; border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 15px; color: var(--gold); flex-shrink: 0; }
+  .team-name { font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 5px; }
+  .team-role { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #555; }
+  .about-stats { background: #111; border: 1px solid #1e1e1e; border-radius: 12px; padding: 26px; display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; }
+  .about-stat { padding: 4px 12px; }
+  .about-stat:not(:last-child) { border-right: 1px solid #222; }
+  .about-stat-val { font-size: 28px; font-weight: 900; color: var(--gold); }
+  .about-stat-label { font-size: 8px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #555; margin-top: 5px; }
+
+  /* ── CTA ── */
+  .cta-section { background: var(--gold); padding: 120px 60px; text-align: center; position: relative; overflow: hidden; }
+  .cta-circle { position: absolute; border-radius: 50%; border: 1px solid rgba(255,255,255,.1); left: 50%; top: 50%; transform: translate(-50%,-50%); pointer-events: none; }
+  .cta-pill { display: inline-flex; align-items: center; gap: 10px; border: 1.5px solid rgba(255,255,255,.4); border-radius: 99px; padding: 8px 20px; font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; margin-bottom: 28px; }
+  .cta-pill-dot { width: 6px; height: 6px; border-radius: 50%; background: #fff; flex-shrink: 0; }
+  h2.cta-h2 { font-size: clamp(36px, 5vw, 64px); font-weight: 900; letter-spacing: -2px; color: #fff; line-height: 1.06; margin-bottom: 18px; }
+  .cta-p { font-size: 16px; color: rgba(255,255,255,.8); line-height: 1.8; max-width: 420px; margin: 0 auto 44px; }
+  .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn-dark { background: #111; color: #fff; border: none; padding: 16px 34px; font-weight: 800; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border-radius: 8px; transition: all .25s; }
+  .btn-dark:hover { background: #000; transform: translateY(-2px); }
+  .btn-white-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.5); padding: 14px 30px; font-weight: 700; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border-radius: 8px; transition: all .25s; }
+  .btn-white-outline:hover { border-color: #fff; background: rgba(255,255,255,.1); }
+
+  /* ── FOOTER ── */
+  footer { background: #050505; border-top: 1px solid #111; padding: 30px 60px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-logo { display: flex; align-items: center; gap: 12px; }
+  .footer-icon { width: 30px; height: 30px; border: 1.5px solid var(--gold); display: flex; align-items: center; justify-content: center; transform: rotate(45deg); flex-shrink: 0; }
+  .footer-icon span { transform: rotate(-45deg); font-weight: 900; font-size: 13px; color: var(--gold); }
+  .footer-wordmark strong { font-size: 14px; font-weight: 900; color: #fff; }
+  .footer-wordmark small { display: block; font-size: 7px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #333; margin-top: 2px; }
+  .footer-address { font-family: 'Courier New', monospace; font-size: 8px; letter-spacing: 1px; text-transform: uppercase; color: #333; text-align: center; }
+  .footer-copy { font-family: 'Courier New', monospace; font-size: 8px; letter-spacing: 1px; text-transform: uppercase; color: #2a2a2a; }
+
+  /* ══════════════════════════════════
+     RESPONSIVE — MOBILE
+  ══════════════════════════════════ */
+  @media (max-width: 1024px) {
+    nav { padding: 0 32px; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .hero { padding: 100px 32px 64px; }
+    .numbers { grid-template-columns: repeat(2, 1fr); }
+    .metodo { padding: 80px 32px; }
+    .metodo-steps { grid-template-columns: repeat(3, 1fr); }
+    .services { padding: 80px 32px; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .cases { padding: 80px 32px; }
+    .about { padding: 80px 32px; grid-template-columns: 1fr; gap: 48px; }
+    .cta-section { padding: 80px 32px; }
+    footer { padding: 28px 32px; }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .btn-nav { display: none; }
+
+    .hero { grid-template-columns: 1fr; padding: 100px 20px 56px; gap: 48px; }
+    h1.hero-h1 { letter-spacing: -2px; }
+    .hero-right { order: -1; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+
+    .numbers { grid-template-columns: 1fr 1fr; }
+    .number-item { padding: 36px 24px; }
+
+    .metodo { padding: 72px 20px; }
+    .metodo-header { flex-direction: column; align-items: flex-start; }
+    .metodo-right { align-items: flex-start; }
+    .metodo-sub { text-align: left; }
+    .metodo-steps { grid-template-columns: 1fr 1fr; }
+
+    .services { padding: 72px 20px; }
+    .services-grid { grid-template-columns: 1fr; }
+
+    .cases { padding: 72px 20px; }
+    .cases-header { flex-direction: column; align-items: flex-start; }
+    .cases-grid { grid-template-columns: 1fr; }
+
+    .about { padding: 72px 20px; }
+    .about-stats { grid-template-columns: repeat(3, 1fr); }
+
+    .cta-section { padding: 72px 20px; }
+    h2.cta-h2 { letter-spacing: -1.5px; }
+
+    footer { flex-direction: column; text-align: center; padding: 28px 20px; }
+    .footer-address { display: none; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-btns { flex-direction: column; }
+    .hero-btns .btn-primary, .hero-btns .btn-outline { width: 100%; text-align: center; }
+    .metodo-steps { grid-template-columns: 1fr; }
+    .numbers { grid-template-columns: 1fr; }
+    .cta-btns { flex-direction: column; align-items: center; }
+    .cta-btns .btn-dark, .cta-btns .btn-white-outline { width: 100%; }
+    .cases-cta { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Custom cursor (desktop only) -->
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+<!-- ── NAV ── -->
+<header>
+  <nav id="nav" role="navigation" aria-label="Menu principal">
+    <a href="#" class="nav-logo" aria-label="Makewell Comunicação — página inicial">
+      <img src="logo-horizontal.png" alt="Makewell Comunicação" height="36" style="display:block">
+    </a>
+    <div class="nav-right">
+      <nav class="nav-links" aria-label="Links de navegação">
+        <a href="#sobre">Sobre Nós</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#cases">Cases</a>
+        <a href="#metodo">Método</a>
+      </nav>
+      <button class="btn-nav" aria-label="Agendar reunião">Agendar Reunião</button>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menu mobile">
+    <a href="#sobre" class="mobile-link">Sobre Nós</a>
+    <a href="#servicos" class="mobile-link">Serviços</a>
+    <a href="#cases" class="mobile-link">Cases</a>
+    <a href="#metodo" class="mobile-link">Método</a>
+    <button class="btn-primary" style="font-size:14px;padding:16px 40px">Agendar Diagnóstico Gratuito</button>
+  </div>
+</header>
+
+<!-- ── HERO ── -->
+<main>
+<section class="hero" aria-label="Introdução">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+
+  <div class="hero-left">
+    <div class="hero-pill reveal">
+      <span class="hero-pill-dot" aria-hidden="true"></span>
+      Há mais de 8 anos transformando marcas
+    </div>
+    <h1 class="hero-h1 reveal" style="transition-delay:.1s">
+      Marketing não é caro<br>
+      <em>quando gera receita</em>
+    </h1>
+    <p class="hero-p reveal" style="transition-delay:.2s">
+      Fazemos marcas crescerem com método, estratégia e propósito — não por acaso. Para empresas que entendem que marketing é investimento, não custo.
+    </p>
+    <div class="hero-btns reveal" style="transition-delay:.3s">
+      <button class="btn-primary">Agendar Diagnóstico Gratuito</button>
+      <button class="btn-outline">Ver Resultados →</button>
+    </div>
+  </div>
+
+  <div class="hero-right reveal-right" style="transition-delay:.2s">
+    <div class="hero-card" role="region" aria-label="Resultados comprovados">
+      <div class="hero-card-header">
+        <span>Performance Comprovada</span>
+        <span style="opacity:.7">Dados Reais</span>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-value accent">+26x</div>
+          <div class="hero-stat-label">Melhor ROI Gerado</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">100+</div>
+          <div class="hero-stat-label">Clientes/mês (recorde)</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">R$400k</div>
+          <div class="hero-stat-label">Faturamento Gerado</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">8+</div>
+          <div class="hero-stat-label">Anos de Experiência</div>
+        </div>
+      </div>
+      <div class="hero-tag-bar" aria-label="Serviços">
+        <span class="htag">Branding</span>
+        <span class="htag">Tráfego</span>
+        <span class="htag">SEO</span>
+        <span class="htag">CRM</span>
+        <span class="htag">IA</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TICKER ── -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" id="tickerTrack">
+    <span class="ticker-item">Estratégia</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Branding</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Tráfego Pago</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Social Selling</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Automação</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">SEO</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">SPIN Selling</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">CRM</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Funil de Vendas</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Posicionamento</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Estratégia</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Branding</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Tráfego Pago</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Social Selling</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Automação</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">SEO</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">SPIN Selling</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">CRM</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Funil de Vendas</span><span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Posicionamento</span><span class="ticker-item ticker-sep">·</span>
+  </div>
+</div>
+
+<!-- ── NUMBERS ── -->
+<section class="numbers" aria-label="Números e resultados">
+  <div class="number-item reveal">
+    <div class="number-value"><span class="accent">+</span>26x</div>
+    <div class="number-desc">ROI mais alto já entregue para um único cliente</div>
+  </div>
+  <div class="number-item reveal" style="transition-delay:.1s">
+    <div class="number-value">100<span class="accent">+</span></div>
+    <div class="number-desc">Clientes captados em um único mês (recorde)</div>
+  </div>
+  <div class="number-item reveal" style="transition-delay:.2s">
+    <div class="number-value">R$<span class="accent">400k</span></div>
+    <div class="number-desc">Faturamento gerado para clientes Makewell</div>
+  </div>
+  <div class="number-item reveal" style="transition-delay:.3s">
+    <div class="number-value">8<span class="accent">+</span></div>
+    <div class="number-desc">Anos transformando marcas no Brasil</div>
+  </div>
+</section>
+
+<!-- ── MÉTODO ── -->
+<section class="metodo" id="metodo" aria-labelledby="metodo-title">
+  <div class="metodo-header">
+    <div>
+      <div class="tag reveal">/ nosso diferencial</div>
+      <h2 class="metodo-h2 reveal" id="metodo-title" style="transition-delay:.1s">Método <span class="gold">FishWell</span></h2>
+    </div>
+    <div class="metodo-right reveal-right">
+      <p class="metodo-sub">Como transformamos investimento em receita mensurável e previsível</p>
+      <button class="btn-outline-dark">Conhecer o Método →</button>
+    </div>
+  </div>
+  <div class="metodo-steps" role="list">
+    <article class="step reveal" role="listitem" style="transition-delay:.05s">
+      <div class="step-num">01</div>
+      <h3 class="step-title">Diagnóstico</h3>
+      <p class="step-desc">Mapeamento de oportunidades reais de crescimento</p>
+    </article>
+    <article class="step reveal" role="listitem" style="transition-delay:.1s">
+      <div class="step-num">02</div>
+      <h3 class="step-title">Planejamento</h3>
+      <p class="step-desc">Posicionamento preciso junto ao público-alvo ideal</p>
+    </article>
+    <article class="step active reveal" role="listitem" style="transition-delay:.15s">
+      <div class="step-num">03</div>
+      <h3 class="step-title">Comunicação</h3>
+      <p class="step-desc">Criativos, conteúdo e linguagem que converte</p>
+    </article>
+    <article class="step reveal" role="listitem" style="transition-delay:.2s">
+      <div class="step-num">04</div>
+      <h3 class="step-title">Investimento</h3>
+      <p class="step-desc">Inteligência de risco, conversão e vendas</p>
+    </article>
+    <article class="step reveal" role="listitem" style="transition-delay:.25s">
+      <div class="step-num">05</div>
+      <h3 class="step-title">Mensuração</h3>
+      <p class="step-desc">Dados, performance e crescimento contínuo</p>
+    </article>
+  </div>
+</section>
+
+<!-- ── SERVIÇOS ── -->
+<section class="services" id="servicos" aria-labelledby="services-title">
+  <div class="services-header">
+    <div class="tag reveal">/ o que fazemos</div>
+    <h2 class="services-h2 reveal" id="services-title" style="transition-delay:.1s">Posicionamento + Social + <span class="gold">Tráfego</span></h2>
+  </div>
+  <div class="services-grid">
+    <article class="service-card reveal">
+      <div class="service-icon" aria-hidden="true">🎯</div>
+      <div class="service-tag">Branding</div>
+      <h3 class="service-title">Torne sua marca a primeira escolha</h3>
+      <p class="service-desc">Construímos um posicionamento forte, uma identidade visual que transmite autoridade e mensagens que conectam com quem decide comprar.</p>
+      <ul class="service-list" aria-label="Entregáveis de Branding">
+        <li>Posicionamento estratégico</li>
+        <li>Identidade visual de autoridade</li>
+        <li>Mensagens que convertem</li>
+      </ul>
+    </article>
+    <article class="service-card reveal" style="transition-delay:.05s">
+      <div class="service-icon" aria-hidden="true">📱</div>
+      <div class="service-tag">Social + Conteúdo</div>
+      <h3 class="service-title">Transforme audiência em clientes reais</h3>
+      <p class="service-desc">Conteúdo magnético, Social Selling estruturado e gestão de tráfego para transformar seguidores em clientes com consistência.</p>
+      <ul class="service-list" aria-label="Entregáveis de Social">
+        <li>Conteúdo magnético</li>
+        <li>Social Selling estruturado</li>
+        <li>Gestão de tráfego segmentado</li>
+      </ul>
+    </article>
+    <article class="service-card reveal" style="transition-delay:.1s">
+      <div class="service-icon" aria-hidden="true">📈</div>
+      <div class="service-tag">Tráfego Pago</div>
+      <h3 class="service-title">Apareça para quem está pronto para comprar</h3>
+      <p class="service-desc">Google Ads e Meta Ads com segmentação avançada e otimização contínua para maximizar conversões e ROI.</p>
+      <ul class="service-list" aria-label="Entregáveis de Tráfego Pago">
+        <li>Google Ads &amp; Meta Ads</li>
+        <li>Segmentação avançada</li>
+        <li>Otimização contínua de ROI</li>
+      </ul>
+    </article>
+    <article class="service-card reveal" style="transition-delay:.15s">
+      <div class="service-icon" aria-hidden="true">🤝</div>
+      <div class="service-tag">Vendas + CRM</div>
+      <h3 class="service-title">Venda mais com o mesmo volume de leads</h3>
+      <p class="service-desc">Treinamento em SPIN Selling, processo comercial estruturado e CRM integrado para um funil de vendas eficiente e previsível.</p>
+      <ul class="service-list" aria-label="Entregáveis de Vendas">
+        <li>Treinamento SPIN Selling</li>
+        <li>Processo comercial estruturado</li>
+        <li>CRM e automação integrados</li>
+      </ul>
+    </article>
+    <article class="service-card reveal" style="transition-delay:.2s">
+      <div class="service-icon" aria-hidden="true">🔍</div>
+      <div class="service-tag">SEO + Site</div>
+      <h3 class="service-title">Seja encontrado por quem já quer comprar</h3>
+      <p class="service-desc">Sites estratégicos otimizados para busca orgânica, landing pages que convertem e design que gera credibilidade e autoridade.</p>
+      <ul class="service-list" aria-label="Entregáveis de SEO">
+        <li>SEO avançado</li>
+        <li>Landing pages que convertem</li>
+        <li>Design de autoridade</li>
+      </ul>
+    </article>
+    <article class="service-card reveal" style="transition-delay:.25s">
+      <div class="service-icon" aria-hidden="true">🤖</div>
+      <div class="service-tag">Automação + IA</div>
+      <h3 class="service-title">Atenda e qualifique leads 24h por dia</h3>
+      <p class="service-desc">Bots e IA para responder, qualificar e nutrir leads com velocidade. Cada oportunidade capturada, cada cliente atendido na hora certa.</p>
+      <ul class="service-list" aria-label="Entregáveis de Automação">
+        <li>Bots e IA 24/7</li>
+        <li>Qualificação automática</li>
+        <li>Funil de vendas eficiente</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- ── CASES ── -->
+<section class="cases" id="cases" aria-labelledby="cases-title">
+  <div class="cases-header">
+    <div>
+      <div class="tag reveal">/ quando o marketing funciona</div>
+      <h2 class="cases-h2 reveal" id="cases-title" style="transition-delay:.1s">Resultados que os <span class="gold">números provam</span></h2>
+    </div>
+    <button class="btn-outline-dark reveal-right">Ver todos os cases →</button>
+  </div>
+  <div class="cases-grid">
+    <article class="case-card reveal-left">
+      <div class="case-header">
+        <span class="case-sector">Jurídico</span>
+        <span class="case-roi">ROI +26x</span>
+      </div>
+      <div class="case-body">
+        <h3 class="case-title">Advogado</h3>
+        <p class="case-sub">Posicionamento + Social + Tráfego</p>
+        <div class="case-metrics" role="list" aria-label="Métricas do case jurídico">
+          <div class="case-metric" role="listitem">
+            <div class="case-metric-value accent">+26x</div>
+            <div class="case-metric-label">ROI</div>
+          </div>
+          <div class="case-metric" role="listitem">
+            <div class="case-metric-value">100+</div>
+            <div class="case-metric-label">Clientes/mês</div>
+          </div>
+          <div class="case-metric" role="listitem">
+            <div class="case-metric-value">400k</div>
+            <div class="case-metric-label">Faturamento</div>
+          </div>
+        </div>
+        <blockquote class="case-quote">
+          <p>"Sem vcs eu não conseguiria. Os ganchos, os textos e a qualidade de gravação e edição"</p>
+          <cite>Rodrigo Medeiros — Advogado</cite>
+        </blockquote>
+      </div>
+    </article>
+    <article class="case-card reveal-right">
+      <div class="case-header">
+        <span class="case-sector">Saúde</span>
+        <span class="case-roi">ROI +20x</span>
+      </div>
+      <div class="case-body">
+        <h3 class="case-title">Médicas — Pró Saúde</h3>
+        <p class="case-sub">Posicionamento + Social + Tráfego</p>
+        <div class="case-metrics" role="list" aria-label="Métricas do case saúde">
+          <div class="case-metric" role="listitem">
+            <div class="case-metric-value accent">+20x</div>
+            <div class="case-metric-label">ROI</div>
+          </div>
+          <div class="case-metric" role="listitem">
+            <div class="case-metric-value">39+</div>
+            <div class="case-metric-label">Clientes/mês</div>
+          </div>
+          <div class="case-metric" role="listitem">
+            <div class="case-metric-value">100k</div>
+            <div class="case-metric-label">Faturamento</div>
+          </div>
+        </div>
+        <blockquote class="case-quote">
+          <p>"Sou muito fã deles!! Vcs são os especialistas e a atenção é incomparável"</p>
+          <cite>Dra. Thielen — Médica Vascular</cite>
+        </blockquote>
+      </div>
+    </article>
+  </div>
+  <div class="cases-cta reveal">
+    <div class="cases-cta-text">
+      <div class="tag">próximo case</div>
+      <strong>A próxima história de sucesso <em>pode ser a sua.</em></strong>
+    </div>
+    <button class="btn-primary">Quero Resultados Assim</button>
+  </div>
+</section>
+
+<!-- ── SOBRE ── -->
+<section class="about" id="sobre" aria-labelledby="about-title">
+  <div>
+    <div class="tag reveal">/ quem lidera</div>
+    <h2 class="about-h2 reveal" id="about-title" style="transition-delay:.1s">Há mais de <span class="gold">8 anos</span> transformando negócios</h2>
+    <p class="about-p reveal" style="transition-delay:.15s">A Makewell nasceu com um propósito claro: transformar negócios em marcas com alma, direção e propósito. Com estratégia, performance e branding de alto nível, impulsionamos empresas em todo o Brasil.</p>
+    <blockquote class="about-quote reveal" style="transition-delay:.2s">
+      <p>"Não criamos marcas apenas para vender mais. Criamos marcas que significam algo — para o mercado, para os clientes e para quem as constrói."</p>
+    </blockquote>
+    <button class="btn-outline reveal" style="transition-delay:.25s">Conhecer a Equipe →</button>
+  </div>
+  <div class="reveal-right" style="transition-delay:.15s">
+    <div class="team">
+      <div class="team-card">
+        <div class="team-avatar" aria-hidden="true">GC</div>
+        <div>
+          <div class="team-name">Giuliana Castela</div>
+          <div class="team-role">Diretora de Operação e Estratégia Criativa</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" aria-hidden="true">IM</div>
+        <div>
+          <div class="team-name">Ismael Martins</div>
+          <div class="team-role">Diretor de Vendas e Administrativo</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-stats" aria-label="Estatísticas da empresa">
+      <div class="about-stat">
+        <div class="about-stat-val">8+</div>
+        <div class="about-stat-label">Anos</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-val" style="font-size:20px;color:#fff">Brasil</div>
+        <div class="about-stat-label">Nacional</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-val" style="font-size:20px;color:#fff">AL+SP</div>
+        <div class="about-stat-label">Sedes</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA FINAL ── -->
+<section class="cta-section" aria-labelledby="cta-title">
+  <div class="cta-circle" style="width:600px;height:600px" aria-hidden="true"></div>
+  <div class="cta-circle" style="width:380px;height:380px" aria-hidden="true"></div>
+  <div class="cta-circle" style="width:200px;height:200px;border-color:rgba(255,255,255,.2)" aria-hidden="true"></div>
+  <div style="position:relative;z-index:1">
+    <div class="cta-pill reveal">
+      <span class="cta-pill-dot" aria-hidden="true"></span>
+      Diagnóstico Gratuito
+    </div>
+    <h2 class="cta-h2 reveal" id="cta-title" style="transition-delay:.1s">Pronto para o marketing<br>que gera receita?</h2>
+    <p class="cta-p reveal" style="transition-delay:.2s">Empresas que investem em estratégia crescem mais rápido. Descubra o potencial real do seu negócio.</p>
+    <div class="cta-btns reveal" style="transition-delay:.3s">
+      <button class="btn-dark">Agendar Diagnóstico</button>
+      <button class="btn-white-outline">WhatsApp Direto →</button>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ── FOOTER ── -->
+<footer role="contentinfo">
+  <div class="footer-logo">
+    <img src="logo-horizontal.png" alt="Makewell Comunicação" height="30" style="display:block;opacity:.8">
+  </div>
+  <address class="footer-address" style="font-style:normal">
+    Av. Gov. Osman Loureiro, 171 — Maceió, AL · São Paulo, SP
+  </address>
+  <small class="footer-copy">© 2026 Makewell · Todos os direitos reservados</small>
+</footer>
+
+<script>
+  // ── Custom cursor (desktop only) ──
+  const isFine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (isFine) {
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    (function animate() {
+      cursor.style.cssText = `left:${mx-5}px;top:${my-5}px`;
+      rx += (mx - rx) * .12; ry += (my - ry) * .12;
+      ring.style.cssText = `left:${rx-18}px;top:${ry-18}px`;
+      requestAnimationFrame(animate);
+    })();
+    document.querySelectorAll('button, a, .step, .service-card, .team-card, .case-card').forEach(el => {
+      el.addEventListener('mouseenter', () => { cursor.style.transform='scale(2)'; ring.style.transform='scale(1.5)'; ring.style.opacity='.8'; });
+      el.addEventListener('mouseleave', () => { cursor.style.transform='scale(1)'; ring.style.transform='scale(1)'; ring.style.opacity='.5'; });
+    });
+  }
+
+  // ── Nav scroll ──
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), { passive: true });
+
+  // ── Hamburger ──
+  const ham = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  ham.addEventListener('click', () => {
+    const open = ham.classList.toggle('open');
+    mobileMenu.classList.toggle('open', open);
+    ham.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => {
+    ham.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    ham.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }));
+
+  // ── Reveal on scroll ──
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
