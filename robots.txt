@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://makewellcomunicacao-hash.github.io/ClaudeCode/sitemap.xml
+Sitemap: https://makewell.com.br/sitemap.xml
