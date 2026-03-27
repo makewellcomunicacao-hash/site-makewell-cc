@@ -249,7 +249,8 @@
   .service-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, #C8922A08, transparent 60%); opacity: 0; transition: opacity .4s; }
   .service-card:hover { background: #111; }
   .service-card:hover::after { opacity: 1; }
-  .service-icon { width: 46px; height: 46px; border: 1px solid #C8922A33; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 26px; font-size: 20px; }
+  .service-icon { width: 52px; height: 52px; border: 1px solid rgba(240,120,32,.25); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 28px; background: rgba(240,120,32,.06); }
+  .service-icon svg { width: 26px; height: 26px; stroke: var(--gold); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
   .service-tag { font-size: 9px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
   .service-title { font-size: 19px; font-weight: 800; color: #fff; margin-bottom: 12px; line-height: 1.3; }
   .service-desc { font-size: 13px; color: #666; line-height: 1.8; margin-bottom: 24px; flex: 1; }
@@ -593,7 +594,9 @@
   </div>
   <div class="services-grid">
     <article class="service-card reveal">
-      <div class="service-icon" aria-hidden="true">🎯</div>
+      <div class="service-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="var(--gold)" stroke="none"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/></svg>
+      </div>
       <div class="service-tag">Branding</div>
       <h3 class="service-title">Torne sua marca a primeira escolha</h3>
       <p class="service-desc">Construímos um posicionamento forte, uma identidade visual que transmite autoridade e mensagens que conectam com quem decide comprar.</p>
@@ -604,7 +607,9 @@
       </ul>
     </article>
     <article class="service-card reveal" style="transition-delay:.05s">
-      <div class="service-icon" aria-hidden="true">📱</div>
+      <div class="service-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+      </div>
       <div class="service-tag">Social + Conteúdo</div>
       <h3 class="service-title">Transforme audiência em clientes reais</h3>
       <p class="service-desc">Conteúdo magnético, Social Selling estruturado e gestão de tráfego para transformar seguidores em clientes com consistência.</p>
@@ -615,7 +620,9 @@
       </ul>
     </article>
     <article class="service-card reveal" style="transition-delay:.1s">
-      <div class="service-icon" aria-hidden="true">📈</div>
+      <div class="service-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+      </div>
       <div class="service-tag">Tráfego Pago</div>
       <h3 class="service-title">Apareça para quem está pronto para comprar</h3>
       <p class="service-desc">Google Ads e Meta Ads com segmentação avançada e otimização contínua para maximizar conversões e ROI.</p>
@@ -626,7 +633,9 @@
       </ul>
     </article>
     <article class="service-card reveal" style="transition-delay:.15s">
-      <div class="service-icon" aria-hidden="true">🤝</div>
+      <div class="service-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
       <div class="service-tag">Vendas + CRM</div>
       <h3 class="service-title">Venda mais com o mesmo volume de leads</h3>
       <p class="service-desc">Treinamento em SPIN Selling, processo comercial estruturado e CRM integrado para um funil de vendas eficiente e previsível.</p>
@@ -637,7 +646,9 @@
       </ul>
     </article>
     <article class="service-card reveal" style="transition-delay:.2s">
-      <div class="service-icon" aria-hidden="true">🔍</div>
+      <div class="service-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </div>
       <div class="service-tag">SEO + Site</div>
       <h3 class="service-title">Seja encontrado por quem já quer comprar</h3>
       <p class="service-desc">Sites estratégicos otimizados para busca orgânica, landing pages que convertem e design que gera credibilidade e autoridade.</p>
@@ -648,7 +659,9 @@
       </ul>
     </article>
     <article class="service-card reveal" style="transition-delay:.25s">
-      <div class="service-icon" aria-hidden="true">🤖</div>
+      <div class="service-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="12.01" stroke-width="3"/><path d="M8 12h.01M16 12h.01M8 16h8"/></svg>
+      </div>
       <div class="service-tag">Automação + IA</div>
       <h3 class="service-title">Atenda e qualifique leads 24h por dia</h3>
       <p class="service-desc">Bots e IA para responder, qualificar e nutrir leads com velocidade. Cada oportunidade capturada, cada cliente atendido na hora certa.</p>
