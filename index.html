@@ -294,7 +294,8 @@
   .team { display: flex; flex-direction: column; gap: 12px; margin-bottom: 12px; }
   .team-card { background: #111; border: 1px solid #1e1e1e; border-radius: 12px; padding: 22px 26px; display: flex; align-items: center; gap: 18px; transition: border-color .3s; cursor: default; }
   .team-card:hover { border-color: #C8922A44; }
-  .team-avatar { width: 52px; height: 52px; border-radius: 50%; background: #1e1e1e; border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 15px; color: var(--gold); flex-shrink: 0; }
+  .team-avatar { width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--gold); flex-shrink: 0; overflow: hidden; }
+  .team-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
   .team-name { font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 5px; }
   .team-role { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #555; }
   .about-stats { background: #111; border: 1px solid #1e1e1e; border-radius: 12px; padding: 26px; display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; }
@@ -774,14 +775,18 @@
   <div class="reveal-right" style="transition-delay:.15s">
     <div class="team">
       <div class="team-card">
-        <div class="team-avatar" aria-hidden="true">GC</div>
+        <div class="team-avatar">
+          <img src="giuliana.jpg" alt="Giuliana Castela">
+        </div>
         <div>
           <div class="team-name">Giuliana Castela</div>
           <div class="team-role">Diretora de Operação e Estratégia Criativa</div>
         </div>
       </div>
       <div class="team-card">
-        <div class="team-avatar" aria-hidden="true">IM</div>
+        <div class="team-avatar">
+          <img src="ismael.jpg" alt="Ismael Martins">
+        </div>
         <div>
           <div class="team-name">Ismael Martins</div>
           <div class="team-role">Diretor de Vendas e Administrativo</div>
