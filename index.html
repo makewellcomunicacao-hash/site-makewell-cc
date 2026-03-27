@@ -236,9 +236,6 @@
   .step:hover .step-title { color: var(--gold); }
   .step:hover .step-desc { color: #888; }
   .step::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gold); }
-  .step.active { background: #111; }
-  .step.active .step-title { color: var(--gold); }
-  .step.active .step-desc { color: #888; }
   .step-num { font-family: 'Courier New', monospace; font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--gold); margin-bottom: 18px; }
   .step-title { font-size: 12px; font-weight: 900; letter-spacing: .5px; text-transform: uppercase; color: #111; margin-bottom: 10px; }
   .step-desc { font-size: 12px; color: #666; line-height: 1.75; }
@@ -570,7 +567,7 @@
       <h3 class="step-title">Planejamento</h3>
       <p class="step-desc">Posicionamento preciso junto ao público-alvo ideal</p>
     </article>
-    <article class="step active reveal" role="listitem" style="transition-delay:.15s">
+    <article class="step reveal" role="listitem" style="transition-delay:.15s">
       <div class="step-num">03</div>
       <h3 class="step-title">Comunicação</h3>
       <p class="step-desc">Criativos, conteúdo e linguagem que converte</p>
