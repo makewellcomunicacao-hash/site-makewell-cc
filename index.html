@@ -124,34 +124,42 @@
   }
   nav.scrolled { background: rgba(8,8,8,.96); border-bottom: 1px solid #1e1e1e; backdrop-filter: blur(14px); }
 
-  .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
-  .nav-icon { width: 38px; height: 38px; border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; transform: rotate(45deg); flex-shrink: 0; }
-  .nav-icon span { transform: rotate(-45deg); font-weight: 900; font-size: 16px; color: var(--gold); }
-  .nav-wordmark strong { font-size: 18px; font-weight: 900; color: #fff; }
-  .nav-wordmark small { display: block; font-size: 7px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #444; margin-top: 2px; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo img { display: block; height: 34px; border-radius: 5px; background: #fff; padding: 3px 7px; }
 
-  .nav-right { display: flex; align-items: center; gap: 36px; }
-  .nav-links { display: flex; align-items: center; gap: 28px; }
-  .nav-links a { font-size: 13px; font-weight: 500; color: #999; text-decoration: none; transition: color .2s; }
+  .nav-right { display: flex; align-items: center; gap: 24px; }
+  .nav-links { display: flex; align-items: center; gap: 22px; }
+  .nav-links a { font-size: 13px; font-weight: 500; color: #aaa; text-decoration: none; transition: color .2s; white-space: nowrap; }
   .nav-links a:hover { color: #fff; }
-  .btn-nav { background: var(--gold); color: #fff; border: none; padding: 11px 22px; font-weight: 800; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border-radius: 6px; transition: background .2s, transform .2s; white-space: nowrap; }
+  .btn-nav { background: var(--gold); color: #fff; border: none; padding: 11px 20px; font-weight: 800; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border-radius: 6px; transition: background .2s, transform .2s; white-space: nowrap; text-decoration: none; display: inline-flex; align-items: center; }
   .btn-nav:hover { background: var(--gold-light); transform: translateY(-1px); }
 
   /* Hamburger */
-  .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
-  .hamburger span { display: block; width: 24px; height: 2px; background: #fff; transition: all .3s; }
+  .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; z-index: 201; position: relative; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: #fff; transition: all .3s; border-radius: 2px; }
   .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .hamburger.open span:nth-child(2) { opacity: 0; }
   .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
   .mobile-menu {
-    display: none; position: fixed; inset: 72px 0 0 0;
+    display: none; position: fixed; inset: 0;
     background: rgba(8,8,8,.98); z-index: 199; backdrop-filter: blur(14px);
     flex-direction: column; align-items: center; justify-content: center; gap: 32px;
   }
   .mobile-menu.open { display: flex; }
-  .mobile-menu a { font-size: 22px; font-weight: 700; color: #ccc; text-decoration: none; }
+  .mobile-menu a { font-size: 24px; font-weight: 700; color: #ccc; text-decoration: none; transition: color .2s; }
   .mobile-menu a:hover { color: #fff; }
+
+  /* WhatsApp float */
+  .wa-float {
+    position: fixed; bottom: 28px; right: 28px; z-index: 300;
+    width: 58px; height: 58px; border-radius: 50%;
+    background: #25D366; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,.4);
+    text-decoration: none; transition: transform .25s, box-shadow .25s;
+  }
+  .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,.6); }
+  .wa-float svg { width: 30px; height: 30px; fill: white; }
 
   /* ── HERO ── */
   .hero {
@@ -181,9 +189,9 @@
   .hero-p { font-size: 16px; color: #bbb; line-height: 1.85; max-width: 440px; margin-bottom: 44px; }
   .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
 
-  .btn-primary { background: var(--gold); color: #fff; border: none; padding: 16px 34px; font-weight: 800; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border-radius: 8px; transition: all .25s; }
-  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 32px #C8922A33; }
-  .btn-outline { background: transparent; color: #fff; border: 1px solid #ffffff22; padding: 16px 30px; font-weight: 700; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border-radius: 8px; transition: all .25s; }
+  .btn-primary { background: var(--gold); color: #fff; border: none; padding: 16px 34px; font-weight: 800; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border-radius: 8px; transition: all .25s; display: inline-flex; align-items: center; text-decoration: none; }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(240,120,32,.3); }
+  .btn-outline { background: transparent; color: #fff; border: 1px solid #ffffff22; padding: 16px 30px; font-weight: 700; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border-radius: 8px; transition: all .25s; display: inline-flex; align-items: center; text-decoration: none; }
   .btn-outline:hover { border-color: #ffffff55; background: #ffffff08; transform: translateY(-2px); }
   .btn-outline-dark { background: transparent; color: #111; border: 1.5px solid #11111130; padding: 12px 26px; font-weight: 700; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border-radius: 6px; transition: all .25s; white-space: nowrap; }
   .btn-outline-dark:hover { border-color: #111; background: #11111108; }
@@ -302,9 +310,9 @@
   h2.cta-h2 { font-size: clamp(36px, 5vw, 64px); font-weight: 900; letter-spacing: -2px; color: #fff; line-height: 1.06; margin-bottom: 18px; }
   .cta-p { font-size: 16px; color: rgba(255,255,255,.8); line-height: 1.8; max-width: 420px; margin: 0 auto 44px; }
   .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-  .btn-dark { background: #111; color: #fff; border: none; padding: 16px 34px; font-weight: 800; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border-radius: 8px; transition: all .25s; }
+  .btn-dark { background: #111; color: #fff; border: none; padding: 16px 34px; font-weight: 800; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border-radius: 8px; transition: all .25s; display: inline-flex; align-items: center; text-decoration: none; }
   .btn-dark:hover { background: #000; transform: translateY(-2px); }
-  .btn-white-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.5); padding: 14px 30px; font-weight: 700; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border-radius: 8px; transition: all .25s; }
+  .btn-white-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.5); padding: 14px 30px; font-weight: 700; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border-radius: 8px; transition: all .25s; display: inline-flex; align-items: center; text-decoration: none; }
   .btn-white-outline:hover { border-color: #fff; background: rgba(255,255,255,.1); }
 
   /* ── FOOTER ── */
@@ -320,9 +328,10 @@
   /* ══════════════════════════════════
      RESPONSIVE — MOBILE
   ══════════════════════════════════ */
-  @media (max-width: 1024px) {
-    nav { padding: 0 32px; }
+  @media (max-width: 860px) {
+    nav { padding: 0 24px; }
     .nav-links { display: none; }
+    .btn-nav { display: none; }
     .hamburger { display: flex; }
     .hero { padding: 100px 32px 64px; }
     .numbers { grid-template-columns: repeat(2, 1fr); }
@@ -334,6 +343,7 @@
     .about { padding: 80px 32px; grid-template-columns: 1fr; gap: 48px; }
     .cta-section { padding: 80px 32px; }
     footer { padding: 28px 32px; }
+    .wa-float { bottom: 20px; right: 20px; width: 52px; height: 52px; }
   }
 
   @media (max-width: 768px) {
@@ -401,7 +411,7 @@
         <a href="#cases">Cases</a>
         <a href="#metodo">Método</a>
       </nav>
-      <button class="btn-nav" aria-label="Agendar reunião">Agendar Reunião</button>
+      <a href="https://wa.me/5582999103246?text=Olá!%20Quero%20agendar%20uma%20reunião%20com%20a%20Makewell." class="btn-nav" aria-label="Agendar reunião" target="_blank" rel="noopener">Agendar Reunião</a>
       <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
       </button>
@@ -412,7 +422,7 @@
     <a href="#servicos" class="mobile-link">Serviços</a>
     <a href="#cases" class="mobile-link">Cases</a>
     <a href="#metodo" class="mobile-link">Método</a>
-    <button class="btn-primary" style="font-size:14px;padding:16px 40px">Agendar Diagnóstico Gratuito</button>
+    <a href="https://wa.me/5582999103246?text=Olá!%20Quero%20agendar%20um%20diagnóstico%20gratuito%20com%20a%20Makewell." class="btn-primary" style="font-size:14px;padding:16px 40px;text-decoration:none" target="_blank" rel="noopener">Agendar Diagnóstico Gratuito</a>
   </div>
 </header>
 
@@ -435,8 +445,8 @@
       Fazemos marcas crescerem com método, estratégia e propósito — não por acaso. Para empresas que entendem que marketing é investimento, não custo.
     </p>
     <div class="hero-btns reveal" style="transition-delay:.3s">
-      <button class="btn-primary">Agendar Diagnóstico Gratuito</button>
-      <button class="btn-outline">Ver Resultados →</button>
+      <a href="https://wa.me/5582999103246?text=Olá!%20Quero%20agendar%20um%20diagnóstico%20gratuito%20com%20a%20Makewell." class="btn-primary" target="_blank" rel="noopener">Agendar Diagnóstico Gratuito</a>
+      <a href="#cases" class="btn-outline">Ver Resultados →</a>
     </div>
   </div>
 
@@ -710,7 +720,7 @@
       <div class="tag">próximo case</div>
       <strong>A próxima história de sucesso <em>pode ser a sua.</em></strong>
     </div>
-    <button class="btn-primary">Quero Resultados Assim</button>
+    <a href="https://wa.me/5582999103246?text=Olá!%20Quero%20resultados%20como%20os%20cases%20da%20Makewell." class="btn-primary" target="_blank" rel="noopener">Quero Resultados Assim</a>
   </div>
 </section>
 
@@ -772,8 +782,8 @@
     <h2 class="cta-h2 reveal" id="cta-title" style="transition-delay:.1s">Pronto para o marketing<br>que gera receita?</h2>
     <p class="cta-p reveal" style="transition-delay:.2s">Empresas que investem em estratégia crescem mais rápido. Descubra o potencial real do seu negócio.</p>
     <div class="cta-btns reveal" style="transition-delay:.3s">
-      <button class="btn-dark">Agendar Diagnóstico</button>
-      <button class="btn-white-outline">WhatsApp Direto →</button>
+      <a href="https://wa.me/5582999103246?text=Olá!%20Quero%20agendar%20um%20diagnóstico%20gratuito%20com%20a%20Makewell." class="btn-dark" target="_blank" rel="noopener">Agendar Diagnóstico</a>
+      <a href="https://wa.me/5582999103246" class="btn-white-outline" target="_blank" rel="noopener">WhatsApp Direto →</a>
     </div>
   </div>
 </section>
@@ -789,6 +799,13 @@
   </address>
   <small class="footer-copy">© 2026 Makewell · Todos os direitos reservados</small>
 </footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/5582999103246?text=Olá!%20Vim%20pelo%20site%20da%20Makewell%20e%20gostaria%20de%20mais%20informações." class="wa-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
 
 <script>
   // ── Custom cursor (desktop only) ──
