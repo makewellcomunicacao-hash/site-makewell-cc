@@ -234,15 +234,28 @@
 
   .mobile-menu {
     display: none; position: fixed; inset: 0;
-    background: rgba(8,8,8,.98); z-index: 199; backdrop-filter: blur(14px);
-    flex-direction: column; align-items: center; justify-content: flex-start;
-    padding-top: 100px; gap: 8px;
+    background: #080808; z-index: 199;
+    flex-direction: column; justify-content: center;
+    padding: 0 32px;
   }
   .mobile-menu.open { display: flex; }
-  .mobile-menu a.mobile-link { font-size: 17px; font-weight: 600; color: #ccc; text-decoration: none; transition: color .2s; padding: 10px 0; width: 100%; text-align: center; border-bottom: 1px solid rgba(255,255,255,.06); max-width: 280px; }
+  .mobile-menu a.mobile-link {
+    font-size: clamp(32px, 9vw, 48px);
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    color: #333;
+    text-decoration: none;
+    padding: 14px 0;
+    width: 100%;
+    border-bottom: 1px solid #1a1a1a;
+    transition: color .2s;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .mobile-menu a.mobile-link .mn { font-size: 11px; font-weight: 700; letter-spacing: 1px; color: #2a2a2a; margin-top: 4px; flex-shrink: 0; transition: color .2s; }
   .mobile-menu a.mobile-link:last-of-type { border-bottom: none; }
   .mobile-menu a.mobile-link:hover, .mobile-menu a.mobile-link:active { color: #fff; }
-  .mobile-menu .btn-primary { margin-top: 24px; }
+  .mobile-menu a.mobile-link:hover .mn, .mobile-menu a.mobile-link:active .mn { color: var(--gold); }
+  .mobile-menu .btn-primary { margin-top: 36px; width: 100%; justify-content: center; font-size: 13px; }
 
   /* WhatsApp float */
   .wa-float {
@@ -803,10 +816,10 @@
     </div>
   </nav>
   <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menu mobile">
-    <a href="#sobre" class="mobile-link">Sobre Nós</a>
-    <a href="#servicos" class="mobile-link">Serviços</a>
-    <a href="#cases" class="mobile-link">Cases</a>
-    <a href="#metodo" class="mobile-link">Método</a>
+    <a href="#sobre" class="mobile-link"><span class="mn">01</span>Sobre Nós</a>
+    <a href="#servicos" class="mobile-link"><span class="mn">02</span>Serviços</a>
+    <a href="#cases" class="mobile-link"><span class="mn">03</span>Cases</a>
+    <a href="#metodo" class="mobile-link"><span class="mn">04</span>Método</a>
     <a href="https://wa.me/5582999103246?text=Olá!%20Quero%20agendar%20um%20diagnóstico%20gratuito%20com%20a%20Makewell." class="btn-primary" style="font-size:13px;padding:13px 28px;text-decoration:none;letter-spacing:.08em" target="_blank" rel="noopener">Agendar Diagnóstico Gratuito</a>
   </div>
 </header>
