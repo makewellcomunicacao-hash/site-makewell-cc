@@ -185,12 +185,12 @@
   }
 
   /* REVEAL */
-  .reveal { opacity: 0; transform: translateY(40px); transition: opacity .8s ease, transform .8s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-  .reveal-left { opacity: 0; transform: translateX(-50px); transition: opacity .9s ease, transform .9s ease; }
-  .reveal-left.visible { opacity: 1; transform: translateX(0); }
-  .reveal-right { opacity: 0; transform: translateX(50px); transition: opacity .9s ease, transform .9s ease; }
-  .reveal-right.visible { opacity: 1; transform: translateX(0); }
+  .reveal { opacity: 0; transform: translateY(52px) scale(.97); transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
+  .reveal.visible { opacity: 1; transform: translateY(0) scale(1); }
+  .reveal-left { opacity: 0; transform: translateX(-56px) scale(.97); transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); }
+  .reveal-left.visible { opacity: 1; transform: translateX(0) scale(1); }
+  .reveal-right { opacity: 0; transform: translateX(56px) scale(.97); transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); }
+  .reveal-right.visible { opacity: 1; transform: translateX(0) scale(1); }
 
   /* UTILS */
   .tag { font-size: 9px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); }
@@ -907,10 +907,10 @@
     <div class="inst-cinema-grid" aria-hidden="true"></div>
     <div class="inst-cinema-lines" aria-hidden="true"></div>
     <div class="inst-cinema-content">
-      <p class="inst-cinema-label">Institucional</p>
-      <h2 class="inst-cinema-title" id="inst-title">Conheça a Makewell</h2>
-      <p class="inst-cinema-sub">Saiba como transformamos marcas em resultados com estratégia, performance e inteligência.</p>
-      <button class="inst-play-btn" id="instPlayBtn" aria-label="Assistir vídeo institucional">
+      <p class="inst-cinema-label reveal">Institucional</p>
+      <h2 class="inst-cinema-title reveal" id="inst-title" style="transition-delay:.1s">Conheça a Makewell</h2>
+      <p class="inst-cinema-sub reveal" style="transition-delay:.2s">Saiba como transformamos marcas em resultados com estratégia, performance e inteligência.</p>
+      <button class="inst-play-btn reveal" id="instPlayBtn" aria-label="Assistir vídeo institucional" style="transition-delay:.3s">
         <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
       </button>
       <span class="inst-duration">▶ Assistir apresentação</span>
@@ -1144,7 +1144,7 @@
   </div>
   <div class="reveal-right" style="transition-delay:.15s">
     <div class="team">
-      <div class="team-card">
+      <div class="team-card reveal">
         <div class="team-avatar">
           <img src="giuliana.jpg" alt="Giuliana Castela, Diretora de Operação e Estratégia Criativa da Makewell Comunicação">
         </div>
@@ -1153,7 +1153,7 @@
           <div class="team-role">Diretora de Operação e Estratégia Criativa</div>
         </div>
       </div>
-      <div class="team-card">
+      <div class="team-card reveal" style="transition-delay:.1s">
         <div class="team-avatar">
           <img src="ismael.jpg" alt="Ismael Filho, Diretor de Vendas e Administrativo da Makewell Comunicação">
         </div>
@@ -1163,7 +1163,7 @@
         </div>
       </div>
     </div>
-    <div class="about-stats" aria-label="Estatísticas da empresa">
+    <div class="about-stats reveal" aria-label="Estatísticas da empresa" style="transition-delay:.2s">
       <div class="about-stat">
         <div class="about-stat-val">9+</div>
         <div class="about-stat-label">Anos</div>
@@ -1183,11 +1183,11 @@
 <!-- ── DEPOIMENTOS ── -->
 <section class="depo-section" aria-labelledby="depo-title">
   <div class="depo-header">
-    <p class="depo-label">Resultados Reais</p>
-    <h2 class="depo-title" id="depo-title">O que nossos clientes<br><span>dizem sobre a Makewell</span></h2>
+    <p class="depo-label reveal">Resultados Reais</p>
+    <h2 class="depo-title reveal" id="depo-title" style="transition-delay:.1s">O que nossos clientes<br><span>dizem sobre a Makewell</span></h2>
   </div>
 
-  <div class="depo-marquee-wrap">
+  <div class="depo-marquee-wrap reveal">
     <div class="depo-marquee" id="depoMarquee">
 
       <div class="reel-card" data-name="Paola Massari" data-role="Casa Hunter" data-src="https://www.youtube.com/shorts/JRrnKGNk-UE">
