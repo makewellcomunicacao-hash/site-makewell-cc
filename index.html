@@ -185,12 +185,12 @@
   }
 
   /* REVEAL */
-  .reveal { opacity: 0; transform: translateY(52px) scale(.97); transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
-  .reveal.visible { opacity: 1; transform: translateY(0) scale(1); }
-  .reveal-left { opacity: 0; transform: translateX(-56px) scale(.97); transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); }
-  .reveal-left.visible { opacity: 1; transform: translateX(0) scale(1); }
-  .reveal-right { opacity: 0; transform: translateX(56px) scale(.97); transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); }
-  .reveal-right.visible { opacity: 1; transform: translateX(0) scale(1); }
+  .reveal { opacity: 0; transform: translateY(52px) scale(.97); transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); will-change: transform, opacity; }
+  .reveal.visible { opacity: 1; transform: translateY(0) scale(1); will-change: auto; }
+  .reveal-left { opacity: 0; transform: translateX(-56px) scale(.97); transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); will-change: transform, opacity; }
+  .reveal-left.visible { opacity: 1; transform: translateX(0) scale(1); will-change: auto; }
+  .reveal-right { opacity: 0; transform: translateX(56px) scale(.97); transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); will-change: transform, opacity; }
+  .reveal-right.visible { opacity: 1; transform: translateX(0) scale(1); will-change: auto; }
 
   /* UTILS */
   .tag { font-size: 9px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); }
@@ -1558,15 +1558,23 @@
   }));
 
   // ── Reveal on scroll ──
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-  }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0, rootMargin: '0px 0px -20px 0px' });
+    revealEls.forEach(el => observer.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('visible'));
+  }
 
-  // Fallback: force-reveal all elements still hidden after 3s
+  // Fallback: force-reveal only elements already in viewport after 8s
   setTimeout(() => {
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => el.classList.add('visible'));
-  }, 3000);
+    revealEls.forEach(el => {
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight) el.classList.add('visible');
+    });
+  }, 8000);
 
   // ── Numbers section counter ──
   (function() {
