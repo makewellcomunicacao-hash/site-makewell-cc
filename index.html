@@ -263,10 +263,8 @@
   .depo-title span { color: var(--gold); }
 
   /* Marquee infinito */
-  .depo-marquee { display: flex; width: max-content; animation: marquee-reels 28s linear infinite; }
+  .depo-marquee { display: flex; width: max-content; will-change: transform; }
   .depo-marquee-wrap { overflow: hidden; mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%); }
-  .depo-marquee-wrap:hover .depo-marquee { animation-play-state: paused; }
-  @keyframes marquee-reels { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
   /* Reel card */
   .reel-card { flex: 0 0 220px; margin-right: 20px; cursor: pointer; }
@@ -297,7 +295,6 @@
     .depo-section { padding: 60px 0; }
     .depo-header { padding: 0 20px; margin-bottom: 40px; }
     .reel-card { flex: 0 0 150px; margin-right: 14px; }
-    .depo-marquee { animation-duration: 22s; }
     .reel-modal-inner { width: 88vw; }
     .reel-modal-close { top: -40px; }
   }
@@ -1242,6 +1239,31 @@
   instCinema.addEventListener('click', e => { if (e.target === instCinema || e.target === instCinema.querySelector('.inst-cinema-grid') || e.target === instCinema.querySelector('.inst-cinema-lines')) openInstModal(); });
   instModalClose.addEventListener('click', closeInstModal);
   instModal.addEventListener('click', e => { if (e.target === instModal) closeInstModal(); });
+
+  // ── Marquee infinito ──
+  (function() {
+    const track = document.getElementById('depoMarquee');
+    if (!track) return;
+    let pos = 0, paused = false, raf;
+    const speed = 0.6;
+    const wrap = track.parentElement;
+    wrap.addEventListener('mouseenter', () => { paused = true; });
+    wrap.addEventListener('mouseleave', () => { paused = false; });
+    function tick() {
+      if (!paused) {
+        pos += speed;
+        const half = track.scrollWidth / 2;
+        if (pos >= half) pos -= half;
+        track.style.transform = `translateX(-${pos}px)`;
+      }
+      raf = requestAnimationFrame(tick);
+    }
+    tick();
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) cancelAnimationFrame(raf);
+      else tick();
+    });
+  })();
 
   // ── Reels modal ──
   const reelModal = document.getElementById('reelModal');
