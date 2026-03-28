@@ -17,6 +17,9 @@
 <meta property="og:title" content="Makewell | Marketing Inteligente">
 <meta property="og:description" content="A Makewell é a agência de marketing que combina estratégia, branding e performance para posicionar marcas com propósito. Quer levar sua marca para o próximo nível? Fale com a gente agora.">
 <meta property="og:url" content="https://makewell.com.br/">
+<meta property="og:image" content="https://makewell.com.br/og-image.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
 <meta property="og:site_name" content="Makewell Comunicação">
 <meta property="og:locale" content="pt_BR">
 
@@ -24,6 +27,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Makewell | Marketing Inteligente">
 <meta name="twitter:description" content="A Makewell é a agência de marketing que combina estratégia, branding e performance para posicionar marcas com propósito. Fale com a gente agora.">
+<meta name="twitter:image" content="https://makewell.com.br/og-image.png">
 
 <!-- Schema.org JSON-LD -->
 <script type="application/ld+json">
@@ -215,6 +219,88 @@
   .hero-stat-label { font-size: 8px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #555; }
   .hero-tag-bar { padding: 18px 24px; border-top: 1px solid #1e1e1e; display: flex; gap: 8px; flex-wrap: wrap; }
   .htag { font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #666; padding: 5px 10px; border: 1px solid #222; border-radius: 4px; }
+
+  /* ── VÍDEO INSTITUCIONAL ── */
+  .inst-section { position: relative; background: #050505; border-top: 1px solid #1a1a1a; border-bottom: 1px solid #1a1a1a; overflow: hidden; cursor: pointer; }
+  .inst-cinema { position: relative; width: 100%; aspect-ratio: 16/9; max-height: 620px; background: linear-gradient(160deg, #100800 0%, #1c0e00 40%, #0a0600 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .inst-cinema::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 35% 50%, rgba(240,120,32,.18) 0%, transparent 55%), radial-gradient(ellipse at 75% 60%, rgba(200,80,0,.1) 0%, transparent 50%); pointer-events: none; }
+  .inst-cinema-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px); background-size: 64px 64px; pointer-events: none; }
+  .inst-cinema-lines { position: absolute; bottom: 0; left: 0; right: 0; height: 200px; background: linear-gradient(to top, rgba(240,120,32,.06) 0%, transparent 100%); pointer-events: none; }
+
+  .inst-cinema-content { position: relative; z-index: 2; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+  .inst-cinema-label { font-size: 10px; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); }
+  .inst-cinema-title { font-size: clamp(32px, 4.5vw, 68px); font-weight: 900; letter-spacing: -2.5px; color: #fff; line-height: 1.02; }
+  .inst-cinema-sub { font-size: clamp(13px, 1.2vw, 16px); color: rgba(255,255,255,.45); max-width: 380px; line-height: 1.7; margin-top: -4px; }
+
+  .inst-play-btn { width: 84px; height: 84px; border-radius: 50%; background: var(--gold); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; margin-top: 8px; animation: play-pulse 2.5s ease-out infinite; transition: transform .2s, background .2s; }
+  .inst-play-btn:hover { transform: scale(1.1); background: #f08020; }
+  .inst-play-btn svg { width: 28px; height: 28px; fill: #fff; margin-left: 5px; }
+  @keyframes play-pulse { 0%{box-shadow:0 0 0 0 rgba(240,120,32,.55)} 70%{box-shadow:0 0 0 36px rgba(240,120,32,0)} 100%{box-shadow:0 0 0 0 rgba(240,120,32,0)} }
+  .inst-duration { font-size: 11px; color: rgba(255,255,255,.3); letter-spacing: 1px; margin-top: -4px; }
+
+  /* Modal institucional */
+  .inst-modal { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,.96); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); align-items: center; justify-content: center; }
+  .inst-modal.open { display: flex; }
+  .inst-modal-inner { position: relative; width: min(900px, 94vw); }
+  .inst-modal-video-wrap { border-radius: 14px; overflow: hidden; background: #000; padding-bottom: 56.25%; position: relative; box-shadow: 0 48px 140px rgba(0,0,0,.9); }
+  .inst-modal-video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; display: block; border: none; }
+  .inst-modal-close { position: absolute; top: -48px; right: 0; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); color: #fff; font-size: 16px; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .2s; }
+  .inst-modal-close:hover { background: rgba(255,255,255,.18); }
+
+  @media (max-width: 768px) {
+    .inst-section { padding: 0; }
+    .inst-cinema { aspect-ratio: auto; min-height: 400px; padding: 60px 24px; }
+    .inst-play-btn { width: 68px; height: 68px; }
+    .inst-modal-inner { width: 94vw; }
+    .inst-modal-close { top: -44px; }
+  }
+
+  /* ── DEPOIMENTOS ── */
+  .depo-section { background: #080808; padding: 100px 0 80px; border-top: 1px solid #1a1a1a; border-bottom: 1px solid #1a1a1a; overflow: hidden; }
+  .depo-header { text-align: center; margin-bottom: 60px; padding: 0 40px; }
+  .depo-label { font-size: 10px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  .depo-title { font-size: clamp(28px, 3vw, 44px); font-weight: 900; letter-spacing: -1.5px; color: #fff; line-height: 1.1; }
+  .depo-title span { color: var(--gold); }
+
+  /* Marquee infinito */
+  .depo-marquee { display: flex; width: max-content; animation: marquee-reels 28s linear infinite; }
+  .depo-marquee-wrap { overflow: hidden; mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%); }
+  .depo-marquee-wrap:hover .depo-marquee { animation-play-state: paused; }
+  @keyframes marquee-reels { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* Reel card */
+  .reel-card { flex: 0 0 220px; margin-right: 20px; cursor: pointer; }
+  .reel-card-video { position: relative; border-radius: 16px; overflow: hidden; background: #111; padding-bottom: 177.78%; box-shadow: 0 20px 50px rgba(0,0,0,.6); transition: transform .3s, box-shadow .3s; }
+  .reel-card:hover .reel-card-video { transform: translateY(-8px) scale(1.02); box-shadow: 0 36px 80px rgba(0,0,0,.8); }
+  .reel-card-video video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+  .reel-card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.85) 0%, rgba(0,0,0,.1) 40%, transparent 65%); pointer-events: none; }
+  .reel-card-play { position: absolute; top: 42%; left: 50%; transform: translate(-50%,-50%); width: 52px; height: 52px; border-radius: 50%; background: rgba(255,255,255,.1); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1.5px solid rgba(255,255,255,.2); display: flex; align-items: center; justify-content: center; transition: all .25s; pointer-events: none; }
+  .reel-card:hover .reel-card-play { background: var(--gold); border-color: var(--gold); transform: translate(-50%,-50%) scale(1.12); }
+  .reel-card-play svg { width: 18px; height: 18px; fill: #fff; margin-left: 3px; }
+  .reel-card-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 14px 14px 16px; }
+  .reel-card-name { font-size: 13px; font-weight: 700; color: #fff; line-height: 1.3; }
+  .reel-card-role { font-size: 10px; color: rgba(255,255,255,.55); margin-top: 3px; line-height: 1.4; }
+
+  /* Modal */
+  .reel-modal { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(0,0,0,.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); align-items: center; justify-content: center; }
+  .reel-modal.open { display: flex; }
+  .reel-modal-inner { position: relative; width: min(380px, 90vw); }
+  .reel-modal-video-wrap { border-radius: 18px; overflow: hidden; background: #000; padding-bottom: 177.78%; position: relative; box-shadow: 0 40px 120px rgba(0,0,0,.9); }
+  .reel-modal-video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; display: block; border: none; }
+  .reel-modal-close { position: absolute; top: -44px; right: 0; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); color: #fff; font-size: 18px; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .2s; }
+  .reel-modal-close:hover { background: rgba(255,255,255,.2); }
+  .reel-modal-info { text-align: center; margin-top: 20px; }
+  .reel-modal-name { font-size: 16px; font-weight: 700; color: #fff; }
+  .reel-modal-role { font-size: 12px; color: rgba(255,255,255,.5); margin-top: 4px; }
+
+  @media (max-width: 768px) {
+    .depo-section { padding: 60px 0; }
+    .depo-header { padding: 0 20px; margin-bottom: 40px; }
+    .reel-card { flex: 0 0 150px; margin-right: 14px; }
+    .depo-marquee { animation-duration: 22s; }
+    .reel-modal-inner { width: 88vw; }
+    .reel-modal-close { top: -40px; }
+  }
 
   /* ── TICKER ── */
   .ticker { background: var(--gold); height: 48px; overflow: hidden; white-space: nowrap; display: flex; align-items: center; }
@@ -619,6 +705,33 @@
   </div>
 </section>
 
+<!-- ── VÍDEO INSTITUCIONAL ── -->
+<section class="inst-section" id="institucional" aria-labelledby="inst-title">
+  <div class="inst-cinema" id="instCinema">
+    <div class="inst-cinema-grid" aria-hidden="true"></div>
+    <div class="inst-cinema-lines" aria-hidden="true"></div>
+    <div class="inst-cinema-content">
+      <p class="inst-cinema-label">Institucional</p>
+      <h2 class="inst-cinema-title" id="inst-title">Conheça a Makewell</h2>
+      <p class="inst-cinema-sub">Saiba como transformamos marcas em resultados com estratégia, performance e inteligência.</p>
+      <button class="inst-play-btn" id="instPlayBtn" aria-label="Assistir vídeo institucional">
+        <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+      </button>
+      <span class="inst-duration">▶ Assistir apresentação</span>
+    </div>
+  </div>
+</section>
+
+<!-- Modal institucional -->
+<div class="inst-modal" id="instModal" role="dialog" aria-modal="true" aria-label="Vídeo institucional Makewell">
+  <div class="inst-modal-inner">
+    <button class="inst-modal-close" id="instModalClose" aria-label="Fechar">✕</button>
+    <div class="inst-modal-video-wrap">
+      <iframe id="instModalVideo" src="" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Makewell Comunicação — Vídeo Institucional"></iframe>
+    </div>
+  </div>
+</div>
+
 <!-- ── MÉTODO ── -->
 <section class="metodo" id="metodo" aria-labelledby="metodo-title">
   <div class="metodo-header">
@@ -873,6 +986,121 @@
   </div>
 </section>
 
+<!-- ── DEPOIMENTOS ── -->
+<section class="depo-section" aria-labelledby="depo-title">
+  <div class="depo-header">
+    <p class="depo-label">Resultados Reais</p>
+    <h2 class="depo-title" id="depo-title">O que nossos clientes<br><span>dizem sobre a Makewell</span></h2>
+  </div>
+
+  <div class="depo-marquee-wrap">
+    <div class="depo-marquee" id="depoMarquee">
+
+      <div class="reel-card" data-name="Paola Massari" data-role="Casa Hunter" data-src="https://www.youtube.com/shorts/JRrnKGNk-UE">
+        <div class="reel-card-video">
+          <img src="https://img.youtube.com/vi/JRrnKGNk-UE/hqdefault.jpg" alt="Paola Massari" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <div class="reel-card-overlay"></div>
+          <div class="reel-card-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          <div class="reel-card-info"><div class="reel-card-name">Paola Massari</div><div class="reel-card-role">Casa Hunter</div></div>
+        </div>
+      </div>
+
+      <div class="reel-card" data-name="Dra. Carolina Mergulhão" data-role="Endocrinologia | Metabologia" data-src="https://www.youtube.com/shorts/PoBa9wS9rYM">
+        <div class="reel-card-video">
+          <img src="https://img.youtube.com/vi/PoBa9wS9rYM/hqdefault.jpg" alt="Dra. Carolina Mergulhão" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <div class="reel-card-overlay"></div>
+          <div class="reel-card-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          <div class="reel-card-info"><div class="reel-card-name">Dra. Carolina Mergulhão</div><div class="reel-card-role">Endocrinologia | Metabologia</div></div>
+        </div>
+      </div>
+
+      <div class="reel-card" data-name="Dra. Thielen" data-role="Cirurgiã Vascular" data-src="https://www.youtube.com/shorts/SjXs-_mmDxI">
+        <div class="reel-card-video">
+          <img src="https://img.youtube.com/vi/SjXs-_mmDxI/hqdefault.jpg" alt="Dra. Thielen" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <div class="reel-card-overlay"></div>
+          <div class="reel-card-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          <div class="reel-card-info"><div class="reel-card-name">Dra. Thielen</div><div class="reel-card-role">Cirurgiã Vascular</div></div>
+        </div>
+      </div>
+
+      <div class="reel-card" data-name="Tereza Cristina" data-role="Advogada" data-src="https://www.youtube.com/shorts/bJaKzu9WHy0">
+        <div class="reel-card-video">
+          <img src="https://img.youtube.com/vi/bJaKzu9WHy0/hqdefault.jpg" alt="Tereza Cristina" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <div class="reel-card-overlay"></div>
+          <div class="reel-card-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          <div class="reel-card-info"><div class="reel-card-name">Tereza Cristina</div><div class="reel-card-role">Advogada</div></div>
+        </div>
+      </div>
+
+      <div class="reel-card" data-name="Felipe Vilela" data-role="Advogado" data-src="https://www.youtube.com/shorts/ij42ilGNbrY">
+        <div class="reel-card-video">
+          <img src="https://img.youtube.com/vi/ij42ilGNbrY/hqdefault.jpg" alt="Felipe Vilela" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <div class="reel-card-overlay"></div>
+          <div class="reel-card-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          <div class="reel-card-info"><div class="reel-card-name">Felipe Vilela</div><div class="reel-card-role">Advogado</div></div>
+        </div>
+      </div>
+
+      <!-- set 2 — duplicata para loop seamless -->
+      <div class="reel-card" data-name="Paola Massari" data-role="Casa Hunter" data-src="https://www.youtube.com/shorts/JRrnKGNk-UE">
+        <div class="reel-card-video">
+          <img src="https://img.youtube.com/vi/JRrnKGNk-UE/hqdefault.jpg" alt="Paola Massari" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <div class="reel-card-overlay"></div>
+          <div class="reel-card-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          <div class="reel-card-info"><div class="reel-card-name">Paola Massari</div><div class="reel-card-role">Casa Hunter</div></div>
+        </div>
+      </div>
+      <div class="reel-card" data-name="Dra. Carolina Mergulhão" data-role="Endocrinologia | Metabologia" data-src="https://www.youtube.com/shorts/PoBa9wS9rYM">
+        <div class="reel-card-video">
+          <img src="https://img.youtube.com/vi/PoBa9wS9rYM/hqdefault.jpg" alt="Dra. Carolina Mergulhão" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <div class="reel-card-overlay"></div>
+          <div class="reel-card-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          <div class="reel-card-info"><div class="reel-card-name">Dra. Carolina Mergulhão</div><div class="reel-card-role">Endocrinologia | Metabologia</div></div>
+        </div>
+      </div>
+      <div class="reel-card" data-name="Dra. Thielen" data-role="Cirurgiã Vascular" data-src="https://www.youtube.com/shorts/SjXs-_mmDxI">
+        <div class="reel-card-video">
+          <img src="https://img.youtube.com/vi/SjXs-_mmDxI/hqdefault.jpg" alt="Dra. Thielen" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <div class="reel-card-overlay"></div>
+          <div class="reel-card-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          <div class="reel-card-info"><div class="reel-card-name">Dra. Thielen</div><div class="reel-card-role">Cirurgiã Vascular</div></div>
+        </div>
+      </div>
+      <div class="reel-card" data-name="Tereza Cristina" data-role="Advogada" data-src="https://www.youtube.com/shorts/bJaKzu9WHy0">
+        <div class="reel-card-video">
+          <img src="https://img.youtube.com/vi/bJaKzu9WHy0/hqdefault.jpg" alt="Tereza Cristina" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <div class="reel-card-overlay"></div>
+          <div class="reel-card-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          <div class="reel-card-info"><div class="reel-card-name">Tereza Cristina</div><div class="reel-card-role">Advogada</div></div>
+        </div>
+      </div>
+      <div class="reel-card" data-name="Felipe Vilela" data-role="Advogado" data-src="https://www.youtube.com/shorts/ij42ilGNbrY">
+        <div class="reel-card-video">
+          <img src="https://img.youtube.com/vi/ij42ilGNbrY/hqdefault.jpg" alt="Felipe Vilela" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <div class="reel-card-overlay"></div>
+          <div class="reel-card-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+          <div class="reel-card-info"><div class="reel-card-name">Felipe Vilela</div><div class="reel-card-role">Advogado</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Modal de vídeo -->
+<div class="reel-modal" id="reelModal" role="dialog" aria-modal="true">
+  <div class="reel-modal-inner">
+    <button class="reel-modal-close" id="reelModalClose" aria-label="Fechar">✕</button>
+    <div class="reel-modal-video-wrap">
+      <iframe id="reelModalVideo" src="" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="reel-modal-info">
+      <div class="reel-modal-name" id="reelModalName"></div>
+      <div class="reel-modal-role" id="reelModalRole"></div>
+    </div>
+  </div>
+</div>
+
 <!-- ── CTA FINAL ── -->
 <section class="cta-section" aria-labelledby="cta-title">
   <div class="cta-circle" style="width:600px;height:600px" aria-hidden="true"></div>
@@ -991,6 +1219,61 @@
   // ── Nav scroll ──
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), { passive: true });
+
+  // ── Modal institucional ──
+  const instPlayBtn = document.getElementById('instPlayBtn');
+  const instCinema = document.getElementById('instCinema');
+  const instModal = document.getElementById('instModal');
+  const instModalVideo = document.getElementById('instModalVideo');
+  const instModalClose = document.getElementById('instModalClose');
+
+  function openInstModal() {
+    instModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    instModalVideo.src = 'https://www.youtube.com/embed/A28k_Yxm9cc?autoplay=1&rel=0';
+  }
+  function closeInstModal() {
+    instModal.classList.remove('open');
+    instModalVideo.src = '';
+    document.body.style.overflow = '';
+  }
+
+  instPlayBtn.addEventListener('click', openInstModal);
+  instCinema.addEventListener('click', e => { if (e.target === instCinema || e.target === instCinema.querySelector('.inst-cinema-grid') || e.target === instCinema.querySelector('.inst-cinema-lines')) openInstModal(); });
+  instModalClose.addEventListener('click', closeInstModal);
+  instModal.addEventListener('click', e => { if (e.target === instModal) closeInstModal(); });
+
+  // ── Reels modal ──
+  const reelModal = document.getElementById('reelModal');
+  const reelModalVideo = document.getElementById('reelModalVideo');
+  const reelModalName = document.getElementById('reelModalName');
+  const reelModalRole = document.getElementById('reelModalRole');
+  const reelModalClose = document.getElementById('reelModalClose');
+
+  document.querySelectorAll('.reel-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const src = card.dataset.src;
+      if (!src) return;
+      const ytMatch = src.match(/(?:youtu\.be\/|youtube\.com\/(?:shorts\/|embed\/|watch\?v=))([a-zA-Z0-9_-]{11})/);
+      reelModalVideo.src = ytMatch
+        ? `https://www.youtube.com/embed/${ytMatch[1]}?autoplay=1&rel=0`
+        : src;
+      reelModalName.textContent = card.dataset.name;
+      reelModalRole.textContent = card.dataset.role;
+      reelModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeModal() {
+    reelModal.classList.remove('open');
+    reelModalVideo.src = '';
+    document.body.style.overflow = '';
+  }
+
+  reelModalClose.addEventListener('click', closeModal);
+  reelModal.addEventListener('click', e => { if (e.target === reelModal) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModal(); closeInstModal(); } });
 
   // ── Hamburger ──
   const ham = document.getElementById('hamburger');
