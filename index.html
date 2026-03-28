@@ -242,7 +242,7 @@
     box-shadow: 0 4px 20px rgba(37,211,102,.4);
     text-decoration: none; transition: transform .25s, box-shadow .25s;
   }
-  .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,.6); }
+  .wa-float:hover, .wa-float:active { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,.6); }
   .wa-float svg { width: 30px; height: 30px; fill: white; }
 
   /* ── HERO ── */
@@ -314,7 +314,7 @@
   .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
 
   .btn-primary { background: var(--gold); color: #fff; border: none; padding: 16px 34px; font-weight: 800; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border-radius: 8px; transition: all .25s; display: inline-flex; align-items: center; text-decoration: none; }
-  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(240,120,32,.3); }
+  .btn-primary:hover, .btn-primary:active { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(240,120,32,.3); }
   .btn-outline { background: transparent; color: #fff; border: 1px solid #ffffff22; padding: 16px 30px; font-weight: 700; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border-radius: 8px; transition: all .25s; display: inline-flex; align-items: center; text-decoration: none; }
   .btn-outline:hover { border-color: #ffffff55; background: #ffffff08; transform: translateY(-2px); }
   .btn-outline-dark { background: transparent; color: #111; border: 1.5px solid #11111130; padding: 12px 26px; font-weight: 700; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border-radius: 6px; transition: all .25s; white-space: nowrap; }
@@ -342,11 +342,11 @@
   .porque-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
   .porque-card { background: #fff; padding: 44px 36px; position: relative; overflow: hidden; transition: background .3s, transform .3s, box-shadow .3s; cursor: default; }
   .porque-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); transform: scaleX(0); transform-origin: left; transition: transform .5s ease; }
-  .porque-card:hover { background: #111; transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,.2); z-index: 1; }
-  .porque-card:hover::before { transform: scaleX(1); }
-  .porque-card:hover .porque-title { color: var(--gold); }
-  .porque-card:hover .porque-title span { color: var(--gold-light); }
-  .porque-card:hover .porque-desc { color: #888; }
+  .porque-card:hover, .porque-card:active { background: #111; transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,.2); z-index: 1; }
+  .porque-card:hover::before, .porque-card:active::before { transform: scaleX(1); }
+  .porque-card:hover .porque-title, .porque-card:active .porque-title { color: var(--gold); }
+  .porque-card:hover .porque-title span, .porque-card:active .porque-title span { color: var(--gold-light); }
+  .porque-card:hover .porque-desc, .porque-card:active .porque-desc { color: #888; }
   .porque-card-num { font-family: 'Courier New', monospace; font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--gold); margin-bottom: 24px; }
   .porque-icon { width: 48px; height: 48px; border: 1px solid rgba(240,120,32,.25); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; background: rgba(240,120,32,.06); }
   .porque-icon svg { width: 22px; height: 22px; color: var(--gold); }
@@ -472,11 +472,11 @@
   .metodo-sub { font-size: 14px; color: #666; max-width: 300px; line-height: 1.7; text-align: right; }
   .metodo-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; }
   .step { background: #fff; padding: 44px 28px; position: relative; overflow: hidden; transition: background .3s, transform .3s, box-shadow .3s; cursor: default; }
-  .step:hover { background: #111; transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,.2); z-index: 1; }
-  .step:hover .step-title { color: var(--gold); }
-  .step:hover .step-desc { color: #888; }
+  .step:hover, .step:active { background: #111; transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,.2); z-index: 1; }
+  .step:hover .step-title, .step:active .step-title { color: var(--gold); }
+  .step:hover .step-desc, .step:active .step-desc { color: #888; }
   .step::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); transform: scaleX(0); transform-origin: left; transition: transform .5s ease; }
-  .step:hover::before { transform: scaleX(1); }
+  .step:hover::before, .step:active::before { transform: scaleX(1); }
   .step-num { font-family: 'Courier New', monospace; font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--gold); margin-bottom: 18px; }
   .step-title { font-size: 12px; font-weight: 900; letter-spacing: .5px; text-transform: uppercase; color: #111; margin-bottom: 10px; }
   .step-desc { font-size: 12px; color: #666; line-height: 1.75; }
@@ -507,8 +507,8 @@
   .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: #1a1a1a; position: relative; z-index: 1; }
   .service-card { background: var(--dark); padding: 40px 34px; position: relative; overflow: hidden; transition: background .3s; cursor: default; display: flex; flex-direction: column; }
   .service-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, #C8922A08, transparent 60%); opacity: 0; transition: opacity .4s; }
-  .service-card:hover { background: #111; }
-  .service-card:hover::after { opacity: 1; }
+  .service-card:hover, .service-card:active { background: #111; }
+  .service-card:hover::after, .service-card:active::after { opacity: 1; }
   .service-icon { width: 52px; height: 52px; border: 1px solid rgba(240,120,32,.25); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 28px; background: rgba(240,120,32,.06); }
   .service-icon svg { width: 26px; height: 26px; stroke: var(--gold); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
   .service-tag { font-size: 9px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
