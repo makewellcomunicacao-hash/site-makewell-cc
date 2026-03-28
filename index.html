@@ -250,7 +250,7 @@
   .porque-sub { font-size: 15px; color: #666; max-width: 520px; margin: 0 auto; line-height: 1.8; }
   .porque-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: #1a1a1a; }
   .porque-card { background: #0d0d0d; padding: 44px 36px; position: relative; overflow: hidden; transition: background .3s, transform .3s; cursor: default; }
-  .porque-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); transform: scaleX(0); transform-origin: left; transition: transform .4s ease; }
+  .porque-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); transform: scaleX(0); transform-origin: left; transition: transform .5s ease; }
   .porque-card:hover { background: #111; transform: translateY(-4px); }
   .porque-card:hover::before { transform: scaleX(1); }
   .porque-card-num { font-family: 'Courier New', monospace; font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--gold); opacity: .5; margin-bottom: 24px; }
@@ -377,11 +377,12 @@
   h2.metodo-h2 { font-size: clamp(32px, 4vw, 52px); font-weight: 900; letter-spacing: -1.5px; color: #111; margin-top: 14px; }
   .metodo-sub { font-size: 14px; color: #666; max-width: 300px; line-height: 1.7; text-align: right; }
   .metodo-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; }
-  .step { background: #fff; padding: 36px 22px; position: relative; overflow: hidden; transition: background .3s, transform .3s, box-shadow .3s; cursor: default; }
+  .step { background: #fff; padding: 44px 28px; position: relative; overflow: hidden; transition: background .3s, transform .3s, box-shadow .3s; cursor: default; }
   .step:hover { background: #111; transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,.2); z-index: 1; }
   .step:hover .step-title { color: var(--gold); }
   .step:hover .step-desc { color: #888; }
-  .step::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gold); }
+  .step::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); transform: scaleX(0); transform-origin: left; transition: transform .5s ease; }
+  .step:hover::before { transform: scaleX(1); }
   .step-num { font-family: 'Courier New', monospace; font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--gold); margin-bottom: 18px; }
   .step-title { font-size: 12px; font-weight: 900; letter-spacing: .5px; text-transform: uppercase; color: #111; margin-bottom: 10px; }
   .step-desc { font-size: 12px; color: #666; line-height: 1.75; }
