@@ -194,8 +194,8 @@
   }
   /* Hero splash graphic */
   .hero-splash {
-    position: absolute; right: 0; bottom: 0;
-    width: 52%; height: 85%;
+    position: absolute; right: 0; top: 0;
+    width: 52%; height: 100%;
     pointer-events: none; z-index: 1; overflow: hidden;
     opacity: 0; animation: splash-fade 1.4s ease .6s forwards;
   }
@@ -203,7 +203,7 @@
   .hero-splash .sbar {
     transform-origin: bottom;
     transform: scaleY(0);
-    opacity: 0.055;
+    opacity: 0.032;
     animation: bar-rise 1.2s cubic-bezier(.22,1,.36,1) calc(.7s + var(--delay, 0s)) forwards;
   }
   @keyframes bar-rise { to { transform: scaleY(1); } }
@@ -212,9 +212,9 @@
   .hero-left { position: relative; z-index: 2; }
   .hero-pill {
     display: inline-flex; align-items: center; gap: 10px;
-    border: 1px solid #C8922A44; border-radius: 99px; padding: 8px 20px;
+    border: 1px solid #C8922A88; border-radius: 99px; padding: 8px 20px;
     font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-    color: var(--gold); background: #C8922A0a; margin-bottom: 36px;
+    color: var(--gold); background: #C8922A18; margin-bottom: 36px;
   }
   .hero-pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 2s infinite; flex-shrink: 0; }
   @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)} }
