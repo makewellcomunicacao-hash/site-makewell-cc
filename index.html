@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Makewell | Marketing Inteligente</title>
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -241,7 +241,8 @@ src="https://www.facebook.com/tr?id=2571294026447618&ev=PageView&noscript=1"
   /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-    height: 72px; padding: 0 60px;
+    height: calc(72px + env(safe-area-inset-top, 0px));
+    padding: env(safe-area-inset-top, 0px) 60px 0;
     display: flex; align-items: center;
     justify-content: space-between;
     background: #080808;
@@ -251,7 +252,7 @@ src="https://www.facebook.com/tr?id=2571294026447618&ev=PageView&noscript=1"
 
   /* Compensar header fixo */
   header { position: relative; z-index: 1000; }
-  main { padding-top: 72px; }
+  main { padding-top: calc(72px + env(safe-area-inset-top, 0px)); }
   section[id] { scroll-margin-top: 80px; }
 
   .nav-logo { display: flex; align-items: center; text-decoration: none; }
@@ -751,7 +752,7 @@ src="https://www.facebook.com/tr?id=2571294026447618&ev=PageView&noscript=1"
      RESPONSIVE — MOBILE
   ══════════════════════════════════ */
   @media (max-width: 860px) {
-    nav { padding: 0 24px; background: #080808; }
+    nav { padding: env(safe-area-inset-top, 0px) 24px 0; background: #080808; }
     .nav-links { display: none; }
     .btn-nav { display: none; }
     .hamburger { display: flex; }
@@ -770,7 +771,7 @@ src="https://www.facebook.com/tr?id=2571294026447618&ev=PageView&noscript=1"
   }
 
   @media (max-width: 768px) {
-    nav { padding: 0 20px; }
+    nav { padding: env(safe-area-inset-top, 0px) 20px 0; }
     .btn-nav { display: none; }
 
     .hero { grid-template-columns: 1fr; padding: 28px 20px 56px; gap: 40px; overflow-x: hidden; }
