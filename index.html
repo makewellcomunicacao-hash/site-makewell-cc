@@ -36,7 +36,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Makewell | Marketing Inteligente">
 <meta name="twitter:description" content="A Makewell é a agência de marketing que combina estratégia, branding e performance para posicionar marcas com propósito. Fale com a gente agora.">
-<meta name="twitter:image" content="https://makewell.com.br/og-image.png">
+<meta name="twitter:image" content="https://makewell.com.br/og-image.jpg">
 
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -79,7 +79,7 @@ src="https://www.facebook.com/tr?id=2571294026447618&ev=PageView&noscript=1"
       "@type": "PostalAddress",
       "addressLocality": "Maceió",
       "addressRegion": "AL",
-      "streetAddress": "Av. Gov. Osman Loureiro, 171",
+      "streetAddress": "R. Prof. Lourenço Peixoto, 36, Sala 04",
       "addressCountry": "BR"
     },
     {
@@ -248,6 +248,10 @@ src="https://www.facebook.com/tr?id=2571294026447618&ev=PageView&noscript=1"
   }
   nav.scrolled { background: rgba(8,8,8,.98); border-bottom: 1px solid #1e1e1e; }
 
+  /* Compensar header fixo */
+  main { padding-top: 72px; }
+  section[id] { scroll-margin-top: 80px; }
+
   .nav-logo { display: flex; align-items: center; text-decoration: none; }
   .nav-logo img { display: block; height: 40px; width: auto; }
 
@@ -306,7 +310,7 @@ src="https://www.facebook.com/tr?id=2571294026447618&ev=PageView&noscript=1"
   /* ── HERO ── */
   .hero {
     min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
-    align-items: center; padding: 120px 60px 80px; gap: 60px;
+    align-items: center; padding: 48px 60px 80px; gap: 60px;
     position: relative; overflow-x: hidden;
   }
   .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 80% 50%, #C8922A0a 0%, transparent 70%); }
@@ -749,7 +753,7 @@ src="https://www.facebook.com/tr?id=2571294026447618&ev=PageView&noscript=1"
     .nav-links { display: none; }
     .btn-nav { display: none; }
     .hamburger { display: flex; }
-    .hero { padding: 100px 32px 64px; }
+    .hero { padding: 28px 32px 64px; }
     .numbers { grid-template-columns: repeat(2, 1fr); }
     .metodo { padding: 80px 32px; }
     .metodo-steps { grid-template-columns: repeat(3, 1fr); }
@@ -767,7 +771,7 @@ src="https://www.facebook.com/tr?id=2571294026447618&ev=PageView&noscript=1"
     nav { padding: 0 20px; }
     .btn-nav { display: none; }
 
-    .hero { grid-template-columns: 1fr; padding: 100px 20px 56px; gap: 40px; overflow-x: hidden; }
+    .hero { grid-template-columns: 1fr; padding: 28px 20px 56px; gap: 40px; overflow-x: hidden; }
     .hero-right { width: 100%; max-width: 100%; overflow: hidden; order: -1; }
     .hero-card { width: 100%; max-width: 100%; }
     .hero-card-header { flex-wrap: wrap; gap: 4px; }
@@ -1331,7 +1335,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="tag">próximo case</div>
       <strong>A próxima história de sucesso <em>pode ser a sua.</em></strong>
     </div>
-    <a href="https://wa.me/5582999103246?text=Olá!%20Quero%20resultados%20como%20os%20cases%20da%20Makewell." class="btn-primary" target="_blank" rel="noopener">Quero Resultados Assim</a>
+    <a href="https://wa.me/5582999103246?text=Olá!%20Quero%20resultados%20como%20os%20cases%20da%20Makewell." class="btn-primary" target="_blank" rel="noopener" onclick="fbq('track','Lead',{content_name:'Quero Resultados Assim'})">Quero Resultados Assim</a>
   </div>
 </section>
 
@@ -1598,7 +1602,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="cta-p reveal" style="transition-delay:.2s">Empresas que investem em estratégia crescem mais rápido. Descubra o potencial real do seu negócio.</p>
     <div class="cta-btns reveal" style="transition-delay:.3s">
       <a href="https://wa.me/5582999103246?text=Olá!%20Quero%20agendar%20um%20diagnóstico%20gratuito%20com%20a%20Makewell." class="btn-dark" target="_blank" rel="noopener" onclick="fbq('track','Lead',{content_name:'Agendar Diagnóstico'})">Agendar Diagnóstico</a>
-      <a href="https://wa.me/5582999103246" class="btn-white-outline" target="_blank" rel="noopener">WhatsApp Direto →</a>
+      <a href="https://wa.me/5582999103246" class="btn-white-outline" target="_blank" rel="noopener" onclick="fbq('track','Lead',{content_name:'WhatsApp Direto'})">WhatsApp Direto →</a>
     </div>
   </div>
 </section>

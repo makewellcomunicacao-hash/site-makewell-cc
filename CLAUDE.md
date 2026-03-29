@@ -31,7 +31,7 @@ Site institucional da **Makewell Comunicação** — agência de marketing digit
 ## Decisões de Design
 
 - **Fontes:** System fonts (`'Segoe UI', system-ui, -apple-system`) — sem Google Fonts para performance
-- **Cores:** `--gold: #C8922A`, `--gold-light: #F07820`, `--dark: #080808`
+- **Cores:** `--gold: #F07820`, `--gold-light: #F5A623`, `--dark: #080808`
 - **Hero h1:** `clamp(38px, 5vw, 72px)` desktop / `clamp(36px, 9vw, 52px)` mobile
 - **Hero h1 em:** `display: block`, `padding-bottom: 0.15em` (evita corte nos descenders)
 - **Hero-left:** `overflow: hidden; min-width: 0` (evita overflow em Windows/Segoe UI)
