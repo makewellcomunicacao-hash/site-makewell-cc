@@ -889,6 +889,11 @@ src="https://www.facebook.com/tr?id=2571294026447618&ev=PageView&noscript=1"
 
   /* 13. 3D tilt transition on hero card */
   .hero-card { transition: transform .25s ease, box-shadow .25s ease; transform-style: preserve-3d; }
+
+  /* 14. Nav sempre opaco no mobile — override do nav.scrolled acima */
+  @media (max-width: 860px) {
+    nav.scrolled { background: #080808; box-shadow: none; }
+  }
 </style>
 </head>
 <body ontouchstart="">
