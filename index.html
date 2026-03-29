@@ -187,7 +187,7 @@ src="https://www.facebook.com/tr?id=2571294026447618&ev=PageView&noscript=1"
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
   body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     background: var(--dark);
@@ -688,6 +688,7 @@ src="https://www.facebook.com/tr?id=2571294026447618&ev=PageView&noscript=1"
 
   /* ── PROGRESS BAR ── */
   #progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, var(--gold), var(--gold-light)); z-index: 9999; transition: width .1s linear; pointer-events: none; }
+  @media (max-width: 860px) { #progress-bar { display: none; } }
 
   /* ── BACK TO TOP ── */
   #back-to-top { position: fixed; bottom: calc(98px + env(safe-area-inset-bottom, 0px)); right: 35px; width: 44px; height: 44px; border-radius: 50%; background: var(--gold); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 500; opacity: 0; transform: translateY(12px); transition: opacity .3s, transform .3s, background .2s; pointer-events: none; }
