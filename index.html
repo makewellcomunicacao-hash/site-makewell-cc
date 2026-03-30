@@ -227,6 +227,35 @@ src="https://www.facebook.com/tr?id=2571294026447618&ev=PageView&noscript=1"
     opacity: 1; transform: none; transition: none; will-change: auto;
   }
 
+  /* ── Hero entrance animations (premium) ── */
+  @keyframes heroFadeUp {
+    from { opacity: 0; transform: translateY(36px) scale(.97); filter: blur(5px); }
+    to   { opacity: 1; transform: none; filter: blur(0); }
+  }
+  @keyframes heroSlideRight {
+    from { opacity: 0; transform: translateX(52px) scale(.97); filter: blur(3px); }
+    to   { opacity: 1; transform: none; filter: blur(0); }
+  }
+  @keyframes heroScaleFade {
+    from { opacity: 0; transform: scale(.95) translateY(16px); }
+    to   { opacity: 1; transform: none; }
+  }
+  /* Sequência coordenada: conteúdo → decoração (splash começa em 0.6s) */
+  .hero-pill { animation: heroFadeUp .65s cubic-bezier(.22,1,.36,1) .20s both; }
+  h1.hero-h1 { animation: heroFadeUp .60s cubic-bezier(.22,1,.36,1) .35s both; }
+  .hero-p    { animation: heroFadeUp .60s cubic-bezier(.22,1,.36,1) .52s both; }
+  .hero-btns { animation: heroFadeUp .60s cubic-bezier(.22,1,.36,1) .67s both; }
+  @media (min-width: 861px) {
+    .hero-right { animation: heroSlideRight .80s cubic-bezier(.22,1,.36,1) .45s both; }
+  }
+  @media (max-width: 860px) {
+    /* Card aparece primeiro no mobile (order: -1) */
+    .hero-right { animation: heroScaleFade .65s cubic-bezier(.22,1,.36,1) .10s both; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-pill, h1.hero-h1, .hero-p, .hero-btns, .hero-right { animation: none; }
+  }
+
   /* UTILS */
   .tag { font-size: 9px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); }
   .gold {
@@ -734,10 +763,10 @@ src="https://www.facebook.com/tr?id=2571294026447618&ev=PageView&noscript=1"
   #cookie-banner p { font-size: 13px; color: #aaa; line-height: 1.6; flex: 1; min-width: 200px; }
   #cookie-banner a { color: var(--gold); text-decoration: underline; }
   .cookie-btns { display: flex; gap: 10px; flex-shrink: 0; }
-  .btn-cookie-accept { background: var(--gold); color: #fff; border: none; padding: 10px 22px; border-radius: 6px; font-weight: 700; font-size: 12px; letter-spacing: .5px; cursor: pointer; transition: background .2s; }
-  .btn-cookie-accept:hover, .btn-cookie-accept:active { background: var(--gold-light); }
-  .btn-cookie-decline { background: transparent; color: #666; border: 1px solid #333; padding: 10px 18px; border-radius: 6px; font-weight: 600; font-size: 12px; cursor: pointer; transition: color .2s, border-color .2s; }
-  .btn-cookie-decline:hover, .btn-cookie-decline:active { color: #aaa; border-color: #555; }
+  .btn-cookie-accept { background: #C05800; color: #fff; border: none; padding: 10px 22px; border-radius: 6px; font-weight: 700; font-size: 12px; letter-spacing: .5px; cursor: pointer; transition: background .2s; }
+  .btn-cookie-accept:hover, .btn-cookie-accept:active { background: #D06200; }
+  .btn-cookie-decline { background: transparent; color: #bbb; border: 1px solid #444; padding: 10px 18px; border-radius: 6px; font-weight: 600; font-size: 12px; cursor: pointer; transition: color .2s, border-color .2s; }
+  .btn-cookie-decline:hover, .btn-cookie-decline:active { color: #ddd; border-color: #666; }
   @media (max-width: 600px) { #cookie-banner { padding: 16px 20px; } .cookie-btns { width: 100%; } .btn-cookie-accept, .btn-cookie-decline { flex: 1; text-align: center; } }
 
   @media (prefers-reduced-motion: reduce) {
