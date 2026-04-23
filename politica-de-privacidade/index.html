@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de Privacidade | Makewell Comunicação</title>
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://makewell.com.br/politica-de-privacidade/">
+<meta name="description" content="Conheça a política de privacidade da Makewell Comunicação e saiba como protegemos seus dados pessoais com transparência e segurança.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Política de Privacidade | Makewell Comunicação">
+<meta property="og:description" content="Saiba como a Makewell Comunicação coleta, usa e protege seus dados pessoais.">
+<meta property="og:url" content="https://makewell.com.br/politica-de-privacidade/">
+<meta property="og:image" content="https://makewell.com.br/images/og-image.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="theme-color" content="#F07820">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --gold: #C8922A; --gold-light: #F07820; --dark: #0a0a0a; }
+  body { background: var(--dark); color: #ccc; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.8; }
+
+  nav { background: rgba(8,8,8,0.98); border-bottom: 1px solid #1e1e1e; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: calc(72px + env(safe-area-inset-top,0px)); padding: env(safe-area-inset-top,0px) 60px 0; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { display: flex; align-items: center; text-decoration: none; }
+  .nav-logo img { display: block; height: 40px; width: auto; }
+  .nav-right { display: flex; align-items: center; gap: 24px; }
+  .nav-links { display: flex; align-items: center; gap: 22px; }
+  .nav-links a { font-size: 13px; font-weight: 500; color: #ccc; text-decoration: none; transition: color .2s; white-space: nowrap; }
+  .nav-links a:hover, .nav-links a:active { color: #fff; }
+  .nav-links a.active { color: var(--gold-light); }
+  .btn-nav { background: var(--gold-light); color: #fff; border: none; padding: 11px 20px; font-weight: 800; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border-radius: 6px; transition: background .2s, transform .2s; white-space: nowrap; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; line-height: 1; box-sizing: border-box !important; width: 176px !important; min-width: 176px !important; max-width: 176px !important; flex: none !important }
+  .btn-nav:hover, .btn-nav:active { background: var(--gold); transform: translateY(-1px); }
+  #lang-toggle { display: flex; align-items: center; gap: 6px; }
+  .lang-sep { color: #333; font-size: 11px; }
+  .lang-btn { background: none; border: none; cursor: pointer; font-size: 11px; font-weight: 800; letter-spacing: 1.5px; color: #bbb; padding: 10px 8px; transition: color .2s; text-transform: uppercase; min-height: 44px; text-decoration: none; display: inline-flex; align-items: center; }
+  .lang-btn--active { color: var(--gold-light); }
+  .lang-btn:hover, .lang-btn:active { color: #fff; }
+  .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 10px; z-index: 201; position: relative; min-width: 44px; min-height: 44px; justify-content: center; align-items: center; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: #fff; transition: all .3s; border-radius: 2px; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu { display: none; position: fixed; inset: 0; background: #080808; z-index: 199; flex-direction: column; justify-content: flex-start; padding: 100px 36px 36px; gap: 0; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a.mobile-link { font-size: 13px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: #444; text-decoration: none; padding: 20px 0; width: 100%; border-bottom: 1px solid #161616; transition: color .2s, border-color .2s; display: flex; align-items: center; justify-content: space-between; }
+  .mobile-menu a.mobile-link .mn { font-size: 10px; font-weight: 600; letter-spacing: 1px; color: #222; transition: color .2s; }
+  .mobile-menu a.mobile-link:last-of-type { border-bottom: none; }
+  .mobile-menu a.mobile-link:hover, .mobile-menu a.mobile-link:active { color: #fff; border-color: #2a2a2a; }
+  .mobile-menu a.mobile-link:hover .mn, .mobile-menu a.mobile-link:active .mn { color: var(--gold-light); }
+  .mobile-lang-toggle { display: flex; gap: 12px; margin-top: 28px; padding-top: 20px; border-top: 1px solid #161616; }
+  .mobile-menu .btn-nav { margin-top: 40px; width: 100%; justify-content: center; }
+
+  main { max-width: 780px; margin: 0 auto; padding: calc(72px + env(safe-area-inset-top,0px) + 40px) 32px 100px; }
+  h1 { font-size: clamp(28px, 4vw, 42px); font-weight: 900; color: #fff; letter-spacing: -1.5px; margin-bottom: 8px; }
+  .updated { font-size: 13px; color: #555; margin-bottom: 56px; }
+  h2 { font-size: 18px; font-weight: 800; color: #fff; margin: 48px 0 16px; }
+  p { font-size: 15px; color: #888; margin-bottom: 16px; }
+  ul { padding-left: 20px; margin-bottom: 16px; }
+  li { font-size: 15px; color: #888; margin-bottom: 8px; }
+  a { color: var(--gold); }
+  strong { color: #ccc; }
+
+  .footer-partners { padding: 0 0 24px; margin-bottom: 24px; border-bottom: 1px solid #1a1a1a; text-align: center; }
+  .footer-partners .label { display: block; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: #888; font-weight: 700; margin-bottom: 16px; }
+  .footer-partners-logos { display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .footer-partners img { height: 50px; width: auto; background: #fff; padding: 8px 18px; border-radius: 10px; display: block; }
+
+  footer { border-top: 1px solid #1a1a1a; padding: 24px 60px; text-align: center; font-size: 13px; color: #555; }
+
+  @media (max-width: 768px) {
+    nav { padding: env(safe-area-inset-top,0px) 20px 0; background: #080808; }
+    .nav-links { display: none; }
+    #lang-toggle { display: none; }
+    .btn-nav { display: none; }
+    .hamburger { display: flex; }
+    main { padding: calc(72px + env(safe-area-inset-top,0px)) 20px 80px; }
+    footer { padding: 24px 20px; }
+    .footer-partners { padding-bottom: 20px; margin-bottom: 20px; }
+    .footer-partners img { height: 42px; padding: 7px 14px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <nav id="nav" role="navigation" aria-label="Menu principal">
+    <a href="/" class="nav-logo" aria-label="Makewell Comunicação — página inicial">
+      <img src="/images/logo-makewell-branca.webp" alt="Makewell Comunicação" width="160" height="40">
+    </a>
+    <div class="nav-right">
+      <div class="nav-links" role="list">
+        <a href="/sobre/" role="listitem">Sobre</a>
+        <a href="/servicos/" role="listitem">Serviços</a>
+        <a href="/framework/" role="listitem">Framework</a>
+        <a href="/metodo/" role="listitem">Método</a>
+        <a href="/cases/" role="listitem">Cases</a>
+      </div>
+      <div id="lang-toggle" role="group" aria-label="Idioma / Language">
+        <a class="lang-btn lang-btn--active" href="#" aria-current="true">PT</a>
+        <span class="lang-sep" aria-hidden="true">|</span>
+        <a class="lang-btn" href="/en/">EN</a>
+      </div>
+      <a href="https://wa.me/5582999103246?text=Ol%C3%A1!%20Quero%20agendar%20um%20diagn%C3%B3stico%20gratuito%20com%20a%20Makewell." class="btn-nav" aria-label="Agendar diagnóstico gratuito" target="_blank" rel="noopener noreferrer">Agendar diagnóstico</a>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menu mobile" aria-modal="true">
+    <a href="/sobre/" class="mobile-link"><span class="mn">01</span><span>Sobre</span></a>
+    <a href="/servicos/" class="mobile-link"><span class="mn">02</span><span>Serviços</span></a>
+    <a href="/framework/" class="mobile-link"><span class="mn">03</span><span>Framework</span></a>
+    <a href="/metodo/" class="mobile-link"><span class="mn">04</span><span>Método</span></a>
+    <a href="/cases/" class="mobile-link"><span class="mn">05</span><span>Cases</span></a>
+    <div class="mobile-lang-toggle" role="group" aria-label="Idioma / Language">
+      <a class="lang-btn lang-btn--active" href="#">PT</a>
+      <span class="lang-sep" aria-hidden="true">|</span>
+      <a class="lang-btn" href="/en/">EN</a>
+    </div>
+    <a href="https://wa.me/5582999103246?text=Ol%C3%A1!%20Quero%20agendar%20um%20diagn%C3%B3stico%20gratuito%20com%20a%20Makewell." class="btn-nav" style="margin-top:40px;width:100%;justify-content:center;font-size:13px;padding:13px 28px;text-decoration:none;letter-spacing:.08em" target="_blank" rel="noopener noreferrer">Agendar diagnóstico gratuito</a>
+  </div>
+</header>
+
+  <main>
+    <h1>Política de Privacidade</h1>
+    <p class="updated">Última atualização: 28 de março de 2026</p>
+
+    <p>A <strong>Makewell Comunicação</strong> respeita a sua privacidade e está comprometida com a proteção dos seus dados pessoais, em conformidade com a <strong>Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018)</strong>.</p>
+
+    <h2>1. Quem somos</h2>
+    <p>Makewell Comunicação, agência de marketing digital com sedes em Maceió (AL) e São Paulo (SP), responsável pelo site <strong>makewell.com.br</strong>.</p>
+    <p>Contato: <a href="mailto:contato@makewell.com.br">contato@makewell.com.br</a> | <a href="https://wa.me/5582999103246">WhatsApp</a></p>
+
+    <h2>2. Quais dados coletamos</h2>
+    <p>Podemos coletar os seguintes dados quando você interage com nosso site ou entra em contato:</p>
+    <ul>
+      <li>Nome e informações de contato (e-mail, telefone) fornecidos voluntariamente via WhatsApp ou formulários</li>
+      <li>Dados de navegação (páginas visitadas, tempo de visita) via cookies analíticos</li>
+      <li>Endereço IP e tipo de dispositivo/navegador</li>
+    </ul>
+
+    <h2>3. Para que usamos seus dados</h2>
+    <ul>
+      <li>Responder às suas solicitações de orçamento ou diagnóstico</li>
+      <li>Melhorar a experiência de navegação no site</li>
+      <li>Analisar o desempenho das páginas (dados agregados e anônimos)</li>
+      <li>Cumprir obrigações legais</li>
+    </ul>
+
+    <h2>4. Cookies</h2>
+    <p>Utilizamos cookies essenciais para o funcionamento do site e cookies analíticos para entender como os visitantes utilizam nossas páginas. Você pode aceitar ou recusar cookies pelo banner exibido na sua primeira visita.</p>
+    <p>Ao recusar, apenas os cookies estritamente necessários serão mantidos.</p>
+
+    <h2>5. Compartilhamento de dados</h2>
+    <p>Não vendemos, alugamos nem compartilhamos seus dados pessoais com terceiros, exceto quando necessário para:</p>
+    <ul>
+      <li>Cumprir obrigações legais ou regulatórias</li>
+      <li>Utilizar ferramentas de análise (ex.: Google Analytics) — sempre de forma anonimizada</li>
+    </ul>
+
+    <h2>6. Seus direitos (LGPD)</h2>
+    <p>Você tem direito a:</p>
+    <ul>
+      <li>Confirmar se tratamos seus dados pessoais</li>
+      <li>Acessar, corrigir ou excluir seus dados</li>
+      <li>Revogar o consentimento a qualquer momento</li>
+      <li>Solicitar portabilidade dos seus dados</li>
+    </ul>
+    <p>Para exercer qualquer desses direitos, entre em contato pelo e-mail <a href="mailto:contato@makewell.com.br">contato@makewell.com.br</a>.</p>
+
+    <h2>7. Segurança</h2>
+    <p>Adotamos medidas técnicas e organizacionais para proteger seus dados contra acesso não autorizado, alteração, divulgação ou destruição.</p>
+
+    <h2>8. Alterações nesta política</h2>
+    <p>Podemos atualizar esta política periodicamente. A data de "última atualização" no topo desta página sempre indicará a versão mais recente.</p>
+
+    <h2>9. Contato</h2>
+    <p>Dúvidas sobre esta política? Fale conosco:</p>
+    <ul>
+      <li>E-mail: <a href="mailto:contato@makewell.com.br">contato@makewell.com.br</a></li>
+      <li>WhatsApp: <a href="https://wa.me/5582999103246">+55 82 99910-3246</a></li>
+    </ul>
+  </main>
+
+  <footer>
+    <div class="footer-partners">
+      <span class="label">Parceiros &amp; Certificações Oficiais</span>
+      <div class="footer-partners-logos">
+        <img src="/images/logo-kommo-partner.webp" alt="Kommo Partner" loading="lazy">
+      </div>
+    </div>
+    <p>© 2026 Makewell Comunicação. Todos os direitos reservados.</p>
+  </footer>
+<script>
+(function(){
+  var ham = document.getElementById('hamburger');
+  var menu = document.getElementById('mobileMenu');
+  if(!ham||!menu) return;
+  ham.addEventListener('click', function(){
+    var open = ham.classList.toggle('open');
+    menu.classList.toggle('open', open);
+    ham.setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  menu.addEventListener('click', function(e){ if(e.target===menu){ ham.classList.remove('open'); menu.classList.remove('open'); ham.setAttribute('aria-expanded','false'); document.body.style.overflow=''; } });
+})();
+</script>
+<script>
+(function(){
+  if(!window.matchMedia('(hover:hover) and (pointer:fine)').matches)return;
+  document.querySelectorAll('.btn-nav').forEach(function(btn){
+    var bRect=null,bRaf=0;
+    btn.addEventListener('mouseenter',function(){bRect=btn.getBoundingClientRect();});
+    btn.addEventListener('mousemove',function(e){
+      if(!bRect)return;
+      var ex=e.clientX,ey=e.clientY;
+      if(!bRaf)bRaf=requestAnimationFrame(function(){
+        var x=(ex-bRect.left-bRect.width/2)*0.13;
+        var y=(ey-bRect.top-bRect.height/2)*0.13;
+        btn.style.transform='translate('+x+'px,'+y+'px)';
+        bRaf=0;
+      });
+    });
+    btn.addEventListener('mouseleave',function(){bRect=null;btn.style.transform='';});
+  });
+})();
+</script>
+</body>
+</html>

@@ -208,9 +208,12 @@
   .hero-visual-caption{position:absolute;bottom:24px;left:32px;right:32px;font-size:13px;color:#ccc;font-style:italic;line-height:1.5;z-index:2;}
   .hero-visual-caption strong{color:var(--gold-light);font-style:normal;font-weight:700;}
   @media (max-width:768px){.hero-visual{margin:32px 0 48px;aspect-ratio:4/3;}.hero-visual-caption{bottom:16px;left:20px;right:20px;font-size:12px;}}
+  .skip-link{position:absolute;top:-100%;left:16px;background:var(--gold);color:#000;padding:8px 16px;border-radius:0 0 4px 4px;font-weight:600;z-index:9999;transition:top .15s;text-decoration:none;font-size:13px;}
+  .skip-link:focus{top:0;}
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Pular para o conteúdo</a>
 
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFGD8X8"
@@ -234,7 +237,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="lang-sep" aria-hidden="true">|</span>
         <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
       </div>
-      <a href="https://wa.me/5582999103246?text=Ol%C3%A1!%20Quero%20agendar%20uma%20reuni%C3%A3o%20com%20a%20Makewell." class="btn-nav" aria-label="Agendar reunião" target="_blank" rel="noopener noreferrer" data-i18n="navCta" data-i18n-href="navCtaHref" data-i18n-aria="navCtaAria">Agendar Reunião</a>
+      <a href="https://wa.me/5582999103246?text=Ol%C3%A1!%20Quero%20agendar%20um%20diagn%C3%B3stico%20gratuito%20com%20a%20Makewell." class="btn-nav" aria-label="Agendar diagnóstico gratuito" target="_blank" rel="noopener noreferrer" data-i18n="navCta" data-i18n-href="navCtaHref" data-i18n-aria="navCtaAria">Agendar diagnóstico</a>
       <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
       </button>
@@ -255,7 +258,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </header>
 
-<main>
+<main id="main-content">
   <article>
     <header>
       <span class="kicker" data-i18n="kicker">Pilar 02 · Conteúdo</span>
@@ -421,7 +424,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 (function(){
   var TRANSLATIONS = { en: {
     navAbout:'About', navServices:'Services', navFramework:'Framework', navMethod:'Method', navCases:'Cases',
-    navCta:'Schedule a Meeting', navCtaHref:'https://wa.me/5582999103246?text=Hello!%20I%20want%20to%20schedule%20a%20meeting%20with%20Makewell.', navCtaAria:'Schedule a meeting',
+    navCta:'Schedule a Diagnosis', navCtaHref:'https://wa.me/5582999103246?text=Hello!%20I%20want%20to%20schedule%20a%20free%20diagnosis%20with%20Makewell.', navCtaAria:'Schedule a free diagnosis',
     mobileCta:'Schedule Free Diagnosis', mobileDiagHref:'https://wa.me/5582999103246?text=Hello!%20I%20want%20to%20schedule%20a%20free%20diagnosis%20with%20Makewell.',
     kicker:'Pillar 02 · Content',
     pageTitle:'How we create content that <span style="color:var(--gold-light)">converts</span>',

@@ -48,7 +48,7 @@ R. Prof. Lourenço Peixoto, 36, Sala 04, Jatiúca, Maceió, AL.
 - CNPJ: 27.238.877/0001-71
 - WhatsApp: +55 82 99910-3246
 - E-mail: contato@makewell.com.br
-- Fundação: 2016
+- Fundação: 2017 (São Paulo/SP). Expansão para o Nordeste em 2020, com sede em Maceió (AL) e operação estratégica em São Paulo (SP).
 
 ## Deploy
 
