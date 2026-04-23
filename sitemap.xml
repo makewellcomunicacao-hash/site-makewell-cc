@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://makewell.com.br/</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/"/>
@@ -11,12 +11,54 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
   </url>
   <url>
-    <loc>https://makewell.com.br/en/</loc>
-    <lastmod>2026-04-14</lastmod>
+    <loc>https://makewell.com.br/sobre/</loc>
+    <lastmod>2026-04-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://makewell.com.br/servicos/</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://makewell.com.br/framework/</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://makewell.com.br/metodo/</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://makewell.com.br/cases/</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://makewell.com.br/en/</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
+  </url>
+  <url>
+    <loc>https://makewell.com.br/como-criamos/</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://makewell.com.br/cases/casa-hunter-casa-dos-raros/</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
