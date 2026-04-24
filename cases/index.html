@@ -430,6 +430,7 @@ src="https://www.facebook.com/tr?id=2571294026447618&ev=PageView&noscript=1"
     navAbout:'About', navServices:'Services', navFramework:'Framework', navMethod:'Method', navCases:'Cases',
     navCta:'Schedule a Diagnosis', navCtaHref:'https://wa.me/5582999103246?text=Hello!%20I%20want%20to%20schedule%20a%20free%20diagnosis%20with%20Makewell.', navCtaAria:'Schedule a free diagnosis',
     mobileCta:'Schedule Free Diagnosis', mobileDiagHref:'https://wa.me/5582999103246?text=Hello!%20I%20want%20to%20schedule%20a%20free%20diagnosis%20with%20Makewell.',
+    metaTitle:'Makewell Cases | Real ROI in Healthcare, Legal and Social Causes',
     kicker:'Cases',
     pageTitle:'What happens when <span class="gold">method</span> meets execution',
     pageLead:'Cases with names, sectors and numbers. No generic storytelling — what Makewell delivered, for whom, and the size of the return in real currency. If the method works, the results speak first.',
@@ -478,6 +479,7 @@ src="https://www.facebook.com/tr?id=2571294026447618&ev=PageView&noscript=1"
   document.querySelectorAll('[data-i18n]').forEach(function(el){
     var h = el.outerHTML; _ptSnap[el.dataset.i18n] = h.slice(h.indexOf('>')+1, h.lastIndexOf('</'));
   });
+  _ptSnap.metaTitle = document.title;
   function applyLang(lang){
     var T = lang === 'en' ? TRANSLATIONS.en : _ptSnap;
     document.querySelectorAll('[data-i18n]').forEach(function(el){
@@ -495,6 +497,7 @@ src="https://www.facebook.com/tr?id=2571294026447618&ev=PageView&noscript=1"
       btn.setAttribute('aria-pressed', active ? 'true' : 'false');
     });
     document.documentElement.lang = lang === 'en' ? 'en' : 'pt-BR';
+    if(T.metaTitle) document.title = T.metaTitle;
     localStorage.setItem('mw-lang', lang);
   }
   document.querySelectorAll('.lang-btn').forEach(function(btn){

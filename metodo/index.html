@@ -512,6 +512,7 @@ src="https://www.facebook.com/tr?id=2571294026447618&ev=PageView&noscript=1"
     navAbout:'About', navServices:'Services', navFramework:'Framework', navMethod:'Method', navCases:'Cases',
     navCta:'Schedule a Diagnosis', navCtaHref:'https://wa.me/5582999103246?text=Hello!%20I%20want%20to%20schedule%20a%20free%20diagnosis%20with%20Makewell.', navCtaAria:'Schedule a free diagnosis',
     mobileCta:'Schedule Free Diagnosis', mobileDiagHref:'https://wa.me/5582999103246?text=Hello!%20I%20want%20to%20schedule%20a%20free%20diagnosis%20with%20Makewell.',
+    metaTitle:'FishWell Method | Makewell — From Unknown to Recurring Client',
     kicker:'Our Differentiator',
     pageTitle:'Method <span class="gold">FishWell</span>: your client\'s journey, mapped from unknown to recurring',
     pageLead:'FishWell is Makewell\'s proprietary method to map the client\'s journey within your business, in five stages. Not a generic recipe, but a structured, documented, and measurable process at each phase. Every communication action has a defined place in the revenue funnel.',
@@ -585,6 +586,7 @@ src="https://www.facebook.com/tr?id=2571294026447618&ev=PageView&noscript=1"
   document.querySelectorAll('[data-i18n]').forEach(function(el){
     var h = el.outerHTML; _ptSnap[el.dataset.i18n] = h.slice(h.indexOf('>')+1, h.lastIndexOf('</'));
   });
+  _ptSnap.metaTitle = document.title;
   function applyLang(lang){
     var T = lang === 'en' ? TRANSLATIONS.en : _ptSnap;
     document.querySelectorAll('[data-i18n]').forEach(function(el){
@@ -602,6 +604,7 @@ src="https://www.facebook.com/tr?id=2571294026447618&ev=PageView&noscript=1"
       btn.setAttribute('aria-pressed', active ? 'true' : 'false');
     });
     document.documentElement.lang = lang === 'en' ? 'en' : 'pt-BR';
+    if(T.metaTitle) document.title = T.metaTitle;
     localStorage.setItem('mw-lang', lang);
   }
   document.querySelectorAll('.lang-btn').forEach(function(btn){
