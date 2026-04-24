@@ -183,7 +183,7 @@
     #lang-toggle { display: none; }
     .btn-nav { display: none; }
     .hamburger { display: flex; }
-    main { padding: calc(72px + env(safe-area-inset-top,0px)) 20px 80px; }
+    main { padding: calc(72px + env(safe-area-inset-top,0px) + 48px) 20px 80px; }
     .pillars { grid-template-columns: 1fr; }
     .mente-steps { grid-template-columns: repeat(2, 1fr); }
     .neuro-table { font-size: 13px; }
@@ -208,6 +208,9 @@
   .hero-visual-caption{position:absolute;bottom:24px;left:32px;right:32px;font-size:13px;color:#ccc;font-style:italic;line-height:1.5;z-index:2;}
   .hero-visual-caption strong{color:var(--gold-light);font-style:normal;font-weight:700;}
   @media (max-width:768px){.hero-visual{margin:32px 0 48px;aspect-ratio:4/3;}.hero-visual-caption{bottom:16px;left:20px;right:20px;font-size:12px;}}
+  @media (hover: none) {
+    .pillar:active { border-color: var(--gold-light); transform: translateY(-2px); }
+  }
   .skip-link{position:absolute;top:-100%;left:16px;background:var(--gold);color:#000;padding:8px 16px;border-radius:0 0 4px 4px;font-weight:600;z-index:9999;transition:top .15s;text-decoration:none;font-size:13px;}
   .skip-link:focus{top:0;}
 </style>

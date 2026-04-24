@@ -108,19 +108,7 @@
   .section-sub { font-size: 15px; color: #888; margin-bottom: 32px; max-width: 720px; }
   p { font-size: 16px; color: #b8b8b8; margin-bottom: 18px; }
 
-  /* Case destaque */
-  .feature-case { display: block; background: linear-gradient(135deg, var(--dark-2) 0%, #0c0c0c 100%); border: 1px solid #2a2a2a; border-radius: 20px; padding: 40px; margin: 24px 0 56px; transition: border-color .3s ease, transform .3s ease; text-decoration: none; }
-  .feature-case:hover { border-color: var(--gold-light); transform: translateY(-3px); text-decoration: none; }
-  .feature-tag { display: inline-block; font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: var(--gold-light); font-weight: 800; padding: 4px 10px; border: 1px solid rgba(240,120,32,.4); border-radius: 999px; margin-bottom: 18px; }
-  .feature-case h3 { font-size: clamp(22px, 3vw, 30px); color: #fff; font-weight: 900; letter-spacing: -.8px; line-height: 1.2; margin-bottom: 14px; }
-  .feature-case .feature-sub { font-size: 16px; color: #c8c8c8; margin-bottom: 20px; line-height: 1.6; }
-  .feature-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 24px 0; }
-  .feature-stats > div { text-align: center; padding: 14px 10px; background: rgba(0,0,0,.3); border-radius: 10px; }
-  .feature-stats span { display: block; font-size: clamp(16px, 2vw, 22px); font-weight: 900; color: var(--gold-light); letter-spacing: -.5px; }
-  .feature-stats small { display: block; font-size: 11px; color: #888; letter-spacing: .1em; text-transform: uppercase; margin-top: 4px; }
-  .feature-case .cta-arrow { color: var(--gold-light); font-weight: 700; font-size: 14px; letter-spacing: .04em; }
-
-  /* Case cards (Felipe, Thielen) */
+  /* Case cards */
   .case-card { background: var(--dark-2); border: 1px solid #222; border-radius: 16px; padding: 0; margin: 20px 0; overflow: hidden; transition: border-color .25s ease, transform .25s ease; }
   .case-card:hover { border-color: var(--gold-light); transform: translateY(-2px); }
   .case-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 28px; border-bottom: 1px solid #222; }
@@ -135,6 +123,8 @@
   .case-metric-value { font-size: clamp(22px, 3vw, 28px); font-weight: 900; color: #fff; letter-spacing: -.5px; line-height: 1; }
   .case-metric-value.accent { color: var(--gold-light); }
   .case-metric-label { font-size: 11px; color: #888; letter-spacing: .08em; text-transform: uppercase; margin-top: 6px; }
+  .case-body .cta-arrow { display: inline-block; color: var(--gold-light); font-weight: 700; font-size: 14px; letter-spacing: .04em; margin-top: 16px; text-decoration: none; }
+  .case-body .cta-arrow:hover { text-decoration: underline; }
   .case-quote { margin: 18px 0 0; padding: 18px 22px; background: rgba(240,120,32,.06); border-left: 3px solid var(--gold-light); border-radius: 0 10px 10px 0; }
   .case-quote p { font-size: 15px; color: #e0e0e0; font-style: italic; margin-bottom: 8px; line-height: 1.6; }
   .case-quote cite { font-size: 12px; color: var(--gold-light); font-style: normal; font-weight: 700; letter-spacing: .02em; }
@@ -174,9 +164,7 @@
     #lang-toggle { display: none; }
     .btn-nav { display: none; }
     .hamburger { display: flex; }
-    main { padding: calc(72px + env(safe-area-inset-top,0px)) 20px 80px; }
-    .feature-case { padding: 28px; }
-    .feature-stats { grid-template-columns: repeat(2, 1fr); }
+    main { padding: calc(72px + env(safe-area-inset-top,0px) + 48px) 20px 80px; }
     .summary-stats { grid-template-columns: repeat(2, 1fr); }
     .case-header { padding: 16px 20px; flex-wrap: wrap; gap: 8px; }
     .case-body { padding: 22px 20px; }
@@ -185,6 +173,9 @@
     .footer-partners { padding-bottom: 20px; margin-bottom: 20px; }
     .footer-partners img { height: 42px; padding: 7px 14px; }
     .page-cta { padding: 40px 24px; }
+  }
+  @media (hover: none) {
+    .case-card:active { border-color: var(--gold-light); transform: translateY(-2px); }
   }
   .skip-link{position:absolute;top:-100%;left:16px;background:var(--gold);color:#000;padding:8px 16px;border-radius:0 0 4px 4px;font-weight:600;z-index:9999;transition:top .15s;text-decoration:none;font-size:13px;}
   .skip-link:focus{top:0;}
@@ -257,18 +248,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2 data-i18n="destH2">Case em <span class="gold">destaque</span></h2>
       <p class="section-sub" data-i18n="destSub">Quatro anos de comunicação estratégica que transcendeu o digital, mobilizou o país e pautou o Supremo Tribunal Federal.</p>
 
-      <a href="/cases/casa-hunter-casa-dos-raros/" class="feature-case" aria-label="Ler case completo Casa Hunter e Casa dos Raros">
-        <span class="feature-tag" data-i18n="featTag">Case de Impacto</span>
-        <h3 data-i18n="featH3">Como a Makewell deu voz a 13 milhões de brasileiros com doenças raras</h3>
-        <p class="feature-sub" data-i18n="featSub">Casa Hunter &amp; Casa dos Raros: construção de comunidade, campanhas nacionais, série documental em streaming nacional e discussões no STF sobre acesso a tratamentos.</p>
-        <div class="feature-stats">
-          <div><span>50K+</span><small data-i18n="featStat1L">Seguidores engajados</small></div>
-          <div><span data-i18n="featStat2V">4 anos</span><small data-i18n="featStat2L">De parceria</small></div>
-          <div><span data-i18n="featStat3V">Streaming</span><small data-i18n="featStat3L">Série documental</small></div>
-          <div><span>STF</span><small data-i18n="featStat4L">Impacto em políticas</small></div>
+      <article class="case-card">
+        <div class="case-header">
+          <span class="case-sector" data-i18n="featTag">Case de Impacto</span>
+          <span class="case-roi">+13M alcançados</span>
         </div>
-        <span class="cta-arrow" data-i18n="featCta">Ler case completo &rarr;</span>
-      </a>
+        <div class="case-body">
+          <h3 data-i18n="featH3">Como a Makewell deu voz a 13 milhões de brasileiros com doenças raras</h3>
+          <p class="case-sub">Casa Hunter · Casa dos Raros</p>
+          <p data-i18n="featSub">Casa Hunter &amp; Casa dos Raros: construção de comunidade, campanhas nacionais, série documental em streaming nacional e discussões no STF sobre acesso a tratamentos.</p>
+          <div class="case-metrics" role="list">
+            <div class="case-metric" role="listitem">
+              <div class="case-metric-value accent">50K+</div>
+              <div class="case-metric-label" data-i18n="featStat1L">Seguidores engajados</div>
+            </div>
+            <div class="case-metric" role="listitem">
+              <div class="case-metric-value" data-i18n="featStat2V">4 anos</div>
+              <div class="case-metric-label" data-i18n="featStat2L">De parceria</div>
+            </div>
+            <div class="case-metric" role="listitem">
+              <div class="case-metric-value">STF</div>
+              <div class="case-metric-label" data-i18n="featStat4L">Impacto em políticas</div>
+            </div>
+          </div>
+          <a href="/cases/casa-hunter-casa-dos-raros/" class="cta-arrow" data-i18n="featCta">Ler case completo &rarr;</a>
+        </div>
+      </article>
     </section>
 
     <section id="resultados">
