@@ -1,4 +1,11 @@
 User-agent: *
 Allow: /
 
+# Bloqueia URLs de spam com parâmetros de afiliados injetados externamente
+Disallow: /*?r=
+Disallow: /*?mod=
+Disallow: /*?uri=
+Disallow: /*?elementor_library=
+Disallow: /*?et_core_page_resource
+
 Sitemap: https://makewell.com.br/sitemap.xml
