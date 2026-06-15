@@ -1651,16 +1651,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   (function(){
     const el = document.getElementById('heroMatrix');
     if(!el) return;
-    const terms = ['ROI','CTR','CPC','ROAS','SEO','CRM','CPL','LTV','MQL','SQL','KPI','ADS','UGC','SEM','NPS','CAC','ARR','MRR','CTA','A/B','CPM','PPC','OKR','GTM','ICP','%','→','↑','$','R$'];
-    const count = isMob ? 18 : 36;
-    for(let i = 0; i < count; i++){
+    const terms = ['ROI','CTR','CPC','ROAS','SEO','CRM','CPL','LTV','KPI','ADS','UGC','SEM','NPS','CAC','CPM','PPC','CTA','CVR','CRO','LEAD','FUNIL','COPY','TRÁFEGO','MARCA','VENDA','BRAND','MÍDIA','ALCANCE','ENGAJA'];
+    const count = isMob ? 14 : 28;
+    const placed = [];
+    const minDist = 12;
+    let attempts = 0;
+    let i = 0;
+    while(i < count && attempts < count * 20){
+      attempts++;
+      const lx = Math.random() * 90;
+      const ly = Math.random() * 88;
+      const overlap = placed.some(p => Math.abs(p[0]-lx) < minDist && Math.abs(p[1]-ly) < minDist);
+      if(overlap) continue;
+      placed.push([lx, ly]);
       const s = document.createElement('span');
-      s.textContent = terms[Math.floor(Math.random() * terms.length)];
+      s.textContent = terms[i % terms.length];
       const op = (Math.random() * 0.08 + 0.10).toFixed(2);
       const dur = (Math.random() * 5 + 5).toFixed(1);
       const delay = (Math.random() * 3).toFixed(1);
-      s.style.cssText = `left:${Math.random()*96}%;top:${Math.random()*92}%;--op:${op};--md:${dur}s;--delay:${delay}s;`;
+      s.style.cssText = `left:${lx}%;top:${ly}%;--op:${op};--md:${dur}s;--delay:${delay}s;`;
       el.appendChild(s);
+      i++;
     }
   })();
 
