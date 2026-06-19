@@ -363,7 +363,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="hero-left">
     <div class="hero-pill reveal">
       <span class="hero-pill-dot" aria-hidden="true"></span>
-      <span data-i18n="heroPill">Há mais de 9 anos transformando marcas</span>
+      <span data-i18n="heroPill" id="js-hero-pill">Há mais de 9 anos transformando marcas</span>
     </div>
     <h1 class="hero-h1 reveal" style="transition-delay:.1s" data-i18n="heroH1">
       Sua marca no topo<br>com estratégia,<br>
@@ -398,7 +398,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="hero-stat-label" data-i18n="heroStat3">Faturamento de Clientes</div>
         </div>
         <div class="hero-stat">
-          <div class="hero-stat-value">9+</div>
+          <div class="hero-stat-value" id="js-anos-exp-hero">9+</div>
           <div class="hero-stat-label" data-i18n="heroStat4">Anos de Experiência</div>
         </div>
       </div>
@@ -794,7 +794,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="about-stats reveal" aria-label="Estatísticas da empresa" style="transition-delay:.2s">
       <div class="about-stat">
-        <div class="about-stat-val">9+</div>
+        <div class="about-stat-val" id="js-anos-exp-about">9+</div>
         <div class="about-stat-label" data-i18n="aboutStatYears">Anos</div>
       </div>
       <div class="about-stat">
@@ -1165,7 +1165,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
   <div class="footer-bottom">
-    <p data-i18n="footerCopyright">&copy; 2026 Makewell Comunicação. Todos os direitos reservados. &middot; <a href="/politica-de-privacidade/">Política de Privacidade</a> &middot; CNPJ 27.238.877/0001-71</p>
+    <p data-i18n="footerCopyright" id="js-footer-copyright">&copy; 2026 Makewell Comunicação. Todos os direitos reservados. &middot; <a href="/politica-de-privacidade/">Política de Privacidade</a> &middot; CNPJ 27.238.877/0001-71</p>
   </div>
 </footer>
 
@@ -1177,6 +1177,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </a>
 
 <script>
+  // ── Datas dinâmicas (ano copyright + anos de experiência) ──
+  (function() {
+    var hoje = new Date();
+    var ano = hoje.getFullYear();
+    // Aniversário de fundação: 7 de março de 2017
+    var aniversario = new Date(ano, 2, 7); // mês 2 = março (0-indexed)
+    var anosExp = ano - 2017 - (hoje < aniversario ? 1 : 0);
+
+    // Atualiza elementos PT (não passam pelo applyLang)
+    var heroExp = document.getElementById('js-anos-exp-hero');
+    if (heroExp) heroExp.textContent = anosExp + '+';
+
+    var aboutExp = document.getElementById('js-anos-exp-about');
+    if (aboutExp) aboutExp.textContent = anosExp + '+';
+
+    var heroPill = document.getElementById('js-hero-pill');
+    if (heroPill) heroPill.textContent = 'Há mais de ' + anosExp + ' anos transformando marcas';
+
+    var footerCopy = document.getElementById('js-footer-copyright');
+    if (footerCopy) footerCopy.innerHTML = '&copy; ' + ano + ' Makewell Comunicação. Todos os direitos reservados. &middot; <a href="/politica-de-privacidade/">Política de Privacidade</a> &middot; CNPJ 27.238.877/0001-71';
+
+    var aboutH2 = document.getElementById('about-title');
+    if (aboutH2) aboutH2.innerHTML = 'Há mais de <span class="gold">' + anosExp + ' anos</span> transformando negócios';
+
+    // Expõe para o i18n usar nas strings EN
+    window._MW_ANO = ano;
+    window._MW_ANOS_EXP = anosExp;
+  })();
+
   // ── i18n: Language Toggle ──
   const TRANSLATIONS = {
     en: {
@@ -1208,7 +1237,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       navCtaHref: 'https://wa.me/5582999103246?text=Hello!%20I%27d%20like%20to%20schedule%20a%20free%20diagnosis%20with%20Makewell.',
       mobileCta: 'Schedule a Free Diagnostic',
       mobileDiagHref: 'https://wa.me/5582999103246?text=Hello!%20I%27d%20like%20to%20schedule%20a%20free%20diagnostic%20with%20Makewell.',
-      heroPill: 'Over 9 years transforming brands',
+      heroPill: 'Over ' + window._MW_ANOS_EXP + ' years transforming brands',
       heroH1: 'Your brand at the top<br>with strategy,<br><em>performance and intelligence.</em>',
       heroP: 'Strategy, performance and intelligence to turn brands into movements. <strong style="color:#fff">Talk to us</strong> and start the new chapter of your brand now.',
       heroCta1: 'Schedule a Free Diagnostic',
@@ -1227,7 +1256,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       casesCtaBtn: 'I Want Results Like These',
       casesCtaHref: 'https://wa.me/5582999103246?text=Hello!%20I%20want%20results%20like%20Makewell%27s%20cases.',
       aboutTag: 'WHO LEADS',
-      aboutH2: 'Over <span class="gold">9 years</span> transforming businesses',
+      aboutH2: 'Over <span class="gold">' + window._MW_ANOS_EXP + ' years</span> transforming businesses',
       aboutP: 'Makewell was born with a clear purpose: to transform businesses into brands with soul, direction and purpose. With strategy, performance and high-level branding, we drive companies across Brazil.',
       aboutQuote: '"We don\'t sell posts. We build bridges."',
       teamRole1: 'Director of Operations and Creative Strategy',
@@ -1253,7 +1282,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       footerBlogDesc: 'Strategic content on marketing, sales and digital positioning. Follow Makewell on Instagram.',
       footerBlogLink: '@makewellcomunicacao →',
       footerLocTitle: 'Location',
-      footerCopyright: '&copy; 2026 Makewell Comunicação. All rights reserved. &middot; <a href="/politica-de-privacidade/">Privacy Policy</a> &middot; Tax ID (CNPJ): 27.238.877/0001-71',
+      footerCopyright: '&copy; ' + window._MW_ANO + ' Makewell Comunicação. All rights reserved. &middot; <a href="/politica-de-privacidade/">Privacy Policy</a> &middot; Tax ID (CNPJ): 27.238.877/0001-71',
       partnerLabel: 'Official Partners &amp; Certifications',
       // Ticker
       ticker1: 'Strategy', ticker2: 'Branding', ticker3: 'Paid Traffic', ticker4: 'Social Selling',
