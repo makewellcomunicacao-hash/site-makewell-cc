@@ -1185,27 +1185,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     var aniversario = new Date(ano, 2, 7); // mês 2 = março (0-indexed)
     var anosExp = ano - 2017 - (hoje < aniversario ? 1 : 0);
 
-    // Expõe para o i18n (TRANSLATIONS) usar nas strings EN — deve rodar antes do objeto abaixo
+    // Atualiza elementos PT diretamente — este script roda após os elementos existirem no DOM,
+    // e ANTES do snapshot PT do i18n (linha abaixo), então os valores corretos entram no snapshot.
+    var heroExp = document.getElementById('js-anos-exp-hero');
+    if (heroExp) heroExp.textContent = anosExp + '+';
+
+    var aboutExp = document.getElementById('js-anos-exp-about');
+    if (aboutExp) aboutExp.textContent = anosExp + '+';
+
+    var heroPill = document.getElementById('js-hero-pill');
+    if (heroPill) heroPill.textContent = 'Há mais de ' + anosExp + ' anos transformando marcas';
+
+    var footerCopy = document.getElementById('js-footer-copyright');
+    if (footerCopy) footerCopy.innerHTML = '&copy; ' + ano + ' Makewell Comunicação. Todos os direitos reservados. &middot; <a href="/politica-de-privacidade/">Política de Privacidade</a> &middot; CNPJ 27.238.877/0001-71';
+
+    var aboutH2 = document.getElementById('about-title');
+    if (aboutH2) aboutH2.innerHTML = 'Há mais de <span class="gold">' + anosExp + ' anos</span> transformando negócios';
+
+    // Expõe para o i18n (TRANSLATIONS EN) usar nas strings abaixo
     window._MW_ANO = ano;
     window._MW_ANOS_EXP = anosExp;
-
-    // Atualiza elementos PT após o DOM estar pronto
-    document.addEventListener('DOMContentLoaded', function() {
-      var heroExp = document.getElementById('js-anos-exp-hero');
-      if (heroExp) heroExp.textContent = anosExp + '+';
-
-      var aboutExp = document.getElementById('js-anos-exp-about');
-      if (aboutExp) aboutExp.textContent = anosExp + '+';
-
-      var heroPill = document.getElementById('js-hero-pill');
-      if (heroPill) heroPill.textContent = 'Há mais de ' + anosExp + ' anos transformando marcas';
-
-      var footerCopy = document.getElementById('js-footer-copyright');
-      if (footerCopy) footerCopy.innerHTML = '&copy; ' + ano + ' Makewell Comunicação. Todos os direitos reservados. &middot; <a href="/politica-de-privacidade/">Política de Privacidade</a> &middot; CNPJ 27.238.877/0001-71';
-
-      var aboutH2 = document.getElementById('about-title');
-      if (aboutH2) aboutH2.innerHTML = 'Há mais de <span class="gold">' + anosExp + ' anos</span> transformando negócios';
-    });
   })();
 
   // ── i18n: Language Toggle ──
