@@ -118,6 +118,12 @@
 
   main { max-width: 1120px; margin: 0 auto; padding: calc(72px + env(safe-area-inset-top,0px) + 48px) 60px 120px; }
 
+  .skip-link { position: absolute; top: -100%; left: 16px; background: var(--gold); color: #000; padding: 8px 16px; border-radius: 0 0 4px 4px; font-weight: 700; z-index: 9999; transition: top .15s; text-decoration: none; font-size: 13px; }
+  .skip-link:focus { top: 0; }
+
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #666; text-decoration: none; margin-bottom: 32px; transition: color .2s; }
+  .back-link:hover { color: var(--gold-light); }
+  .back-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
   .case-kicker { display: inline-block; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-light); font-weight: 800; padding: 6px 14px; border: 1px solid var(--gold-light); border-radius: 999px; margin-bottom: 24px; }
   h1.case-title { font-size: clamp(32px, 5vw, 54px); font-weight: 900; color: #fff; letter-spacing: -1.8px; line-height: 1.1; margin-bottom: 20px; }
   .case-lead { font-size: clamp(16px, 1.8vw, 20px); color: #aaa; margin-bottom: 64px; line-height: 1.6; max-width: 680px; }
@@ -180,6 +186,7 @@
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Pular para o conteúdo</a>
 
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFGD8X8"
@@ -224,9 +231,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </header>
 
-<main>
+<main id="main-content">
   <article>
     <header>
+      <a href="/cases/" class="back-link" data-i18n="backLink" data-i18n-href="backHref"><svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>Cases</a>
       <span class="case-kicker" data-i18n="kicker">Case de Impacto</span>
       <h1 class="case-title" data-i18n="caseTitle">Como a Makewell ajudou a dar voz a 13 milhões de brasileiros</h1>
       <p class="case-lead" data-i18n="caseLead">Casa Hunter e Casa dos Raros — quatro anos de comunicação estratégica que transcendeu o digital, mobilizou o país e pautou o Supremo Tribunal Federal.</p>
@@ -313,6 +321,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     navAbout:'About', navServices:'Services', navFramework:'Framework', navMethod:'Method', navCases:'Cases',
     navCta:'Schedule a Diagnosis', navCtaHref:'https://wa.me/5582999103246?text=Hello!%20I%20want%20to%20schedule%20a%20free%20diagnosis%20with%20Makewell.', navCtaAria:'Schedule a free diagnosis',
     mobileCta:'Schedule Free Diagnosis', mobileCtaHref:'https://wa.me/5582999103246?text=Hello!%20I%20want%20to%20schedule%20a%20free%20diagnosis%20with%20Makewell.',
+    backLink:'Cases', backHref:'/en/cases/',
     kicker:'Impact Case',
     caseTitle:'How Makewell helped give a voice to 13 million Brazilians',
     caseLead:'Casa Hunter and Casa dos Raros — four years of strategic communication that transcended the digital, mobilized the country and set the agenda at the Supreme Court.',

@@ -115,6 +115,10 @@
 
   main { max-width: 1120px; margin: 0 auto; padding: calc(72px + env(safe-area-inset-top,0px) + 48px) 60px 120px; }
 
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #666; text-decoration: none; margin-bottom: 32px; transition: color .2s; }
+  .back-link:hover { color: var(--gold-light); }
+  .back-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
   .kicker { display: inline-block; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-light); font-weight: 800; padding: 6px 14px; border: 1px solid var(--gold-light); border-radius: 999px; margin-bottom: 24px; }
   h1.page-title { font-size: clamp(32px, 5vw, 54px); font-weight: 900; color: #fff; letter-spacing: -1.8px; line-height: 1.1; margin-bottom: 20px; }
   .page-lead { font-size: clamp(16px, 1.8vw, 20px); color: #aaa; margin-bottom: 64px; line-height: 1.6; max-width: 720px; }
@@ -266,6 +270,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <main id="main-content">
   <article>
     <header>
+      <a href="/framework/" class="back-link" data-i18n="backLink" data-i18n-href="backHref"><svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>Framework</a>
       <span class="kicker" data-i18n="kicker">Pilar 02 · Conteúdo</span>
       <h1 class="page-title" data-i18n="pageTitle">Como criamos conteúdo que <span style="color:var(--gold-light)">converte</span></h1>
       <p class="page-lead" data-i18n="pageLead">Esta página detalha o <strong>Pilar 02 (Conteúdo)</strong> do <a href="/framework/">Framework Makewell</a>. Todo conteúdo que produzimos nasce de um framework próprio que cruza as maiores mentes da publicidade mundial com neuromarketing aplicado — é assim que separamos o conteúdo comum do conteúdo que constrói marca e gera resultado.</p>
@@ -432,7 +437,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     navCta:'Schedule a Diagnosis', navCtaHref:'https://wa.me/5582999103246?text=Hello!%20I%20want%20to%20schedule%20a%20free%20diagnosis%20with%20Makewell.', navCtaAria:'Schedule a free diagnosis',
     mobileCta:'Schedule Free Diagnosis', mobileDiagHref:'https://wa.me/5582999103246?text=Hello!%20I%20want%20to%20schedule%20a%20free%20diagnosis%20with%20Makewell.',
     metaTitle:'How We Create Content | Pillar 02 of the Makewell Framework',
-    kicker:'Pillar 02 · Content',
+    backLink: "Framework", backHref: "/en/framework/",
+kicker:'Pillar 02 · Content',
     pageTitle:'How we create content that <span style="color:var(--gold-light)">converts</span>',
     pageLead:'This page details <strong>Pillar 02 (Content)</strong> of the <a href="/framework/">Makewell Framework</a>. Every piece of content we produce comes from a proprietary framework that crosses the greatest minds in world advertising with applied neuromarketing — this is how we separate ordinary content from content that builds brands and drives results.',
     heroCaption:'Our shelf — <strong>Ogilvy, Lindstrom, Vaynerchuk, Kurtz</strong> — the same references we cross with neuromarketing in every piece we produce.',
