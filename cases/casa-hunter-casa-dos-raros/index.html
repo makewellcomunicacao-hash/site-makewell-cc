@@ -99,6 +99,7 @@
   .btn-nav { background: var(--gold-light); color: #fff; border: none; padding: 11px 20px; font-weight: 800; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border-radius: 6px; transition: background .2s, transform .2s; white-space: nowrap; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; line-height: 1; box-sizing: border-box !important; width: 176px !important; min-width: 176px !important; max-width: 176px !important; flex: none !important }
   .btn-nav:hover, .btn-nav:active { background: var(--gold); transform: translateY(-1px); }
   #lang-toggle { display: flex; align-items: center; gap: 6px; }
+  .lang-dropdown{position:relative;}.lang-dropdown-trigger{display:flex;align-items:center;gap:6px;background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;letter-spacing:1.5px;color:#bbb;padding:10px 8px;min-height:44px;transition:color .2s;text-transform:uppercase;}.lang-dropdown-trigger:hover,.lang-dropdown-trigger:active{color:#fff;}.lang-dropdown-menu{display:none;position:absolute;top:calc(100% + 8px);right:0;background:#111;border:1px solid #222;border-radius:10px;padding:6px;min-width:190px;box-shadow:0 20px 50px rgba(0,0,0,.5);z-index:1001;}.lang-dropdown-menu.open{display:block;}.lang-dropdown-menu a,.lang-dropdown-menu button{display:flex;align-items:center;gap:10px;padding:10px 12px;font-size:13px;color:#ccc;text-decoration:none;border-radius:6px;transition:background .2s,color .2s;white-space:nowrap;width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:inherit;}.lang-dropdown-menu a:hover,.lang-dropdown-menu a:active,.lang-dropdown-menu button:hover,.lang-dropdown-menu button:active{background:#1a1a1a;color:#fff;}.lang-dropdown-menu a[aria-current="true"],.lang-dropdown-menu button.lang-btn--active{color:var(--gold-light);}.lang-dropdown-menu svg{border-radius:2px;flex-shrink:0;}
   .lang-sep { color: #333; font-size: 11px; }
   .lang-btn { background: none; border: none; cursor: pointer; font-size: 11px; font-weight: 800; letter-spacing: 1.5px; color: #bbb; padding: 10px 8px; transition: color .2s; text-transform: uppercase; min-height: 44px; text-decoration: none; display: inline-flex; align-items: center; }
   .lang-btn--active { color: var(--gold-light); }
@@ -207,14 +208,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="/metodo/" role="listitem" data-i18n="navMethod">Método</a>
         <a href="/cases/" role="listitem" class="active" data-i18n="navCases">Cases</a>
       </div>
-      <div id="lang-toggle" role="group" aria-label="Idioma / Language">
-        <button class="lang-btn lang-btn--active" data-lang="pt" aria-pressed="true"><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true" style="border-radius:2px;vertical-align:middle;margin-right:5px;flex-shrink:0"><rect width="16" height="12" fill="#009C3B"/><polygon points="8,1.5 14.5,6 8,10.5 1.5,6" fill="#FEDF00"/><circle cx="8" cy="6" r="2.6" fill="#002776"/></svg>BR</button>
-        <span class="lang-sep" aria-hidden="true">|</span>
-        <button class="lang-btn" data-lang="en" aria-pressed="false"><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true" style="border-radius:2px;vertical-align:middle;margin-right:5px;flex-shrink:0"><rect width="16" height="12" fill="#B22234"/><rect y="1.09" width="16" height="0.92" fill="#fff"/><rect y="2.18" width="16" height="0.92" fill="#B22234"/><rect y="3.27" width="16" height="0.92" fill="#fff"/><rect y="4.36" width="16" height="0.92" fill="#B22234"/><rect y="5.45" width="16" height="0.92" fill="#fff"/><rect y="6.54" width="16" height="0.92" fill="#B22234"/><rect y="7.63" width="16" height="0.92" fill="#fff"/><rect y="8.72" width="16" height="0.92" fill="#B22234"/><rect y="9.81" width="16" height="0.92" fill="#fff"/><rect y="10.9" width="16" height="0.92" fill="#B22234"/><rect width="6.4" height="5.45" fill="#3C3B6E"/></svg>EN</button>
-        <span class="lang-sep" aria-hidden="true">|</span>
-        <a class="lang-btn" href="/es/cases/casa-hunter-casa-dos-raros/">ES</a>
-        <span class="lang-sep" aria-hidden="true">|</span>
-        <a class="lang-btn" href="/pt/cases/casa-hunter-casa-dos-raros/">PT</a>
+      <div id="lang-dropdown" class="lang-dropdown">
+        <button class="lang-dropdown-trigger" id="langDropdownTrigger" aria-haspopup="true" aria-expanded="false" aria-label="Mudar idioma">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 0 20 15.3 15.3 0 0 1 0-20z"/></svg>
+          <span class="lang-dropdown-current">BR</span>
+        </button>
+        <div class="lang-dropdown-menu" id="langDropdownMenu" role="menu" aria-label="Selecionar idioma">
+          <button class="lang-btn lang-btn--active" data-lang="pt" aria-pressed="true" role="menuitem"><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><rect width="16" height="12" fill="#009C3B"/><polygon points="8,1.5 14.5,6 8,10.5 1.5,6" fill="#FEDF00"/><circle cx="8" cy="6" r="2.6" fill="#002776"/></svg>BR</button>
+          <button class="lang-btn" data-lang="en" aria-pressed="false" role="menuitem"><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><rect width="16" height="12" fill="#B22234"/><rect y="1.09" width="16" height="0.92" fill="#fff"/><rect y="2.18" width="16" height="0.92" fill="#B22234"/><rect y="3.27" width="16" height="0.92" fill="#fff"/><rect y="4.36" width="16" height="0.92" fill="#B22234"/><rect y="5.45" width="16" height="0.92" fill="#fff"/><rect y="6.54" width="16" height="0.92" fill="#B22234"/><rect y="7.63" width="16" height="0.92" fill="#fff"/><rect y="8.72" width="16" height="0.92" fill="#B22234"/><rect y="9.81" width="16" height="0.92" fill="#fff"/><rect y="10.9" width="16" height="0.92" fill="#B22234"/><rect width="6.4" height="5.45" fill="#3C3B6E"/></svg>EN</button>
+          <a class="lang-btn" href="/es/cases/casa-hunter-casa-dos-raros/" role="menuitem"><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><rect width="16" height="12" fill="#AA151B"/><rect y="3" width="16" height="6" fill="#F1BF00"/></svg>ES</a>
+          <a class="lang-btn" href="/pt/cases/casa-hunter-casa-dos-raros/" role="menuitem"><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><rect width="16" height="12" fill="#FF0000"/><rect width="6.4" height="12" fill="#046A38"/><circle cx="6.4" cy="6" r="2.4" fill="#FFCC00"/></svg>PT</a>
+        </div>
       </div>
       <a href="https://wa.me/5582999103246?text=Ol%C3%A1!%20Quero%20agendar%20um%20diagn%C3%B3stico%20gratuito%20com%20a%20Makewell." class="btn-nav" aria-label="Agendar diagnóstico gratuito" target="_blank" rel="noopener noreferrer" data-i18n="navCta" data-i18n-href="navCtaHref" data-i18n-aria="navCtaAria">Agendar diagnóstico</a>
       <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
@@ -228,10 +232,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="/framework/" class="mobile-link"><span class="mn">03</span><span data-i18n="navFramework">Framework</span></a>
     <a href="/metodo/" class="mobile-link"><span class="mn">04</span><span data-i18n="navMethod">Método</span></a>
     <a href="/cases/" class="mobile-link"><span class="mn">05</span><span data-i18n="navCases">Cases</span></a>
-    <div class="mobile-lang-toggle" role="group" aria-label="Idioma / Language">
-      <button class="lang-btn lang-btn--active" data-lang="pt" aria-pressed="true"><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true" style="border-radius:2px;vertical-align:middle;margin-right:5px;flex-shrink:0"><rect width="16" height="12" fill="#009C3B"/><polygon points="8,1.5 14.5,6 8,10.5 1.5,6" fill="#FEDF00"/><circle cx="8" cy="6" r="2.6" fill="#002776"/></svg>BR</button>
-      <span class="lang-sep" aria-hidden="true">|</span>
-      <button class="lang-btn" data-lang="en" aria-pressed="false"><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true" style="border-radius:2px;vertical-align:middle;margin-right:5px;flex-shrink:0"><rect width="16" height="12" fill="#B22234"/><rect y="1.09" width="16" height="0.92" fill="#fff"/><rect y="2.18" width="16" height="0.92" fill="#B22234"/><rect y="3.27" width="16" height="0.92" fill="#fff"/><rect y="4.36" width="16" height="0.92" fill="#B22234"/><rect y="5.45" width="16" height="0.92" fill="#fff"/><rect y="6.54" width="16" height="0.92" fill="#B22234"/><rect y="7.63" width="16" height="0.92" fill="#fff"/><rect y="8.72" width="16" height="0.92" fill="#B22234"/><rect y="9.81" width="16" height="0.92" fill="#fff"/><rect y="10.9" width="16" height="0.92" fill="#B22234"/><rect width="6.4" height="5.45" fill="#3C3B6E"/></svg>EN</button>
+    <div id="lang-dropdown-mobile" class="lang-dropdown">
+      <button class="lang-dropdown-trigger" id="langDropdownTriggerMobile" aria-haspopup="true" aria-expanded="false" aria-label="Mudar idioma">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 0 20 15.3 15.3 0 0 1 0-20z"/></svg>
+        <span class="lang-dropdown-current">BR</span>
+      </button>
+      <div class="lang-dropdown-menu" id="langDropdownMenuMobile" role="menu" aria-label="Selecionar idioma">
+        <button class="lang-btn lang-btn--active" data-lang="pt" aria-pressed="true" role="menuitem"><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><rect width="16" height="12" fill="#009C3B"/><polygon points="8,1.5 14.5,6 8,10.5 1.5,6" fill="#FEDF00"/><circle cx="8" cy="6" r="2.6" fill="#002776"/></svg>BR</button>
+        <button class="lang-btn" data-lang="en" aria-pressed="false" role="menuitem"><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><rect width="16" height="12" fill="#B22234"/><rect y="1.09" width="16" height="0.92" fill="#fff"/><rect y="2.18" width="16" height="0.92" fill="#B22234"/><rect y="3.27" width="16" height="0.92" fill="#fff"/><rect y="4.36" width="16" height="0.92" fill="#B22234"/><rect y="5.45" width="16" height="0.92" fill="#fff"/><rect y="6.54" width="16" height="0.92" fill="#B22234"/><rect y="7.63" width="16" height="0.92" fill="#fff"/><rect y="8.72" width="16" height="0.92" fill="#B22234"/><rect y="9.81" width="16" height="0.92" fill="#fff"/><rect y="10.9" width="16" height="0.92" fill="#B22234"/><rect width="6.4" height="5.45" fill="#3C3B6E"/></svg>EN</button>
+      </div>
     </div>
     <a href="https://wa.me/5582999103246?text=Ol%C3%A1!%20Quero%20agendar%20um%20diagn%C3%B3stico%20gratuito%20com%20a%20Makewell." class="btn-nav" style="margin-top:40px;width:100%;justify-content:center;font-size:13px;padding:13px 28px;text-decoration:none;letter-spacing:.08em" target="_blank" rel="noopener noreferrer" data-i18n="mobileCta" data-i18n-href="mobileCtaHref">Agendar diagnóstico gratuito</a>
   </div>
@@ -464,6 +473,26 @@ src="https://www.facebook.com/tr?id=2571294026447618&ev=PageView&noscript=1"
       });
     });
     btn.addEventListener('mouseleave',function(){bRect=null;btn.style.transform='';});
+  });
+})();
+</script>
+<script>
+(function() {
+  document.querySelectorAll('.lang-dropdown').forEach(function(dropdown) {
+    var trigger = dropdown.querySelector('.lang-dropdown-trigger');
+    var menu = dropdown.querySelector('.lang-dropdown-menu');
+    if (!trigger || !menu) return;
+    function closeMenu() {
+      menu.classList.remove('open');
+      trigger.setAttribute('aria-expanded', 'false');
+    }
+    trigger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var open = menu.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', open);
+    });
+    document.addEventListener('click', function(e) { if (!menu.contains(e.target) && e.target !== trigger) closeMenu(); });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
   });
 })();
 </script>

@@ -85,7 +85,7 @@
   .lang-sep { color: #333; font-size: 11px; }
   .lang-btn { font-size: 11px; font-weight: 800; letter-spacing: 1.5px; color: #bbb; padding: 10px 8px; transition: color .2s; text-transform: uppercase; min-height: 44px; text-decoration: none; display: inline-flex; align-items: center; }
   .lang-btn--active { color: var(--gold-light); }
-  .lang-btn:hover, .lang-btn:active { color: #fff; }
+  .lang-btn:hover, .lang-btn:active { color: #fff; }.lang-dropdown{position:relative;}.lang-dropdown-trigger{display:flex;align-items:center;gap:6px;background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;letter-spacing:1.5px;color:#bbb;padding:10px 8px;min-height:44px;transition:color .2s;text-transform:uppercase;}.lang-dropdown-trigger:hover,.lang-dropdown-trigger:active{color:#fff;}.lang-dropdown-menu{display:none;position:absolute;top:calc(100% + 8px);right:0;background:#111;border:1px solid #222;border-radius:10px;padding:6px;min-width:190px;box-shadow:0 20px 50px rgba(0,0,0,.5);z-index:1001;}.lang-dropdown-menu.open{display:block;}.lang-dropdown-menu a{display:flex;align-items:center;gap:10px;padding:10px 12px;font-size:13px;color:#ccc;text-decoration:none;border-radius:6px;transition:background .2s,color .2s;white-space:nowrap;}.lang-dropdown-menu a:hover,.lang-dropdown-menu a:active{background:#1a1a1a;color:#fff;}.lang-dropdown-menu a[aria-current="true"]{color:var(--gold-light);}.lang-dropdown-menu svg{border-radius:2px;flex-shrink:0;}
   .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 10px; z-index: 201; position: relative; min-width: 44px; min-height: 44px; justify-content: center; align-items: center; }
   .hamburger span { display: block; width: 24px; height: 2px; background: #fff; transition: all .3s; border-radius: 2px; }
   .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -199,15 +199,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="/en/method/" role="listitem">Method</a>
         <a href="/en/cases/" role="listitem" class="active">Cases</a>
       </div>
-      <div id="lang-toggle" role="group" aria-label="Language">
-<a class="lang-btn" href="/cases/">BR</a>
-<span class="lang-sep" aria-hidden="true">|</span>
-<a class="lang-btn lang-btn--active" href="/en/cases/" aria-current="true">EN</a>
-<span class="lang-sep" aria-hidden="true">|</span>
-<a class="lang-btn" href="/es/cases/">ES</a>
-<span class="lang-sep" aria-hidden="true">|</span>
-<a class="lang-btn" href="/pt/cases/">PT</a>
-</div>
+            <div id="lang-dropdown" class="lang-dropdown">
+        <button class="lang-dropdown-trigger" id="langDropdownTrigger" aria-haspopup="true" aria-expanded="false" aria-label="Change language">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 0 20 15.3 15.3 0 0 1 0-20z"/></svg>
+          <span>EN</span>
+        </button>
+        <div class="lang-dropdown-menu" id="langDropdownMenu" role="menu" aria-label="Select language">
+          <a href="/cases/" role="menuitem" hreflang="pt-BR"><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><rect width="16" height="12" fill="#009C3B"/><polygon points="8,1.5 14.5,6 8,10.5 1.5,6" fill="#FEDF00"/><circle cx="8" cy="6" r="2.6" fill="#002776"/></svg>BR</a>
+          <a href="/en/cases/" role="menuitem" hreflang="en" aria-current="true"><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><rect width="16" height="12" fill="#B22234"/><rect y="1.09" width="16" height="0.92" fill="#fff"/><rect y="2.18" width="16" height="0.92" fill="#B22234"/><rect y="3.27" width="16" height="0.92" fill="#fff"/><rect y="4.36" width="16" height="0.92" fill="#B22234"/><rect y="5.45" width="16" height="0.92" fill="#fff"/><rect y="6.54" width="16" height="0.92" fill="#B22234"/><rect y="7.63" width="16" height="0.92" fill="#fff"/><rect y="8.72" width="16" height="0.92" fill="#B22234"/><rect y="9.81" width="16" height="0.92" fill="#fff"/><rect y="10.9" width="16" height="0.92" fill="#B22234"/><rect width="6.4" height="5.45" fill="#3C3B6E"/></svg>EN</a>
+          <a href="/es/cases/" role="menuitem" hreflang="es"><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><rect width="16" height="12" fill="#AA151B"/><rect y="3" width="16" height="6" fill="#F1BF00"/></svg>ES</a>
+          <a href="/pt/cases/" role="menuitem" hreflang="pt-PT"><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><rect width="16" height="12" fill="#FF0000"/><rect width="6.4" height="12" fill="#046A38"/><circle cx="6.4" cy="6" r="2.4" fill="#FFCC00"/></svg>PT</a>
+        </div>
+      </div>
       <a href="https://wa.me/5582999103246?text=Hello!%20I%20want%20to%20schedule%20a%20free%20diagnosis%20with%20Makewell." class="btn-nav" aria-label="Schedule a free diagnosis" target="_blank" rel="noopener noreferrer">Schedule a Diagnosis</a>
       <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
@@ -220,15 +223,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="/en/framework/" class="mobile-link"><span class="mn">03</span><span>Framework</span></a>
     <a href="/en/method/" class="mobile-link"><span class="mn">04</span><span>Method</span></a>
     <a href="/en/cases/" class="mobile-link"><span class="mn">05</span><span>Cases</span></a>
-    <div class="mobile-lang-toggle" role="group" aria-label="Language">
-<a class="lang-btn" href="/cases/">BR</a>
-<span class="lang-sep" aria-hidden="true">|</span>
-<a class="lang-btn lang-btn--active" href="/en/cases/" aria-current="true">EN</a>
-<span class="lang-sep" aria-hidden="true">|</span>
-<a class="lang-btn" href="/es/cases/">ES</a>
-<span class="lang-sep" aria-hidden="true">|</span>
-<a class="lang-btn" href="/pt/cases/">PT</a>
-</div>
+        <div id="lang-dropdown-mobile" class="lang-dropdown">
+      <button class="lang-dropdown-trigger" id="langDropdownTriggerMobile" aria-haspopup="true" aria-expanded="false" aria-label="Change language">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 0 20 15.3 15.3 0 0 1 0-20z"/></svg>
+        <span>EN</span>
+      </button>
+      <div class="lang-dropdown-menu" id="langDropdownMenuMobile" role="menu" aria-label="Select language">
+        <a href="/cases/" role="menuitem" hreflang="pt-BR"><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><rect width="16" height="12" fill="#009C3B"/><polygon points="8,1.5 14.5,6 8,10.5 1.5,6" fill="#FEDF00"/><circle cx="8" cy="6" r="2.6" fill="#002776"/></svg>BR</a>
+        <a href="/en/cases/" role="menuitem" hreflang="en" aria-current="true"><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><rect width="16" height="12" fill="#B22234"/><rect y="1.09" width="16" height="0.92" fill="#fff"/><rect y="2.18" width="16" height="0.92" fill="#B22234"/><rect y="3.27" width="16" height="0.92" fill="#fff"/><rect y="4.36" width="16" height="0.92" fill="#B22234"/><rect y="5.45" width="16" height="0.92" fill="#fff"/><rect y="6.54" width="16" height="0.92" fill="#B22234"/><rect y="7.63" width="16" height="0.92" fill="#fff"/><rect y="8.72" width="16" height="0.92" fill="#B22234"/><rect y="9.81" width="16" height="0.92" fill="#fff"/><rect y="10.9" width="16" height="0.92" fill="#B22234"/><rect width="6.4" height="5.45" fill="#3C3B6E"/></svg>EN</a>
+        <a href="/es/cases/" role="menuitem" hreflang="es"><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><rect width="16" height="12" fill="#AA151B"/><rect y="3" width="16" height="6" fill="#F1BF00"/></svg>ES</a>
+        <a href="/pt/cases/" role="menuitem" hreflang="pt-PT"><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><rect width="16" height="12" fill="#FF0000"/><rect width="6.4" height="12" fill="#046A38"/><circle cx="6.4" cy="6" r="2.4" fill="#FFCC00"/></svg>PT</a>
+      </div>
+    </div>
     <a href="https://wa.me/5582999103246?text=Hello!%20I%20want%20to%20schedule%20a%20free%20diagnosis%20with%20Makewell." class="btn-nav" style="margin-top:40px;width:100%;justify-content:center;font-size:13px;padding:13px 28px;text-decoration:none;letter-spacing:.08em" target="_blank" rel="noopener noreferrer">Schedule Free Diagnosis</a>
   </div>
 </header>
@@ -485,6 +491,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     el.classList.add('touch-active');
     setTimeout(function(){ el.classList.remove('touch-active'); }, 400);
   }, { passive: true });
+})();
+</script>
+<script>
+(function() {
+  document.querySelectorAll('.lang-dropdown').forEach(function(dropdown) {
+    var trigger = dropdown.querySelector('.lang-dropdown-trigger');
+    var menu = dropdown.querySelector('.lang-dropdown-menu');
+    if (!trigger || !menu) return;
+    function closeMenu() {
+      menu.classList.remove('open');
+      trigger.setAttribute('aria-expanded', 'false');
+    }
+    trigger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var open = menu.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', open);
+    });
+    document.addEventListener('click', function(e) { if (!menu.contains(e.target) && e.target !== trigger) closeMenu(); });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
+  });
 })();
 </script>
 </body>
