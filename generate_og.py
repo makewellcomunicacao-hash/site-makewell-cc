@@ -282,7 +282,7 @@ def gen_home_en():
     ty = syh+CARD_H+18
     for t in tags: tx = tag_pill(draw, tx, ty, t)
 
-    txt_center(draw, syh+CARD_H+66, "makewell.com.br/en", fnt("semibold", 15), WHITE)
+    txt_center(draw, syh+CARD_H+66, "makewell.agency/en", fnt("semibold", 15), WHITE)
     save(img, "og-home-en.jpg")
 
 
@@ -318,7 +318,7 @@ def gen_cases_en():
     ty = cy0+CARD_H+18
     for t in tags: tx = tag_pill(draw, tx, ty, t)
 
-    txt_center(draw, cy0+CARD_H+66, "makewell.com.br/en/cases", fnt("semibold", 15), WHITE)
+    txt_center(draw, cy0+CARD_H+66, "makewell.agency/en/cases", fnt("semibold", 15), WHITE)
     save(img, "og-cases-en.jpg")
 
 
@@ -360,7 +360,7 @@ def gen_casa_hunter_en():
     ty = sy3+CARD_H+18
     for t in tags: tx = tag_pill(draw, tx, ty, t)
 
-    txt_center(draw, sy3+CARD_H+66, "makewell.com.br/en/cases/casa-hunter-casa-dos-raros", fnt("semibold", 15), WHITE)
+    txt_center(draw, sy3+CARD_H+66, "makewell.agency/en/cases/casa-hunter-casa-dos-raros", fnt("semibold", 15), WHITE)
     save(img, "og-casa-hunter-en.jpg")
 
 
@@ -398,7 +398,7 @@ def gen_sobre_en():
     ty = sy4+CARD_H+18
     for t in tags: tx = tag_pill(draw, tx, ty, t)
 
-    txt_center(draw, sy4+CARD_H+66, "makewell.com.br/en/about", fnt("semibold", 15), WHITE)
+    txt_center(draw, sy4+CARD_H+66, "makewell.agency/en/about", fnt("semibold", 15), WHITE)
     save(img, "og-sobre-en.jpg")
 
 
@@ -436,7 +436,7 @@ def gen_home_es():
     ty = syh+CARD_H+18
     for t in tags: tx = tag_pill(draw, tx, ty, t)
 
-    txt_center(draw, syh+CARD_H+66, "makewell.com.br/es", fnt("semibold", 15), WHITE)
+    txt_center(draw, syh+CARD_H+66, "makewell.agency/es", fnt("semibold", 15), WHITE)
     save(img, "og-home-es.jpg")
 
 
@@ -472,7 +472,7 @@ def gen_cases_es():
     ty = cy0+CARD_H+18
     for t in tags: tx = tag_pill(draw, tx, ty, t)
 
-    txt_center(draw, cy0+CARD_H+66, "makewell.com.br/es/cases", fnt("semibold", 15), WHITE)
+    txt_center(draw, cy0+CARD_H+66, "makewell.agency/es/cases", fnt("semibold", 15), WHITE)
     save(img, "og-cases-es.jpg")
 
 
@@ -514,7 +514,7 @@ def gen_casa_hunter_es():
     ty = sy3+CARD_H+18
     for t in tags: tx = tag_pill(draw, tx, ty, t)
 
-    txt_center(draw, sy3+CARD_H+66, "makewell.com.br/es/cases/casa-hunter-casa-dos-raros", fnt("semibold", 15), WHITE)
+    txt_center(draw, sy3+CARD_H+66, "makewell.agency/es/cases/casa-hunter-casa-dos-raros", fnt("semibold", 15), WHITE)
     save(img, "og-casa-hunter-es.jpg")
 
 
@@ -552,7 +552,7 @@ def gen_sobre_es():
     ty = sy4+CARD_H+18
     for t in tags: tx = tag_pill(draw, tx, ty, t)
 
-    txt_center(draw, sy4+CARD_H+66, "makewell.com.br/es/about", fnt("semibold", 15), WHITE)
+    txt_center(draw, sy4+CARD_H+66, "makewell.agency/es/about", fnt("semibold", 15), WHITE)
     save(img, "og-sobre-es.jpg")
 
 
@@ -590,7 +590,7 @@ def gen_home_pt_pt():
     ty = syh+CARD_H+18
     for t in tags: tx = tag_pill(draw, tx, ty, t)
 
-    txt_center(draw, syh+CARD_H+66, "makewell.com.br/pt", fnt("semibold", 15), WHITE)
+    txt_center(draw, syh+CARD_H+66, "makewell.agency/pt", fnt("semibold", 15), WHITE)
     save(img, "og-home-pt-pt.jpg")
 
 
@@ -626,7 +626,7 @@ def gen_cases_pt_pt():
     ty = cy0+CARD_H+18
     for t in tags: tx = tag_pill(draw, tx, ty, t)
 
-    txt_center(draw, cy0+CARD_H+66, "makewell.com.br/pt/cases", fnt("semibold", 15), WHITE)
+    txt_center(draw, cy0+CARD_H+66, "makewell.agency/pt/cases", fnt("semibold", 15), WHITE)
     save(img, "og-cases-pt-pt.jpg")
 
 
@@ -668,7 +668,7 @@ def gen_casa_hunter_pt_pt():
     ty = sy3+CARD_H+18
     for t in tags: tx = tag_pill(draw, tx, ty, t)
 
-    txt_center(draw, sy3+CARD_H+66, "makewell.com.br/pt/cases/casa-hunter-casa-dos-raros", fnt("semibold", 15), WHITE)
+    txt_center(draw, sy3+CARD_H+66, "makewell.agency/pt/cases/casa-hunter-casa-dos-raros", fnt("semibold", 15), WHITE)
     save(img, "og-casa-hunter-pt-pt.jpg")
 
 
@@ -706,7 +706,7 @@ def gen_sobre_pt_pt():
     ty = sy4+CARD_H+18
     for t in tags: tx = tag_pill(draw, tx, ty, t)
 
-    txt_center(draw, sy4+CARD_H+66, "makewell.com.br/pt/about", fnt("semibold", 15), WHITE)
+    txt_center(draw, sy4+CARD_H+66, "makewell.agency/pt/about", fnt("semibold", 15), WHITE)
     save(img, "og-sobre-pt-pt.jpg")
 
 

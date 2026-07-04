@@ -7,9 +7,9 @@
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.agency/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.agency/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.agency/pt/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
   </url>
   <url>
@@ -18,9 +18,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/sobre/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/about/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/about/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/about/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.agency/en/about/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.agency/es/about/"/>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.agency/pt/about/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
   </url>
   <url>
@@ -29,9 +29,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/servicos/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/services/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/services/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/services/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.agency/en/services/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.agency/es/services/"/>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.agency/pt/services/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
   </url>
   <url>
@@ -40,9 +40,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/framework/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/framework/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/framework/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/framework/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.agency/en/framework/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.agency/es/framework/"/>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.agency/pt/framework/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
   </url>
   <url>
@@ -51,9 +51,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/metodo/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/method/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/method/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/method/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.agency/en/method/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.agency/es/method/"/>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.agency/pt/method/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
   </url>
   <url>
@@ -62,9 +62,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/cases/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/cases/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/cases/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/cases/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.agency/en/cases/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.agency/es/cases/"/>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.agency/pt/cases/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
   </url>
   <url>
@@ -73,9 +73,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/como-criamos/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/how-we-create/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/how-we-create/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/how-we-create/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.agency/en/how-we-create/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.agency/es/how-we-create/"/>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.agency/pt/how-we-create/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
   </url>
   <url>
@@ -84,295 +84,13 @@
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/cases/casa-hunter-casa-dos-raros/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/cases/casa-hunter-casa-dos-raros/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/cases/casa-hunter-casa-dos-raros/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/cases/casa-hunter-casa-dos-raros/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.agency/en/cases/casa-hunter-casa-dos-raros/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.agency/es/cases/casa-hunter-casa-dos-raros/"/>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.agency/pt/cases/casa-hunter-casa-dos-raros/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
   </url>
   <url>
     <loc>https://makewell.com.br/politica-de-privacidade/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://makewell.com.br/en/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
-  </url>
-  <url>
-    <loc>https://makewell.com.br/en/about/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/sobre/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/about/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/about/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/about/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
-  </url>
-  <url>
-    <loc>https://makewell.com.br/en/services/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/servicos/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/services/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/services/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/services/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
-  </url>
-  <url>
-    <loc>https://makewell.com.br/en/framework/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/framework/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/framework/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/framework/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/framework/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
-  </url>
-  <url>
-    <loc>https://makewell.com.br/en/method/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/metodo/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/method/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/method/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/method/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
-  </url>
-  <url>
-    <loc>https://makewell.com.br/en/cases/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/cases/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/cases/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/cases/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/cases/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
-  </url>
-  <url>
-    <loc>https://makewell.com.br/en/how-we-create/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/como-criamos/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/how-we-create/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/how-we-create/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/how-we-create/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
-  </url>
-  <url>
-    <loc>https://makewell.com.br/en/cases/casa-hunter-casa-dos-raros/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/cases/casa-hunter-casa-dos-raros/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/cases/casa-hunter-casa-dos-raros/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/cases/casa-hunter-casa-dos-raros/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/cases/casa-hunter-casa-dos-raros/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
-  </url>
-  <url>
-    <loc>https://makewell.com.br/en/privacy-policy/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://makewell.com.br/es/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
-  </url>
-  <url>
-    <loc>https://makewell.com.br/es/about/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/sobre/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/about/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/about/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/about/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
-  </url>
-  <url>
-    <loc>https://makewell.com.br/es/services/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/servicos/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/services/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/services/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/services/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
-  </url>
-  <url>
-    <loc>https://makewell.com.br/es/framework/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/framework/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/framework/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/framework/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/framework/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
-  </url>
-  <url>
-    <loc>https://makewell.com.br/es/method/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/metodo/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/method/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/method/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/method/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
-  </url>
-  <url>
-    <loc>https://makewell.com.br/es/cases/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/cases/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/cases/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/cases/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/cases/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
-  </url>
-  <url>
-    <loc>https://makewell.com.br/es/how-we-create/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/como-criamos/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/how-we-create/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/how-we-create/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/how-we-create/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
-  </url>
-  <url>
-    <loc>https://makewell.com.br/es/cases/casa-hunter-casa-dos-raros/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/cases/casa-hunter-casa-dos-raros/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/cases/casa-hunter-casa-dos-raros/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/cases/casa-hunter-casa-dos-raros/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/cases/casa-hunter-casa-dos-raros/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
-  </url>
-  <url>
-    <loc>https://makewell.com.br/es/privacy-policy/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://makewell.com.br/pt/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
-  </url>
-  <url>
-    <loc>https://makewell.com.br/pt/about/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/sobre/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/about/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/about/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/about/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
-  </url>
-  <url>
-    <loc>https://makewell.com.br/pt/services/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/servicos/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/services/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/services/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/services/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
-  </url>
-  <url>
-    <loc>https://makewell.com.br/pt/framework/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/framework/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/framework/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/framework/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/framework/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
-  </url>
-  <url>
-    <loc>https://makewell.com.br/pt/method/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/metodo/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/method/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/method/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/method/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
-  </url>
-  <url>
-    <loc>https://makewell.com.br/pt/cases/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/cases/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/cases/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/cases/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/cases/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
-  </url>
-  <url>
-    <loc>https://makewell.com.br/pt/how-we-create/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/como-criamos/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/how-we-create/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/how-we-create/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/how-we-create/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
-  </url>
-  <url>
-    <loc>https://makewell.com.br/pt/cases/casa-hunter-casa-dos-raros/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/cases/casa-hunter-casa-dos-raros/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.com.br/en/cases/casa-hunter-casa-dos-raros/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.com.br/es/cases/casa-hunter-casa-dos-raros/"/>
-    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.com.br/pt/cases/casa-hunter-casa-dos-raros/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
-  </url>
-  <url>
-    <loc>https://makewell.com.br/pt/privacy-policy/</loc>
     <lastmod>2026-07-03</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
