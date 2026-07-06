@@ -113,7 +113,7 @@
   .lang-btn { background: none; border: none; cursor: pointer; font-size: 11px; font-weight: 800; letter-spacing: 1.5px; color: #bbb; padding: 10px 8px; transition: color .2s; text-transform: uppercase; min-height: 44px; text-decoration: none; display: inline-flex; align-items: center; }
   .lang-btn--active { color: var(--gold-light); }
   .lang-btn:hover, .lang-btn:active { color: #fff; }
-  .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 10px; z-index: 201; position: relative; min-width: 44px; min-height: 44px; justify-content: center; align-items: center; }
+  .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 10px; z-index: 1600; position: relative; min-width: 44px; min-height: 44px; justify-content: center; align-items: center; }
   .hamburger span { display: block; width: 24px; height: 2px; background: #fff; transition: all .3s; border-radius: 2px; }
   .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .hamburger.open span:nth-child(2) { opacity: 0; }
@@ -231,7 +231,6 @@
     nav { padding: env(safe-area-inset-top,0px) 20px 0; background: #080808; }
     .nav-links { display: none; }
     #lang-toggle { display: none; }
-    #lang-dropdown { display: none; }
     .btn-nav { display: none;min-height:44px;}
     .hamburger { display: flex; }
     main { padding: calc(72px + env(safe-area-inset-top,0px) + 48px) 20px 80px; }
@@ -300,18 +299,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="/framework/" class="mobile-link"><span class="mn">03</span><span data-i18n="navFramework">Framework</span></a>
     <a href="/metodo/" class="mobile-link"><span class="mn">04</span><span data-i18n="navMethod">Método</span></a>
     <a href="/cases/" class="mobile-link"><span class="mn">05</span><span data-i18n="navCases">Cases</span></a>
-    <div id="lang-dropdown-mobile" class="lang-dropdown">
-      <button class="lang-dropdown-trigger" id="langDropdownTriggerMobile" aria-haspopup="true" aria-expanded="false" aria-label="Mudar idioma">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 0 20 15.3 15.3 0 0 1 0-20z"/></svg>
-        <span class="lang-dropdown-current">BR</span>
-      </button>
-      <div class="lang-dropdown-menu" id="langDropdownMenuMobile" role="menu" aria-label="Selecionar idioma">
-        <button class="lang-btn lang-btn--active" data-lang="pt" aria-pressed="true" role="menuitem"><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><rect width="16" height="12" fill="#009C3B"/><polygon points="8,1.5 14.5,6 8,10.5 1.5,6" fill="#FEDF00"/><circle cx="8" cy="6" r="2.6" fill="#002776"/></svg>BR</button>
-        <a class="lang-btn" href="https://makewell.agency/en/framework/" role="menuitem"><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><rect width="16" height="12" fill="#B22234"/><rect y="1.09" width="16" height="0.92" fill="#fff"/><rect y="2.18" width="16" height="0.92" fill="#B22234"/><rect y="3.27" width="16" height="0.92" fill="#fff"/><rect y="4.36" width="16" height="0.92" fill="#B22234"/><rect y="5.45" width="16" height="0.92" fill="#fff"/><rect y="6.54" width="16" height="0.92" fill="#B22234"/><rect y="7.63" width="16" height="0.92" fill="#fff"/><rect y="8.72" width="16" height="0.92" fill="#B22234"/><rect y="9.81" width="16" height="0.92" fill="#fff"/><rect y="10.9" width="16" height="0.92" fill="#B22234"/><rect width="6.4" height="5.45" fill="#3C3B6E"/></svg>EN</a>
-        <a class="lang-btn" href="https://makewell.agency/es/framework/" role="menuitem"><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><rect width="16" height="12" fill="#AA151B"/><rect y="3" width="16" height="6" fill="#F1BF00"/></svg>ES</a>
-        <a class="lang-btn" href="https://makewell.agency/pt/framework/" role="menuitem"><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><rect width="16" height="12" fill="#FF0000"/><rect width="6.4" height="12" fill="#046A38"/><circle cx="6.4" cy="6" r="2.4" fill="#FFCC00"/></svg>PT</a>
-      </div>
-    </div>
     <a href="https://wa.me/5582999103246?text=Ol%C3%A1!%20Quero%20agendar%20um%20diagn%C3%B3stico%20gratuito%20com%20a%20Makewell." class="btn-nav" style="margin-top:40px;width:100%;justify-content:center;font-size:13px;padding:13px 28px;text-decoration:none;letter-spacing:.08em" target="_blank" rel="noopener noreferrer" data-i18n="mobileCta" data-i18n-href="mobileDiagHref">Agendar Diagnóstico Gratuito</a>
   </div>
 </header>
