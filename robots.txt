@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /docs/
 
 # Bloqueia URLs de spam com parâmetros de afiliados injetados externamente
 Disallow: /*?r=
