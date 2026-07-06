@@ -162,7 +162,7 @@
   .criamos-callout { display: flex; align-items: center; justify-content: space-between; gap: 40px; background: linear-gradient(135deg, rgba(240,120,32,0.08) 0%, rgba(200,146,42,0.03) 100%); border: 1px solid rgba(240,120,32,0.28); border-radius: 16px; padding: 32px 40px; margin: 8px 0 0; }
   .criamos-callout-left { flex: 1; }
   .criamos-callout-left .kicker-inline { font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 10px; display: block; }
-  .criamos-callout-left h4 { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 10px; letter-spacing: -.3px; }
+  .criamos-callout-left h3 { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 10px; letter-spacing: -.3px; }
   .criamos-callout-left p { font-size: 14px; color: #999; margin: 0; line-height: 1.6; }
   .btn-criamos { flex-shrink: 0; display: inline-flex; align-items: center; padding: 14px 24px; background: var(--gold-light); color: #000; font-weight: 800; font-size: 13px; letter-spacing: .04em; border-radius: 8px; text-decoration: none; white-space: nowrap; transition: background .2s, transform .2s; }
   .btn-criamos:hover { background: var(--gold); transform: translateY(-1px); text-decoration: none; color: #000; }
@@ -185,7 +185,7 @@
   .contrast-tag { font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 10px; }
   .contrast-card.bad .contrast-tag { color: #ef4444; }
   .contrast-card.good .contrast-tag { color: var(--gold-light); }
-  .contrast-card h4 { font-size: 16px; color: #fff; font-weight: 800; margin-bottom: 10px; line-height: 1.3; }
+  .contrast-card h3 { font-size: 16px; color: #fff; font-weight: 800; margin-bottom: 10px; line-height: 1.3; }
   .contrast-card ul { list-style: none; padding: 0; }
   .contrast-card li { font-size: 14px; color: #aaa; margin-bottom: 8px; padding-left: 18px; position: relative; line-height: 1.5; }
   .contrast-card.bad li::before { content: '✕'; position: absolute; left: 0; color: #ef4444; font-weight: 900; }
@@ -203,7 +203,7 @@
   .related-card { background: var(--dark-2); border: 1px solid #222; border-radius: 12px; padding: 24px; transition: border-color .25s ease, transform .25s ease; text-decoration: none !important; display: block; }
   .related-card:hover { border-color: var(--gold-light); transform: translateY(-2px); }
   .related-card .rc-tag { font-size: 11px; color: var(--gold-light); font-weight: 800; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 10px; }
-  .related-card h4 { font-size: 17px; color: #fff; font-weight: 800; margin-bottom: 8px; letter-spacing: -.2px; }
+  .related-card h3 { font-size: 17px; color: #fff; font-weight: 800; margin-bottom: 8px; letter-spacing: -.2px; }
   .related-card p { font-size: 13.5px; color: #999; margin-bottom: 12px; line-height: 1.55; }
   .related-card .rc-arrow { color: var(--gold-light); font-size: 13px; font-weight: 700; }
 
@@ -252,7 +252,14 @@
 <body>
 <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
 <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+<script>
+  (function () {
+    var blocked = ['r', 'mod', 'uri', 'elementor_library', 'et_core_page_resource'];
+    var params = new URLSearchParams(window.location.search);
+    var dirty = blocked.some(function (p) { return params.has(p); });
+    if (dirty) { window.location.replace(window.location.pathname); }
+  })();
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
@@ -395,7 +402,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="criamos-callout">
         <div class="criamos-callout-left">
           <span class="kicker-inline" data-i18n="criamosBadge">Pilar 02 · Conteúdo</span>
-          <h4 data-i18n="criamosH4">Como criamos conteúdo que converte</h4>
+          <h3 data-i18n="criamosH4">Como criamos conteúdo que converte</h3>
           <p data-i18n="criamosP">As escolas de Ogilvy, Sinek, Godin e Olivetto, neuromarketing aplicado e o framework M.E.N.T.E. — a metodologia completa por trás de cada peça que produzimos.</p>
         </div>
         <a href="/como-criamos/" class="btn-criamos" data-i18n="criamosBtn" data-i18n-href="criamosHref">Ver a metodologia →</a>
@@ -418,7 +425,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="contrast">
         <div class="contrast-card bad">
           <div class="contrast-tag" data-i18n="badTag">Modelo Tradicional</div>
-          <h4 data-i18n="badH4">Agência contrata partes</h4>
+          <h3 data-i18n="badH4">Agência contrata partes</h3>
           <ul>
             <li data-i18n="badLi1">Branding numa agência, tráfego em outra, CRM com o próprio cliente</li>
             <li data-i18n="badLi2">Cada fornecedor otimiza o próprio KPI, não o negócio</li>
@@ -429,7 +436,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="contrast-card good">
           <div class="contrast-tag" data-i18n="goodTag">Framework Makewell</div>
-          <h4 data-i18n="goodH4">Ecossistema integrado</h4>
+          <h3 data-i18n="goodH4">Ecossistema integrado</h3>
           <ul>
             <li data-i18n="goodLi1">Os 4 pilares operados pelo mesmo time, sob a mesma estratégia</li>
             <li data-i18n="goodLi2">Todos os KPIs apontam para um só objetivo: receita do cliente</li>
@@ -466,19 +473,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="related">
         <a href="/metodo/" class="related-card" data-i18n-href="rel1Href">
           <div class="rc-tag" data-i18n="rel1Tag">Execução</div>
-          <h4 data-i18n="rel1H4">Método FishWell</h4>
+          <h3 data-i18n="rel1H4">Método FishWell</h3>
           <p data-i18n="rel1P">As 5 etapas operacionais que fazem o framework rodar dentro do seu negócio: diagnóstico, planejamento, comunicação, investimento e mensuração.</p>
           <div class="rc-arrow" data-i18n="rel1Arrow">Ver método →</div>
         </a>
         <a href="/como-criamos/" class="related-card" data-i18n-href="rel2Href">
           <div class="rc-tag" data-i18n="rel2Tag">Pilar 02</div>
-          <h4 data-i18n="rel2H4">Como Criamos Conteúdo</h4>
+          <h3 data-i18n="rel2H4">Como Criamos Conteúdo</h3>
           <p data-i18n="rel2P">O framework M.E.N.T.E. e os 4 pilares das grandes mentes da publicidade aplicados à produção diária de conteúdo que converte.</p>
           <div class="rc-arrow" data-i18n="rel2Arrow">Ver framework de conteúdo →</div>
         </a>
         <a href="/servicos/" class="related-card" data-i18n-href="rel3Href">
           <div class="rc-tag" data-i18n="rel3Tag">Entregáveis</div>
-          <h4 data-i18n="rel3H4">Serviços Integrados</h4>
+          <h3 data-i18n="rel3H4">Serviços Integrados</h3>
           <p data-i18n="rel3P">Os 6 serviços que materializam os 4 pilares: posicionamento, conteúdo, tráfego, vendas, SEO e automação com IA.</p>
           <div class="rc-arrow" data-i18n="rel3Arrow">Ver serviços →</div>
         </a>

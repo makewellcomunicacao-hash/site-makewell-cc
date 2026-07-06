@@ -5,7 +5,14 @@
 <meta http-equiv="refresh" content="0; url=https://makewell.agency/en/services/">
 <link rel="canonical" href="https://makewell.agency/en/services/">
 <title>Makewell — Redirecting...</title>
-<script>window.location.replace("https://makewell.agency/en/services/");</script>
+<script>
+  (function () {
+    var blocked = ['r', 'mod', 'uri', 'elementor_library', 'et_core_page_resource'];
+    var params = new URLSearchParams(window.location.search);
+    var dirty = blocked.some(function (p) { return params.has(p); });
+    if (dirty) { window.location.replace(window.location.pathname); }
+  })();
+window.location.replace("https://makewell.agency/en/services/");</script>
 </head>
 <body>
 <p>Redirecting to <a href="https://makewell.agency/en/services/">makewell.agency/en/services/</a>...</p>

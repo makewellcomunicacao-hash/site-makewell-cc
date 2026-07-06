@@ -51,6 +51,13 @@
     <a href="/" class="btn">← Voltar ao início</a>
   </div>
   <script>
+  (function () {
+    var blocked = ['r', 'mod', 'uri', 'elementor_library', 'et_core_page_resource'];
+    var params = new URLSearchParams(window.location.search);
+    var dirty = blocked.some(function (p) { return params.has(p); });
+    if (dirty) { window.location.replace(window.location.pathname); }
+  })();
+
     const p = document.getElementById('particles');
     for (let i = 0; i < 20; i++) {
       const s = document.createElement('span');
