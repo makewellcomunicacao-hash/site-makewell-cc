@@ -93,7 +93,7 @@
   .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .hamburger.open span:nth-child(2) { opacity: 0; }
   .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-  .mobile-menu { display: none; position: fixed; inset: 0; background: #080808; z-index: 199; flex-direction: column; justify-content: flex-start; padding: 100px 36px 36px; gap: 0; }
+  .mobile-menu { display: none; position: fixed; inset: 0; background: #080808; z-index: 1500; flex-direction: column; justify-content: flex-start; padding: 100px 36px 36px; gap: 0; }
   .mobile-menu.open { display: flex; }
   .mobile-menu a.mobile-link { font-size: 13px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: #999; text-decoration: none; padding: 20px 0; width: 100%; border-bottom: 1px solid #161616; transition: color .2s, border-color .2s; display: flex; align-items: center; justify-content: space-between; }
   .mobile-menu a.mobile-link .mn { font-size: 10px; font-weight: 600; letter-spacing: 1px; color: #666; transition: color .2s; }
@@ -169,6 +169,7 @@
     nav { padding: env(safe-area-inset-top,0px) 20px 0; background: #080808; }
     .nav-links { display: none; }
     #lang-toggle { display: none; }
+    #lang-dropdown { display: none; }
     .btn-nav { display: none;min-height:44px;}
     .hamburger { display: flex; }
     main { padding: calc(72px + env(safe-area-inset-top,0px) + 48px) 20px 80px; }
@@ -237,6 +238,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="lang-dropdown-menu" id="langDropdownMenuMobile" role="menu" aria-label="Selecionar idioma">
         <button class="lang-btn lang-btn--active" data-lang="pt" aria-pressed="true" role="menuitem"><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><rect width="16" height="12" fill="#009C3B"/><polygon points="8,1.5 14.5,6 8,10.5 1.5,6" fill="#FEDF00"/><circle cx="8" cy="6" r="2.6" fill="#002776"/></svg>BR</button>
         <a class="lang-btn" href="https://makewell.agency/en/cases/" role="menuitem"><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><rect width="16" height="12" fill="#B22234"/><rect y="1.09" width="16" height="0.92" fill="#fff"/><rect y="2.18" width="16" height="0.92" fill="#B22234"/><rect y="3.27" width="16" height="0.92" fill="#fff"/><rect y="4.36" width="16" height="0.92" fill="#B22234"/><rect y="5.45" width="16" height="0.92" fill="#fff"/><rect y="6.54" width="16" height="0.92" fill="#B22234"/><rect y="7.63" width="16" height="0.92" fill="#fff"/><rect y="8.72" width="16" height="0.92" fill="#B22234"/><rect y="9.81" width="16" height="0.92" fill="#fff"/><rect y="10.9" width="16" height="0.92" fill="#B22234"/><rect width="6.4" height="5.45" fill="#3C3B6E"/></svg>EN</a>
+        <a class="lang-btn" href="https://makewell.agency/es/cases/" role="menuitem"><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><rect width="16" height="12" fill="#AA151B"/><rect y="3" width="16" height="6" fill="#F1BF00"/></svg>ES</a>
+        <a class="lang-btn" href="https://makewell.agency/pt/cases/" role="menuitem"><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><rect width="16" height="12" fill="#FF0000"/><rect width="6.4" height="12" fill="#046A38"/><circle cx="6.4" cy="6" r="2.4" fill="#FFCC00"/></svg>PT</a>
       </div>
     </div>
     <a href="https://wa.me/5582999103246?text=Ol%C3%A1!%20Quero%20agendar%20um%20diagn%C3%B3stico%20gratuito%20com%20a%20Makewell." class="btn-nav" style="margin-top:40px;width:100%;justify-content:center;font-size:13px;padding:13px 28px;text-decoration:none;letter-spacing:.08em" target="_blank" rel="noopener noreferrer" data-i18n="mobileCta" data-i18n-href="mobileDiagHref">Agendar Diagnóstico Gratuito</a>
