@@ -95,4 +95,15 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+  <url>
+    <loc>https://makewell.com.br/termos-de-uso/</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/termos-de-uso/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.agency/en/terms-of-use/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.agency/es/terms-of-use/"/>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.agency/pt/terms-of-use/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/termos-de-uso/"/>
+  </url>
 </urlset>
