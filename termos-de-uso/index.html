@@ -6,12 +6,18 @@
 <title>Termos de Uso | Makewell Comunicação</title>
 <meta name="author" content="Makewell Comunicação">
 <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="canonical" href="https://makewell.com.br/termos-de-uso/">
 <link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/termos-de-uso/">
 <link rel="alternate" hreflang="en" href="https://makewell.agency/en/terms-of-use/">
 <link rel="alternate" hreflang="es" href="https://makewell.agency/es/terms-of-use/">
 <link rel="alternate" hreflang="pt-PT" href="https://makewell.agency/pt/terms-of-use/">
 <link rel="alternate" hreflang="x-default" href="https://makewell.com.br/termos-de-uso/">
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://connect.facebook.net">
 <meta name="robots" content="index, follow">
 <meta name="description" content="Conheça os termos de uso do site e dos serviços da Makewell Comunicação.">
 <meta property="og:type" content="website">
@@ -48,7 +54,8 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root { --gold: #C8922A; --gold-light: #F07820; --dark: #0a0a0a; }
-  body { background: var(--dark); color: #ccc; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.8; overflow-x: hidden; }
+  html { scroll-behavior: smooth; overflow-x: hidden; overscroll-behavior: none; touch-action: pan-y; }
+  body { background: var(--dark); color: #ccc; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.8; overflow-x: hidden; overscroll-behavior: none; }
 
   nav { background: rgba(8,8,8,0.98); border-bottom: 1px solid #1e1e1e; position: fixed; top: 0; left: 0; right: 0; z-index: 1700; height: calc(72px + env(safe-area-inset-top,0px)); padding: env(safe-area-inset-top,0px) 60px 0; display: flex; align-items: center; justify-content: space-between; }
   .nav-logo { display: flex; align-items: center; text-decoration: none; }
@@ -109,9 +116,12 @@
     .footer-partners { padding-bottom: 20px; margin-bottom: 20px; }
     .footer-partners img { height: 42px; padding: 7px 14px; }
   }
+  .skip-link{position:absolute;top:-100%;left:16px;background:var(--gold);color:#000;padding:8px 16px;border-radius:0 0 4px 4px;font-weight:600;z-index:9999;transition:top .15s;text-decoration:none;font-size:13px;}
+  .skip-link:focus{top:0;}
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Pular para o conteúdo</a>
 <header>
   <nav id="nav" role="navigation" aria-label="Menu principal">
     <a href="/" class="nav-logo" aria-label="Makewell Comunicação — página inicial">
@@ -153,7 +163,7 @@
   </div>
 </header>
 
-  <main>
+  <main id="main-content">
     <h1>Termos de Uso</h1>
     <p class="updated">Última atualização: 19 de julho de 2026</p>
 
@@ -201,7 +211,7 @@
     <div class="footer-partners">
       <span class="label">Parceiros &amp; Certificações Oficiais</span>
       <div class="footer-partners-logos">
-        <img src="/images/logo-kommo-partner.webp" alt="Kommo Partner" loading="lazy">
+        <img src="/images/logo-kommo-partner.webp" alt="Kommo Partner" loading="lazy" width="160" height="48">
       </div>
     </div>
     <p>© 2026 Makewell Comunicação. Todos os direitos reservados. &middot; <a href="/politica-de-privacidade/">Política de Privacidade</a> &middot; CNPJ: 27.238.877/0001-71</p>

@@ -18,6 +18,9 @@
 <link rel="alternate" hreflang="x-default" href="https://makewell.com.br/">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="preload" as="image" href="/images/logo-makewell-branca.webp" type="image/webp">
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <link rel="preconnect" href="https://connect.facebook.net">
@@ -86,8 +89,8 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root { --gold: #C8922A; --gold-light: #F07820; --dark: #0a0a0a; --dark-2: #141414; }
-  html { scroll-behavior: smooth; overflow-x: hidden; }
-  body { background: var(--dark); color: #ccc; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.75; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  html { scroll-behavior: smooth; overflow-x: hidden; overscroll-behavior: none; touch-action: pan-y; }
+  body { background: var(--dark); color: #ccc; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.75; -webkit-font-smoothing: antialiased; overflow-x: hidden; overscroll-behavior: none; }
 
   a { color: var(--gold-light); text-decoration: none; }
   a:hover { text-decoration: underline; }
@@ -227,6 +230,10 @@
   footer.site { background: #060606; border-top: 1px solid #1a1a1a; padding: 40px 32px; text-align: center; color: #999; font-size: 13px; }
   footer.site a { color: #999; margin: 0 12px; }
 
+  @media (max-width: 880px) {
+    .flow { grid-template-columns: repeat(2, 1fr); }
+    .related { grid-template-columns: repeat(2, 1fr); }
+  }
   @media (max-width: 768px) {
     nav { padding: env(safe-area-inset-top,0px) 20px 0; background: #080808; }
     .nav-links { display: none; }
@@ -251,19 +258,6 @@
 </head>
 <body>
 <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
-<!-- Google Tag Manager -->
-<script>
-  (function () {
-    var blocked = ['r', 'mod', 'uri', 'elementor_library', 'et_core_page_resource'];
-    var params = new URLSearchParams(window.location.search);
-    var dirty = blocked.some(function (p) { return params.has(p); });
-    if (dirty) { window.location.replace(window.location.pathname); }
-  })();
-(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NFGD8X8');</script>
 
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFGD8X8"
@@ -495,7 +489,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="cta-bottom">
       <h3 data-i18n="ctaH3">Seu negócio está dentro de um framework ou dentro do caos?</h3>
       <p data-i18n="ctaP">30 minutos de diagnóstico estratégico. Mostramos onde sua comunicação vaza receita e quais pilares precisam ser construídos primeiro.</p>
-      <a href="https://wa.me/5582999103246?text=Quero%20um%20diagn%C3%B3stico%20estrat%C3%A9gico%20da%20Makewell" class="btn-cta" data-track="lead" target="_blank" rel="noopener" data-i18n="ctaBtn" data-i18n-href="ctaHref">Agendar diagnóstico →</a>
+      <a href="https://wa.me/5582999103246?text=Quero%20um%20diagn%C3%B3stico%20estrat%C3%A9gico%20da%20Makewell" class="btn-cta" target="_blank" rel="noopener noreferrer" data-track="lead" onclick="fbq('track','Lead',{content_name:'Framework CTA'})" data-i18n="ctaBtn" data-i18n-href="ctaHref">Agendar diagnóstico →</a>
     </div>
 
   </article>
@@ -505,32 +499,54 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="footer-partners">
     <span class="label" data-i18n="footerPartners">Parceiros &amp; Certificações Oficiais</span>
     <div class="footer-partners-logos">
-      <img src="/images/logo-kommo-partner.webp" alt="Kommo Partner" loading="lazy">
+      <img src="/images/logo-kommo-partner.webp" alt="Kommo Partner" loading="lazy" width="160" height="48">
     </div>
   </div>
   <p data-i18n="footerCopy">&copy; 2026 Makewell Comunicação. Todos os direitos reservados. &middot; <a href="/politica-de-privacidade/">Política de Privacidade</a> &middot; <a href="/termos-de-uso/">Termos de Uso</a> &middot; CNPJ 27.238.877/0001-71</p>
 
 </footer>
 
-<!-- Meta Pixel + lead tracking (deferred) -->
+<!-- Meta Pixel (shim inline — script externo diferido) -->
 <script>
-(function loadPixel(){
-  function init(){
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-    document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init','2571294026447618'); fbq('track','PageView');
-    document.querySelectorAll('[data-track="lead"]').forEach(function(el){
-      el.addEventListener('click', function(){ try{ fbq('track','Lead'); }catch(e){} });
-    });
+  (function () {
+    var blocked = ['r', 'mod', 'uri', 'elementor_library', 'et_core_page_resource'];
+    var params = new URLSearchParams(window.location.search);
+    var dirty = blocked.some(function (p) { return params.has(p); });
+    if (dirty) { window.location.replace(window.location.pathname); }
+  })();
+
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2571294026447618');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=2571294026447618&ev=PageView&noscript=1"
+/></noscript>
+<!-- Deferred: load external tracker scripts after idle -->
+<script>
+(function(){
+  function loadTrackers(){
+    var t=document.createElement('script');t.async=true;
+    t.src='https://connect.facebook.net/en_US/fbevents.js';
+    document.head.appendChild(t);
+    window.dataLayer=window.dataLayer||[];
+    window.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+    var j=document.createElement('script');j.async=true;
+    j.src='https://www.googletagmanager.com/gtm.js?id=GTM-NFGD8X8';
+    document.head.appendChild(j);
   }
-  if ('requestIdleCallback' in window) requestIdleCallback(init, {timeout: 3000});
-  else setTimeout(init, 2500);
+  if('requestIdleCallback' in window){
+    requestIdleCallback(loadTrackers,{timeout:4000});
+  } else {
+    setTimeout(loadTrackers,2000);
+  }
 })();
 </script>
-<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=2571294026447618&ev=PageView&noscript=1"/></noscript>
 <script>
 (function(){
   var ham = document.getElementById('hamburger');

@@ -18,6 +18,9 @@
 <link rel="alternate" hreflang="x-default" href="https://makewell.com.br/">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="preload" as="image" href="/images/logo-makewell-branca.webp" type="image/webp">
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <link rel="preconnect" href="https://connect.facebook.net">
@@ -67,8 +70,8 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root { --gold: #C8922A; --gold-light: #F07820; --dark: #0a0a0a; --dark-2: #141414; }
-  html { scroll-behavior: smooth; overflow-x: hidden; }
-  body { background: var(--dark); color: #ccc; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.75; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  html { scroll-behavior: smooth; overflow-x: hidden; overscroll-behavior: none; touch-action: pan-y; }
+  body { background: var(--dark); color: #ccc; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.75; -webkit-font-smoothing: antialiased; overflow-x: hidden; overscroll-behavior: none; }
 
   a { color: var(--gold-light); text-decoration: none; }
   a:hover { text-decoration: underline; }
@@ -442,7 +445,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="footer-partners">
     <span class="label" data-i18n="footerPartners">Parceiros &amp; Certificações Oficiais</span>
     <div class="footer-partners-logos">
-      <img src="/images/logo-kommo-partner.webp" alt="Kommo Partner" loading="lazy">
+      <img src="/images/logo-kommo-partner.webp" alt="Kommo Partner" loading="lazy" width="160" height="48">
     </div>
   </div>
   <p data-i18n="footerCopy">&copy; 2026 Makewell Comunicação. Todos os direitos reservados. &middot; <a href="/politica-de-privacidade/">Política de Privacidade</a> &middot; <a href="/termos-de-uso/">Termos de Uso</a> &middot; CNPJ 27.238.877/0001-71</p>
