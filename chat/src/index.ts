@@ -147,6 +147,12 @@ async function ask(env: Env, system: string, messages: Msg[], onDelta?: (d: stri
   console.log('[maia] tempo', m, 'cabeçalho', tHead, 'ms, 1º texto', tFirst, 'ms, fim', Date.now() - t0, 'ms');
   if (err && !text) return { ok: false, error: err };
   if (!text.trim()) return { ok: false, error: 'resposta vazia' };
+  // sem o evento de uso no fim do streaming, estima pelo tamanho (~3,5 caracteres por token): nunca registra custo zero,
+  // senão o teto diário de gasto deixaria de proteger
+  if (!inTok && !outTok) {
+    console.error('[maia] uso não veio; custo estimado');
+    inTok = (system.length + messages.reduce((n, x) => n + x.content.length, 0)) / 3.5; outTok = text.length / 3.5;
+  }
   const p = PRICE[m] ?? PRICE['claude-opus-5-5'];
   return { ok: true, text: text.trim(), usd: (inTok * p.input + outTok * p.output) / 1e6 };
 }
