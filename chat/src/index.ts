@@ -29,7 +29,7 @@ export interface Env extends LeadEnv {
 type Lang = 'br' | 'en' | 'es' | 'pt';
 type Msg = { role: 'user' | 'assistant'; content: string };
 type Conv = { lang: Lang; created: string; page?: string; messages: Msg[]; handoff?: boolean; ref?: string; notified?: boolean; lead?: Record<string, string> };
-type Reply = { ok: true; text: string; usd: number } | { ok: false; error: string };
+type Reply = { ok: true; text: string; usd: number } | { ok: false; error: string; usd?: number }; // usd no erro: tokens já cobrados
 
 const TTL = 60 * 60 * 24 * 90; // 90 dias, como diz a política de privacidade
 const MAX_TURNS = 30;
@@ -163,16 +163,17 @@ async function ask(env: Env, system: string, messages: Msg[], onDelta?: (d: stri
     }
   } catch (e) { err ||= String(e); }
   console.log('[maia] tempo', m, 'cabeçalho', tHead, 'ms, 1º texto', tFirst, 'ms, fim', Date.now() - t0, 'ms');
-  if (err && (!text || err.startsWith('recusa'))) return { ok: false, error: err };
-  if (!text.trim()) return { ok: false, error: 'resposta vazia' };
   // sem o evento de uso no fim do streaming, estima pelo tamanho (~3,5 caracteres por token): nunca registra custo zero,
-  // senão o teto diário de gasto deixaria de proteger
+  // senão o teto diário de gasto deixaria de proteger. Vale também para recusa e falha no meio: os tokens já foram cobrados
   if (!inTok && !outTok) {
-    console.error('[maia] uso não veio; custo estimado');
+    if (text) console.error('[maia] uso não veio; custo estimado');
     inTok = (system.length + messages.reduce((n, x) => n + x.content.length, 0)) / 3.5; outTok = text.length / 3.5;
   }
   const p = PRICE[m] ?? PRICE['claude-opus-5-5'];
-  return { ok: true, text: text.trim(), usd: (inTok * p.input + outTok * p.output) / 1e6 };
+  const usd = (inTok * p.input + outTok * p.output) / 1e6;
+  if (err && (!text || err.startsWith('recusa'))) return { ok: false, error: err, usd };
+  if (!text.trim()) return { ok: false, error: 'resposta vazia', usd };
+  return { ok: true, text: text.trim(), usd };
 }
 
 // Anti-robô (Turnstile). O widget roda numa página deste endereço, embutida no chat (o makewell.com.br não pode entrar na
@@ -271,10 +272,16 @@ export default {
         if (safe > sent) { emit(full.slice(sent, safe)); sent = safe; }
       });
       // uma nova tentativa cobre as falhas passageiras da kie.ai, desde que nada tenha sido mostrado ainda
+      // (recusa não se repete: a segunda tentativa daria o mesmo resultado e cobraria de novo). Todo gasto entra no teto,
+      // inclusive o de tentativas que falharam
       let r = await ask(env, system, conv.messages, onDelta);
-      if (!r.ok && !sent) { console.error('[maia] kie', r.error); full = ''; r = await ask(env, system, conv.messages, onDelta); }
-      if (!r.ok) { console.error('[maia] kie (2ª)', r.error); return { reply: L.error, whatsapp: waLink(env, L.lead) }; }
-      ctx.waitUntil(addSpend(env, r.usd));
+      if (r.usd) ctx.waitUntil(addSpend(env, r.usd));
+      if (!r.ok && !sent && !r.error.startsWith('recusa')) {
+        console.error('[maia] modelo', r.error); full = '';
+        r = await ask(env, system, conv.messages, onDelta);
+        if (r.usd) ctx.waitUntil(addSpend(env, r.usd));
+      }
+      if (!r.ok) { console.error('[maia] modelo (falhou)', r.error); return { reply: L.error, whatsapp: waLink(env, L.lead) }; }
       return finish(r.text);
     };
     const finish = async (out: string) => {
@@ -284,7 +291,8 @@ export default {
       if (!lead && !conv.handoff && (HUMAN.test(text) || INVITE.test(reply))) {
         const ex = await ask(env, `${SYSTEM}\n\n# Tarefa agora\nNão responda à pessoa. Escreva apenas a linha ${MARK} com o JSON do resumo desta conversa.`, [...conv.messages, { role: 'assistant', content: reply }, { role: 'user', content: '(sistema: gere o resumo)' }]);
         // o modelo às vezes devolve só o JSON, sem a marcação
-        if (ex.ok) { ctx.waitUntil(addSpend(env, ex.usd)); lead = splitHandoff(ex.text).lead ?? parseLead(ex.text); }
+        if (ex.usd) ctx.waitUntil(addSpend(env, ex.usd));
+        if (ex.ok) lead = splitHandoff(ex.text).lead ?? parseLead(ex.text);
         if (!lead) console.error('[maia] resumo não veio', ex.ok ? ex.text.slice(0, 200) : ex.error);
       }
       let whatsapp: string | undefined;
