@@ -7,8 +7,16 @@
   "compatibility_date": "2026-10-15",
   "routes": [{ "pattern": "chat.makewell.agency", "custom_domain": true }],
   "kv_namespaces": [{ "binding": "CHAT", "id": "4482dcd8c5af4eaca420b0a63e579c96" }],
-  "secrets_store_secrets": [{ "binding": "KIE_API_KEY", "store_id": "20d5e4dd865a460e85d9c002af65c49f", "secret_name": "KIE_API_KEY" }],
-  // limite por IP (12/min) e global (40/min): o global deixa o gasto máximo previsível, já que o contador diário no KV é aproximado
+  // leads encaminhados (schema.sql); o painel /leads fica atrás do Cloudflare Access
+  "d1_databases": [{ "binding": "DB", "database_name": "makewell-leads", "database_id": "f4d9c2dd-3b2b-492e-8e4e-ad60477d4cf7" }],
+  "triggers": { "crons": ["0 6 * * *"] },
+  // aviso de lead novo por e-mail (Email Routing do makewell.agency; o destino precisa estar verificado lá)
+  "send_email": [{ "name": "EMAIL", "destination_address": "contato@makewell.com.br" }],
+  "secrets_store_secrets": [
+    { "binding": "KIE_API_KEY", "store_id": "20d5e4dd865a460e85d9c002af65c49f", "secret_name": "KIE_API_KEY" },
+    { "binding": "META_WA_TOKEN", "store_id": "20d5e4dd865a460e85d9c002af65c49f", "secret_name": "META_WA_TOKEN" }
+  ],
+  // limites por IP (12/min) e geral (40/min); a Cloudflare conta por data center, então o teto de verdade é o gasto diário no D1
   "ratelimits": [
     { "name": "RL", "namespace_id": "1001", "simple": { "limit": 12, "period": 60 } },
     { "name": "RL_GLOBAL", "namespace_id": "1002", "simple": { "limit": 40, "period": 60 } }
@@ -18,7 +26,14 @@
     "MODEL": "grok-4-7",
     "DAILY_CAP_USD": "8",
     "WHATSAPP": "5582999103246",
-    "ALLOWED_ORIGINS": "https://makewell.com.br,https://makewell.agency,http://127.0.0.1:8811,http://127.0.0.1:8812"
+    "NOTIFY_TO": "contato@makewell.com.br",
+    // aviso no WhatsApp (ver leads.ts): id do número de teste do app da Maia Connect e os celulares que recebem
+    "META_PHONE_ID": "1444518962067713",
+    "NOTIFY_WA": "5582999103246",
+    // preenchidos depois de criar a aplicação no Cloudflare Access (até lá o painel responde 403)
+    "ACCESS_TEAM": "old-wave-6221.cloudflareaccess.com",
+    "ACCESS_AUD": "bfd617003e70ec690a4a6586fa8e6fabb2af20f437016f6a25a06da2d77f48c3",
+    "ALLOWED_ORIGINS": "https://makewell.com.br,https://makewell.agency"
   },
   "observability": { "enabled": true }
 }

@@ -30,7 +30,7 @@ const enUrl = lang === 'br' && !legal ? url(key, 'en') : null;
 // WhatsApp flutuante (mesmas mensagens do site atual) e "voltar ao topo"
 const HS: Record<Lang, [string, string, string, string]> = { br: ['Anterior', 'Próximo', 'Pausar movimento', 'Retomar movimento'], en: ['Previous', 'Next', 'Pause motion', 'Resume motion'], es: ['Anterior', 'Siguiente', 'Pausar movimiento', 'Reanudar movimiento'], pt: ['Anterior', 'Seguinte', 'Pausar movimento', 'Retomar movimento'] };
 // Maia (assistente de IA do chat, Worker em chat/): desligada até o cliente decidir ligar; com false, o botão flutuante é o WhatsApp
-const MAIA = false;
+const MAIA = true;
 const WA: Record<Lang, { href: string; aria: string; top: string }> = {
   br: { href: 'https://wa.me/5582999103246?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Makewell%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.', aria: 'Falar no WhatsApp', top: 'Voltar ao topo' },
   en: { href: 'https://wa.me/5582999103246?text=Hello!%20I%20came%20through%20Makewell%27s%20website%20and%20would%20like%20more%20information.', aria: 'Chat on WhatsApp', top: 'Back to top' },
