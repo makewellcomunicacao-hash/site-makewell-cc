@@ -4,6 +4,7 @@
 // números + cases → depoimentos → quem lidera → FAQ → CTA. Campos de conteúdo com HTML usam set:html.
 import Page from '../layouts/Page.astro';
 import VideoModal from '../components/VideoModal.astro';
+import VideoCover from '../components/VideoCover.astro';
 import content from '../content/home';
 import { path, type Lang, type PageKey } from '../lib/site';
 import { logoSize } from '../lib/logos';
@@ -89,11 +90,7 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
       <p class="eyebrow" set:html={c.video.label} />
       <h2 class="h2" id="inst-title" set:html={c.video.title} />
       <p class="lead" set:html={c.video.sub} />
-      <button type="button" class="video-poster hm-poster" data-yt="A28k_Yxm9cc" data-yt-params={c.ui.yt || undefined} aria-label={c.video.play}>
-        <img src="/images/video-institucional.webp" alt="" width="1920" height="1080" loading="lazy" />
-        <span class="play" set:html={play} />
-        <span class="hm-poster-label" set:html={c.video.duration} />
-      </button>
+      <VideoCover lang={lang} aria={c.video.play} params={c.ui.yt} class="hm-poster" />
       <div class="grid hm-photos">
         <img class="photo" src="/images/escritorio-estudio.webp" alt={c.ui.photos[0]} loading="lazy" />
         <img class="photo" src="/images/escritorio-campanhas.webp" alt={c.ui.photos[1]} loading="lazy" />
@@ -243,7 +240,8 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
   </section>
 
   <!-- QUEM LIDERA -->
-  <section class="t-warm sec hm-about" id={c.about.id} aria-labelledby="about-title">
+  <section class="t-warm sec hm-about glow-host" id={c.about.id} aria-labelledby="about-title">
+    <div class="glow-bg" aria-hidden="true"><span></span><span></span><span></span></div>
     <div class="wrap split">
       <div class="main">
         <p class="eyebrow" set:html={c.about.tag} />
@@ -252,7 +250,7 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
         <blockquote class="hm-manifesto"><p set:html={c.about.quote} /></blockquote>
         <a class="link-arrow" href={path('about', lang)} set:html={c.about.link} />
       </div>
-      <div class="side">
+      <div class="side glass hm-about-panel">
         {c.about.team.map((t: any) => (
           <div class="hm-team">
             <img src={t.img} alt={t.alt} width="110" height="110" loading="lazy" />
@@ -315,7 +313,7 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
   /* fundo do hero: gráfico de resultado. Forte à direita (atrás dos números), some à esquerda (título) */
   .hm-chart { position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .9; }
   .hm-chart svg { width: 100%; height: 100%; display: block; }
-  .hm-chart::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--warm) 0%, rgba(14,13,11,.92) 30%, rgba(14,13,11,.55) 58%, rgba(14,13,11,.15) 100%), linear-gradient(0deg, rgba(14,13,11,.35) 0%, rgba(14,13,11,0) 18%); }
+  .hm-chart::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--warm) 0%, rgba(14,13,11,.92) 30%, rgba(14,13,11,.55) 58%, rgba(14,13,11,.15) 100%), linear-gradient(0deg, var(--warm) 0%, rgba(14,13,11,0) 22%); }
   .hm-chart .grid line { stroke: rgba(244,241,236,.05); stroke-width: 1; }
   .hm-chart .bar { transform-box: fill-box; transform-origin: 50% 100%; animation: hm-bar 1.6s cubic-bezier(.2,.7,.2,1) calc(var(--i) * 45ms + .2s) both, hm-breathe calc(5s + var(--i) * 170ms) ease-in-out calc(2.6s + var(--i) * 90ms) infinite; }
   .hm-chart .ln { fill: none; stroke-linejoin: round; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; animation: hm-draw 2.4s .5s cubic-bezier(.6,0,.2,1) forwards; }
@@ -336,7 +334,7 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
     .hm-chart .bar, .hm-chart .ln, .hm-chart .area, .hm-chart .dot { animation: none; opacity: 1; stroke-dashoffset: 0; }
     .hm-chart .comet { display: none; }
   }
-  .hm-hero { padding-block: clamp(72px, 9vw, 112px) calc(clamp(56px, 7vw, 88px) + 57px); } /* +57px: a faixa de temas sobe sobre o fim do hero */
+  .hm-hero { padding-block: clamp(72px, 9vw, 112px) clamp(56px, 7vw, 88px); }
   .hm-hero-grid { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 48px 64px; }
   .hm-hero-main { flex: 999 1 560px; min-width: 0; }
   .hm-hero-side { flex: 1 1 400px; min-width: 0; max-width: 560px; border-radius: 28px; padding: 26px clamp(22px, 2.4vw, 32px) 6px; }
@@ -356,9 +354,7 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
   .hm-chips li { border: 1px solid var(--line); border-radius: 999px; padding: 10px 18px; font-size: 14px; color: #D8D3CB; }
   @media (max-width: 520px) { .hm-chips { gap: 8px; margin-top: 48px; } .hm-chips li { padding: 8px 13px; font-size: 13px; } }
   /* faixa de temas: uma linha só. Desktop: fonte menor e centralizada; abaixo de 1100px vira letreiro contínuo */
-  .hm-ticker { overflow: hidden; }
-  /* faixa de temas em vidro, flutuando sobre a base do gráfico do hero (as barras passam desfocadas por trás) */
-  .hm-ticker { position: relative; z-index: 2; margin-top: -57px; background: rgba(20,18,16,.32); -webkit-backdrop-filter: blur(14px) saturate(170%); backdrop-filter: blur(14px) saturate(170%); border-block: 1px solid rgba(255,255,255,.09); box-shadow: inset 0 1px 0 rgba(255,255,255,.08); }
+  .hm-ticker { border-block: 1px solid var(--line); overflow: hidden; }
   .hm-track { display: flex; justify-content: center; }
   .hm-ticker ul { display: flex; flex-wrap: nowrap; margin: 0; padding: 18px 0; list-style: none; white-space: nowrap; }
 
@@ -382,16 +378,10 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
 
   /* vídeo */
   .hm-poster { margin-top: 48px; }
-  .hm-poster img { filter: none; }
-  .hm-poster .play { width: 104px; height: 104px; }
-  .hm-poster-label { position: absolute; left: 24px; bottom: 24px; background: rgba(20,18,16,.38); -webkit-backdrop-filter: blur(14px) saturate(170%); backdrop-filter: blur(14px) saturate(170%); box-shadow: inset 0 1px 0 rgba(255,255,255,.22), inset 0 0 0 1px rgba(255,255,255,.08), 0 10px 30px rgba(0,0,0,.3); color: var(--paper); padding: 10px 18px; border-radius: 999px; font-size: 14px; font-weight: 600; }
   .hm-photos { margin-top: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .hm-photos .photo { aspect-ratio: 4/3; height: 100%; border-radius: var(--r-card); }
   @media (max-width: 639px) {
     .hm-poster { margin-top: 36px; border-radius: var(--r-card); }
-    .hm-poster .play { width: 64px; height: 64px; }
-    .hm-poster .play svg { width: 24px; height: 24px; }
-    .hm-poster-label { left: 12px; bottom: 12px; padding: 7px 12px; font-size: 12px; }
     .hm-photos { gap: 8px; margin-top: 8px; }
     .hm-photos .photo { aspect-ratio: 3/4; border-radius: 14px; }
   }
@@ -506,6 +496,11 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
   .hm-manifesto { margin: 40px 0 0; padding-left: 24px; border-left: 3px solid var(--accent); }
   .hm-manifesto p { margin: 0; font-size: clamp(28px, 3.2vw, 44px); font-weight: 800; letter-spacing: -.025em; line-height: 1.12; }
   .hm-team { display: flex; align-items: center; gap: 18px; padding: 18px 0; border-top: 1px solid var(--line); }
+  /* equipe e números num painel de vidro sobre os brilhos; a borda do painel substitui a primeira linha */
+  .hm-about-panel { flex-basis: 400px; border-radius: 28px; padding: clamp(18px, 2.4vw, 32px) clamp(22px, 2.6vw, 36px); }
+  .hm-about-panel .hm-about-stats { gap: 12px; }
+  .hm-about-panel .hm-about-stats span { font-size: clamp(20px, 1.9vw, 26px); }
+  .hm-about-panel > .hm-team:first-child { border-top: 0; padding-top: 4px; }
   .hm-team img { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; flex: none; }
   .hm-team p { margin: 0; }
   .hm-team-name { font-weight: 700; font-size: 18px; }

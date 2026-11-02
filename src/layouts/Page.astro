@@ -193,10 +193,10 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
     gsap.fromTo(el, { clipPath: 'inset(12% 8% 12% 8% round 28px)', opacity: 0.4 },
       { clipPath: 'inset(0% 0% 0% 0% round 28px)', opacity: 1, duration: 1.4, ease: 'expo.out', clearProps: 'clipPath', scrollTrigger: { trigger: el, start: 'top 90%', once: true } });
   });
-  // o GSAP move estes elementos a cada quadro: a transição de transform do CSS deixaria o movimento "borrachudo"
-  main.querySelectorAll<HTMLElement>('.video-poster img').forEach((img) => {
+  // capa do vídeo: a apresentadora sobe um pouco enquanto a capa entra na tela
+  main.querySelectorAll<HTMLElement>('.vc-person').forEach((img) => {
     gsap.set(img, { transition: 'none' });
-    gsap.fromTo(img, { yPercent: -6, scale: 1.14 }, { yPercent: 6, scale: 1.14, ease: 'none', scrollTrigger: { trigger: img.parentElement, scrub: true } });
+    gsap.fromTo(img, { yPercent: 6 }, { yPercent: 0, ease: 'none', scrollTrigger: { trigger: img.parentElement, start: 'top bottom', end: 'center center', scrub: true } });
   });
   main.querySelectorAll<HTMLElement>('.photo').forEach((img, i) => {
     // fotos em mosaico (mais de uma no mesmo bloco) ficam alinhadas: parallax só nas fotos soltas

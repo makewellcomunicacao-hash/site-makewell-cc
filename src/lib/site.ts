@@ -33,7 +33,7 @@ export const NAV_KEYS: PageKey[] = ['about', 'services', 'framework', 'method', 
 /** Textos fixos por idioma, copiados do site atual. */
 export const UI: Record<Lang, {
   htmlLang: string; code: string; nav: string[]; navAria: string; logoAria: string; logoAlt: string;
-  cta: string; ctaAria: string; ctaHref: string; langTrigger: string; langMenu: string; menuOpen: string; menuClose: string; mobileMenu: string;
+  cta: string; ctaAria: string; ctaHref: string; langTrigger: string; langMenu: string; menuOpen: string; menuClose: string; mobileMenu: string; videoKicker: string; videoTitle: string; videoCta: string;
   skip: string; partners: string; copyright: string; legal: [string, string]; taxId: string; places: string;
 }> = {
   br: {
@@ -41,7 +41,7 @@ export const UI: Record<Lang, {
     logoAria: 'Makewell Comunicação — página inicial', logoAlt: 'Makewell Comunicação',
     cta: 'Agendar diagnóstico', ctaAria: 'Agendar diagnóstico gratuito',
     ctaHref: 'https://wa.me/5582999103246?text=Ol%C3%A1!%20Quero%20agendar%20um%20diagn%C3%B3stico%20gratuito%20com%20a%20Makewell.',
-    langTrigger: 'Mudar idioma', langMenu: 'Selecionar idioma', menuOpen: 'Abrir menu', menuClose: 'Fechar menu', mobileMenu: 'Menu mobile',
+    langTrigger: 'Mudar idioma', langMenu: 'Selecionar idioma', menuOpen: 'Abrir menu', menuClose: 'Fechar menu', mobileMenu: 'Menu mobile', videoKicker: 'Vídeo institucional · 40s', videoTitle: 'Conheça a Makewell em 40 segundos', videoCta: 'Assistir apresentação',
     skip: 'Pular para o conteúdo', partners: 'Parceiros &amp; Certificações Oficiais',
     copyright: '&copy; 2026 Makewell Comunicação. Todos os direitos reservados.', legal: ['Política de Privacidade', 'Termos de Uso'],
     taxId: 'CNPJ 27.238.877/0001-71', places: 'Maceió · São Paulo · makewell.com.br',
@@ -51,7 +51,7 @@ export const UI: Record<Lang, {
     logoAria: 'Makewell Communications — home', logoAlt: 'Makewell Communications',
     cta: 'Schedule a Diagnosis', ctaAria: 'Schedule a free diagnosis',
     ctaHref: 'https://wa.me/5582999103246?text=Hello!%20I%27d%20like%20to%20schedule%20a%20free%20diagnosis%20with%20Makewell.',
-    langTrigger: 'Change language', langMenu: 'Select language', menuOpen: 'Open menu', menuClose: 'Close menu', mobileMenu: 'Mobile menu',
+    langTrigger: 'Change language', langMenu: 'Select language', menuOpen: 'Open menu', menuClose: 'Close menu', mobileMenu: 'Mobile menu', videoKicker: 'Brand video · 40s', videoTitle: 'Meet Makewell in 40 seconds', videoCta: 'Watch the presentation',
     skip: 'Skip to content', partners: 'Official Partners &amp; Certifications',
     copyright: '&copy; 2026 Makewell Comunicação. All rights reserved.', legal: ['Privacy Policy', 'Terms of Use'],
     taxId: 'Tax ID (CNPJ): 27.238.877/0001-71', places: 'Brazil · Florida · makewell.agency',
@@ -61,7 +61,7 @@ export const UI: Record<Lang, {
     logoAria: 'Makewell Comunicação — inicio', logoAlt: 'Makewell Comunicação',
     cta: 'Agendar Diagnóstico', ctaAria: 'Agendar un diagnóstico gratuito',
     ctaHref: 'https://wa.me/5582999103246?text=Hola!%20Quiero%20agendar%20un%20diagn%C3%B3stico%20gratuito%20con%20Makewell.',
-    langTrigger: 'Cambiar idioma', langMenu: 'Seleccionar idioma', menuOpen: 'Abrir menú', menuClose: 'Cerrar menú', mobileMenu: 'Menú móvil',
+    langTrigger: 'Cambiar idioma', langMenu: 'Seleccionar idioma', menuOpen: 'Abrir menú', menuClose: 'Cerrar menú', mobileMenu: 'Menú móvil', videoKicker: 'Video institucional · 40s', videoTitle: 'Conoce Makewell en 40 segundos', videoCta: 'Ver la presentación',
     skip: 'Saltar al contenido', partners: 'Socios y Certificaciones Oficiales',
     copyright: '&copy; 2026 Makewell Comunicação. Todos los derechos reservados.', legal: ['Política de Privacidad', 'Términos de Uso'],
     taxId: 'CNPJ: 27.238.877/0001-71', places: 'Brasil · España · Latinoamérica · makewell.agency',
@@ -71,7 +71,7 @@ export const UI: Record<Lang, {
     logoAria: 'Makewell Comunicação — início', logoAlt: 'Makewell Comunicação',
     cta: 'Agendar Diagnóstico', ctaAria: 'Agendar um diagnóstico gratuito',
     ctaHref: 'https://wa.me/5582999103246?text=Ol%C3%A1!%20Quero%20agendar%20um%20diagn%C3%B3stico%20gratuito%20com%20a%20Makewell.',
-    langTrigger: 'Mudar idioma', langMenu: 'Selecionar idioma', menuOpen: 'Abrir menu', menuClose: 'Fechar menu', mobileMenu: 'Menu mobile',
+    langTrigger: 'Mudar idioma', langMenu: 'Selecionar idioma', menuOpen: 'Abrir menu', menuClose: 'Fechar menu', mobileMenu: 'Menu mobile', videoKicker: 'Vídeo institucional · 40s', videoTitle: 'Conheça a Makewell em 40 segundos', videoCta: 'Ver a apresentação',
     skip: 'Saltar para o conteúdo', partners: 'Parceiros e Certificações Oficiais',
     copyright: '&copy; 2026 Makewell Comunicação. Todos os direitos reservados.', legal: ['Política de Privacidade', 'Termos de Uso'],
     taxId: 'NIF/CNPJ: 27.238.877/0001-71', places: 'Brasil · Portugal · makewell.agency',

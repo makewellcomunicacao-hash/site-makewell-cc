@@ -1,0 +1,16 @@
+---
+// Capa do vídeo institucional (Home e Sobre): fundo da marca com brilho, título e play à esquerda,
+// apresentadora recortada à direita (quadro do próprio vídeo, sem a legenda gravada). Abre no VideoModal via [data-yt].
+import { UI, type Lang } from '../lib/site';
+interface Props { lang: Lang; aria: string; params?: string; class?: string }
+const { lang, aria, params, class: cls } = Astro.props;
+const t = UI[lang];
+---
+<button type="button" class:list={['video-poster vcover', cls]} data-yt="A28k_Yxm9cc" data-yt-params={params || undefined} aria-label={aria}>
+  <span class="vc-text" aria-hidden="true">
+    <span class="vc-kicker">{t.videoKicker}</span>
+    <span class="vc-title">{t.videoTitle}</span>
+    <span class="vc-cta"><span class="play"><svg width="30" height="30" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="#080808"></path></svg></span>{t.videoCta}</span>
+  </span>
+  <img class="vc-person" src="/images/video-apresentadora.webp" alt="" width="510" height="700" loading="lazy" decoding="async" />
+</button>

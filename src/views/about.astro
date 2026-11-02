@@ -2,6 +2,7 @@
 // Sobre (artboard Sobre.dc.html, paleta editorial). Texto integral em src/content/about.ts.
 import Page from '../layouts/Page.astro';
 import VideoModal from '../components/VideoModal.astro';
+import VideoCover from '../components/VideoCover.astro';
 import { path } from '../lib/site';
 import content from '../content/about';
 
@@ -55,11 +56,7 @@ const nn = (i: number) => String(i + 1).padStart(2, '0');
         <p class="eyebrow">{c.video.eyebrow}</p>
         <h2 class="h2">{c.video.title}</h2>
         <p class="lead">{c.video.sub}</p>
-        <button type="button" class="video-poster ab-video" data-yt={YT} data-yt-params={c.video.params || undefined} aria-label={c.video.play}>
-          <img src="/images/video-institucional.webp" alt="" width="1920" height="1080" loading="lazy" decoding="async" />
-          <span class="play" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="#080808"></path></svg></span>
-          <span class="ab-video-label">{c.video.label}</span>
-        </button>
+        <VideoCover lang={lang} aria={c.video.play} params={c.video.params} class="ab-video" />
       </div>
     </section>
 
@@ -214,9 +211,6 @@ const nn = (i: number) => String(i + 1).padStart(2, '0');
   @media (max-width: 900px) { .ab-story-img { position: static; aspect-ratio: 16 / 10; } }
 
   .ab-video { margin-top: 48px; }
-  .ab-video .play { width: 104px; height: 104px; }
-  @media (max-width: 600px) { .ab-video .play { width: 64px; height: 64px; } .ab-video .play svg { width: 24px; height: 24px; } .ab-video-label { left: 12px; bottom: 12px; padding: 8px 14px; font-size: 13px; } }
-  .ab-video-label { position: absolute; left: 24px; bottom: 24px; background: rgba(20,18,16,.38); -webkit-backdrop-filter: blur(14px) saturate(170%); backdrop-filter: blur(14px) saturate(170%); box-shadow: inset 0 1px 0 rgba(255,255,255,.22), inset 0 0 0 1px rgba(255,255,255,.08), 0 10px 30px rgba(0,0,0,.3); color: var(--paper); padding: 10px 18px; border-radius: 999px; font-size: 14px; font-weight: 600; }
 
   .ab-num-title { margin: 0; max-width: 760px; font-size: clamp(30px, 3.4vw, 48px); line-height: 1.08; }
   .ab-num-sub { margin: 16px 0 0; font-size: 18px; color: var(--muted); }

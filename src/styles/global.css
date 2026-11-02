@@ -83,9 +83,9 @@ a { color: inherit; }
 .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 76px; transition: min-height .3s ease; }
 .site-header.scrolled .nav { min-height: 62px; }
 .site-header.scrolled::before { background: rgba(14,13,11,.9); }
-.nav-logo img { height: 44px; width: auto; transition: height .3s ease; }
-.site-header.scrolled .nav-logo img { height: 38px; }
-@media (max-width: 600px) { .nav-logo img, .site-header.scrolled .nav-logo img { height: 38px; } }
+.nav-logo img { height: 52px; width: auto; transition: height .3s ease; }
+.site-header.scrolled .nav-logo img { height: 44px; }
+@media (max-width: 600px) { .nav-logo img, .site-header.scrolled .nav-logo img { height: 42px; } }
 .nav-links { display: flex; gap: 28px; }
 .nav-links a { color: var(--paper-muted); text-decoration: none; font-size: 15px; padding-block: 12px; }
 .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--paper); }
@@ -114,7 +114,7 @@ a { color: inherit; }
 .site-footer { background: var(--warm); color: var(--paper-muted); border-top: 1px solid var(--warm-line); font-size: 14px; line-height: 1.6; }
 .foot-grid { display: grid; gap: 40px 32px; grid-template-columns: 1.2fr repeat(4, minmax(0, 1fr)); padding-block: 64px 40px; }
 @media (max-width: 1000px) { .foot-grid { grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); } }
-.foot-brand .logo { height: 44px; width: auto; }
+.foot-brand .logo { height: 52px; width: auto; }
 .foot-social { display: flex; gap: 8px; margin-top: 22px; }
 .foot-social a { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--warm-line); display: inline-flex; align-items: center; justify-content: center; color: var(--paper); transition: border-color .2s, color .2s; }
 .foot-social a:hover { border-color: var(--accent); color: var(--accent); }
@@ -245,3 +245,36 @@ p { text-wrap: pretty; }
 @keyframes mw-orb { 50% { transform: translate(8vw, 6vh) scale(1.15); } 100% { transform: translate(-4vw, 10vh) scale(.92); } }
 @media (max-width: 900px), (prefers-reduced-motion: reduce) { .glow-bg span { animation: none; } }
 .glow-host .card.glass { background: rgba(23,21,18,.42); }
+
+/* capa do vídeo institucional (componente VideoCover): fundo da marca com brilho atrás da apresentadora,
+   título e play à esquerda; no celular, texto em cima e apresentadora embaixo */
+.vcover { display: flex; align-items: center; text-align: left; color: var(--paper); font: inherit; isolation: isolate;
+  background: radial-gradient(42% 70% at 76% 78%, rgba(240,120,32,.5), rgba(240,120,32,0) 70%), radial-gradient(30% 50% at 92% 18%, rgba(245,166,35,.18), rgba(245,166,35,0) 70%),
+    linear-gradient(rgba(244,241,236,.035) 1px, transparent 1px) 0 0 / 72px 72px, linear-gradient(90deg, rgba(244,241,236,.035) 1px, transparent 1px) 0 0 / 72px 72px, linear-gradient(120deg, #1D1915, var(--warm) 60%); }
+.vc-text { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; gap: clamp(8px, 1.4vw, 18px); max-width: 54%; padding-left: clamp(22px, 6%, 80px); }
+.vc-kicker { font-size: clamp(11px, 1vw, 13px); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.vc-title { font-size: clamp(24px, 4vw, 58px); line-height: 1.04; letter-spacing: -.03em; font-weight: 800; text-wrap: balance; }
+.vc-cta { display: inline-flex; align-items: center; gap: 14px; margin-top: clamp(6px, 1.4vw, 18px); font-size: clamp(14px, 1.3vw, 17px); font-weight: 700; }
+.vcover .play { position: static; inset: auto; margin: 0; flex: none; width: clamp(48px, 5.6vw, 76px); height: clamp(48px, 5.6vw, 76px); }
+.vcover .vc-person { position: absolute; z-index: 1; right: 7%; bottom: 0; width: auto; height: 94%; object-fit: contain; transform-origin: 50% 100%;
+  -webkit-mask-image: linear-gradient(to bottom, #000 76%, transparent); mask-image: linear-gradient(to bottom, #000 76%, transparent); filter: drop-shadow(0 24px 60px rgba(0,0,0,.55)); }
+@media (max-width: 600px) {
+  .vcover { aspect-ratio: 4 / 5; align-items: flex-start; padding-top: 30px;
+    background: radial-gradient(75% 45% at 50% 92%, rgba(240,120,32,.5), rgba(240,120,32,0) 70%),
+      linear-gradient(rgba(244,241,236,.035) 1px, transparent 1px) 0 0 / 56px 56px, linear-gradient(90deg, rgba(244,241,236,.035) 1px, transparent 1px) 0 0 / 56px 56px, linear-gradient(160deg, #1D1915, var(--warm) 60%); }
+  .vc-text { max-width: 100%; padding-inline: 22px; }
+  .vcover .vc-person { right: 0; left: 0; margin-inline: auto; height: 62%; }
+}
+
+
+/* boas práticas do vidro: desfoque mais leve no celular; fundo sólido e legível quando o sistema pede menos
+   transparência ou o navegador não tem backdrop-filter */
+@media (max-width: 600px) { .glass { -webkit-backdrop-filter: blur(10px) saturate(150%); backdrop-filter: blur(10px) saturate(150%); } }
+@media (prefers-reduced-transparency: reduce) {
+  .glass, .lang-menu, .back-to-top, .site-header::before { -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .glass, .lang-menu, .back-to-top { background: var(--warm-card); }
+  .site-header::before, .site-header.scrolled::before { background: var(--warm); }
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass { background: var(--warm-card); }
+}
