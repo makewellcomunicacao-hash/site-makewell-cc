@@ -14,9 +14,9 @@ const c = content[lang];
 const logo = (file: string, alt: string) => ({ src: `/images/logo-${file}.webp`, alt });
 // Os três blocos de case têm o mesmo card; muda só o cabeçalho, o tema e o link.
 const blocks = [
-  { id: c.ids.feat, theme: 't-warm2', eyebrow: c.featEyebrow, title: c.featTitle, big: true,
+  { id: c.ids.feat, theme: 't-warm2', glow: true, eyebrow: c.featEyebrow, title: c.featTitle, big: true,
     cards: [{ ...c.feat, logo: logo('casa-hunter', 'Casa Hunter'), href: path('casaHunter', lang), ext: false }] },
-  { id: c.ids.roi, theme: 't-light', eyebrow: 'ROI', title: c.roiTitle, sub: c.roiSub, grid: true,
+  { id: c.ids.roi, theme: 't-warm2', glow: true, eyebrow: 'ROI', title: c.roiTitle, sub: c.roiSub, grid: true,
     cards: [{ ...c.roi[0], logo: logo('vilela-advogados', 'Vilela Advogados') }, { ...c.roi[1], logo: logo('drathielen', 'Dra. Thielen Szczypkowski') }] },
   { id: c.ids.abroad, theme: 't-light cs-follow', eyebrow: lang === 'en' ? 'International' : 'Internacional', title: c.abroadTitle, sub: c.abroadSub,
     cards: [{ ...c.nagy, logo: null, href: 'https://nagycustomremodels.com/', ext: true }] },
@@ -59,14 +59,15 @@ const playIcon = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" st
   </section>
 
   {blocks.map((b) => (
-    <section id={b.id} class={`${b.theme} sec cs-block`}>
+    <section id={b.id} class={`${b.theme} sec cs-block${b.glow ? ' glow-host' : ''}`}>
+      {b.glow && <div class="glow-bg" aria-hidden="true"><span></span><span></span><span></span></div>}
       <div class="wrap">
         {b.eyebrow && <p class="eyebrow">{b.eyebrow}</p>}
         <h2 class={b.big ? 'h2 cs-ftitle' : 'h2'}>{b.title}</h2>
         {b.sub && <p class="lead">{b.sub}</p>}
         <div class={b.grid ? 'cs-cards cs-cards-2' : 'cs-cards'}>
           {b.cards.map((k) => (
-            <article class="card cs-case">
+            <article class={`card cs-case${b.glow ? ' glass' : ''}`}>
               <div class="cs-media">
                 <div class="tile cs-logo">
                   {k.logo ? <img src={k.logo.src} alt={k.logo.alt} loading="lazy" />

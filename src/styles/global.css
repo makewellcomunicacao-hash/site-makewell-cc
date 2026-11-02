@@ -233,3 +233,15 @@ p { text-wrap: pretty; }
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); }
 .glass::after { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none;
   background: radial-gradient(circle at var(--mx, 18%) var(--my, 0%), rgba(255,255,255,.14), rgba(255,255,255,0) 42%); transition: background-position .2s; }
+
+/* fundo para blocos de vidro com dados de resultado: brilhos laranja/âmbar que se movem devagar e uma grade fina
+ (cases da home e da página Cases, topo da Sobre e do case Casa Hunter); parados no celular */
+.glow-host { position: relative; isolation: isolate; overflow: hidden; }
+.glow-bg { position: absolute; inset: 0; z-index: -1; pointer-events: none; background-image: linear-gradient(rgba(244,241,236,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(244,241,236,.04) 1px, transparent 1px); background-size: 96px 96px; }
+.glow-bg span { position: absolute; border-radius: 50%; filter: blur(60px); opacity: .55; animation: mw-orb 22s ease-in-out infinite alternate; }
+.glow-bg span:nth-child(1) { width: 46vw; height: 46vw; left: -8vw; top: 4%; background: radial-gradient(closest-side, #F07820, rgba(240,120,32,0)); }
+.glow-bg span:nth-child(2) { width: 38vw; height: 38vw; right: -6vw; top: 30%; background: radial-gradient(closest-side, #F5A623, rgba(245,166,35,0)); animation-duration: 28s; animation-direction: alternate-reverse; }
+.glow-bg span:nth-child(3) { width: 30vw; height: 30vw; left: 30%; bottom: -10%; background: radial-gradient(closest-side, #B4530F, rgba(180,83,15,0)); animation-duration: 34s; }
+@keyframes mw-orb { 50% { transform: translate(8vw, 6vh) scale(1.15); } 100% { transform: translate(-4vw, 10vh) scale(.92); } }
+@media (max-width: 900px), (prefers-reduced-motion: reduce) { .glow-bg span { animation: none; } }
+.glow-host .card.glass { background: rgba(23,21,18,.42); }

@@ -15,12 +15,13 @@ const nn = (i: number) => String(i + 1).padStart(2, '0');
 <Page page={page} key={key} lang={lang}>
   <article class="ab">
     <header class="t-warm sec ab-hero">
+      <div class="glow-bg" aria-hidden="true"><span></span><span></span><span></span></div>
       <div class="wrap">
         <p class="eyebrow dot ab-kicker">{c.kicker}</p>
         <h1 class="h1 ab-h1">{c.h1a} <em>{c.h1b}</em></h1>
         <div class="ab-hero-row">
           <p class="lead ab-lead" set:html={c.lead} />
-          <div class="ab-stats" role="group" aria-label={c.statsAria}>
+          <div class="ab-stats glass" role="group" aria-label={c.statsAria}>
             {c.stats.map((s) => <div class="ab-stat"><span class="ab-stat-n">{s.n}</span><span class="ab-stat-l">{s.l}</span></div>)}
           </div>
         </div>
@@ -192,7 +193,9 @@ const nn = (i: number) => String(i + 1).padStart(2, '0');
   .ab-hero-row { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 40px 64px; margin-top: 36px; }
   .ab-lead { flex: 999 1 520px; min-width: 0; margin: 0; max-width: 640px; }
   .ab-lead strong { color: var(--paper); }
-  .ab-stats { flex: 1 1 420px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .ab-stats { border-radius: 28px; padding: clamp(22px, 2.6vw, 32px); flex: 1 1 420px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  /* no vidro, a borda do painel já separa: sem linha no topo da primeira fileira */
+  .ab-stats.glass .ab-stat:nth-child(-n+2) { border-top: 0; padding-top: 0; }
   .ab-stat { border-top: 1px solid var(--line); padding-top: 18px; }
   .ab-stat-n { display: block; font-size: 44px; font-weight: 800; letter-spacing: -.03em; line-height: 1; }
   .ab-stat-l { display: block; margin-top: 10px; font-size: 14px; line-height: 1.4; color: var(--muted); }
