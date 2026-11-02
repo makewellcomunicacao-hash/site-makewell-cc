@@ -1,0 +1,158 @@
+---
+// Layout do redesign. O <head> de SEO vem intacto do site atual (só sai o CSS antigo); o consentimento
+// (#mw-consent) é o mesmo bloco publicado hoje, extraído da página original. Ver scripts/verify.mjs.
+// CSS inline e só nesta página: importar o .css normalmente faria o Astro injetá-lo em todas as páginas da rota,
+// inclusive nas ainda não migradas. Pela mesma razão, componentes usam apenas <style is:inline>.
+import css from '../styles/global.css?raw';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { UI, url, type Lang, type PageKey } from '../lib/site';
+
+interface Props { page: { route: string; htmlAttrs: string; head: string; body: string }; key: PageKey; lang: Lang }
+const { page, key, lang } = Astro.props;
+const legal = key === 'privacy' || key === 'terms';
+
+const seoHead = page.head.replace(/\s*<style[\s\S]*?<\/style>/g, '')
+  // favicon/ícones com caminho relativo quebravam nas páginas internas (bug do site antigo): caminho absoluto
+  .replace(/href="(?:\.\.\/)*icons\//g, 'href="/icons/')
+  // o pré-carregamento aponta para o logo novo ("marketing inteligente") usado no cabeçalho
+  .replace(/(<link rel="preload"[^>]*href=")(?:\.\.\/)*\/?images\/logo-makewell-branca\.webp/g, '$1/images/logo-makewell-mi-branca.webp');
+// og-images novas por página (src/data/og-images.json, gerado com o redesign): troca só og:image e twitter:image
+const ogFile = import.meta.glob('../data/og-images.json', { eager: true, import: 'default' }) as Record<string, Record<string, string>>;
+const ogNew = Object.values(ogFile)[0]?.[page.route];
+const seoHeadFinal = ogNew ? seoHead.replace(/(<meta\s+(?:property="og:image"|name="twitter:image")\s+content=")[^"]*(")/g, `$1${ogNew}$2`) : seoHead;
+const consent = page.body.match(/<!-- Consentimento de cookies[\s\S]*?\n\}\)\(\);\n<\/script>/)?.[0];
+if (!consent) throw new Error(`consentimento não encontrado em ${key}/${lang}`);
+const attrs = Object.fromEntries([...page.htmlAttrs.matchAll(/([\w:-]+)(?:="([^"]*)")?/g)].map((m) => [m[1], m[2] ?? '']));
+// redirect por idioma do navegador: só no .com.br e fora das páginas legais, como hoje
+const enUrl = lang === 'br' && !legal ? url(key, 'en') : null;
+// WhatsApp flutuante (mesmas mensagens do site atual) e "voltar ao topo"
+const WA: Record<Lang, { href: string; aria: string; top: string }> = {
+  br: { href: 'https://wa.me/5582999103246?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Makewell%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.', aria: 'Falar no WhatsApp', top: 'Voltar ao topo' },
+  en: { href: 'https://wa.me/5582999103246?text=Hello!%20I%20came%20through%20Makewell%27s%20website%20and%20would%20like%20more%20information.', aria: 'Chat on WhatsApp', top: 'Back to top' },
+  es: { href: 'https://wa.me/5582999103246?text=Hola!%20Llegu%C3%A9%20a%20trav%C3%A9s%20del%20sitio%20web%20de%20Makewell%20y%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n.', aria: 'Hablar por WhatsApp', top: 'Volver arriba' },
+  pt: { href: 'https://wa.me/5582999103246?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Makewell%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.', aria: 'Falar no WhatsApp', top: 'Voltar ao topo' },
+};
+---
+<!DOCTYPE html>
+<html {...attrs}>
+<head><Fragment set:html={seoHeadFinal} /><link rel="icon" type="image/svg+xml" href="/icons/favicon.svg"><style is:inline set:html={css}></style></head>
+<body>
+<script is:inline>
+  (function () {
+    var blocked = ['r', 'mod', 'uri', 'elementor_library', 'et_core_page_resource'];
+    var params = new URLSearchParams(window.location.search);
+    var dirty = blocked.some(function (p) { return params.has(p); });
+    if (dirty) { window.location.replace(window.location.pathname); }
+  })();
+</script>
+{enUrl && <script is:inline define:vars={{ enUrl }}>
+  try { var s = localStorage.getItem('mw-lang'); var b = (navigator.language || '').toLowerCase().indexOf('en') === 0 ? 'en' : 'pt'; if ((s || b) === 'en') location.replace(enUrl); } catch (e) {}
+</script>}
+{!legal && <script is:inline>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+</script>}
+<script is:inline>document.documentElement.classList.add('js');</script>
+<a href="#main-content" class="skip-link">{UI[lang].skip}</a>
+<Nav key={key} lang={lang} />
+<main id="main-content"><slot /></main>
+<Footer key={key} lang={lang} />
+<slot name="after" />
+<div class="scroll-progress" aria-hidden="true"></div>
+<a href={WA[lang].href} class="wa-float" target="_blank" rel="noopener noreferrer" aria-label={WA[lang].aria}><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.6.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3a.5.5 0 0 0 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg></a>
+<button type="button" class="back-to-top" id="back-to-top" aria-label={WA[lang].top}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+<script is:inline>
+(function () {
+  var lang = document.getElementById('lang-dropdown'), trig = document.getElementById('langDropdownTrigger');
+  if (lang && trig) {
+    trig.addEventListener('click', function (e) { e.stopPropagation(); var o = lang.classList.toggle('open'); trig.setAttribute('aria-expanded', o); });
+    document.addEventListener('click', function (e) { if (!lang.contains(e.target)) { lang.classList.remove('open'); trig.setAttribute('aria-expanded', 'false'); } });
+    var br = lang.querySelector('[data-lang="pt"]');
+    if (br) br.addEventListener('click', function () { try { localStorage.setItem('mw-lang', 'pt'); } catch (e) {} lang.classList.remove('open'); });
+  }
+  var ham = document.getElementById('hamburger'), menu = document.getElementById('mobileMenu');
+  var openLbl = ham && ham.getAttribute('aria-label');
+  function setMenu(o) {
+    menu.classList.toggle('open', o); ham.setAttribute('aria-expanded', o);
+    ham.setAttribute('aria-label', o ? ham.getAttribute('data-close') : openLbl);
+    document.body.style.overflow = o ? 'hidden' : '';
+    if (o) { var f = menu.querySelector('a'); if (f) f.focus(); }
+  }
+  if (ham && menu) {
+    ham.addEventListener('click', function () { setMenu(!menu.classList.contains('open')); });
+    menu.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
+  }
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    if (lang) { lang.classList.remove('open'); if (trig) trig.setAttribute('aria-expanded', 'false'); }
+    if (menu && menu.classList.contains('open')) { setMenu(false); ham.focus(); }
+  });
+})();
+</script>
+<script is:inline>
+// Movimento: revelação ao rolar e contadores nos números grandes. Sem efeito com prefers-reduced-motion.
+(function () {
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var main = document.getElementById('main-content'); if (!main) return;
+  // páginas com um único <article> (ex.: case) têm as seções dentro dele
+  var root = main.children.length === 1 && main.firstElementChild.tagName === 'ARTICLE' ? main.firstElementChild : main;
+  var secs = root.querySelectorAll(':scope > section, :scope > article');
+  var targets = [];
+  secs.forEach(function (sec, i) {
+    if (i === 0) return; // o hero (ou a página legal inteira) não espera rolagem: evita atrasar a primeira pintura
+    sec.querySelectorAll('.wrap > *, .grid > *, .card').forEach(function (el) { if (targets.indexOf(el) < 0) targets.push(el); });
+  });
+  targets.forEach(function (el) {
+    var p = el.parentElement, k = p ? Array.prototype.indexOf.call(p.children, el) : 0;
+    el.style.setProperty('--rv-d', Math.min(k, 5) * 0.08 + 's');
+    el.classList.add('rv');
+  });
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  targets.forEach(function (el) { io.observe(el); });
+
+  // barra de progresso, cabeçalho compacto e "voltar ao topo"
+  var bar = document.querySelector('.scroll-progress'), head = document.querySelector('.site-header'), top = document.getElementById('back-to-top'), ticking = false;
+  function onScroll() {
+    ticking = false;
+    var y = window.scrollY, h = document.documentElement.scrollHeight - innerHeight;
+    if (bar) bar.style.setProperty('--p', h > 0 ? (y / h).toFixed(4) : 0);
+    if (head) head.classList.toggle('scrolled', y > 40);
+    if (top) top.classList.toggle('show', y > innerHeight);
+  }
+  addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  onScroll();
+  if (top) top.addEventListener('click', function () { scrollTo({ top: 0, behavior: 'smooth' }); });
+
+  // contadores: texto curto tipo "+26x", "50+", "R$400k", "13M+", "4 anos" em fonte grande; ignora anos e "01"
+  var nums = [];
+  main.querySelectorAll('p, span, div, strong, dt, dd, b').forEach(function (el) {
+    if (el.children.length) return;
+    var t = el.textContent.trim(), m = t.match(/^([+R$€]*\s?)(\d{1,4})([^\d].{0,8})?$/);
+    if (!m || t.length > 12 || /^0\d/.test(m[2]) || (+m[2] >= 1900 && +m[2] <= 2100)) return;
+    if (parseFloat(getComputedStyle(el).fontSize) < 36) return;
+    nums.push({ el: el, pre: m[1], n: +m[2], suf: m[3] || '' });
+  });
+  var cio = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return; cio.unobserve(e.target);
+      var d = e.target.__mwNum, t0 = performance.now();
+      (function step(now) {
+        var k = Math.min(1, (now - t0) / 1400), v = Math.round(d.n * (1 - Math.pow(1 - k, 3)));
+        d.el.textContent = d.pre + v + d.suf;
+        if (k < 1) requestAnimationFrame(step);
+      })(t0);
+    });
+  }, { threshold: 0.6 });
+  nums.forEach(function (d) { d.el.__mwNum = d; cio.observe(d.el); });
+})();
+</script>
+<Fragment set:html={consent} />
+</body>
+</html>

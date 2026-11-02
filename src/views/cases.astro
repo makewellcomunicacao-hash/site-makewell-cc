@@ -1,0 +1,241 @@
+---
+// Cases (redesign, artboard Cases.dc.html): hero → números → Casa Hunter em destaque → cases com ROI → Nagy →
+// depoimentos em vídeo (os 7 Shorts da home) → marcas + outros perfis → como chegamos → CTA.
+import Page from '../layouts/Page.astro';
+import VideoModal from '../components/VideoModal.astro';
+import content from '../content/cases';
+import { UI, path, type Lang, type PageKey } from '../lib/site';
+import { logoSize } from '../lib/logos';
+
+interface Props { page: { htmlAttrs: string; head: string; body: string }; key: PageKey; lang: Lang }
+const { page, key, lang } = Astro.props;
+const c = content[lang];
+
+const logo = (file: string, alt: string) => ({ src: `/images/logo-${file}.webp`, alt });
+// Os três blocos de case têm o mesmo card; muda só o cabeçalho, o tema e o link.
+const blocks = [
+  { id: c.ids.feat, theme: 't-warm2', eyebrow: c.featEyebrow, title: c.featTitle, big: true,
+    cards: [{ ...c.feat, logo: logo('casa-hunter', 'Casa Hunter'), href: path('casaHunter', lang), ext: false }] },
+  { id: c.ids.roi, theme: 't-light', eyebrow: 'ROI', title: c.roiTitle, sub: c.roiSub, grid: true,
+    cards: [{ ...c.roi[0], logo: logo('vilela-advogados', 'Vilela Advogados') }, { ...c.roi[1], logo: logo('drathielen', 'Dra. Thielen Szczypkowski') }] },
+  { id: c.ids.abroad, theme: 't-light cs-follow', eyebrow: lang === 'en' ? 'International' : 'Internacional', title: c.abroadTitle, sub: c.abroadSub,
+    cards: [{ ...c.nagy, logo: null, href: 'https://nagycustomremodels.com/', ext: true }] },
+];
+const brands = [
+  logo('casa-hunter', 'Casa Hunter'), logo('carolina-mergulhao', 'Dra. Carolina Mergulhão'),
+  logo('drathielen', 'Dra. Thielen Szczypkowski'), logo('anita', 'Dra. Anita Costa'), logo('rodrigo-medeiros', 'Dr. Rodrigo Medeiros'),
+  logo('amy-farmacia', 'Amy Farmácia de Manipulação'), logo('vilela-advogados', 'Vilela Advogados'),
+  logo('tcn-advocacia', 'TCN Advocacia'), logo('cavalcante-peixoto', 'Cavalcante Peixoto Engenharia'), logo('fazenda-brejo', 'Fazenda Brejo'), logo('koinonia', 'Koinonia'), logo('iupi', 'iupi'),
+];
+const playIcon = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#080808" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>';
+---
+<Page page={page} key={key} lang={lang}>
+  <section class="t-warm sec cs-hero">
+    <div class="wrap split cs-hero-in">
+      <div class="main">
+        <p class="eyebrow dot">{c.kicker}</p>
+        <h1 class="h1"><span>{c.h1[0]}</span> <em>{c.h1[1]}</em></h1>
+        <p class="lead">{c.lead}</p>
+        <div class="btns">
+          <a class="btn btn-primary" href="#diagnostico">{UI[lang].cta}</a>
+          <a class="btn btn-ghost" href={`#${c.ids.feat}`}>{c.ctaSec}</a>
+        </div>
+      </div>
+      <div class="side">
+        <img class="photo cs-hero-img" src="/images/escritorio-campanhas.webp" alt={c.heroAlt} width="1210" height="610" fetchpriority="high" />
+      </div>
+    </div>
+  </section>
+
+  <section class="t-accent cs-nums" aria-labelledby="cs-nums-t">
+    <div class="wrap">
+      <h2 class="cs-label" id="cs-nums-t">{c.numTitle}</h2>
+      <div class="grid cs-nums-grid">
+        {c.numbers.map(([n, d]) => (
+          <div class="cs-num"><p class="stat-n">{n}</p><p class="cs-num-d">{d}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {blocks.map((b) => (
+    <section id={b.id} class={`${b.theme} sec cs-block`}>
+      <div class="wrap">
+        {b.eyebrow && <p class="eyebrow">{b.eyebrow}</p>}
+        <h2 class={b.big ? 'h2 cs-ftitle' : 'h2'}>{b.title}</h2>
+        {b.sub && <p class="lead">{b.sub}</p>}
+        <div class={b.grid ? 'cs-cards cs-cards-2' : 'cs-cards'}>
+          {b.cards.map((k) => (
+            <article class="card cs-case">
+              <div class="cs-media">
+                <div class="tile cs-logo">
+                  {k.logo ? <img src={k.logo.src} alt={k.logo.alt} loading="lazy" />
+                    : <span class="cs-wordmark" role="img" aria-label={k.name}><b>NAGY</b><small>Custom Remodeling</small></span>}
+                </div>
+                <div class="cs-metrics" role="list">
+                  {k.metrics.map(([n, l, acc]) => (
+                    <div role="listitem"><p class={`cs-mn${acc ? ' cs-acc' : ''}${n.length > 7 ? ' cs-mn-sm' : ''}`}>{n}</p><p class="cs-ml">{l}</p></div>
+                  ))}
+                </div>
+              </div>
+              <div class="cs-body">
+                <div class="cs-tags"><span class="cs-tag">{k.sector}</span><span class="cs-tag cs-tag-acc">{k.tag}</span></div>
+                <h3 class="cs-name">{k.name}</h3>
+                <p class="cs-sub">{k.sub}</p>
+                <div class="cs-paras">
+                  {k.paras.map(([lbl, txt]) => <p>{lbl && <strong>{lbl}</strong>} {txt}</p>)}
+                </div>
+                {k.quote && <blockquote class="cs-quote"><p>{k.quote[0]}</p><cite>{k.quote[1]}</cite></blockquote>}
+                {k.link && (k.ext
+                  ? <a class="link-arrow cs-acc" href={k.href} target="_blank" rel="noopener noreferrer">{k.link}</a>
+                  : <a class="btn btn-primary cs-cta" href={k.href}>{k.link}</a>)}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="t-warm sec line-top">
+    <div class="wrap">
+      <p class="eyebrow">{c.revEyebrow}</p>
+      <h2 class="h2 cs-narrow">{c.revTitle}</h2>
+      {c.revNote && <p class="cs-note muted">{c.revNote}</p>}
+      <div class="reels cs-reels">
+        {c.reels.map((r) => (
+          <button type="button" class="reel" data-yt={r.id} data-vertical data-yt-params={c.ytParams || undefined}>
+            <span class="thumb">
+              <img src={`https://img.youtube.com/vi/${r.id}/hqdefault.jpg`} alt={r.name} width="480" height="360" loading="lazy" />
+              <span class="cs-play" set:html={playIcon}></span>
+            </span>
+            <span class="cs-q">{r.q}</span>
+            <span class="cs-rn">{r.name}</span>
+            <span class="cs-rr muted">{r.role}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="t-light sec" id={c.ids.others}>
+    <div class="wrap">
+      <p class="cs-label muted">{c.logosLabel}</p>
+      <div class="grid cs-brands">
+        {brands.map((l) => { const z = logoSize(l.src); return <div class="tile"><img src={z.src} alt={l.alt} loading="lazy" style={z.style} /></div>; })}
+      </div>
+      <div class="cs-others">
+        <h2 class="h3">{c.othersTitle}</h2>
+        <p class="muted" set:html={c.othersP} />
+      </div>
+    </div>
+  </section>
+
+  <section class="t-warm sec cs-how">
+    <div class="wrap split">
+      <div class="main">
+        <h2 class="cs-how-t">{c.howTitle}</h2>
+        <p class="lead">{c.howSub}</p>
+      </div>
+      <div class="side cs-how-links">
+        <a class="cs-acc" href={path('method', lang)}>{c.howMethod}</a>
+        <a href={path('services', lang)}>{c.howServices}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="t-light sec" id="diagnostico">
+    <div class="wrap">
+      <div class="card cs-ctabox">
+        <p class="eyebrow">{c.ctaEyebrow}</p>
+        <h2 class="h2">{c.ctaTitle}</h2>
+        <p class="lead">{c.ctaSub}</p>
+        <div class="btns">
+          <a class="btn btn-primary" href={c.ctaHref} target="_blank" rel="noopener noreferrer" data-track="lead" onclick={c.ctaTrack}>{c.ctaBtn}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <VideoModal closeLabel={c.close} slot="after" />
+</Page>
+
+<style is:inline>
+  .cs-hero .eyebrow { color: var(--muted); }
+  .cs-hero-in { align-items: center; }
+  .cs-hero-in > .side { flex-basis: 440px; }
+  .cs-hero-img { height: clamp(260px, 36vw, 480px); }
+  .t-light .eyebrow, .t-light .cs-acc { color: #B4530F; }
+  .cs-acc { color: var(--accent); }
+  .cs-label { margin: 0; font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+  .cs-nums { padding-block: clamp(64px, 8vw, 96px); }
+  .cs-nums .cs-label { color: var(--on-accent-muted); }
+  .cs-nums-grid { --min: 220px; gap: 40px 32px; margin-top: 40px; }
+  .cs-num { border-top: 2px solid var(--on-accent); padding-top: 24px; }
+  .cs-num .stat-n { margin: 0; }
+  @media (max-width: 600px) { .cs-nums-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 20px; } .cs-num { padding-top: 18px; } .cs-num .stat-n { font-size: 38px; } }
+  .cs-num-d { margin: 14px 0 0; max-width: 240px; font-size: 16px; line-height: 1.5; color: var(--on-accent-muted); }
+  .cs-ftitle { max-width: 900px; }
+  .cs-narrow { max-width: 760px; }
+  .cs-follow { padding-top: 1px; }
+  .cs-follow > .wrap::before { content: ""; display: block; border-top: 1px solid var(--line); margin-bottom: clamp(48px, 6vw, 72px); }
+  .cs-cards { display: grid; gap: 16px; margin-top: 48px; }
+  .cs-cards-2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); }
+  .cs-case { display: flex; flex-wrap: wrap; align-content: flex-start; align-items: flex-start; gap: 32px 48px; }
+  .cs-media { flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
+  .cs-body { flex: 999 1 420px; min-width: 0; }
+  .cs-logo { min-height: 0; height: 180px; flex: none; }
+  .t-light .cs-logo { background: var(--light); }
+  @media (min-width: 900px) { .cs-cards:not(.cs-cards-2) .cs-logo { height: 220px; } .cs-cards:not(.cs-cards-2) .cs-media { position: sticky; top: 104px; } }
+  @media (max-width: 600px) { .cs-logo { height: 140px; } .cs-logo img { max-height: 84px; } }
+  .cs-logo img { max-height: 110px; }
+  .cs-wordmark { display: flex; flex-direction: column; align-items: center; color: #080808; text-align: center; }
+  .cs-wordmark b { font-size: 28px; font-weight: 800; letter-spacing: -.02em; line-height: 1; }
+  .cs-wordmark small { margin-top: 6px; font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; }
+  .cs-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .cs-metrics > div { border-top: 1px solid var(--line); padding-top: 16px; }
+  .card .cs-mn { color: inherit; }
+  .card .cs-mn.cs-acc { color: var(--accent); }
+  .t-light .card .cs-mn.cs-acc { color: #B4530F; }
+  .cs-mn { margin: 0; font-size: clamp(20px, 2.4vw, 30px); font-weight: 800; letter-spacing: -.03em; line-height: 1.05; overflow-wrap: anywhere; }
+  .cs-mn-sm { font-size: 17px; letter-spacing: -.01em; }
+  @media (max-width: 480px) { .cs-mn-sm { font-size: 14px; } }
+  .card .cs-ml { margin: 8px 0 0; font-size: 13px; line-height: 1.4; }
+  .cs-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+  .cs-tag { border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; font-size: 13px; }
+  .cs-tag-acc { border-color: currentColor; font-weight: 700; color: var(--accent); }
+  .t-light .cs-tag-acc { color: #B4530F; }
+  .cs-name { margin: 24px 0 0; font-size: clamp(26px, 2.6vw, 36px); font-weight: 800; letter-spacing: -.03em; line-height: 1.1; }
+  .card .cs-sub { margin: 8px 0 0; font-size: 15px; }
+  .cs-paras { margin-top: 24px; display: flex; flex-direction: column; gap: 14px; }
+  .card .cs-paras p { margin: 0; font-size: 16px; line-height: 1.6; }
+  .cs-paras strong { color: var(--ink); }
+  .t-warm2 .cs-paras strong { color: var(--paper); }
+  .cs-quote { margin: 28px 0 0; padding: 20px 0 0 20px; border-left: 3px solid var(--accent); }
+  .card .cs-quote p { margin: 0; font-size: 17px; font-style: italic; color: var(--ink); }
+  .cs-quote cite { display: block; margin-top: 10px; font-size: 14px; font-style: normal; color: var(--muted); }
+  .cs-cta { margin-top: 32px; }
+  .cs-note { margin: 16px 0 0; font-size: 14px; }
+  .cs-reels { margin-top: 56px; }
+  .cs-reels .reel { flex-basis: 236px; display: flex; flex-direction: column; }
+  .cs-play { position: absolute; left: 16px; bottom: 16px; width: 52px; height: 52px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; }
+  .cs-q { margin-top: 18px; font-size: 15px; line-height: 1.5; color: #D8D3CB; }
+  .cs-rn { margin-top: 14px; font-size: 15px; font-weight: 700; }
+  .cs-rr { margin-top: 2px; font-size: 13px; }
+  .cs-brands { gap: 12px; margin-top: 24px; grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  @media (max-width: 1000px) { .cs-brands { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  @media (max-width: 640px) { .cs-brands { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; } .cs-brands .tile { min-height: 72px; padding: 10px; } .cs-brands .tile img { max-width: 82%; } }
+  .cs-brands img { filter: grayscale(1); }
+  .cs-others { margin-top: 48px; max-width: 760px; }
+  .cs-others p { margin: 12px 0 0; font-size: 16px; line-height: 1.65; }
+  .cs-others strong { color: var(--ink); }
+  .cs-how { padding-block: clamp(72px, 9vw, 104px); }
+  .cs-how .split { align-items: flex-end; }
+  .cs-how-t { margin: 0; font-size: clamp(30px, 3vw, 44px); font-weight: 800; letter-spacing: -.03em; line-height: 1.1; }
+  .cs-how-links { display: flex; flex-direction: column; }
+  .cs-how-links a { border-top: 1px solid var(--line); padding: 20px 0; font-size: 16px; font-weight: 700; text-decoration: none; }
+  .cs-how-links a:last-child { border-bottom: 1px solid var(--line); font-weight: 600; }
+  .cs-ctabox { padding: clamp(32px, 6vw, 88px); border-radius: var(--r-big); }
+  .cs-ctabox .h2 { max-width: 820px; }
+  .cs-ctabox:hover { transform: none; box-shadow: none; border-color: var(--light-line); }
+</style>

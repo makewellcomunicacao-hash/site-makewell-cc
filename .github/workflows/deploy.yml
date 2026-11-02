@@ -1,0 +1,80 @@
+# Publica os dois sites a cada push na main:
+# 1) build: gera dist/br e dist/agency (sem permissões especiais; npm ci roda aqui)
+# 2) deploy: publica dist/br no GitHub Pages deste repositório (makewell.com.br; Pages com origem "GitHub Actions")
+# 3) agency: só depois do deploy do .com.br dar certo, envia dist/agency à main do repositório makewell-agency
+#    (makewell.agency), com a deploy key em AGENCY_DEPLOY_KEY
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Conferir saída mínima
+        run: |
+          test -f dist/br/CNAME && test -f dist/agency/CNAME
+          test "$(find dist/br -name index.html | wc -l)" -ge 40
+          test "$(find dist/agency -name index.html | wc -l)" -ge 32
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/br
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist-agency
+          path: dist/agency
+          include-hidden-files: true
+          retention-days: 7
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+  agency:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist-agency
+          path: dist-agency
+      - name: Publicar makewell.agency
+        env:
+          AGENCY_DEPLOY_KEY: ${{ secrets.AGENCY_DEPLOY_KEY }}
+        run: |
+          mkdir -p ~/.ssh && echo "$AGENCY_DEPLOY_KEY" > ~/.ssh/id_ed25519 && chmod 600 ~/.ssh/id_ed25519
+          # chave pública oficial do GitHub (evita confiar na primeira resposta do ssh-keyscan)
+          echo "github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl" >> ~/.ssh/known_hosts
+          git clone --depth 1 git@github.com:makewellcomunicacao-hash/makewell-agency.git out-agency
+          rsync -a --delete --exclude .git dist-agency/ out-agency/
+          cd out-agency
+          git config user.name "makewellcomunicacao-hash"
+          git config user.email "271112667+makewellcomunicacao-hash@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || { git commit -m "Deploy ${GITHUB_SHA::7} (gerado de site-makewell-cc)"; git push origin main; }

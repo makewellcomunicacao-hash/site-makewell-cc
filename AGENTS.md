@@ -1,20 +1,37 @@
-# AGENTS.md — Makewell Comunicação
+# CLAUDE.md — Makewell Comunicação
 
 Instruções e contexto para o assistente Codex neste projeto.
 
 ## Sobre o Projeto
 
 Site institucional da **Makewell Comunicação** — agência de marketing digital.
-- **Domínio:** makewell.com.br
-- **Repositório:** GitHub → GitHub Pages (deploy automático no push para `main`)
-- **Stack:** HTML + CSS + JS vanilla, arquivo único `index.html`
-- **Sem frameworks, sem bundlers, sem dependências externas** (exceto GTM e Meta Pixel)
+- **Domínios:** makewell.com.br (PT-BR) e makewell.agency (EN/ES/PT-PT), gerados deste mesmo código
+- **Stack (nov/2026):** Astro 7, site 100% estático (HTML + CSS inline + JS inline mínimo). Sem frameworks de UI
+- **Deploy:** push na `main` → GitHub Actions (`.github/workflows/deploy.yml`): `dist/br` vai para o GitHub Pages
+  deste repositório e `dist/agency` é enviado à `main` do repositório `makewell-agency` (deploy key `AGENCY_DEPLOY_KEY`)
+- **Sem dependências externas no site** (exceto GTM e Meta Pixel, só após consentimento LGPD/GDPR)
+
+## Estrutura
+- `src/views/<página>.astro` + `src/content/<página>.ts`: layout e textos de cada página nos 4 idiomas
+- `src/layouts/Page.astro`, `src/components/{Nav,Footer,VideoModal,LegalPage}.astro`, `src/styles/global.css`: compartilhados
+- `src/lib/site.ts`: rotas e textos fixos por idioma (BR em .com.br; `/en/`, `/es/`, `/pt/` em .agency)
+- `src/legacy/<site>/<rota>.json`: **fonte do `<head>` de SEO de cada página** (title, metas, canonical, hreflang,
+  JSON-LD) e do bloco de consentimento. Mudança de SEO = editar esse JSON
+- `public-br/`, `public-agency/`: arquivos copiados como estão (imagens, ícones, robots, sitemap, CNAME, cascas de redirect)
+- `scripts/verify.mjs`: prova que nenhuma URL, SEO ou frase sumiu em relação ao site anterior; `scripts/qa.mjs`: QA no celular
+
+## Comandos
+```bash
+npm ci && npm run build          # gera dist/br e dist/agency
+node scripts/verify.mjs          # tem que terminar em "OK: nada se perdeu"
+```
 
 ## Regras Obrigatórias
 
 ### A cada publicação (git push):
-1. **Sempre atualizar `sitemap.xml`** com `<lastmod>` do dia atual
-2. Incluir o sitemap no mesmo commit das alterações
+1. **Sempre atualizar `public-br/sitemap.xml` e `public-agency/sitemap.xml`** com `<lastmod>` do dia atual
+2. Incluir os sitemaps no mesmo commit das alterações
+3. Rodar `npm run build` e `node scripts/verify.mjs` antes do push
 
 ### Nunca fazer:
 - Adicionar bibliotecas externas sem aprovação explícita do usuário
@@ -53,6 +70,6 @@ R. Prof. Lourenço Peixoto, 36, Sala 04, Jatiúca, Maceió, AL.
 ## Deploy
 
 ```bash
-git add . && git commit -m "mensagem" && git push origin main
+git add -A && git commit -m "mensagem" && git push origin main
 ```
-GitHub Pages faz o deploy automático em 1-3 minutos.
+O GitHub Actions publica os dois domínios em poucos minutos (aba Actions do repositório).

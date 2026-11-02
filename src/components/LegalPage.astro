@@ -1,0 +1,38 @@
+---
+// Páginas legais (privacidade e termos): o texto vem inteiro do <main> do site atual, já revisado para LGPD/GDPR;
+// só o visual muda (leitura em fundo claro).
+import Page from '../layouts/Page.astro';
+import type { Lang, PageKey } from '../lib/site';
+
+interface Props { page: { htmlAttrs: string; head: string; body: string }; key: PageKey; lang: Lang }
+const { page, key, lang } = Astro.props;
+const main = page.body.match(/<main[^>]*>([\s\S]*?)<\/main>/)?.[1];
+if (!main) throw new Error(`<main> não encontrado em ${key}/${lang}`);
+---
+<Page page={page} key={key} lang={lang}>
+  <article class="t-light sec legal">
+    <div class="wrap"><div class="legal-body"><Fragment set:html={main} /></div></div>
+  </article>
+</Page>
+
+<style is:inline>
+    /* coluna de leitura de ~70 caracteres, centralizada na largura do site */
+  .legal-body { max-width: 70ch; margin-inline: auto; font-size: 17px; }
+  .legal-body h1 { margin: 0; font-size: clamp(40px, 5.4vw, 68px); line-height: 1.04; letter-spacing: -.035em; font-weight: 800; color: var(--ink); text-wrap: balance; }
+  .legal-body .updated { margin: 20px 0 48px; padding-bottom: 32px; border-bottom: 1px solid var(--light-line); font-size: 14px; letter-spacing: .02em; color: var(--ink-muted); }
+  .legal-body h2 { margin: 56px 0 16px; font-size: clamp(21px, 2vw, 24px); line-height: 1.3; font-weight: 800; color: var(--ink); letter-spacing: -.015em; scroll-margin-top: 96px; }
+  .legal-body p, .legal-body li { color: #3B362F; font-size: 17px; line-height: 1.75; }
+  .legal-body p { margin: 0 0 14px; }
+  .legal-body ul { padding-left: 22px; margin: 0 0 18px; }
+  .legal-body li::marker { color: #B4530F; }
+  .legal-body li { margin-bottom: 8px; }
+  .legal-body a, .legal-body .mw-cookie-prefs { color: #B4530F; }
+  .legal-body strong { color: var(--ink); }
+  .legal-body code { font-size: 14px; background: #fff; padding: 1px 6px; border-radius: 6px; border: 1px solid var(--light-line); }
+  .legal-body .legal-table-wrap { margin: 8px 0 20px; background: #fff; border-color: var(--light-line); border-radius: 14px; }
+  .legal-body .legal-table td { font-size: 14px; line-height: 1.55; }
+  .legal-body .legal-table th { background: #FBF9F6; color: var(--ink); }
+  .legal-body .legal-table th, .legal-body .legal-table td { border-color: var(--light-line); color: #3B362F; }
+  .legal-body .mw-cookie-prefs { display: inline; min-height: 0; padding: 0; }
+  @media (max-width: 600px) { .legal-body p, .legal-body li { font-size: 16px; line-height: 1.7; } .legal-body h2 { margin-top: 44px; } }
+</style>

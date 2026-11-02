@@ -1,0 +1,27 @@
+---
+// Cada rota: se já existe a página redesenhada (src/views/<chave>.astro), usa ela; senão reproduz o HTML atual
+// importado (src/legacy). Assim a migração anda página a página com scripts/verify.mjs passando sempre.
+import { fromRoute } from '../lib/site';
+
+export function getStaticPaths() {
+  const site = process.env.SITE === 'agency' ? 'agency' : 'br';
+  const files = import.meta.glob('../legacy/*/*.json', { eager: true, import: 'default' });
+  return Object.entries(files)
+    .filter(([f]) => f.includes(`/legacy/${site}/`))
+    .map(([, page]) => ({ params: { path: page.route.replace(/\/$/, '') || undefined }, props: { page } }));
+}
+
+const views = import.meta.glob('../views/*.astro', { eager: true });
+const { page } = Astro.props;
+const info = fromRoute(page.route);
+const View = info && views[`../views/${info.key}.astro`]?.default;
+const attrs = (s) => Object.fromEntries([...s.matchAll(/([\w:-]+)(?:="([^"]*)")?/g)].map((m) => [m[1], m[2] ?? '']));
+---
+{View ? <View page={page} key={info.key} lang={info.lang} /> : (
+<Fragment>
+<html {...attrs(page.htmlAttrs)}>
+<head><Fragment set:html={page.head} /></head>
+<body {...attrs(page.bodyAttrs)}><Fragment set:html={page.body} /></body>
+</html>
+</Fragment>
+)}

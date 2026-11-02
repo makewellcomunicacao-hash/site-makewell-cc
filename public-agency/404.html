@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page not found | Makewell</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+<meta name="theme-color" content="#0E0D0B">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; min-height: 100svh; display: flex; align-items: center; justify-content: center; padding: 40px 20px; background: #0E0D0B; color: #F4F1EC; font: 17px/1.6 'Segoe UI', system-ui, -apple-system, sans-serif; text-align: center; }
+  main { max-width: 560px; }
+  img { height: 34px; width: auto; margin: 0 auto 48px; display: block; }
+  .code { margin: 0; font-size: clamp(88px, 18vw, 150px); font-weight: 800; letter-spacing: -.05em; line-height: 1; color: #F07820; }
+  h1 { margin: 12px 0 8px; font-size: clamp(24px, 4vw, 34px); letter-spacing: -.02em; }
+  p { margin: 0 0 6px; color: #A8A196; }
+  nav { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 36px; }
+  a { display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border-radius: 999px; border: 1px solid #2A2723; color: #F4F1EC; font-weight: 700; text-decoration: none; }
+  a:first-child { background: #F07820; border-color: #F07820; color: #080808; }
+  a:focus-visible { outline: 2px solid #F07820; outline-offset: 3px; }
+</style>
+<script>
+  (function () {
+    var blocked = ['r', 'mod', 'uri', 'elementor_library', 'et_core_page_resource'];
+    var params = new URLSearchParams(window.location.search);
+    var dirty = blocked.some(function (p) { return params.has(p); });
+    if (dirty) { window.location.replace(window.location.pathname); }
+  })();
+</script>
+</head>
+<body>
+<main>
+  <img src="/images/logo-makewell-mi-branca.webp" alt="Makewell" width="160" height="40">
+  <p class="code">404</p>
+  <h1>Page not found</h1>
+  <p>Página no encontrada · Página não encontrada</p>
+  <nav aria-label="Language">
+    <a href="/en/" hreflang="en">English</a>
+    <a href="/es/" hreflang="es">Español</a>
+    <a href="/pt/" hreflang="pt-PT">Português</a>
+  </nav>
+</main>
+</body>
+</html>

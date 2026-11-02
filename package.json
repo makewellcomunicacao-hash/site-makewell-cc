@@ -1,0 +1,15 @@
+{
+  "name": "makewell-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:br": "SITE=br astro build",
+    "build:agency": "SITE=agency astro build",
+    "build": "npm run build:br && npm run build:agency",
+    "import-legacy": "node scripts/import-legacy.mjs",
+    "verify": "node scripts/verify.mjs"
+  },
+  "dependencies": {
+    "astro": "7.4.4"
+  }
+}

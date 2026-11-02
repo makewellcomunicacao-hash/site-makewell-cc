@@ -1,0 +1,218 @@
+---
+// Método FishWell, redesign (artboard Metodo). Texto completo do site atual em src/content/method.ts.
+// Temas: hero escuro · por quê claro · etapas escuro 2 · Funil Médico claro · cases laranja · fases escuro · CTA claro.
+import Page from '../layouts/Page.astro';
+import { UI, path, type Lang, type PageKey } from '../lib/site';
+import content from '../content/method';
+
+interface Props { page: { htmlAttrs: string; head: string; body: string }; key: PageKey; lang: Lang }
+const { page, key, lang } = Astro.props;
+const c = content[lang];
+const icons = [
+  '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h6"/>',
+  '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+];
+---
+<Page page={page} key={key} lang={lang}>
+  <section class="t-warm me-hero">
+    <div class="wrap split">
+      <div class="main">
+        <p class="eyebrow dot">{c.kicker}</p>
+        <h1 class="me-h1"><span set:html={c.h1} /> <span class="me-h1-sub" set:html={c.h1Sub} /></h1>
+        <p class="lead" set:html={c.lead} />
+        <div class="btns">
+          <a class="btn btn-primary" href={`#${c.ids.cta}`}>{UI[lang].cta}</a>
+          <a class="btn btn-ghost" href={`#${c.ids.steps}`}>{c.ctaSec}</a>
+        </div>
+      </div>
+      <div class="side">
+        <img class="photo me-hero-img" src="/images/escritorio-sala.webp" alt={c.heroAlt} width="850" height="670" fetchpriority="high" />
+      </div>
+    </div>
+  </section>
+
+  <section id={c.ids.why} class="t-light sec">
+    <div class="wrap">
+      <p class="eyebrow me-eyebrow-dark">{c.whyEyebrow}</p>
+      <div class="me-head">
+        <h2 class="h2" set:html={c.whyH2} />
+        <p class="me-sub" set:html={c.whySub} />
+      </div>
+      <div class="grid me-contrast" style="--min: 300px">
+        <div class="card me-old">
+          <div class="me-ct"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg><h3 class="h3" set:html={c.contrast[0][0]} /></div>
+          <p set:html={c.contrast[0][1]} />
+        </div>
+        <div class="card me-new">
+          <div class="me-ct"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><h3 class="h3" set:html={c.contrast[1][0]} /></div>
+          <p set:html={c.contrast[1][1]} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id={c.ids.steps} class="t-warm2 sec me-steps">
+    <div class="wrap">
+      <p class="eyebrow">{c.stepsEyebrow}</p>
+      <h2 class="h2 me-big" set:html={c.stepsH2} />
+      <p class="lead" set:html={c.stepsSub} />
+      <div class="me-step-list">
+        {c.steps.map((s, i) => (
+          <article class="me-step">
+            <div class="me-step-main">
+              <div class="me-step-head"><span class="me-step-n">{s.num}</span><h3 set:html={s.title} /></div>
+              <p class="me-p1" set:html={s.ps[0]} />
+              <p class="me-p2" set:html={s.ps[1]} />
+            </div>
+            <dl class="me-meta">
+              {s.meta.map(([label, val], j) => (
+                <div>
+                  <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={icons[j]} />
+                  <div><dt set:html={label} /><dd set:html={val} /></div>
+                </div>
+              ))}
+            </dl>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id={c.ids.funnel} class="t-light sec">
+    <div class="wrap">
+      <p class="eyebrow me-eyebrow-dark">{c.funnelKicker}</p>
+      <h2 class="h2 me-narrow" set:html={c.funnelH2} />
+      <p class="lead" set:html={c.funnelSub} />
+      <div class="me-funnel">
+        <h3 class="me-funnel-h3" set:html={c.funnelH3} />
+        <p class="me-muted" set:html={c.funnelP} />
+        <div class="grid me-stages" style="--min: 220px">
+          {c.stages.map((st) => (
+            <div class="me-stage">
+              <span class="me-stage-n">{st.n.padStart(2, '0')}</span>
+              <div><h4 set:html={st.title} /><p set:html={st.desc} /></div>
+            </div>
+          ))}
+        </div>
+        <p class="me-result" set:html={c.funnelResult} />
+      </div>
+    </div>
+  </section>
+
+  <section class="t-accent sec">
+    <div class="wrap">
+      <p class="eyebrow">{c.relEyebrow}</p>
+      <h2 class="h2 me-narrow" set:html={c.relH3} />
+      <p class="lead" set:html={c.relP} />
+      <div class="me-stats">
+        {c.stats.map(([n, d]) => (
+          <div><p class="stat-n">{n}</p><p class="me-stat-d">{d}</p></div>
+        ))}
+      </div>
+      <div class="btns">
+        <a class="btn btn-primary" href={path('cases', lang)} set:html={c.relLinks[0]} />
+        <a class="btn btn-ghost" href={path('services', lang)} set:html={c.relLinks[1]} />
+      </div>
+    </div>
+  </section>
+
+  <section id={c.ids.timeline} class="t-warm sec">
+    <div class="wrap">
+      <p class="eyebrow">{c.tlEyebrow}</p>
+      <div class="me-head">
+        <h2 class="h2" set:html={c.tlH2} />
+        <p class="me-sub" set:html={c.tlSub} />
+      </div>
+      <ol class="me-phases">
+        {c.phases.map(([when, what, desc]) => (
+          <li><p class="me-when" set:html={when} /><h3 set:html={what} /><p set:html={desc} /></li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section id={c.ids.cta} class="t-light sec">
+    <div class="wrap">
+      <div class="me-cta">
+        <p class="eyebrow me-eyebrow-dark">{c.ctaEyebrow}</p>
+        <h2 class="h2 me-narrow" set:html={c.ctaH2} />
+        <p class="lead" set:html={c.ctaP} />
+        <div class="btns">
+          <a class="btn btn-primary" href={c.ctaHref} target="_blank" rel="noopener noreferrer" data-track="lead" onclick={c.ctaOnclick} set:html={c.ctaBtn} />
+        </div>
+      </div>
+    </div>
+  </section>
+</Page>
+
+<style is:inline>
+  main :is(.me-h1, .h2, .h3, .me-step-head h3, .me-funnel-h3) { text-wrap: balance; }
+  .me-gold { color: inherit; }
+  .t-warm .me-gold, .t-warm2 .me-gold { color: var(--accent); }
+  .me-h1 .me-gold { color: inherit; }
+  .me-hero { padding-block: clamp(64px, 9vw, 112px) clamp(64px, 8vw, 104px); }
+  .me-hero .split { align-items: center; }
+  .me-hero .main { flex-basis: 560px; }
+  .me-hero .side { flex-basis: 500px; }
+  .me-hero .eyebrow { color: var(--muted); }
+  .me-h1 { margin: 28px 0 0; font-size: clamp(44px, 5.6vw, 84px); line-height: 1.02; letter-spacing: -.035em; font-weight: 800; }
+  .me-h1 > span { display: block; }
+  .me-h1 .me-h1-sub { margin-top: 18px; font-size: .46em; line-height: 1.15; letter-spacing: -.02em; font-weight: 700; color: var(--accent); padding-bottom: .12em; }
+  .me-hero-img { aspect-ratio: 4 / 3; border-radius: 24px; }
+  .me-head { display: flex; flex-wrap: wrap; gap: 24px 72px; align-items: flex-end; }
+  .me-head .h2 { flex: 1 1 420px; margin: 16px 0 0; }
+  .me-sub { flex: 1 1 360px; margin: 0; font-size: 18px; line-height: 1.6; color: var(--muted); }
+  .me-contrast { margin-top: 56px; }
+  .me-contrast .card { padding: 36px; }
+  .me-ct { display: flex; align-items: center; gap: 12px; }
+  .me-contrast .card p { margin-top: 18px; font-size: 16px; line-height: 1.65; }
+  .me-old { background: transparent; }
+  .me-old .me-ct { color: var(--muted); }
+  .me-old p { color: #6E675D; }
+  .t-light .me-new { border-color: var(--accent); }
+  .me-new p { color: #2E2A25; }
+  .me-big { font-size: clamp(40px, 5vw, 72px); line-height: 1; letter-spacing: -.035em; }
+  .me-step-list { margin-top: 72px; }
+  .me-step { border-top: 1px solid var(--line); padding: 64px 0; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 40px 72px; }
+  .me-step-main { flex: 999 1 540px; min-width: 0; }
+  .me-step-head { display: flex; align-items: baseline; gap: 24px; flex-wrap: wrap; }
+  .me-step-n { font-size: clamp(64px, 7vw, 112px); font-weight: 800; letter-spacing: -.05em; line-height: .9; color: var(--accent); }
+  .me-step-head h3 { margin: 0; font-size: clamp(32px, 3.6vw, 52px); font-weight: 800; letter-spacing: -.03em; line-height: 1; }
+  .me-p1 { margin: 32px 0 0; max-width: 680px; font-size: 18px; line-height: 1.65; color: #D8D3CB; }
+  .me-p2 { margin: 16px 0 0; max-width: 680px; font-size: 16px; line-height: 1.65; color: var(--muted); }
+  .me-p1 strong, .me-p2 strong { color: var(--paper); }
+  .me-meta { flex: 1 1 360px; min-width: 0; margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 8px 28px; }
+  .me-meta > div { display: flex; gap: 16px; padding: 22px 0; }
+  .me-meta > div + div { border-top: 1px solid var(--line); }
+  .me-meta svg { flex: none; margin-top: 2px; }
+  .me-meta dt { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  .me-meta dd { margin: 6px 0 0; font-size: 16px; line-height: 1.5; }
+  .me-eyebrow-dark { color: #B4530F; }
+  .me-narrow { max-width: 860px; }
+  .me-funnel { margin-top: 56px; background: var(--card); border: 1px solid var(--line); border-radius: var(--r-big); padding: clamp(28px, 4vw, 56px); }
+  .me-funnel-h3 { margin: 0; max-width: 720px; font-size: clamp(24px, 2.4vw, 32px); font-weight: 700; letter-spacing: -.02em; line-height: 1.2; }
+  .me-muted { margin: 16px 0 0; max-width: 720px; font-size: 16px; line-height: 1.65; color: var(--muted); }
+  .me-stages { margin-top: 40px; }
+  .me-stage { background: var(--light); border: 1px solid var(--line); border-radius: 20px; padding: 28px; min-height: 200px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; }
+  @media (max-width: 600px) { .me-stage { min-height: 0; } }
+  .me-stage-n { font-size: 14px; font-weight: 700; color: #B4530F; }
+  .me-stage h4 { margin: 0; font-size: 22px; font-weight: 700; }
+  .me-stage p { margin: 10px 0 0; font-size: 15px; line-height: 1.55; color: var(--muted); }
+  .me-result { margin: 32px 0 0; max-width: 78ch; padding-top: 28px; border-top: 1px solid var(--line); font-size: 17px; line-height: 1.6; color: #2E2A25; }
+  .me-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px 32px; margin-top: 56px; }
+  .me-stats > div { border-top: 2px solid var(--on-accent); padding-top: 24px; }
+  .me-stats p { margin: 0; }
+  .me-stats .me-stat-d { margin-top: 14px; font-size: 16px; line-height: 1.5; color: var(--muted); max-width: 240px; }
+  .t-accent .btns { margin-top: 56px; }
+  .me-phases { list-style: none; margin: 72px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px 24px; }
+  .me-phases li { border-top: 1px solid var(--line); }
+  .me-phases li::before { content: ""; display: block; width: 11px; height: 11px; border-radius: 50%; background: var(--accent); margin-top: -6px; }
+  .me-when { margin: 28px 0 0; font-size: 14px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+  .me-phases h3 { margin: 12px 0 0; font-size: 26px; font-weight: 800; letter-spacing: -.02em; }
+  .me-phases li > p:last-child { margin: 10px 0 0; font-size: 15px; line-height: 1.55; color: var(--muted); }
+  .me-cta { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-big); padding: clamp(36px, 6vw, 88px); text-align: center; }
+  .me-cta .eyebrow, .me-cta .btns { justify-content: center; }
+  .me-cta .h2, .me-cta .lead { margin-inline: auto; }
+  .me-cta .h2 { font-size: clamp(36px, 4.4vw, 64px); letter-spacing: -.035em; line-height: 1.04; }
+</style>

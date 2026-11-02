@@ -1,0 +1,48 @@
+---
+import { NAV_KEYS, UI, path, url, type Lang, type PageKey } from '../lib/site';
+
+interface Props { key: PageKey; lang: Lang }
+const { key, lang } = Astro.props;
+const t = UI[lang];
+// "Cases" fica ativo também na página do case Casa Hunter
+const current = key === 'casaHunter' ? 'cases' : key;
+// eventos de Lead dos CTAs do menu, como no site atual (só na home)
+const lead = key !== 'home' ? null : lang === 'br'
+  ? { nav: "fbq('track','Lead',{content_name:'Agendar Diagnóstico Gratuito'})", mobile: "fbq('track','Lead',{content_name:'Agendar Diagnóstico Gratuito'})" }
+  : { nav: "fbq('track','Lead',{content_name:'Schedule Diagnosis'})", mobile: "fbq('track','Lead',{content_name:'Schedule Free Diagnostic'})" };
+const langs: Lang[] = ['br', 'en', 'es', 'pt'];
+const hreflang: Record<Lang, string> = { br: 'pt-BR', en: 'en', es: 'es', pt: 'pt-PT' };
+const globe = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>';
+---
+<header class="site-header">
+  <div class="wrap">
+    <nav id="nav" class="nav" aria-label={t.navAria}>
+      <a href={path('home', lang)} class="nav-logo" aria-label={t.logoAria}>
+        <img src="/images/logo-makewell-mi-branca.webp" alt={t.logoAlt} width="160" height="40" fetchpriority="high" />
+      </a>
+      <div class="nav-links">
+        {NAV_KEYS.map((k, i) => <a href={path(k, lang)} aria-current={k === current ? 'page' : undefined}>{t.nav[i]}</a>)}
+      </div>
+      <div class="nav-right">
+        <div id="lang-dropdown" class="lang">
+          <button class="lang-trigger" id="langDropdownTrigger" aria-haspopup="true" aria-expanded="false" aria-label={t.langTrigger}>
+            <Fragment set:html={globe} /><span>{t.code}</span>
+          </button>
+          <div class="lang-menu" id="langDropdownMenu" role="menu" aria-label={t.langMenu}>
+            {langs.map((l) =>
+              l === 'br' && lang === 'br'
+                ? <button data-lang="pt" role="menuitem" aria-current="true">BR</button>
+                : <a href={url(key, l)} role="menuitem" hreflang={hreflang[l]} aria-current={l === lang ? 'true' : undefined}>{UI[l].code}</a>
+            )}
+          </div>
+        </div>
+        <a href={t.ctaHref} class="btn btn-primary btn-nav" aria-label={t.ctaAria} target="_blank" rel="noopener noreferrer" onclick={lead?.nav}>{t.cta}</a>
+        <button class="hamburger" id="hamburger" aria-label={t.menuOpen} data-close={t.menuClose} aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+  </div>
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label={t.mobileMenu} aria-modal="true">
+    {NAV_KEYS.map((k, i) => <a href={path(k, lang)} class="m-link"><span class="mn">0{i + 1}</span><span>{t.nav[i]}</span></a>)}
+    <a href={t.ctaHref} class="btn btn-primary" target="_blank" rel="noopener noreferrer" onclick={lead?.mobile}>{t.cta}</a>
+  </div>
+</header>

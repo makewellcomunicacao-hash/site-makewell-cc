@@ -1,0 +1,244 @@
+---
+// "Como criamos" (Pilar 02 · Conteúdo), artboard ComoCriamos: hero escuro → pilares claro → neuromarketing escuro 2
+// → M.E.N.T.E. escuro → prova em laranja → time escuro → CTA claro.
+import Page from '../layouts/Page.astro';
+import { UI, path, type Lang, type PageKey } from '../lib/site';
+import C, { AUTHORS, LETTERS, TEAM } from '../content/howWeCreate';
+
+interface Props { page: { htmlAttrs: string; head: string; body: string }; key: PageKey; lang: Lang }
+const { page, key, lang } = Astro.props;
+const c = C[lang];
+const lead = c.lead.replace('FRAMEWORK', path('framework', lang));
+const pad = (i: number) => String(i + 1).padStart(2, '0');
+---
+<Page page={page} key={key} lang={lang}>
+  <section class="t-warm hw-hero">
+    <div class="wrap hw-hero-in">
+      <div class="hw-hero-txt">
+        <a class="hw-back" href={path('framework', lang)}>
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>Framework
+        </a>
+        <p class="eyebrow dot hw-kicker">{c.kicker}</p>
+        <h1 class="hw-h1">{c.h1a} <span class="hw-acc">{c.h1b}</span></h1>
+        <p class="lead hw-lead" set:html={lead} />
+        <div class="btns">
+          <a class="btn btn-primary" href="#diagnostico">{UI[lang].cta}</a>
+          <a class="btn btn-ghost" href="#mente">{c.heroSec}</a>
+        </div>
+      </div>
+      <div class="hw-hero-img">
+        <img class="photo" src="/images/livros-referencias-publicidade.webp" alt={c.heroAlt} width="1920" height="1080" loading="eager" fetchpriority="high">
+      </div>
+    </div>
+  </section>
+
+  <section id={c.ids.pillars} class="t-light sec">
+    <div class="wrap">
+      <div class="hw-head">
+        <p class="eyebrow">{c.pilEyebrow}</p>
+        <h2 class="h2 hw-mw" set:html={c.pilH2} />
+        <p class="lead">{c.pilSub}</p>
+      </div>
+      <div class="hw-pillars">
+        {c.pillars.map((p, i) => (
+          <article class="card hw-pillar">
+            <div class="hw-pillar-top">
+              <span class="num">{p.num}</span>
+              <span class="hw-school" set:html={p.school} />
+            </div>
+            <h3 class="hw-pillar-t">{p.title}</h3>
+            <ul class="hw-chips">
+              {AUTHORS[i].map((a) => <li>{a}</li>)}
+            </ul>
+            <p class="hw-pillar-p" set:html={p.p} />
+            <div class="hw-apply">
+              <p class="eyebrow hw-apply-l">{c.appLabel}</p>
+              <p class="hw-apply-p">{p.app}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="neuromarketing" class="t-warm2 sec line-top">
+    <div class="wrap">
+      <div class="hw-neuro-head">
+        <div class="hw-neuro-h">
+          <p class="eyebrow">{c.neuroEyebrow}</p>
+          <h2 class="h2" set:html={c.neuroH2} />
+        </div>
+        <p class="hw-neuro-sub" set:html={c.neuroSub} />
+      </div>
+      <table class="hw-table">
+        <thead><tr>{c.neuroCols.map((col) => <th scope="col">{col}</th>)}</tr></thead>
+        <tbody>
+          {c.triggers.map(([name, react, app], i) => (
+            <tr>
+              <th scope="row"><span class="hw-idx" aria-hidden="true">{pad(i)}</span><span set:html={name} /></th>
+              <td class="hw-react">{react}</td>
+              <td class="hw-app">{app}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="mente" class="t-warm sec line-top">
+    <div class="wrap">
+      <div class="hw-head">
+        <p class="eyebrow">{c.menteEyebrow}</p>
+        <h2 class="h2 hw-mente-h" set:html={c.menteH2} />
+        <p class="lead">{c.menteSub}</p>
+      </div>
+      <ol class="hw-mente">
+        {c.mente.map(([name, desc, ref], i) => (
+          <li>
+            <span class="hw-dot" aria-hidden="true"></span>
+            <p class="hw-letter" aria-hidden="true">{LETTERS[i]}</p>
+            <h3 class="hw-mente-t">{name}</h3>
+            <p class="hw-mente-d" set:html={desc} />
+            {ref && <p class="hw-mente-r">{ref}</p>}
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="t-accent sec hw-action">
+    <div class="wrap hw-action-in">
+      <div class="hw-action-txt">
+        <h2 class="eyebrow">{c.relH}</h2>
+        <p class="hw-action-p">{c.relP}</p>
+        <a class="hw-action-a" href={path('casaHunter', lang)} set:html={c.relLink} />
+      </div>
+      <div class="hw-logos">
+        <div class="tile"><img src="/images/logo-casa-hunter.webp" alt="Casa Hunter" loading="lazy"></div>
+        <div class="tile"><img src="/images/logo-casa-dos-raros.webp" alt="Casa dos Raros" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id={c.ids.team} class="t-warm sec hw-team">
+    <div class="wrap hw-team-in">
+      <figure class="hw-shelf">
+        <img class="photo" src="/images/escritorio-estante.webp" alt={c.shelfAlt} loading="lazy">
+        <figcaption class="muted" set:html={c.caption} />
+      </figure>
+      <div class="hw-team-txt">
+        <p class="eyebrow">{c.teamLabel}</p>
+        <h2 class="h2">{c.teamH2}</h2>
+        <p class="lead">{c.teamSub}</p>
+        <ul class="hw-chips hw-names">{TEAM.map((n) => <li>{n}</li>)}</ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="diagnostico" class="t-light sec">
+    <div class="wrap">
+      <div class="card hw-cta">
+        <p class="eyebrow">{c.ctaEyebrow}</p>
+        <h2 class="h2 hw-mw">{c.ctaH2}</h2>
+        <p class="lead">{c.ctaP}</p>
+        <div class="btns">
+          <a class="btn btn-primary" href={c.ctaHref} target="_blank" rel="noopener noreferrer" onclick={c.ctaOnclick} set:html={c.ctaBtn} />
+        </div>
+      </div>
+    </div>
+  </section>
+</Page>
+
+<style is:inline>
+  .hw-acc, .t-warm .gold, .t-warm2 .gold { color: var(--accent); }
+  /* laranja escuro para texto pequeno em fundo claro (AA) */
+  .t-light .eyebrow, .t-light .card .num, .card .hw-apply-l, .hw-cta .eyebrow { color: #B4530F; }
+  .hw-mw { max-width: 820px; }
+  .hw-hero { padding-block: clamp(56px, 8vw, 96px) clamp(72px, 9vw, 104px); }
+  .hw-hero-in { display: flex; flex-wrap: wrap; align-items: center; gap: 56px 64px; }
+  .hw-hero-txt { flex: 1 1 520px; min-width: 0; }
+  .hw-hero-img { flex: 1 1 440px; min-width: 0; }
+  .hw-hero-img .photo { aspect-ratio: 4 / 3; border-radius: 24px; }
+  .hw-back { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: var(--muted); font-size: 14px; font-weight: 600; text-decoration: none; }
+  .hw-back:hover { color: var(--paper); }
+  .hw-kicker { margin-top: 20px; color: var(--muted); }
+  .hw-h1 { margin: 24px 0 0; font-size: clamp(40px, 5.6vw, 84px); line-height: 1.02; letter-spacing: -.035em; font-weight: 800; padding-bottom: .12em; overflow-wrap: break-word; }
+  .hw-lead strong { color: var(--paper); }
+  .hw-lead a { color: var(--paper); text-underline-offset: 3px; }
+
+  .hw-pillars { display: grid; gap: 16px; margin-top: 56px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); }
+  .hw-pillar { display: flex; flex-direction: column; gap: 24px; padding: clamp(28px, 3vw, 40px); }
+  .hw-pillar-top { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; }
+  .hw-school { font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  .hw-pillar-t { margin: 0; font-size: clamp(26px, 2.4vw, 34px); font-weight: 800; letter-spacing: -.02em; line-height: 1.1; }
+  .hw-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+  .hw-chips li { border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; font-size: 14px; }
+  .t-light .hw-chips li { color: #2E2A25; }
+  .card .hw-pillar-p { margin: 0; font-size: 16px; line-height: 1.6; }
+  .hw-apply { border-top: 1px solid var(--line); padding-top: 20px; margin-top: auto; }
+  .card .hw-apply-p { margin: 10px 0 0; font-size: 16px; line-height: 1.6; color: inherit; }
+
+  .hw-neuro-head { display: flex; flex-wrap: wrap; gap: 24px 72px; align-items: flex-end; }
+  .hw-neuro-h { flex: 999 1 560px; min-width: 0; }
+  .hw-neuro-sub { flex: 1 1 340px; min-width: 0; margin: 0; font-size: 17px; line-height: 1.6; color: var(--muted); }
+  .hw-table { width: 100%; margin-top: 64px; border-collapse: collapse; text-align: left; }
+  .hw-table thead th { padding: 0 32px 16px 0; border-bottom: 1px solid var(--line); font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  .hw-table tbody th, .hw-table td { padding: 28px 32px 28px 0; border-bottom: 1px solid var(--line); vertical-align: baseline; width: 33.33%; }
+  .hw-table tbody th { font-size: 22px; font-weight: 700; }
+  .hw-idx { font-size: 13px; color: var(--accent); margin-right: 14px; }
+  .hw-react { font-size: 18px; line-height: 1.5; font-style: italic; color: #D8D3CB; }
+  .hw-app { font-size: 15px; line-height: 1.6; color: var(--muted); }
+  @media (max-width: 760px) {
+    .hw-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    .hw-table, .hw-table tbody, .hw-table tr, .hw-table th, .hw-table td { display: block; width: auto; }
+    .hw-table { margin-top: 40px; border-top: 1px solid var(--line); }
+    .hw-table tr { padding: 24px 0; border-bottom: 1px solid var(--line); }
+    .hw-table tbody th, .hw-table td { padding: 0; border: 0; width: auto; }
+    .hw-table td { margin-top: 8px; }
+  }
+
+  .hw-mente-h { font-size: clamp(40px, 5vw, 72px); line-height: 1; letter-spacing: -.035em; }
+  .hw-mente { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 40px 24px; margin: 72px 0 0; padding: 0; list-style: none; }
+  .hw-mente li { border-top: 1px solid var(--line); }
+  .hw-dot { display: block; width: 11px; height: 11px; border-radius: 50%; background: var(--accent); margin-top: -6px; }
+  .hw-letter { margin: 28px 0 0; font-size: 80px; font-weight: 800; letter-spacing: -.04em; line-height: 1; color: var(--accent); }
+  .hw-mente-t { margin: 18px 0 0; font-size: 22px; font-weight: 700; }
+  .hw-mente-d { margin: 8px 0 0; font-size: 15px; line-height: 1.55; color: var(--muted); }
+  .hw-mente-r { margin: 12px 0 0; font-size: 13px; font-weight: 600; color: var(--muted); }
+  /* abaixo de 900px: lista vertical, letra à esquerda (5 itens em 2 colunas deixariam o último sozinho) */
+  @media (max-width: 899px) {
+    .hw-mente { grid-template-columns: 1fr; gap: 0; margin-top: 48px; }
+    .hw-mente li { display: grid; grid-template-columns: 64px minmax(0, 1fr); column-gap: 16px; align-content: start; padding: 24px 0; }
+    .hw-mente li:last-child { border-bottom: 1px solid var(--line); }
+    .hw-dot { display: none; }
+    .hw-letter { grid-row: 1 / span 3; margin: 0; font-size: 56px; }
+    .hw-mente-t { margin: 4px 0 0; }
+  }
+  @media (max-width: 600px) { .hw-hero .btns .btn { flex: 1 1 auto; } }
+
+  .hw-action-in { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 48px 64px; }
+  .hw-action-txt { flex: 999 1 600px; min-width: 0; }
+  .hw-action-p { margin: 18px 0 0; font-size: clamp(26px, 3.2vw, 46px); font-weight: 800; letter-spacing: -.03em; line-height: 1.12; }
+  .hw-action-a { display: inline-block; margin-top: 32px; padding: 12px 0; color: var(--on-accent); font-size: 16px; font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--on-accent); }
+  .hw-logos { flex: 1 1 280px; min-width: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .hw-logos .tile { min-height: 104px; }
+  .hw-logos .tile img { max-height: 52px; max-width: 72%; }
+
+  .hw-team-in { display: flex; flex-wrap: wrap; align-items: center; gap: 56px 72px; }
+  .hw-shelf { flex: 1 1 520px; min-width: 0; margin: 0; }
+  .hw-shelf .photo { aspect-ratio: 4 / 3; border-radius: 24px; }
+  .hw-shelf figcaption { margin: 16px 0 0; font-size: 14px; line-height: 1.55; }
+  .hw-shelf figcaption strong { color: var(--paper); font-weight: 600; }
+  .hw-team-txt { flex: 1 1 380px; min-width: 0; }
+  .hw-names { margin-top: 32px; gap: 10px; }
+  .hw-names li { padding: 10px 18px; font-size: 15px; color: #D8D3CB; }
+
+  .hw-cta { padding: clamp(36px, 6vw, 88px); border-radius: var(--r-big); }
+  .card .hw-apply-l, .hw-cta .eyebrow { margin: 0; }
+  .hw-cta { text-align: center; padding-inline: clamp(24px, 6vw, 88px); }
+  .hw-cta:hover { transform: none; box-shadow: none; border-color: var(--light-line); }
+  .hw-cta .eyebrow { justify-content: center; }
+  .hw-cta .h2, .hw-cta .lead { margin-inline: auto; }
+  .hw-cta .lead { margin-top: 20px; color: var(--muted); }
+  .hw-cta .btns { justify-content: center; }
+</style>

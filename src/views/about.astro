@@ -1,0 +1,292 @@
+---
+// Sobre (artboard Sobre.dc.html, paleta editorial). Texto integral em src/content/about.ts.
+import Page from '../layouts/Page.astro';
+import VideoModal from '../components/VideoModal.astro';
+import { path } from '../lib/site';
+import content from '../content/about';
+
+const { page, key, lang } = Astro.props;
+const c = content[lang];
+const YT = 'A28k_Yxm9cc';
+const team = [{ name: 'Giuliana Castela', src: '/images/giuliana.webp' }, { name: 'Ismael Filho', src: '/images/ismael.webp' }];
+const photos = ['/images/escritorio-sala.webp', '/images/escritorio-estudio.webp', '/images/escritorio-estante.webp', '/images/escritorio-camera-livros.webp'];
+const nn = (i: number) => String(i + 1).padStart(2, '0');
+---
+<Page page={page} key={key} lang={lang}>
+  <article class="ab">
+    <header class="t-warm sec ab-hero">
+      <div class="wrap">
+        <p class="eyebrow dot ab-kicker">{c.kicker}</p>
+        <h1 class="h1 ab-h1">{c.h1a} <em>{c.h1b}</em></h1>
+        <div class="ab-hero-row">
+          <p class="lead ab-lead" set:html={c.lead} />
+          <div class="ab-stats" role="group" aria-label={c.statsAria}>
+            {c.stats.map((s) => <div class="ab-stat"><span class="ab-stat-n">{s.n}</span><span class="ab-stat-l">{s.l}</span></div>)}
+          </div>
+        </div>
+        <img class="photo ab-hero-img" src="/images/livros-referencias-publicidade.webp" alt={c.heroAlt} width="1210" height="908" fetchpriority="high" decoding="async" />
+      </div>
+    </header>
+
+    <section id={c.story.id} class="t-light sec">
+      <div class="wrap split">
+        <div class="main">
+          <p class="eyebrow">{c.story.eyebrow}</p>
+          <h2 class="h2">{c.story.title}</h2>
+          <div class="prose ab-story-txt">
+            <p set:html={c.story.intro} />
+            <p set:html={c.story.body} />
+          </div>
+          <ol class="ab-miles">
+            {c.story.milestones.map((m) => (
+              <li><span class="ab-year">{m.y}</span><div><h3 class="h3">{m.place}</h3><p set:html={m.d} /></div></li>
+            ))}
+          </ol>
+        </div>
+        <div class="side ab-story-side">
+          <img class="photo ab-story-img" src="/images/escritorio-campanhas.webp" alt={c.story.alt} width="1210" height="610" loading="lazy" decoding="async" />
+        </div>
+      </div>
+    </section>
+
+    <section class="t-warm sec">
+      <div class="wrap">
+        <p class="eyebrow">{c.video.eyebrow}</p>
+        <h2 class="h2">{c.video.title}</h2>
+        <p class="lead">{c.video.sub}</p>
+        <button type="button" class="video-poster ab-video" data-yt={YT} data-yt-params={c.video.params || undefined} aria-label={c.video.play}>
+          <img src={`https://img.youtube.com/vi/${YT}/maxresdefault.jpg`} alt="" width="1280" height="720" loading="lazy" decoding="async" />
+          <span class="play" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="#080808"></path></svg></span>
+          <span class="ab-video-label">{c.video.label}</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="t-accent sec">
+      <div class="wrap">
+        <h2 class="h2 ab-num-title">{c.numbers.title}</h2>
+        <p class="ab-num-sub">{c.numbers.sub}</p>
+        <div class="grid ab-nums" style="--min: 220px">
+          {c.numbers.items.map((x) => (
+            <div class="ab-num"><p class="stat-n">{x.n}{x.u && <span class="ab-unit"> {x.u}</span>}</p><p class="ab-num-d">{x.d}</p></div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id={c.thesis.id} class="t-light sec">
+      <div class="wrap">
+        <p class="eyebrow">{c.thesis.eyebrow}</p>
+        <h2 class="h2 ab-thesis-title">{c.thesis.title}</h2>
+        <p class="lead">{c.thesis.sub}</p>
+        <div class="grid ab-contrast" style="--min: 300px">
+          <div class="card ab-old">
+            <h3 class="h3"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg>{c.thesis.others.t}</h3>
+            <p>{c.thesis.others.d}</p>
+          </div>
+          <div class="card ab-new">
+            <h3 class="h3"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l2.6 2.6L16 9.5"></path></svg>{c.thesis.us.t}</h3>
+            <p set:html={c.thesis.us.d} />
+          </div>
+        </div>
+        <div class="ab-quote-row">
+          <blockquote class="ab-quote">“{c.thesis.quoteA} <em>{c.thesis.quoteB}</em>”</blockquote>
+          <div class="ab-quote-side">
+            <p class="muted" set:html={c.thesis.question} />
+            <p set:html={c.thesis.method} />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id={c.audience.id} class="t-warm2 sec">
+      <div class="wrap">
+        <p class="eyebrow">{c.audience.eyebrow}</p>
+        <h2 class="h2">{c.audience.title}</h2>
+        <p class="lead">{c.audience.sub}</p>
+        <div class="grid ab-cards" style="--min: 260px">
+          {c.audience.items.map((x, i) => (
+            <div class="card ab-seg"><span class="num">{nn(i)}</span><div><h3 class="h3" set:html={x.t} /><p>{x.d}</p></div></div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id={c.team.id} class="t-light sec">
+      <div class="wrap ab-team">
+        <div class="ab-team-txt">
+          <p class="eyebrow">{c.team.eyebrow}</p>
+          <h2 class="h2">{c.team.title}</h2>
+          <p class="lead">{c.team.sub}</p>
+          <p class="muted ab-exec">{c.team.exec}</p>
+        </div>
+        <div class="grid ab-people" style="--min: 240px">
+          {team.map((p, i) => (
+            <div class="card ab-person">
+              <img src={p.src} alt={p.name} width="400" height="400" loading="lazy" decoding="async" />
+              <h3 class="h3">{p.name}</h3>
+              <p set:html={c.team.roles[i]} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id={c.principles.id} class="t-warm2 sec">
+      <div class="wrap">
+        <p class="eyebrow">{c.principles.eyebrow}</p>
+        <h2 class="h2">{c.principles.title}</h2>
+        <div class="grid ab-prin" style="--min: 240px">
+          {c.principles.items.map((x, i) => (
+            <div class="ab-pr"><span class="ab-pr-n">{nn(i)}</span><h3 class="h3">{x.t}</h3><p class="muted">{x.d}</p></div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="t-light sec ab-gal">
+      <div class="wrap">
+        <p class="eyebrow">{c.gallery.eyebrow}</p>
+        <h2 class="h2">{c.gallery.title}</h2>
+        <div class="grid ab-gal-grid" style="--min: 240px">
+          {photos.map((src, i) => <img class="photo" src={src} alt={c.gallery.alts[i]} width="850" height="670" loading="lazy" decoding="async" />)}
+        </div>
+      </div>
+    </section>
+
+    <section class="t-light ab-related">
+      <div class="wrap">
+        <div class="ab-related-in">
+          <div class="ab-related-txt">
+            <h2 class="h3 ab-related-title">{c.related.title}</h2>
+            <p class="muted">{c.related.sub}</p>
+          </div>
+          <div class="btns ab-related-btns">
+            <a class="btn btn-ghost" href={path('method', lang)} set:html={c.related.method} />
+            <a class="btn btn-ghost" href={path('cases', lang)} set:html={c.related.cases} />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="t-light ab-cta-sec">
+      <div class="wrap">
+        <div class="ab-cta">
+          <p class="eyebrow">{c.cta.eyebrow}</p>
+          <h2 class="h2">{c.cta.title}</h2>
+          <p class="lead">{c.cta.sub}</p>
+          <div class="btns">
+            <a class="btn btn-primary" href={c.cta.href} target="_blank" rel="noopener noreferrer" data-track="lead" onclick={c.cta.track} set:html={c.cta.btn} />
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+  <VideoModal closeLabel={c.video.close} slot="after" />
+</Page>
+
+<style is:inline>
+  .ab-hero { padding-bottom: clamp(56px, 7vw, 88px); }
+  .ab-kicker { color: var(--muted); }
+  .ab-h1 { max-width: 1120px; font-size: clamp(40px, 5.6vw, 84px); }
+  .ab-hero-row { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 40px 64px; margin-top: 36px; }
+  .ab-lead { flex: 999 1 520px; min-width: 0; margin: 0; max-width: 640px; }
+  .ab-lead strong { color: var(--paper); }
+  .ab-stats { flex: 1 1 420px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); gap: 24px; }
+  .ab-stat { border-top: 1px solid var(--line); padding-top: 18px; }
+  .ab-stat-n { display: block; font-size: 44px; font-weight: 800; letter-spacing: -.03em; line-height: 1; }
+  .ab-stat-l { display: block; margin-top: 10px; font-size: 14px; line-height: 1.4; color: var(--muted); }
+  .ab-hero-img { aspect-ratio: 21 / 9; min-height: 240px; margin-top: 64px; border-radius: 24px; }
+
+  .ab-story-txt { margin-top: 24px; }
+  .ab-story-txt p { font-size: 18px; }
+  .ab-miles { list-style: none; margin: 40px 0 0; padding: 0; }
+  .ab-miles li { border-top: 1px solid var(--line); padding: 26px 0; display: flex; flex-wrap: wrap; gap: 8px 32px; }
+  .ab-year { flex: 0 0 120px; font-size: 36px; font-weight: 800; letter-spacing: -.03em; line-height: 1; color: var(--accent); }
+  .ab-miles li > div { flex: 1 1 260px; min-width: 0; }
+  .ab-miles p { margin: 8px 0 0; font-size: 15px; line-height: 1.6; color: var(--muted); }
+  .ab-miles strong { color: var(--ink); }
+  .ab-story-side { align-self: stretch; }
+  .ab-story-img { position: sticky; top: 110px; aspect-ratio: 4 / 5; border-radius: 24px; }
+  @media (max-width: 900px) { .ab-story-img { position: static; aspect-ratio: 16 / 10; } }
+
+  .ab-video { margin-top: 48px; }
+  .ab-video .play { width: 104px; height: 104px; }
+  @media (max-width: 600px) { .ab-video .play { width: 64px; height: 64px; } .ab-video .play svg { width: 24px; height: 24px; } .ab-video-label { left: 12px; bottom: 12px; padding: 8px 14px; font-size: 13px; } }
+  .ab-video-label { position: absolute; left: 24px; bottom: 24px; background: rgba(8,8,8,.8); color: var(--paper); padding: 10px 18px; border-radius: 999px; font-size: 14px; font-weight: 600; }
+
+  .ab-num-title { margin: 0; max-width: 760px; font-size: clamp(30px, 3.4vw, 48px); line-height: 1.08; }
+  .ab-num-sub { margin: 16px 0 0; font-size: 18px; color: var(--muted); }
+  .ab-nums { gap: 40px 32px; margin-top: 56px; }
+  .ab-num { border-top: 2px solid var(--on-accent); padding-top: 24px; }
+  .ab-num .stat-n { margin: 0; font-size: clamp(44px, 4.4vw, 68px); white-space: nowrap; }
+  .ab-unit { font-size: .42em; letter-spacing: -.02em; }
+  .ab-num-d { margin: 14px 0 0; max-width: 260px; font-size: 16px; line-height: 1.5; color: var(--muted); }
+  @media (max-width: 600px) { .ab-nums { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 20px; margin-top: 40px; } .ab-num { padding-top: 18px; } .ab-num .stat-n { font-size: 34px; } .ab-num-d { font-size: 14px; } }
+
+  .ab-thesis-title { max-width: 980px; font-size: clamp(30px, 3.6vw, 52px); }
+  .ab-contrast { margin-top: 56px; }
+  .ab-contrast .h3 { display: flex; align-items: center; gap: 12px; font-size: 20px; }
+  .ab-contrast .card p { font-size: 16px; line-height: 1.65; margin-top: 18px; }
+  .t-light .ab-old { background: transparent; }
+  .ab-old .h3 { color: var(--muted); }
+  .t-light .ab-new { border-color: var(--accent); }
+  .ab-new svg { color: var(--accent); flex: none; }
+  .ab-old svg { flex: none; }
+  .ab-new p { color: var(--ink); }
+  .ab-new strong { color: var(--ink); }
+  .ab-quote-row { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 32px 72px; margin-top: clamp(64px, 8vw, 96px); align-items: start; padding-top: clamp(40px, 5vw, 64px); border-top: 1px solid var(--line); }
+  @media (max-width: 900px) { .ab-quote-row { grid-template-columns: 1fr; } }
+  .ab-quote { min-width: 0; margin: 0; font-size: clamp(34px, 4vw, 60px); font-weight: 800; letter-spacing: -.03em; line-height: 1.08; }
+  .ab-quote em { font-style: normal; color: var(--accent); }
+  .ab-quote-side { min-width: 0; max-width: 46ch; padding-top: .6em; }
+  .ab-quote-side p { margin: 0 0 16px; font-size: 17px; line-height: 1.65; }
+  .ab-quote-side strong { color: var(--ink); }
+
+  .ab-cards { margin-top: 56px; }
+  .ab-seg { display: flex; flex-direction: column; gap: clamp(28px, 4vw, 56px); }
+  .ab-seg .h3 { font-size: 24px; }
+  .ab-seg p { font-size: 15px; line-height: 1.55; }
+  @media (max-width: 600px) { .ab-stats { grid-template-columns: repeat(2, 1fr); } .ab-seg { gap: 20px; } }
+
+  .ab-team { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 56px clamp(40px, 6vw, 88px); align-items: center; }
+  @media (max-width: 900px) { .ab-team { grid-template-columns: 1fr; } }
+  .ab-team-txt { min-width: 0; }
+  .ab-exec { margin: 16px 0 0; font-size: 16px; line-height: 1.6; }
+  .ab-people { min-width: 0; --min: 220px; }
+  .ab-person { padding: 12px 12px 24px; }
+  .ab-person img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 14px; }
+  .ab-person .h3 { margin: 20px 12px 0; }
+  .ab-person p { margin: 6px 12px 0; font-size: 15px; line-height: 1.5; }
+
+  .ab-prin { gap: 40px 24px; margin-top: 64px; }
+  .ab-pr { border-top: 1px solid var(--line); }
+  .ab-pr::before { content: ""; display: block; width: 11px; height: 11px; border-radius: 50%; background: var(--accent); margin-top: -6px; }
+  .ab-pr-n { display: block; margin-top: 28px; font-size: 64px; font-weight: 800; letter-spacing: -.04em; line-height: 1; color: #3A3631; }
+  .ab-pr .h3 { margin-top: 18px; }
+  .ab-pr p { margin: 8px 0 0; font-size: 15px; line-height: 1.55; }
+  @media (max-width: 600px) { .ab-prin { gap: 36px; margin-top: 48px; } .ab-pr-n { margin-top: 20px; font-size: 44px; } }
+
+  .ab-gal { padding-bottom: 0; }
+  .ab-gal-grid { margin-top: 48px; grid-template-columns: minmax(0, 1.5fr) repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(2, clamp(180px, 19vw, 280px)); gap: 16px; }
+  .ab-gal-grid img { width: 100%; height: 100%; aspect-ratio: auto; border-radius: 20px; }
+  .ab-gal-grid img:first-child { grid-row: span 2; }
+  .ab-gal-grid img:last-child { grid-column: span 2; }
+  @media (max-width: 700px) { .ab-gal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: none; gap: 10px; } .ab-gal-grid img { aspect-ratio: 1; height: auto; border-radius: 14px; } .ab-gal-grid img:first-child { grid-row: auto; } .ab-gal-grid img:last-child { grid-column: auto; } }
+
+  .ab-related { padding-block: clamp(64px, 8vw, 96px); }
+  .ab-related-in { border-block: 1px solid var(--line); padding: 48px 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 28px 48px; }
+  .ab-related-txt { flex: 1 1 420px; min-width: 0; }
+  .ab-related-title { font-size: clamp(26px, 2.6vw, 36px); font-weight: 800; letter-spacing: -.03em; line-height: 1.1; }
+  .ab-related-txt p { margin: 10px 0 0; font-size: 16px; }
+  .ab-related-btns { margin-top: 0; }
+  .ab-related-btns .btn { font-weight: 600; font-size: 15px; height: auto; min-height: 48px; padding-block: 12px; line-height: 1.3; text-align: center; text-wrap: balance; }
+  @media (max-width: 600px) { .ab-related-btns { width: 100%; } .ab-related-btns .btn { width: 100%; padding-inline: 18px; font-size: 14px; } }
+
+  /* AA: em fundo claro, laranja escuro para texto e ícones */
+  .ab .t-light .eyebrow, .ab .t-light .ab-year, .ab .t-light .ab-quote em, .ab .t-light .ab-new svg { color: #B4530F; }
+
+  .ab-cta-sec { padding-bottom: clamp(72px, 10vw, 120px); }
+  .ab-cta { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-big); padding: clamp(32px, 6vw, 88px); }
+  .ab-cta .h2 { max-width: 820px; font-size: clamp(34px, 4.4vw, 64px); }
+</style>
