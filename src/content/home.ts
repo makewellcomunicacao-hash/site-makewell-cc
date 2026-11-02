@@ -65,7 +65,7 @@ export default {
       },
       {
         "v": "100+",
-        "d": "Clientes captados em um único mês (recorde)"
+        "d": "Leads captados em um único mês (recorde)"
       },
       {
         "v": "R$400k",
@@ -118,7 +118,7 @@ export default {
         {
           "num": "02",
           "title": "Resultados <span>mensuráveis</span>",
-          "desc": "Cada ação tem um número, uma meta e um responsável. Você acompanha o ROI em tempo real, sem relatório de vaidade, só o que importa: crescimento."
+          "desc": "Cada ação tem um número, uma meta e um responsável. Você acompanha o ROI em painel e relatório mensal, sem relatório de vaidade, só o que importa: crescimento."
         },
         {
           "num": "03",
@@ -256,9 +256,9 @@ export default {
       "hl": {
         "aria": "Case de Impacto: Casa Hunter e Casa dos Raros — ler case completo",
         "tag": "Case de Impacto",
-        "reach": "Alcance · 13M Pessoas",
+        "reach": "Voz a 13M de brasileiros",
         "title": "Como a Makewell deu voz a 13 milhões de brasileiros",
-        "sub": "Casa Hunter &amp; Casa dos Raros: 4 anos, 50 mil seguidores, série documental nacional e impacto no STF.",
+        "sub": "Casa Hunter &amp; Casa dos Raros: mais de 4 anos, 50 mil seguidores, série documental nacional e impacto no STF.",
         "cta": "Ler case completo &rarr;",
         "stats": [
           {
@@ -266,7 +266,7 @@ export default {
             "l": "seguidores"
           },
           {
-            "v": "4 anos",
+            "v": "4+ anos",
             "l": "de parceria"
           },
           {
@@ -292,11 +292,11 @@ export default {
               "l": "Leads captados/mês (recorde)"
             },
             {
-              "v": "400k",
+              "v": "R$400k",
               "l": "Faturamento"
             }
           ],
-          "quote": "\"Sem vocês eu não conseguiria. Os ganchos, os textos e a qualidade de gravação e edição\"",
+          "quote": "\"Sem vocês eu não conseguiria. Os ganchos, os textos e a qualidade são incríveis\"",
           "cite": "Felipe Vilela, Advogado"
         },
         {
@@ -315,12 +315,12 @@ export default {
               "l": "Leads captados/mês (recorde)"
             },
             {
-              "v": "100k",
+              "v": "R$100k",
               "l": "Faturamento"
             }
           ],
           "quote": "\"Sou muito fã deles! Vocês são os especialistas e a atenção é incomparável\"",
-          "cite": "Dra. Thielen, Médica Vascular"
+          "cite": "Dra. Thielen, Cirurgiã Vascular"
         }
       ],
       "nextTag": "próximo case",
@@ -336,7 +336,7 @@ export default {
       "id": "sobre",
       "tag": "QUEM LIDERA",
       "h2": "Há mais de <span class=\"gold\">9 anos</span> transformando negócios",
-      "p": "A Makewell nasceu com um propósito claro: transformar negócios em marcas com alma, direção e propósito. Com estratégia, performance e branding de alto nível, impulsionamos empresas em todo o Brasil.",
+      "p": "A Makewell nasceu com um propósito claro: transformar negócios em marcas com alma, direção e propósito. Com estratégia, performance e branding de alto nível, impulsionamos empresas em todo o Brasil e nos Estados Unidos.",
       "quote": "\"Não vendemos posts. Construímos pontes.\"",
       "link": "Ler a tese completa →",
       "team": [
@@ -377,7 +377,7 @@ export default {
         {
           "id": "JRrnKGNk-UE",
           "name": "Paola Massari",
-          "role": "Casa Hunter",
+          "role": "Marketing · Casa Hunter",
           "quote": "\"A Makewell conseguiu abraçar tudo. São parceiros, são queridos, são muito emotivos com a nossa causa\""
         },
         {
@@ -482,11 +482,11 @@ export default {
         },
         {
           "q": "Em quanto tempo vejo resultados?",
-          "a": "Os primeiros resultados de tráfego pago costumam aparecer nas primeiras 2 a 4 semanas. Para estratégias de branding e SEO, o crescimento é mais consistente e se consolida entre 60 e 90 dias. Nosso Método FishWell garante acompanhamento contínuo e metas claras em cada etapa."
+          "a": "Os primeiros leads qualificados costumam chegar entre o segundo e o terceiro mês, com as campanhas já calibradas. Entre o quarto e o sexto mês, o custo por lead cai e o ROI se consolida. Branding e SEO têm efeito cumulativo e ganham força mês a mês. Nosso Método FishWell garante acompanhamento contínuo e metas claras em cada etapa."
         },
         {
           "q": "A Makewell atende empresas fora de Maceió?",
-          "a": "Sim! Temos sede em Maceió (AL) e São Paulo (SP) e atendemos clientes em todo o Brasil de forma 100% remota. Nossa equipe já entregou resultados para empresas dos setores jurídico, saúde, varejo e serviços em diversas regiões do país."
+          "a": "Sim! Temos sede em Maceió (AL) e São Paulo (SP) e atendemos clientes em todo o Brasil e nos Estados Unidos de forma 100% remota. Nossa equipe já entregou resultados para empresas dos setores jurídico, saúde, varejo e serviços em diversas regiões do país."
         },
         {
           "q": "Quais plataformas a Makewell gerencia?",
@@ -527,7 +527,7 @@ export default {
   "en": {
     "heroAria": "Digital marketing agency for Brazilian businesses in Florida — Miami, Orlando, Tampa, Jacksonville",
     "pill": "Over 9 years transforming brands",
-    "h1": "We don’t sell posts.<br> <em>We build bridges.</em>",
+    "h1": "Your brand at the top<br>with strategy,<br> <em>performance and intelligence.</em>",
     "heroP": "Strategy, performance and intelligence to turn brands into movements. <strong>Talk to us</strong> and start the new chapter of your brand now.",
     "cta1": {
       "href": "https://wa.me/5582999103246?text=Hello!%20I%27d%20like%20to%20schedule%20a%20free%20diagnostic%20with%20Makewell.",
@@ -588,7 +588,7 @@ export default {
       },
       {
         "v": "100+",
-        "d": "Clients acquired in a single month (record)"
+        "d": "Leads captured in a single month (record)"
       },
       {
         "v": "R$400k",
@@ -629,7 +629,7 @@ export default {
     },
     "why": {
       "id": "why",
-      "tag": "OUR DIFFERENTIALS",
+      "tag": "WHAT SETS US APART",
       "h2": "Why <span class=\"gold\">Makewell</span>?",
       "sub": "We're not a typical agency. We have our own method, deliver measurable results, and treat every client as unique.",
       "items": [
@@ -641,7 +641,7 @@ export default {
         {
           "num": "02",
           "title": "Measurable <span>results</span>",
-          "desc": "Every action has a number, a goal and an owner. You track ROI in real time — no vanity reports, just what matters: growth."
+          "desc": "Every action has a number, a goal and an owner. You track ROI through a dashboard and a monthly report — no vanity reports, just what matters: growth."
         },
         {
           "num": "03",
@@ -779,9 +779,9 @@ export default {
       "hl": {
         "aria": "Impact Case: Casa Hunter and Casa dos Raros — read full case",
         "tag": "Impact Case",
-        "reach": "Reach · 13M People",
-        "title": "How Makewell gave voice to 13 million Brazilians",
-        "sub": "Casa Hunter &amp; Casa dos Raros: 4 years, 50K followers, a national streaming documentary and Supreme Court impact.",
+        "reach": "A voice for 13M Brazilians",
+        "title": "How Makewell gave a voice to 13 million Brazilians",
+        "sub": "Casa Hunter &amp; Casa dos Raros: 4+ years, 50K followers, a national streaming documentary and impact at Brazil's Supreme Court.",
         "cta": "Read full case &rarr;",
         "stats": [
           {
@@ -789,7 +789,7 @@ export default {
             "l": "followers"
           },
           {
-            "v": "4 years",
+            "v": "4+ years",
             "l": "partnership"
           },
           {
@@ -812,14 +812,14 @@ export default {
             },
             {
               "v": "100+",
-              "l": "Clients/month"
+              "l": "Leads/month"
             },
             {
-              "v": "400k",
+              "v": "R$400k",
               "l": "Revenue"
             }
           ],
-          "quote": "\"Without you guys I couldn't have done it. The hooks, the copy and the quality of recording and editing\"",
+          "quote": "\"Without you I couldn't have done it. The hooks, the copy and the quality are incredible\"",
           "cite": "Felipe Vilela — Lawyer"
         },
         {
@@ -835,10 +835,10 @@ export default {
             },
             {
               "v": "39+",
-              "l": "Clients/month"
+              "l": "Leads/month"
             },
             {
-              "v": "100k",
+              "v": "R$100k",
               "l": "Revenue"
             }
           ],
@@ -900,13 +900,13 @@ export default {
         {
           "id": "JRrnKGNk-UE",
           "name": "Paola Massari",
-          "role": "Casa Hunter",
+          "role": "Marketing · Casa Hunter",
           "quote": "\"Makewell managed to embrace everything. They are partners, they are caring, they are very emotionally invested in our cause\""
         },
         {
           "id": "PoBa9wS9rYM",
           "name": "Dra. Carolina Mergulhão",
-          "role": "Endocrinology | Metabology",
+          "role": "Endocrinology | Metabolism",
           "quote": "\"I am very shy about exposure, and they were always excellent and caring with me\""
         },
         {
@@ -1001,15 +1001,15 @@ export default {
       "items": [
         {
           "q": "How much does it cost to hire Makewell?",
-          "a": "Our plans are customized according to the size and goals of each business. The first step is a free diagnostic, where we analyze your business and present a tailored proposal. Contact us via WhatsApp to schedule."
+          "a": "Our plans are customized according to the size and goals of each business. The first step is a free diagnosis, where we analyze your business and present a tailored proposal. Contact us via WhatsApp to schedule."
         },
         {
           "q": "How long does it take to see results?",
-          "a": "The first paid traffic results typically appear within 2 to 4 weeks. For branding and SEO strategies, growth is more consistent and consolidates between 60 and 90 days. Our FishWell Method ensures continuous monitoring and clear goals at every stage."
+          "a": "The first qualified leads usually arrive between the second and third month, once campaigns are calibrated. Between the fourth and sixth month, cost per lead drops and ROI consolidates. Branding and SEO build up cumulatively and gain strength month after month. Our FishWell Method ensures continuous monitoring and clear goals at every stage."
         },
         {
           "q": "Does Makewell serve businesses outside Brazil?",
-          "a": "Yes! We specialize in Brazilian-owned businesses in the United States — especially in Florida, serving clients in Miami, Orlando, Tampa, Jacksonville and throughout the state. We also serve clients across the globe remotely. Our team understands both Brazilian business culture and the US market, making us the ideal partner for entrepreneurs who want to grow on both sides."
+          "a": "Yes! We specialize in Brazilian-owned businesses in the United States — especially in Florida, serving clients in Miami, Orlando, Tampa, Jacksonville and throughout the state. We work 100% remotely, so distance is never a barrier. Our team understands both Brazilian business culture and the US market, making us the ideal partner for entrepreneurs who want to grow on both sides."
         },
         {
           "q": "Which platforms does Makewell manage?",
@@ -1111,7 +1111,7 @@ export default {
       },
       {
         "v": "100+",
-        "d": "Clientes captados en un solo mes (récord)"
+        "d": "Leads captados en un solo mes (récord)"
       },
       {
         "v": "R$400k",
@@ -1164,12 +1164,12 @@ export default {
         {
           "num": "02",
           "title": "Resultados <span>medibles</span>",
-          "desc": "Cada acción tiene un número, una meta y un responsable. Sigues el ROI en tiempo real — nada de informes vacíos, solo lo que importa: crecimiento."
+          "desc": "Cada acción tiene un número, una meta y un responsable. Sigues el ROI en un panel y un informe mensual — nada de informes vacíos, solo lo que importa: crecimiento."
         },
         {
           "num": "03",
           "title": "Atención <span>exclusiva</span>",
-          "desc": "Cada cliente recibe una estrategia exclusiva, un equipo dedicado y acceso directo a la dirección. Sin tercerización, sin plantillas — solo estrategia hecha para ti."
+          "desc": "Cada cliente recibe una estrategia exclusiva, un equipo dedicado y acceso directo a la dirección. Sin subcontratación, sin plantillas — solo estrategia hecha para ti."
         }
       ]
     },
@@ -1302,9 +1302,9 @@ export default {
       "hl": {
         "aria": "Caso de Impacto: Casa Hunter y Casa dos Raros — leer caso completo",
         "tag": "Caso de Impacto",
-        "reach": "Alcance · 13M Personas",
+        "reach": "Voz a 13M de brasileños",
         "title": "Cómo Makewell le dio voz a 13 millones de brasileños",
-        "sub": "Casa Hunter &amp; Casa dos Raros: 4 años, 50 mil seguidores, serie documental nacional e impacto en el Tribunal Supremo.",
+        "sub": "Casa Hunter &amp; Casa dos Raros: más de 4 años, 50 mil seguidores, serie documental nacional e impacto en el Tribunal Supremo.",
         "cta": "Leer caso completo &rarr;",
         "stats": [
           {
@@ -1312,7 +1312,7 @@ export default {
             "l": "seguidores"
           },
           {
-            "v": "4 años",
+            "v": "4+ años",
             "l": "de colaboración"
           },
           {
@@ -1335,14 +1335,14 @@ export default {
             },
             {
               "v": "100+",
-              "l": "Clientes/mes"
+              "l": "Leads/mes"
             },
             {
-              "v": "400k",
+              "v": "R$400k",
               "l": "Ingresos"
             }
           ],
-          "quote": "\"Sin ustedes no lo hubiera logrado. Los ganchos, los textos y la calidad de grabación y edición\"",
+          "quote": "\"Sin ustedes no lo hubiera logrado. Los ganchos, los textos y la calidad son increíbles\"",
           "cite": "Felipe Vilela — Abogado"
         },
         {
@@ -1358,10 +1358,10 @@ export default {
             },
             {
               "v": "39+",
-              "l": "Clientes/mes"
+              "l": "Leads/mes"
             },
             {
-              "v": "100k",
+              "v": "R$100k",
               "l": "Ingresos"
             }
           ],
@@ -1382,7 +1382,7 @@ export default {
       "id": "about",
       "tag": "QUIÉN LIDERA",
       "h2": "Más de <span class=\"gold\">9 años</span> transformando negocios",
-      "p": "Makewell nació con un propósito claro: transformar negocios en marcas con alma, dirección y propósito. Con estrategia, performance y branding de alto nivel, impulsamos empresas brasileñas en Brasil y en el exterior — incluyendo España y Latinoamérica.",
+      "p": "Makewell nació con un propósito claro: transformar negocios en marcas con alma, dirección y propósito. Con estrategia, performance y branding de alto nivel, impulsamos empresas en Brasil y negocios brasileños en Estados Unidos, y conversamos con empresarios brasileños en España y Latinoamérica.",
       "quote": "\"No vendemos publicaciones. Construimos puentes.\"",
       "link": "Leer la tesis completa →",
       "team": [
@@ -1423,13 +1423,13 @@ export default {
         {
           "id": "JRrnKGNk-UE",
           "name": "Paola Massari",
-          "role": "Casa Hunter",
+          "role": "Marketing · Casa Hunter",
           "quote": "\"Makewell logró abrazarlo todo. Son socios, son queridos, están muy comprometidos emocionalmente con nuestra causa\""
         },
         {
           "id": "PoBa9wS9rYM",
           "name": "Dra. Carolina Mergulhão",
-          "role": "Endocrinología | Metabología",
+          "role": "Endocrinología | Metabolismo",
           "quote": "\"Tengo mucha vergüenza con la exposición, y ellos siempre fueron excelentes y cariñosos conmigo\""
         },
         {
@@ -1441,7 +1441,7 @@ export default {
         {
           "id": "bJaKzu9WHy0",
           "name": "Tereza Cristina",
-          "role": "Abogado",
+          "role": "Abogada",
           "quote": "\"Tenía miedo de no encontrar una agencia diferenciada\""
         },
         {
@@ -1528,11 +1528,11 @@ export default {
         },
         {
           "q": "¿Cuánto tiempo se tarda en ver resultados?",
-          "a": "Los primeros resultados de tráfico pago suelen aparecer entre 2 y 4 semanas. Para estrategias de branding y SEO, el crecimiento es más gradual y se consolida entre 60 y 90 días. Nuestro Método FishWell garantiza seguimiento continuo y metas claras en cada etapa."
+          "a": "Los primeros leads calificados suelen llegar entre el segundo y el tercer mes, con las campañas ya calibradas. Entre el cuarto y el sexto mes, el costo por lead baja y el ROI se consolida. El branding y el SEO tienen un efecto acumulativo y ganan fuerza mes a mes. Nuestro Método FishWell garantiza seguimiento continuo y metas claras en cada etapa."
         },
         {
           "q": "¿Makewell atiende a negocios brasileños en España o fuera de Brasil?",
-          "a": "¡Sí! Nos especializamos en emprendedores y negocios brasileños que hoy están en España y en Latinoamérica, atendidos de forma 100% remota desde Brasil. Nuestro equipo entiende tanto la cultura de negocios brasileña como el mercado donde estás ahora, lo que nos convierte en el socio ideal para crecer de los dos lados."
+          "a": "¡Sí! Trabajamos de forma 100% remota desde Brasil, ya atendemos negocios brasileños en Estados Unidos y conversamos con empresarios brasileños en España y Latinoamérica. Nuestro equipo entiende tanto la cultura de negocios brasileña como el mercado donde estás ahora, lo que nos convierte en el socio ideal para crecer de los dos lados."
         },
         {
           "q": "¿Qué plataformas gestiona Makewell?",
@@ -1573,7 +1573,7 @@ export default {
   "pt": {
     "heroAria": "Agência de marketing digital para negócios brasileiros em Portugal",
     "pill": "Agência brasileira · Mais de 9 anos a transformar marcas",
-    "h1": "A tua marca no topo<br>com estratégia,<br> <em>performance e inteligência.</em>",
+    "h1": "A sua marca no topo<br>com estratégia,<br> <em>performance e inteligência.</em>",
     "heroP": "Somos uma agência brasileira que entende os dois lados: o seu negócio e o mercado onde está agora. <strong>Fale connosco</strong> e comece o novo capítulo da sua marca.",
     "cta1": {
       "href": "https://wa.me/5582999103246?text=Ol%C3%A1!%20Quero%20agendar%20um%20diagn%C3%B3stico%20gratuito%20com%20a%20Makewell.",
@@ -1634,7 +1634,7 @@ export default {
       },
       {
         "v": "100+",
-        "d": "Clientes conquistados num único mês (recorde)"
+        "d": "Leads captados num único mês (recorde)"
       },
       {
         "v": "R$400k",
@@ -1687,12 +1687,12 @@ export default {
         {
           "num": "02",
           "title": "Resultados <span>mensuráveis</span>",
-          "desc": "Cada ação tem um número, um objetivo e um responsável. Acompanha o ROI em tempo real — sem relatórios de vaidade, apenas o que importa: crescimento."
+          "desc": "Cada ação tem um número, um objetivo e um responsável. Acompanha o ROI num painel e num relatório mensal — sem relatórios de vaidade, apenas o que importa: crescimento."
         },
         {
           "num": "03",
           "title": "Atendimento <span>exclusivo</span>",
-          "desc": "Cada cliente tem uma estratégia exclusiva, equipa dedicada e acesso direto à liderança. Sem terceirização, sem modelos genéricos — só estratégia feita à medida."
+          "desc": "Cada cliente tem uma estratégia exclusiva, equipa dedicada e acesso direto à liderança. Sem subcontratação, sem modelos genéricos — só estratégia feita à medida."
         }
       ]
     },
@@ -1747,7 +1747,7 @@ export default {
         {
           "tag": "Branding",
           "title": "Torne a sua marca a primeira escolha",
-          "desc": "Construímos um posicionamento forte, uma identidade visual que transmite autoridade e mensagens que ligam com quem decide.",
+          "desc": "Construímos um posicionamento forte, uma identidade visual que transmite autoridade e mensagens que chegam a quem decide.",
           "listAria": "Entregáveis de Branding",
           "li": [
             "Posicionamento estratégico",
@@ -1825,9 +1825,9 @@ export default {
       "hl": {
         "aria": "Case de Impacto: Casa Hunter e Casa dos Raros — ler case completo",
         "tag": "Case de Impacto",
-        "reach": "Alcance · 13M Pessoas",
+        "reach": "Voz a 13M de brasileiros",
         "title": "Como a Makewell deu voz a 13 milhões de brasileiros",
-        "sub": "Casa Hunter &amp; Casa dos Raros: 4 anos, 50 mil seguidores, série documental em streaming e impacto no Supremo Tribunal Federal.",
+        "sub": "Casa Hunter &amp; Casa dos Raros: mais de 4 anos, 50 mil seguidores, série documental em streaming e impacto no Supremo Tribunal Federal.",
         "cta": "Ler case completo &rarr;",
         "stats": [
           {
@@ -1835,7 +1835,7 @@ export default {
             "l": "seguidores"
           },
           {
-            "v": "4 anos",
+            "v": "4+ anos",
             "l": "de parceria"
           },
           {
@@ -1858,14 +1858,14 @@ export default {
             },
             {
               "v": "100+",
-              "l": "Clientes/mês"
+              "l": "Leads/mês"
             },
             {
-              "v": "400k",
+              "v": "R$400k",
               "l": "Faturação"
             }
           ],
-          "quote": "\"Sem vocês não teria conseguido. Os ganchos, os textos e a qualidade de gravação e edição\"",
+          "quote": "\"Sem vocês não teria conseguido. Os ganchos, os textos e a qualidade são incríveis\"",
           "cite": "Felipe Vilela — Advogado"
         },
         {
@@ -1881,10 +1881,10 @@ export default {
             },
             {
               "v": "39+",
-              "l": "Clientes/mês"
+              "l": "Leads/mês"
             },
             {
-              "v": "100k",
+              "v": "R$100k",
               "l": "Faturação"
             }
           ],
@@ -1905,8 +1905,8 @@ export default {
       "id": "about",
       "tag": "QUEM LIDERA",
       "h2": "Há mais de <span class=\"gold\">9 anos</span> a transformar negócios",
-      "p": "A Makewell nasceu com um propósito claro: transformar negócios em marcas com alma, direção e propósito. Com estratégia, performance e branding de alto nível, impulsionamos empresas brasileiras no Brasil e além-fronteiras — incluindo empresários brasileiros em Portugal, atendidos remotamente pela nossa equipa no Brasil.",
-      "quote": "\"Não vendemos publicações. Construímos pontes.\"",
+      "p": "A Makewell nasceu com um propósito claro: transformar negócios em marcas com alma, direção e propósito. Com estratégia, performance e branding de alto nível, impulsionamos empresas no Brasil e empresas brasileiras nos Estados Unidos, e conversamos com empresários brasileiros em Portugal.",
+      "quote": "\"Não vendemos posts. Construímos pontes.\"",
       "link": "Ler a tese completa →",
       "team": [
         {
@@ -1946,7 +1946,7 @@ export default {
         {
           "id": "JRrnKGNk-UE",
           "name": "Paola Massari",
-          "role": "Casa Hunter",
+          "role": "Marketing · Casa Hunter",
           "quote": "\"A Makewell conseguiu abraçar tudo. São parceiros, são queridos, são muito emotivos com a nossa causa\""
         },
         {
@@ -1964,13 +1964,13 @@ export default {
         {
           "id": "bJaKzu9WHy0",
           "name": "Tereza Cristina",
-          "role": "Advogado(a)",
+          "role": "Advogada",
           "quote": "\"Estava com medo de não encontrar uma agência diferenciada\""
         },
         {
           "id": "ij42ilGNbrY",
           "name": "Felipe Vilela",
-          "role": "Advogado(a)",
+          "role": "Advogado",
           "quote": "\"Sem vocês não teria conseguido. Os ganchos, os textos e a qualidade são incríveis\""
         },
         {
@@ -2051,11 +2051,11 @@ export default {
         },
         {
           "q": "Quanto tempo demora até ver resultados?",
-          "a": "Os primeiros resultados de tráfego pago normalmente aparecem entre 2 a 4 semanas. Para estratégias de branding e SEO, o crescimento é mais consistente e consolida-se entre 60 e 90 dias. O nosso Método FishWell garante acompanhamento contínuo e objetivos claros em cada etapa."
+          "a": "Os primeiros leads qualificados costumam chegar entre o segundo e o terceiro mês, com as campanhas já calibradas. Entre o quarto e o sexto mês, o custo por lead desce e o ROI consolida-se. Branding e SEO têm efeito cumulativo e ganham força mês a mês. O nosso Método FishWell garante acompanhamento contínuo e objetivos claros em cada etapa."
         },
         {
           "q": "A Makewell atende empresários brasileiros em Portugal?",
-          "a": "Sim! Somos especialistas em empresários e negócios brasileiros a operar em Portugal, atendidos remotamente pela nossa equipa no Brasil. Também atendemos clientes em todo o mundo à distância. A nossa equipa entende tanto a cultura de negócios brasileira quanto o mercado português, o que nos torna o parceiro ideal para quem quer crescer dos dois lados do Atlântico."
+          "a": "Sim! Trabalhamos 100% à distância a partir do Brasil, já atendemos empresas brasileiras nos Estados Unidos e conversamos com empresários brasileiros em Portugal. A nossa equipa entende tanto a cultura de negócios brasileira quanto o mercado português, o que nos torna o parceiro ideal para quem quer crescer dos dois lados do Atlântico."
         },
         {
           "q": "Que plataformas a Makewell gere?",

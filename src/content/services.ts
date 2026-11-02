@@ -132,7 +132,7 @@ export default {
       },
       {
         "title": "Automação + IA",
-        "lead": "Bots, fluxos e integrações que qualificam leads 24/7, economia de tempo do time comercial.",
+        "lead": "Bots, fluxos e integrações que qualificam leads 24/7 e economizam tempo do time comercial.",
         "rows": [
           [
             "O que é",
@@ -349,15 +349,15 @@ export default {
     "startId": "how-we-start",
     "startEyebrow": "First steps",
     "startTitle": "How we start together",
-    "startSub": "Our services are structured — the diagnostic exists to point out which one resolves your moment. When the need is specific, we build a custom scope.",
+    "startSub": "Our services are structured — the diagnosis exists to point out which one fits your current stage. When the need is specific, we build a custom scope.",
     "steps": [
       {
-        "title": "Strategic diagnostic",
+        "title": "Strategic diagnosis",
         "desc": "Initial meeting to understand the business, marketing history, revenue objectives and current gaps. No cost, no commitment."
       },
       {
         "title": "Customized proposal",
-        "desc": "Based on the diagnostic, we indicate the service that resolves your moment — or design a specific scope if the need is different. Timeline and investment always clear."
+        "desc": "Based on the diagnosis, we recommend the service that fits your current stage — or design a specific scope if the need is different. Timeline and investment always clear."
       },
       {
         "title": "Onboarding and execution",
@@ -372,11 +372,11 @@ export default {
       "Discover the FishWell Method →",
       "See cases with real results →"
     ],
-    "ctaTitle": "Let's design your ecosystem?",
-    "ctaText": "Schedule a free diagnosis and discover which combination of services makes sense for your moment.",
+    "ctaTitle": "Ready to design your ecosystem?",
+    "ctaText": "Schedule a free diagnosis and discover which combination of services fits your current stage.",
     "ctaHref": "https://wa.me/5582999103246?text=Hello!%20I%20saw%20the%20Services%20page%20and%20want%20a%20diagnostic.",
     "ctaOnclick": "try{fbq('track','Lead',{content_name:'Services CTA'})}catch(e){}",
-    "ctaBtn": "Schedule diagnosis →",
+    "ctaBtn": "Schedule a Diagnosis →",
     "heroCta": "Schedule a Free Diagnosis",
     "heroSec": "See the 6 services",
     "heroAlt": "Makewell office wall with framed campaigns created by the agency",
@@ -558,14 +558,14 @@ export default {
     ],
     "moreEyebrow": "Profundiza",
     "moreTitle": "¿Quieres entender el framework detrás de la ejecución?",
-    "moreSub": "Todos los servicios operan dentro de un único framework estructurado — y cada cliente atraviesa una jornada definida.",
+    "moreSub": "Todos los servicios operan dentro de un único framework estructurado — y cada cliente atraviesa un recorrido definido.",
     "moreLinks": [
-      "Descubra el Framework Makewell →",
-      "Descubra el Método FishWell →",
-      "Vea casos con resultados reales →"
+      "Descubre el Framework Makewell →",
+      "Descubre el Método FishWell →",
+      "Mira casos con resultados reales →"
     ],
     "ctaTitle": "¿Diseñamos tu ecosistema?",
-    "ctaText": "Agende un diagnóstico gratuito y descubra qué combinación de servicios tiene sentido para tu momento.",
+    "ctaText": "Agenda un diagnóstico gratuito y descubre qué combinación de servicios tiene sentido para tu momento.",
     "ctaHref": "https://wa.me/5582999103246?text=Hola!%20Vi%20la%20p%C3%A1gina%20de%20Servicios%20y%20quiero%20un%20diagn%C3%B3stico.",
     "ctaOnclick": "try{fbq('track','Lead',{content_name:'Services CTA'})}catch(e){}",
     "ctaBtn": "Agendar diagnóstico →",
@@ -582,8 +582,8 @@ export default {
     "h1a": "Branding + Tráfego + Vendas:",
     "h1b": "o ecossistema que separa marcas de posts",
     "lead": "Não entregamos serviços isolados. Cada uma das seis áreas abaixo existe para alimentar as outras, porque conteúdo sem tráfego é invisível, tráfego sem CRM é desperdício e marca sem método é sorte.",
-    "whyEyebrow": "Por que a integração importa",
-    "whyText": "Quando contrata uma agência tradicional, cada serviço vira um silo: a agência de branding não fala com a agência de mídia, que não fala com a equipa comercial. Resultado: paga três fornecedores para produzir três estratégias que não comunicam entre si.",
+    "whyEyebrow": "Porque é que a integração importa",
+    "whyText": "Quando contrata uma agência tradicional, cada serviço torna-se um silo: a agência de branding não fala com a agência de meios, que não fala com a equipa comercial. Resultado: paga três fornecedores para produzir três estratégias que não comunicam entre si.",
     "whyStrong": "Na Makewell, tudo acontece debaixo do mesmo teto, com uma única equipa e uma única estratégia.",
     "flowLabel": "Fluxo integrado",
     "flow": [
@@ -650,7 +650,7 @@ export default {
           ],
           [
             "Para quem",
-            "Negócios que precisam acelerar a geração de leads qualificados."
+            "Negócios que precisam de acelerar a geração de leads qualificados."
           ],
           [
             "O que entregamos",

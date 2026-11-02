@@ -14,9 +14,9 @@ const c = content[lang];
 const logo = (file: string, alt: string) => ({ src: `/images/logo-${file}.webp`, alt });
 // Os três blocos de case têm o mesmo card; muda só o cabeçalho, o tema e o link.
 const blocks = [
-  { id: c.ids.feat, theme: 't-warm2', glow: true, eyebrow: c.featEyebrow, title: c.featTitle, big: true,
+  { id: c.ids.feat, theme: 't-warm2', eyebrow: c.featEyebrow, title: c.featTitle, big: true,
     cards: [{ ...c.feat, logo: logo('casa-hunter', 'Casa Hunter'), href: path('casaHunter', lang), ext: false }] },
-  { id: c.ids.roi, theme: 't-warm2', glow: true, eyebrow: 'ROI', title: c.roiTitle, sub: c.roiSub, grid: true,
+  { id: c.ids.roi, theme: 't-light', eyebrow: 'ROI', title: c.roiTitle, sub: c.roiSub, grid: true,
     cards: [{ ...c.roi[0], logo: logo('vilela-advogados', 'Vilela Advogados') }, { ...c.roi[1], logo: logo('drathielen', 'Dra. Thielen Szczypkowski') }] },
   { id: c.ids.abroad, theme: 't-light cs-follow', eyebrow: lang === 'en' ? 'International' : 'Internacional', title: c.abroadTitle, sub: c.abroadSub,
     cards: [{ ...c.nagy, logo: null, href: 'https://nagycustomremodels.com/', ext: true }] },
@@ -59,15 +59,14 @@ const playIcon = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" st
   </section>
 
   {blocks.map((b) => (
-    <section id={b.id} class={`${b.theme} sec cs-block${b.glow ? ' glow-host' : ''}`}>
-      {b.glow && <div class="glow-bg" aria-hidden="true"><span></span><span></span><span></span></div>}
+    <section id={b.id} class={`${b.theme} sec cs-block`}>
       <div class="wrap">
         {b.eyebrow && <p class="eyebrow">{b.eyebrow}</p>}
         <h2 class={b.big ? 'h2 cs-ftitle' : 'h2'}>{b.title}</h2>
         {b.sub && <p class="lead">{b.sub}</p>}
         <div class={b.grid ? 'cs-cards cs-cards-2' : 'cs-cards'}>
           {b.cards.map((k) => (
-            <article class={`card cs-case${b.glow ? ' glass' : ''}`}>
+            <article class="card cs-case">
               <div class="cs-media">
                 <div class="tile cs-logo">
                   {k.logo ? <img src={k.logo.src} alt={k.logo.alt} loading="lazy" />
@@ -103,7 +102,7 @@ const playIcon = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" st
       <p class="eyebrow">{c.revEyebrow}</p>
       <h2 class="h2 cs-narrow">{c.revTitle}</h2>
       {c.revNote && <p class="cs-note muted">{c.revNote}</p>}
-      <div class="reels cs-reels">
+      <div class="reels hscroll cs-reels">
         {c.reels.map((r) => (
           <button type="button" class="reel" data-yt={r.id} data-vertical data-yt-params={c.ytParams || undefined}>
             <span class="thumb">
@@ -158,15 +157,13 @@ const playIcon = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" st
     </div>
   </section>
 
-  <VideoModal closeLabel={c.close} slot="after" />
-</Page>
-
-<style is:inline>
+  <VideoModal lang={lang} closeLabel={c.close} slot="after" />
+<style is:inline slot="head">
   .cs-hero .eyebrow { color: var(--muted); }
   .cs-hero-in { align-items: center; }
   .cs-hero-in > .side { flex-basis: 440px; }
   .cs-hero-img { height: clamp(260px, 36vw, 480px); }
-  .t-light .eyebrow, .t-light .cs-acc { color: #B4530F; }
+  .t-light .eyebrow, .t-light .cs-acc { color: #A84B0C; }
   .cs-acc { color: var(--accent); }
   .cs-label { margin: 0; font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
   .cs-nums { padding-block: clamp(64px, 8vw, 96px); }
@@ -197,7 +194,7 @@ const playIcon = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" st
   .cs-metrics > div { border-top: 1px solid var(--line); padding-top: 16px; }
   .card .cs-mn { color: inherit; }
   .card .cs-mn.cs-acc { color: var(--accent); }
-  .t-light .card .cs-mn.cs-acc { color: #B4530F; }
+  .t-light .card .cs-mn.cs-acc { color: #A84B0C; }
   .cs-mn { margin: 0; font-size: clamp(20px, 2.4vw, 30px); font-weight: 800; letter-spacing: -.03em; line-height: 1.05; overflow-wrap: anywhere; }
   .cs-mn-sm { font-size: 17px; letter-spacing: -.01em; }
   @media (max-width: 480px) { .cs-mn-sm { font-size: 14px; } }
@@ -205,7 +202,7 @@ const playIcon = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" st
   .cs-tags { display: flex; flex-wrap: wrap; gap: 10px; }
   .cs-tag { border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; font-size: 13px; }
   .cs-tag-acc { border-color: currentColor; font-weight: 700; color: var(--accent); }
-  .t-light .cs-tag-acc { color: #B4530F; }
+  .t-light .cs-tag-acc { color: #A84B0C; }
   .cs-name { margin: 24px 0 0; font-size: clamp(26px, 2.6vw, 36px); font-weight: 800; letter-spacing: -.03em; line-height: 1.1; }
   .card .cs-sub { margin: 8px 0 0; font-size: 15px; }
   .cs-paras { margin-top: 24px; display: flex; flex-direction: column; gap: 14px; }
@@ -240,3 +237,4 @@ const playIcon = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" st
   .cs-ctabox .h2 { max-width: 820px; }
   .cs-ctabox:hover { transform: none; box-shadow: none; border-color: var(--light-line); }
 </style>
+</Page>

@@ -13,9 +13,7 @@ if (!main) throw new Error(`<main> não encontrado em ${key}/${lang}`);
   <article class="t-light sec legal">
     <div class="wrap"><div class="legal-body"><Fragment set:html={main} /></div></div>
   </article>
-</Page>
-
-<style is:inline>
+<style is:inline slot="head">
     /* coluna de leitura de ~70 caracteres, centralizada na largura do site */
   .legal-body { max-width: 70ch; margin-inline: auto; font-size: 17px; }
   .legal-body h1 { margin: 0; font-size: clamp(40px, 5.4vw, 68px); line-height: 1.04; letter-spacing: -.035em; font-weight: 800; color: var(--ink); text-wrap: balance; }
@@ -24,9 +22,9 @@ if (!main) throw new Error(`<main> não encontrado em ${key}/${lang}`);
   .legal-body p, .legal-body li { color: #3B362F; font-size: 17px; line-height: 1.75; }
   .legal-body p { margin: 0 0 14px; }
   .legal-body ul { padding-left: 22px; margin: 0 0 18px; }
-  .legal-body li::marker { color: #B4530F; }
+  .legal-body li::marker { color: #A84B0C; }
   .legal-body li { margin-bottom: 8px; }
-  .legal-body a, .legal-body .mw-cookie-prefs { color: #B4530F; }
+  .legal-body a, .legal-body .mw-cookie-prefs { color: #A84B0C; }
   .legal-body strong { color: var(--ink); }
   .legal-body code { font-size: 14px; background: #fff; padding: 1px 6px; border-radius: 6px; border: 1px solid var(--light-line); }
   .legal-body .legal-table-wrap { margin: 8px 0 20px; background: #fff; border-color: var(--light-line); border-radius: 14px; }
@@ -36,3 +34,4 @@ if (!main) throw new Error(`<main> não encontrado em ${key}/${lang}`);
   .legal-body .mw-cookie-prefs { display: inline; min-height: 0; padding: 0; }
   @media (max-width: 600px) { .legal-body p, .legal-body li { font-size: 16px; line-height: 1.7; } .legal-body h2 { margin-top: 44px; } }
 </style>
+</Page>

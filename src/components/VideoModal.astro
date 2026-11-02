@@ -2,10 +2,10 @@
 // Modal único de vídeo (institucional e depoimentos). Qualquer botão com data-yt="<id do YouTube>" abre o vídeo
 // em youtube-nocookie (modo de privacidade, como a política declara). data-vertical = Shorts (9:16);
 // data-yt-params = parâmetros extras (ex.: legenda no idioma da página). Uma vez por página, no slot "after".
-interface Props { closeLabel: string }
-const { closeLabel } = Astro.props;
+interface Props { closeLabel: string; lang: 'br' | 'en' | 'es' | 'pt' }
+const { closeLabel, lang } = Astro.props;
 ---
-<div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Vídeo">
+<div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-label={lang === 'en' || lang === 'es' ? 'Video' : 'Vídeo'}>
   <button class="modal-close" type="button" aria-label={closeLabel}>&times;</button>
   <iframe title="YouTube" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen src=""></iframe>
 </div>
@@ -13,14 +13,16 @@ const { closeLabel } = Astro.props;
 (function () {
   var modal = document.getElementById('videoModal'); if (!modal) return;
   var frame = modal.querySelector('iframe'), last = null;
-  function close() { modal.classList.remove('open', 'vertical'); frame.src = ''; document.body.style.overflow = ''; if (last) last.focus(); }
+  // aberto, o resto da página fica inerte: o foco fica entre o fechar e o vídeo
+  function inert(o) { document.querySelectorAll('body > *').forEach(function (el) { if (el !== modal && !el.contains(modal) && el.tagName !== 'SCRIPT') el.inert = o; }); }
+  function close() { modal.classList.remove('open', 'vertical'); frame.src = ''; document.body.style.overflow = ''; inert(false); if (last) last.focus(); }
   document.addEventListener('click', function (e) {
     var b = e.target.closest && e.target.closest('[data-yt]'); if (!b) return;
     e.preventDefault(); last = b;
     var extra = b.getAttribute('data-yt-params') || '';
     frame.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(b.getAttribute('data-yt')) + '?autoplay=1&rel=0' + (extra ? '&' + extra : '');
     modal.classList.toggle('vertical', b.hasAttribute('data-vertical'));
-    modal.classList.add('open'); document.body.style.overflow = 'hidden';
+    modal.classList.add('open'); document.body.style.overflow = 'hidden'; inert(true);
     modal.querySelector('.modal-close').focus();
   });
   modal.addEventListener('click', function (e) { if (e.target === modal || e.target.closest('.modal-close')) close(); });

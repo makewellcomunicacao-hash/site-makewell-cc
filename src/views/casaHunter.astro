@@ -14,7 +14,6 @@ const YT = 'JRrnKGNk-UE';
 <Page page={page} key={key} lang={lang}>
   <article>
     <header class="t-warm ch-hero">
-      <div class="glow-bg" aria-hidden="true"><span></span><span></span><span></span></div>
       <div class="wrap">
         <nav aria-label={c.crumbLabel} class="ch-crumb">
           <a href={path('cases', lang)}>{c.crumbCases}</a>
@@ -32,7 +31,7 @@ const YT = 'JRrnKGNk-UE';
             <div class="ch-logo"><img src="/images/logo-casa-dos-raros.webp" alt="Casa dos Raros" width="2838" height="2246" /></div>
           </div>
         </div>
-        <dl class="ch-facts glass">
+        <dl class="ch-facts">
           {c.facts.map((f) => <div><dt>{f.k}</dt><dd>{f.v}</dd></div>)}
         </dl>
       </div>
@@ -129,10 +128,8 @@ const YT = 'JRrnKGNk-UE';
       </div>
     </section>
   </article>
-  <VideoModal closeLabel={c.close} slot="after" />
-</Page>
-
-<style is:inline>
+  <VideoModal lang={lang} closeLabel={c.close} slot="after" />
+<style is:inline slot="head">
   .ch-hero { padding-block: 56px 88px; }
   .ch-crumb { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 14px; color: var(--muted); }
   .ch-crumb a { color: var(--muted); text-decoration: none; padding-block: 12px; }
@@ -144,8 +141,8 @@ const YT = 'JRrnKGNk-UE';
   .ch-logos { display: grid; gap: 12px; }
   .ch-logo { background: var(--tile); border-radius: 24px; height: 170px; display: flex; align-items: center; justify-content: center; }
   .ch-logo img { max-height: 92px; max-width: 64%; width: auto; object-fit: contain; }
-  .ch-facts { border-radius: 28px; padding: clamp(24px, 3vw, 36px); margin: 72px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px 24px; }
-  .ch-facts > div { padding-top: 4px; } /* no painel de vidro, sem as linhas no topo de cada fato */
+  .ch-facts { margin: 72px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px 24px; }
+  .ch-facts > div { border-top: 1px solid var(--line); padding-top: 20px; }
   .ch-facts dt { font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
   .ch-facts dd { margin: 12px 0 0; font-size: 17px; line-height: 1.5; }
 
@@ -153,7 +150,7 @@ const YT = 'JRrnKGNk-UE';
   .ch-stack { display: flex; flex-direction: column; gap: 16px; }
   .ch-card { display: grid; gap: 24px; padding: clamp(28px, 5vw, 64px); scroll-margin-top: 96px; }
   .ch-card:hover { transform: none; box-shadow: none; border-color: var(--light-line); }
-  .ch-card .num, .ch-res-list .num { color: #B4530F; }
+  .ch-card .num, .ch-res-list .num { color: #A84B0C; }
   @media (min-width: 900px) {
     .ch-card { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 64px; }
     .ch-card-head { position: sticky; top: 112px; align-self: start; }
@@ -162,7 +159,7 @@ const YT = 'JRrnKGNk-UE';
   .ch-card-body { min-width: 0; max-width: 72ch; }
   .ch-card-body p { font-size: 17px; line-height: 1.7; }
   .ch-title { margin: 0 0 20px; font-size: clamp(26px, 2.6vw, 36px); font-weight: 800; letter-spacing: -.03em; line-height: 1.15; }
-  .ch-hl { color: #B4530F; }
+  .ch-hl { color: #A84B0C; }
   .ch-pills { display: flex; flex-wrap: wrap; gap: 10px; margin: 28px 0 0; padding: 0; list-style: none; }
   .ch-pills li { border: 1px solid var(--line); border-radius: 999px; padding: 10px 18px; font-size: 14px; color: var(--ink); }
   .ch-did { border-top: 1px solid var(--line); padding: 28px 0 12px; max-width: none; }
@@ -205,7 +202,7 @@ const YT = 'JRrnKGNk-UE';
 
   .ch-cta { border-radius: var(--r-big); padding: clamp(40px, 7vw, 104px) clamp(24px, 6vw, 88px); text-align: center; }
   .ch-cta:hover { transform: none; box-shadow: none; border-color: var(--light-line); }
-  .ch-cta .eyebrow { justify-content: center; color: #B4530F; }
+  .ch-cta .eyebrow { justify-content: center; color: #A84B0C; }
   .ch-cta .h2 { max-width: 820px; margin-inline: auto; font-size: clamp(34px, 4.4vw, 64px); }
   .ch-cta .lead { margin-inline: auto; }
   .ch-cta .btns { justify-content: center; }
@@ -225,3 +222,4 @@ const YT = 'JRrnKGNk-UE';
     .ch-res-list .card { gap: 20px; }
   }
 </style>
+</Page>

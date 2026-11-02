@@ -150,7 +150,7 @@ const hunter = (s: string) => s.replace('Casa Hunter', `<a href="${path('casaHun
       <p class="eyebrow fw-eb-dark">{t.forEyebrow}</p>
       <h2 class="h2">{t.forTitle}</h2>
       <p class="lead">{t.forSub}</p>
-      <div class="grid fw-mt" style="--min: 250px">
+      <div class="hscroll fw-mt">
         {t.segments.map((s, i) => (
           <div class="card fw-seg">
             <span class="num">0{i + 1}</span>
@@ -195,9 +195,7 @@ const hunter = (s: string) => s.replace('Casa Hunter', `<a href="${path('casaHun
     </div>
   </section>
 
-</Page>
-
-<style is:inline>
+<style is:inline slot="head">
   main :is(.h1, .h2, .h3, .fw-pillar-title, .fw-quote p:first-child) { text-wrap: balance; }
   .fw-eb-muted { color: var(--muted); }
   .fw-h1 { max-width: 1120px; font-size: clamp(38px, 5.6vw, 84px); overflow-wrap: break-word; }
@@ -215,7 +213,7 @@ const hunter = (s: string) => s.replace('Casa Hunter', `<a href="${path('casaHun
   .fw-why-body { padding-top: 8px; }
   .fw-why-body p { font-size: 18px; line-height: 1.7; margin-bottom: 24px; }
   .fw-mt { margin-top: 56px; }
-  .fw-eb-dark, .t-light .fw-seg .num { color: #B4530F; }
+  .fw-eb-dark, .t-light .fw-seg .num { color: #A84B0C; }
   .fw-tag { margin: 0; font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
   .fw-pil-title { max-width: 820px; font-size: clamp(36px, 5vw, 72px); line-height: 1; }
   .fw-flow { list-style: none; padding: 0; margin: 64px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px 24px; }
@@ -240,8 +238,8 @@ const hunter = (s: string) => s.replace('Casa Hunter', `<a href="${path('casaHun
   .fw-criamos .h3 { margin-top: 12px; font-size: clamp(24px, 2.4vw, 30px); }
   .fw-vs-title { max-width: 900px; font-size: clamp(30px, 3.4vw, 48px); line-height: 1.1; }
   .fw-vs-title strong { font-weight: 800; }
-  .fw-vs-title em { display: inline; padding: 0; font-style: normal; color: #B4530F; }
-  .fw-vs-label { margin: 12px 0 0; font-size: 28px; font-weight: 800; letter-spacing: -.02em; }
+  .fw-vs-title em { display: inline; padding: 0; font-style: normal; color: #A84B0C; }
+  .fw-vs-label { margin: 12px 0 0; font-size: 28px; font-weight: 800; letter-spacing: -.02em; line-height: 1.15; }
   .fw-vs-card { display: flex; flex-direction: column; }
   .fw-vs-card p:not(.fw-tag) { font-size: 16px; line-height: 1.6; }
   .fw-chips { list-style: none; padding: 28px 0 0; margin: auto 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
@@ -249,7 +247,7 @@ const hunter = (s: string) => s.replace('Casa Hunter', `<a href="${path('casaHun
   .fw-vs-note { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 32px; margin-top: 24px; }
   .fw-vs-note p { margin: 0; font-size: 17px; }
   .fw-vs-note strong { color: var(--ink); }
-  .t-light .fw-link-ink { color: #B4530F; margin-top: 0; }
+  .t-light .fw-link-ink { color: #A84B0C; margin-top: 0; }
   .fw-contrast { padding: clamp(28px, 3.6vw, 48px); }
   .fw-bad { background: var(--warm); }
   .fw-bad .fw-tag { color: #8A857D; }
@@ -275,9 +273,10 @@ const hunter = (s: string) => s.replace('Casa Hunter', `<a href="${path('casaHun
   .fw-rel-desc { font-size: 15px; line-height: 1.55; flex: 1; }
   .fw-rel-link { margin-top: 12px; font-size: 15px; font-weight: 700; color: var(--accent); }
   .fw-cta { border-radius: var(--r-big); padding: clamp(32px, 6vw, 88px); text-align: center; }
-  .fw-cta .eyebrow { justify-content: center; color: #B4530F; }
+  .fw-cta .eyebrow { justify-content: center; color: #A84B0C; }
   .fw-cta .h2 { max-width: 860px; margin-inline: auto; font-size: clamp(32px, 4.4vw, 64px); }
   .fw-cta .lead { margin-inline: auto; }
   .fw-cta .btns { justify-content: center; }
   @media (max-width: 600px) { .fw-rel-body { padding: 24px; } .fw-hero-img img { min-height: 0; } }
 </style>
+</Page>

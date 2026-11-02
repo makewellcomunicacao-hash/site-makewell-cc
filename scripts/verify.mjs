@@ -56,6 +56,12 @@ const TONE = [
   ['ROI en endocrinología con el Embudo Médico', 'ROI en cirugía vascular, Dra. Thielen'], ['em endocrinologia, dezenas', 'em cirurgia vascular, dezenas'],
   ['in endocrinology, dozens', 'in vascular surgery, dozens'], ['en endocrinología, decenas', 'en cirugía vascular, decenas'], ['Schedule a free diagnostic and', 'Schedule a free diagnosis and'], ['FREE DIAGNOSTIC', 'FREE DIAGNOSIS'], ['Free Diagnostic', 'Free Diagnosis'],
 ];
+// trocas aprovadas em arquivos (para mais de uma frente de trabalho registrar sem editar este script):
+// approved-text.json = [[antigo, novo], ...] no texto visível; approved-seo.json = { "br/sobre/index.html": [[antigo, novo], ...] } no <head>
+const readJson = (f, d) => (existsSync(new URL(f, import.meta.url)) ? JSON.parse(readFileSync(new URL(f, import.meta.url), 'utf8')) : d);
+TONE.push(...readJson('./approved-text.json', []));
+const SEO_FIX = readJson('./approved-seo.json', {});
+const fixSeo = (key, html) => (SEO_FIX[key] ?? []).reduce((t, [a, b]) => t.split(a).join(b), html);
 const tone = (s) => TONE.reduce((t, [a, b]) => t.split(a).join(b), s);
 
 const SEO_RE = /<title>[\s\S]*?<\/title>|<meta\s[^>]*(?:name|property|http-equiv)="(?:description|keywords|robots|refresh|geo\.[^"]+|og:[^"]+|twitter:[^"]+)"[^>]*>|<link\s[^>]*rel="(?:canonical|alternate)"[^>]*>|<script type="application\/ld\+json">[\s\S]*?<\/script>|<html[^>]*>/g;
@@ -86,7 +92,7 @@ for (const [site, src] of Object.entries(SOURCES)) {
     const out = join(process.env.DIST ?? 'dist', site, f);
     if (!existsSync(out)) { console.log(`FALTA  ${site}/${f}`); missing++; fail++; continue; }
     if (!f.endsWith('.html')) continue;
-    const a = git(src, 'show', `${src.ref}:${f}`), b = readFileSync(out, 'utf8');
+    const a = fixSeo(`${site}/${f}`, git(src, 'show', `${src.ref}:${f}`)), b = readFileSync(out, 'utf8');
     // a troca da og-image (imagem de compartilhamento) por página é intencional; o resto do SEO tem de ser idêntico
     const OG = /^<meta (?:property="og:image"|name="twitter:image") content=/;
     const all_a = seo(a), all_b = seo(b);

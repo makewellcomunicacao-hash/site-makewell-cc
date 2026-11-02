@@ -90,11 +90,11 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
       <p class="eyebrow" set:html={c.video.label} />
       <h2 class="h2" id="inst-title" set:html={c.video.title} />
       <p class="lead" set:html={c.video.sub} />
-      <VideoCover lang={lang} aria={c.video.play} params={c.ui.yt} class="hm-poster" />
+      <VideoCover lang={lang} params={c.ui.yt} class="hm-poster" />
       <div class="grid hm-photos">
-        <img class="photo" src="/images/escritorio-estudio.webp" alt={c.ui.photos[0]} loading="lazy" />
-        <img class="photo" src="/images/escritorio-campanhas.webp" alt={c.ui.photos[1]} loading="lazy" />
-        <img class="photo" src="/images/escritorio-estante.webp" alt={c.ui.photos[2]} loading="lazy" />
+        <img class="photo" src="/images/escritorio-estudio.webp" srcset="/images/escritorio-estudio-480.webp 480w, /images/escritorio-estudio.webp 1210w" sizes="(max-width: 600px) 33vw, 420px" alt={c.ui.photos[0]} loading="lazy" />
+        <img class="photo" src="/images/escritorio-campanhas.webp" srcset="/images/escritorio-campanhas-480.webp 480w, /images/escritorio-campanhas.webp 1210w" sizes="(max-width: 600px) 33vw, 420px" alt={c.ui.photos[1]} loading="lazy" />
+        <img class="photo" src="/images/escritorio-estante.webp" srcset="/images/escritorio-estante-480.webp 480w, /images/escritorio-estante.webp 1210w" sizes="(max-width: 600px) 33vw, 420px" alt={c.ui.photos[2]} loading="lazy" />
       </div>
     </div>
   </section>
@@ -106,7 +106,7 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
       <p class="eyebrow" set:html={s.tag} />
       <h2 class="h2" id={`${s.id}-title`} set:html={s.h2} />
       <p class="lead" set:html={s.sub} />
-      <div class:list={['grid hm-seg-grid', s.items.length > 3 ? 'hm-5' : 'hm-3']}>
+      <div class:list={['hscroll hm-seg-grid', k && 'slide-in']}>
         {s.items.map((it: any, i: number) => (
           <article class="card">
             {it.num ? <span class="hm-num" set:html={it.num} /> : <span class="hm-num" aria-hidden="true">{pad(i)}</span>}
@@ -129,7 +129,7 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
         {c.method.steps.map((s: any) => (
           <li>
             <span class="hm-step-dot" aria-hidden="true"></span>
-            <span class="hm-step-n">{s.n}</span>
+            <span class="hm-step-n" aria-hidden="true">{s.n}</span>
             <h3 class="h3" set:html={s.title} />
             <p set:html={s.desc} />
           </li>
@@ -175,10 +175,9 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
   </section>
 
   <!-- CASES -->
-  <section class="t-warm sec hm-cases glow-host" aria-label={c.cases.hl.tag}>
-    <div class="glow-bg" aria-hidden="true"><span></span><span></span><span></span></div>
+  <section class="t-warm sec hm-cases" aria-label={c.cases.hl.tag}>
     <div class="wrap">
-      <a class="hm-hl glass" href={path('casaHunter', lang)} aria-label={c.cases.hl.aria}>
+      <a class="hm-hl" href={path('casaHunter', lang)} aria-label={c.cases.hl.aria}>
         <div class="hm-hl-text">
           <p class="hm-badges"><span class="hm-badge hm-badge-accent" set:html={c.cases.hl.tag} /><span class="hm-badge" set:html={c.cases.hl.reach} /></p>
           <h3 class="hm-hl-title" set:html={c.cases.hl.title} />
@@ -192,7 +191,7 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
 
       <div class="grid hm-case-grid">
         {c.cases.cards.map((k: any) => (
-          <article class="card glass hm-case">
+          <article class="card hm-case">
             <p class="hm-badges"><span class="hm-badge" set:html={k.sector} /><span class="hm-badge hm-badge-accent" set:html={k.roi} /></p>
             <h3 class="h3 hm-case-title" set:html={k.title} />
             <p class="hm-case-sub" set:html={k.sub} />
@@ -223,7 +222,7 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
       <p class="eyebrow" set:html={c.depo.label} />
       <h2 class="h2" id="depo-title" set:html={c.depo.h2} />
       {c.depo.note && <p class="hm-note" set:html={c.depo.note} />}
-      <div class="reels hm-reels">
+      <div class="reels hscroll hm-reels">
         {c.depo.reels.map((r: any) => (
           <button type="button" class="reel" data-yt={r.id} data-vertical>
             <span class="thumb">
@@ -240,8 +239,7 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
   </section>
 
   <!-- QUEM LIDERA -->
-  <section class="t-warm sec hm-about glow-host" id={c.about.id} aria-labelledby="about-title">
-    <div class="glow-bg" aria-hidden="true"><span></span><span></span><span></span></div>
+  <section class="t-warm sec hm-about" id={c.about.id} aria-labelledby="about-title">
     <div class="wrap split">
       <div class="main">
         <p class="eyebrow" set:html={c.about.tag} />
@@ -250,7 +248,7 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
         <blockquote class="hm-manifesto"><p set:html={c.about.quote} /></blockquote>
         <a class="link-arrow" href={path('about', lang)} set:html={c.about.link} />
       </div>
-      <div class="side glass hm-about-panel">
+      <div class="side">
         {c.about.team.map((t: any) => (
           <div class="hm-team">
             <img src={t.img} alt={t.alt} width="110" height="110" loading="lazy" />
@@ -298,10 +296,8 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
   </section>
 
 </div>
-<VideoModal closeLabel={c.ui.close} slot="after" />
-</Page>
-
-<style is:inline>
+<VideoModal lang={lang} closeLabel={c.ui.close} slot="after" />
+<style is:inline slot="head">
   .hm { --ink-accent: #A84B0C; }
   .hm .gold { color: var(--accent); }
   .hm .t-light .gold, .hm .t-light .eyebrow, .hm .t-light .link-arrow, .hm .t-light .hm-num { color: var(--ink-accent); }
@@ -390,20 +386,6 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
   .hm-seg-grid { margin-top: 56px; }
   .hm-seg .card { display: flex; flex-direction: column; gap: 14px; }
   .hm-seg .card p { margin: 0; font-size: 15px; line-height: 1.6; }
-  /* 5 nichos: 5 numa linha (desktop), 3 + 2 (tablet), empilhados (celular). 3 itens (intl): 3 ou empilhados */
-  .hm-seg-grid.hm-5 { gap: 12px; }
-  .hm-seg-grid.hm-5 .card { padding: 24px 20px; gap: 10px; }
-  .hm-seg-grid.hm-5 .card p { font-size: 14px; line-height: 1.55; }
-  .hm-seg-grid.hm-5 .h3 { font-size: 18px; }
-  .hm-seg-grid.hm-5 .hm-num { margin-bottom: 8px; }
-  @media (min-width: 640px) {
-    .hm-seg-grid.hm-5 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-    .hm-seg-grid.hm-5 > * { grid-column: span 2; }
-    .hm-seg-grid.hm-5 > :nth-child(n+4) { grid-column: span 3; }
-  }
-  @media (min-width: 1100px) { .hm-seg-grid.hm-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); } .hm-seg-grid.hm-5 > :nth-child(n) { grid-column: auto; } }
-  .hm-seg-grid.hm-3 { grid-template-columns: minmax(0, 1fr); }
-  @media (min-width: 900px) { .hm-seg-grid.hm-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
   .hm-num { font-size: 14px; font-weight: 700; color: var(--accent); margin-bottom: 18px; }
   .hm-seg h3 span { color: var(--ink-accent); }
 
@@ -422,7 +404,7 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
   }
   .hm-steps li { border-top: 1px solid var(--line); }
   .hm-step-dot { display: block; width: 11px; height: 11px; border-radius: 50%; background: var(--accent); margin-top: -6px; }
-  .hm-step-n { display: block; margin-top: 28px; font-size: 64px; font-weight: 800; letter-spacing: -.04em; line-height: 1; color: #3A3631; }
+  .hm-step-n { display: block; margin-top: 28px; font-size: 64px; font-weight: 800; letter-spacing: -.04em; line-height: 1; color: #6B645A; }
   .hm-steps h3 { margin-top: 18px; }
   .hm-steps p { margin: 8px 0 0; font-size: 15px; line-height: 1.55; color: var(--muted); }
   .hm-fish .link-arrow { margin-top: 48px; }
@@ -457,7 +439,7 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
   .hm-number p + p { margin-top: 14px; font-size: 16px; line-height: 1.5; color: var(--muted); max-width: 260px; }
 
   /* cases */
-  .hm-hl { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-end; justify-content: space-between; padding: clamp(28px, 5vw, 64px); border-radius: var(--r-big); background: linear-gradient(135deg, rgba(42,22,6,.6) 0%, rgba(23,21,18,.3) 60%); text-decoration: none; }
+  .hm-hl { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-end; justify-content: space-between; padding: clamp(28px, 5vw, 64px); border-radius: var(--r-big); background: linear-gradient(135deg, #2A1606 0%, var(--warm-card) 60%); border: 1px solid #4A2A10; text-decoration: none; transition: border-color .2s; }
   .hm-hl:hover { border-color: var(--accent); }
   .hm-hl-text { flex: 999 1 480px; min-width: 0; }
   .hm-hl-title { margin: 24px 0 0; font-size: clamp(30px, 3.6vw, 52px); line-height: 1.06; letter-spacing: -.03em; font-weight: 800; }
@@ -496,11 +478,6 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
   .hm-manifesto { margin: 40px 0 0; padding-left: 24px; border-left: 3px solid var(--accent); }
   .hm-manifesto p { margin: 0; font-size: clamp(28px, 3.2vw, 44px); font-weight: 800; letter-spacing: -.025em; line-height: 1.12; }
   .hm-team { display: flex; align-items: center; gap: 18px; padding: 18px 0; border-top: 1px solid var(--line); }
-  /* equipe e números num painel de vidro sobre os brilhos; a borda do painel substitui a primeira linha */
-  .hm-about-panel { flex-basis: 400px; border-radius: 28px; padding: clamp(18px, 2.4vw, 32px) clamp(22px, 2.6vw, 36px); }
-  .hm-about-panel .hm-about-stats { gap: 12px; }
-  .hm-about-panel .hm-about-stats span { font-size: clamp(20px, 1.9vw, 26px); }
-  .hm-about-panel > .hm-team:first-child { border-top: 0; padding-top: 4px; }
   .hm-team img { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; flex: none; }
   .hm-team p { margin: 0; }
   .hm-team-name { font-weight: 700; font-size: 18px; }
@@ -515,3 +492,4 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
   .hm-cta-card .h2 { max-width: 820px; font-size: clamp(34px, 4.4vw, 64px); }
   @media (max-width: 520px) { .hm .btns .btn { flex: 1 1 100%; } }
 </style>
+</Page>

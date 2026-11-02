@@ -144,9 +144,7 @@ const icons = [
       </div>
     </div>
   </section>
-</Page>
-
-<style is:inline>
+<style is:inline slot="head">
   main :is(.me-h1, .h2, .h3, .me-step-head h3, .me-funnel-h3) { text-wrap: balance; }
   .me-gold { color: inherit; }
   .t-warm .me-gold, .t-warm2 .me-gold { color: var(--accent); }
@@ -157,7 +155,7 @@ const icons = [
   .me-hero .side { flex-basis: 500px; }
   .me-hero .eyebrow { color: var(--muted); }
   .me-h1 { margin: 28px 0 0; font-size: clamp(44px, 5.6vw, 84px); line-height: 1.02; letter-spacing: -.035em; font-weight: 800; }
-  .me-h1 > span { display: block; }
+  .me-h1 .me-h1-sub, .me-h1 > span { display: block; }
   .me-h1 .me-h1-sub { margin-top: 18px; font-size: .46em; line-height: 1.15; letter-spacing: -.02em; font-weight: 700; color: var(--accent); padding-bottom: .12em; }
   .me-hero-img { aspect-ratio: 4 / 3; border-radius: 24px; }
   .me-head { display: flex; flex-wrap: wrap; gap: 24px 72px; align-items: flex-end; }
@@ -188,7 +186,7 @@ const icons = [
   .me-meta svg { flex: none; margin-top: 2px; }
   .me-meta dt { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
   .me-meta dd { margin: 6px 0 0; font-size: 16px; line-height: 1.5; }
-  .me-eyebrow-dark { color: #B4530F; }
+  .me-eyebrow-dark { color: #A84B0C; }
   .me-narrow { max-width: 860px; }
   .me-funnel { margin-top: 56px; background: var(--card); border: 1px solid var(--line); border-radius: var(--r-big); padding: clamp(28px, 4vw, 56px); }
   .me-funnel-h3 { margin: 0; max-width: 720px; font-size: clamp(24px, 2.4vw, 32px); font-weight: 700; letter-spacing: -.02em; line-height: 1.2; }
@@ -196,7 +194,7 @@ const icons = [
   .me-stages { margin-top: 40px; }
   .me-stage { background: var(--light); border: 1px solid var(--line); border-radius: 20px; padding: 28px; min-height: 200px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; }
   @media (max-width: 600px) { .me-stage { min-height: 0; } }
-  .me-stage-n { font-size: 14px; font-weight: 700; color: #B4530F; }
+  .me-stage-n { font-size: 14px; font-weight: 700; color: #A84B0C; }
   .me-stage h4 { margin: 0; font-size: 22px; font-weight: 700; }
   .me-stage p { margin: 10px 0 0; font-size: 15px; line-height: 1.55; color: var(--muted); }
   .me-result { margin: 32px 0 0; max-width: 78ch; padding-top: 28px; border-top: 1px solid var(--line); font-size: 17px; line-height: 1.6; color: #2E2A25; }
@@ -216,3 +214,4 @@ const icons = [
   .me-cta .h2, .me-cta .lead { margin-inline: auto; }
   .me-cta .h2 { font-size: clamp(36px, 4.4vw, 64px); letter-spacing: -.035em; line-height: 1.04; }
 </style>
+</Page>

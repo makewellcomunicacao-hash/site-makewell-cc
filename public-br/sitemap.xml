@@ -21,7 +21,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://makewell.agency/en/about/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://makewell.agency/es/about/"/>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.agency/pt/about/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/sobre/"/>
   </url>
   <url>
     <loc>https://makewell.com.br/servicos/</loc>
@@ -32,7 +32,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://makewell.agency/en/services/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://makewell.agency/es/services/"/>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.agency/pt/services/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/servicos/"/>
   </url>
   <url>
     <loc>https://makewell.com.br/framework/</loc>
@@ -43,7 +43,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://makewell.agency/en/framework/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://makewell.agency/es/framework/"/>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.agency/pt/framework/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/framework/"/>
   </url>
   <url>
     <loc>https://makewell.com.br/metodo/</loc>
@@ -54,7 +54,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://makewell.agency/en/method/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://makewell.agency/es/method/"/>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.agency/pt/method/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/metodo/"/>
   </url>
   <url>
     <loc>https://makewell.com.br/cases/</loc>
@@ -65,7 +65,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://makewell.agency/en/cases/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://makewell.agency/es/cases/"/>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.agency/pt/cases/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/cases/"/>
   </url>
   <url>
     <loc>https://makewell.com.br/como-criamos/</loc>
@@ -76,7 +76,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://makewell.agency/en/how-we-create/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://makewell.agency/es/how-we-create/"/>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.agency/pt/how-we-create/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/como-criamos/"/>
   </url>
   <url>
     <loc>https://makewell.com.br/cases/casa-hunter-casa-dos-raros/</loc>
@@ -87,13 +87,18 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://makewell.agency/en/cases/casa-hunter-casa-dos-raros/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://makewell.agency/es/cases/casa-hunter-casa-dos-raros/"/>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.agency/pt/cases/casa-hunter-casa-dos-raros/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/cases/casa-hunter-casa-dos-raros/"/>
   </url>
   <url>
     <loc>https://makewell.com.br/politica-de-privacidade/</loc>
     <lastmod>2026-11-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://makewell.com.br/politica-de-privacidade/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://makewell.agency/en/privacy-policy/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://makewell.agency/es/privacy-policy/"/>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://makewell.agency/pt/privacy-policy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://makewell.com.br/politica-de-privacidade/"/>
   </url>
   <url>
     <loc>https://makewell.com.br/termos-de-uso/</loc>

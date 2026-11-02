@@ -6,7 +6,7 @@ export default {
     crumbLabel: 'Você está em', crumbCases: 'Cases',
     kicker: 'Case de Impacto',
     h1: ['Como a Makewell ajudou a dar voz', 'a 13 milhões de brasileiros'],
-    lead: 'Casa Hunter e Casa dos Raros — quatro anos de comunicação estratégica que transcendeu o digital, mobilizou o país e pautou o Supremo Tribunal Federal.',
+    lead: 'Casa Hunter e Casa dos Raros — mais de quatro anos de comunicação estratégica que transcendeu o digital, mobilizou o país e pautou o Supremo Tribunal Federal.',
     facts: [
       { k: 'Cliente', v: 'Casa Hunter e Casa dos Raros' },
       { k: 'Setor', v: 'Terceiro setor · Doenças raras' },
@@ -25,7 +25,7 @@ export default {
     solution: {
       label: 'A Solução',
       title: 'Comunicação que transcende o digital',
-      p: `A Makewell entendeu que a estratégia não poderia se limitar a posts em redes sociais. A comunicação precisava ser o motor de um movimento. Ao longo de quatro anos de parceria, a agência estruturou um ecossistema de comunicação focado em <strong>autoridade, empatia e mobilização</strong>.`,
+      p: `Entendemos que a estratégia não poderia se limitar a posts em redes sociais. A comunicação precisava ser o motor de um movimento. Ao longo de mais de quatro anos de parceria, estruturamos um ecossistema de comunicação focado em <strong>autoridade, empatia e mobilização</strong>.`,
       pillars: ['Autoridade', 'Empatia', 'Mobilização'],
     },
     did: {
@@ -48,7 +48,7 @@ export default {
       title: 'Os Resultados: muito além dos <em>likes</em>',
       p: 'A parceria de longa data entre a Makewell, a Casa Hunter e a Casa dos Raros prova que o verdadeiro marketing não é medido apenas em métricas de vaidade.',
       stats: [
-        { n: '50K+', l: 'Seguidores engajados' }, { n: '4 anos', l: 'De parceria contínua' },
+        { n: '50K+', l: 'Seguidores engajados' }, { n: '4+ anos', l: 'De parceria contínua' },
         { n: 'Streaming', l: 'Série documental nacional' }, { n: 'STF', l: 'Impacto em políticas públicas' },
       ],
       list: [
@@ -79,7 +79,7 @@ export default {
       eyebrow: 'Diagnóstico gratuito',
       h2: 'Quer uma estratégia com esse nível?',
       p: 'Vamos conversar sobre como transformar sua marca em um movimento.',
-      btn: 'Conversar com o time →',
+      btn: 'Agendar diagnóstico →',
       href: 'https://wa.me/5582999103246?text=Ol%C3%A1!%20Vi%20o%20case%20da%20Casa%20Hunter%20e%20quero%20uma%20estrat%C3%A9gia%20com%20esse%20n%C3%ADvel.',
       lead: 'Case Casa Hunter CTA',
     },
@@ -91,7 +91,7 @@ export default {
     crumbLabel: 'Breadcrumb', crumbCases: 'Cases',
     kicker: 'Impact Case',
     h1: ['How Makewell helped give a voice', 'to 13 million Brazilians'],
-    lead: 'Casa Hunter and Casa dos Raros — four years of strategic communication that transcended the digital, mobilized the country and set the agenda at the Supreme Court.',
+    lead: 'Casa Hunter and Casa dos Raros — more than four years of strategic communication that transcended the digital, mobilized the country and set the agenda at Brazil\'s Supreme Court (STF).',
     facts: [
       { k: 'Client', v: 'Casa Hunter and Casa dos Raros' },
       { k: 'Sector', v: 'Nonprofit · Rare diseases' },
@@ -110,7 +110,7 @@ export default {
     solution: {
       label: 'The Solution',
       title: 'Communication that transcends the digital',
-      p: `Makewell understood that the strategy could not be limited to social media posts. Communication needed to be the engine of a movement. Over four years of partnership, the agency structured a communication ecosystem focused on <strong>authority, empathy and mobilization</strong>.`,
+      p: `We understood that the strategy could not be limited to social media posts. Communication needed to be the engine of a movement. Over more than four years of partnership, we structured a communication ecosystem focused on <strong>authority, empathy and mobilization</strong>.`,
       pillars: ['Authority', 'Empathy', 'Mobilization'],
     },
     did: {
@@ -133,7 +133,7 @@ export default {
       title: 'The Results: far beyond the <em>likes</em>',
       p: 'The long-standing partnership between Makewell, Casa Hunter and Casa dos Raros proves that true marketing is not measured in vanity metrics alone.',
       stats: [
-        { n: '50K+', l: 'Engaged followers' }, { n: '4 years', l: 'Of continuous partnership' },
+        { n: '50K+', l: 'Engaged followers' }, { n: '4+ years', l: 'Of continuous partnership' },
         { n: 'Streaming', l: 'National documentary series' }, { n: 'STF', l: 'Impact on public policy' },
       ],
       list: [
@@ -165,7 +165,7 @@ export default {
       eyebrow: 'Free diagnosis',
       h2: 'Want a strategy at this level?',
       p: "Let's talk about how to transform your brand into a movement.",
-      btn: 'Talk to the team →',
+      btn: 'Schedule a Diagnosis →',
       href: 'https://wa.me/5582999103246?text=Hello!%20I%20saw%20the%20Casa%20Hunter%20case%20and%20want%20a%20strategy%20at%20this%20level.',
       lead: 'Case Casa Hunter EN CTA',
     },
@@ -177,7 +177,7 @@ export default {
     crumbLabel: 'Ruta de navegación', crumbCases: 'Casos',
     kicker: 'Caso de Impacto',
     h1: ['Cómo Makewell ayudó a darle voz', 'a 13 millones de brasileños'],
-    lead: 'Casa Hunter y Casa dos Raros — cuatro años de comunicación estratégica que trascendió lo digital, movilizó al país y marcó agenda en el Tribunal Supremo.',
+    lead: 'Casa Hunter y Casa dos Raros — más de cuatro años de comunicación estratégica que trascendió lo digital, movilizó al país y marcó agenda en el Tribunal Supremo.',
     facts: [
       { k: 'Cliente', v: 'Casa Hunter y Casa dos Raros' },
       { k: 'Sector', v: 'Tercer sector · Enfermedades raras' },
@@ -196,7 +196,7 @@ export default {
     solution: {
       label: 'La Solución',
       title: 'Comunicación que trasciende lo digital',
-      p: `Makewell entendió que la estrategia no podía limitarse a publicaciones en redes sociales. La comunicación tenía que ser el motor de un movimiento. A lo largo de cuatro años de colaboración, la agencia estructuró un ecosistema de comunicación enfocado en <strong>autoridad, empatía y movilización</strong>.`,
+      p: `Entendimos que la estrategia no podía limitarse a publicaciones en redes sociales. La comunicación tenía que ser el motor de un movimiento. A lo largo de más de cuatro años de colaboración, estructuramos un ecosistema de comunicación enfocado en <strong>autoridad, empatía y movilización</strong>.`,
       pillars: ['Autoridad', 'Empatía', 'Movilización'],
     },
     did: {
@@ -219,7 +219,7 @@ export default {
       title: 'Los Resultados: mucho más allá de los <em>likes</em>',
       p: 'La larga colaboración entre Makewell, Casa Hunter y Casa dos Raros demuestra que el marketing de verdad no se mide solo en métricas de vanidad.',
       stats: [
-        { n: '50K+', l: 'Seguidores comprometidos' }, { n: '4 años', l: 'De colaboración continua' },
+        { n: '50K+', l: 'Seguidores comprometidos' }, { n: '4+ años', l: 'De colaboración continua' },
         { n: 'Streaming', l: 'Serie documental nacional' }, { n: 'STF', l: 'Impacto en políticas públicas' },
       ],
       list: [
@@ -243,15 +243,15 @@ export default {
         'Mientras las agencias mediocres se preocupan por explicar cómo funciona el algoritmo de Instagram, nosotros usamos el algoritmo para colocar una serie documental en una de las principales plataformas de streaming del país y ayudar a garantizar tratamiento para quienes tienen prisa por vivir.',
         'Este es el poder de la comunicación estratégica. Esta es la entrega de Makewell.',
       ],
-      relH3: 'Entienda cómo llegamos a este resultado',
+      relH3: 'Entiende cómo llegamos a este resultado',
       relP: 'Cada campaña de Makewell se construye a partir de frameworks propios que cruzan las mentes más grandes de la publicidad mundial con neuromarketing aplicado.',
-      relLink: 'Descubra el método →',
+      relLink: 'Descubre el método →',
     },
     cta: {
       eyebrow: 'Diagnóstico gratuito',
-      h2: '¿Quiere una estrategia a este nivel?',
-      p: 'Hablemos sobre cómo transformar su marca en un movimiento.',
-      btn: 'Hablar con el equipo →',
+      h2: '¿Quieres una estrategia a este nivel?',
+      p: 'Hablemos sobre cómo transformar tu marca en un movimiento.',
+      btn: 'Agendar diagnóstico →',
       href: 'https://wa.me/5582999103246?text=Hola!%20Vi%20el%20caso%20de%20Casa%20Hunter%20y%20quiero%20una%20estrategia%20a%20este%20nivel.',
       lead: 'Case Casa Hunter ES CTA',
     },
@@ -263,7 +263,7 @@ export default {
     crumbLabel: 'Está em', crumbCases: 'Cases',
     kicker: 'Case de Impacto',
     h1: ['Como a Makewell ajudou a dar voz', 'a 13 milhões de brasileiros'],
-    lead: 'Casa Hunter e Casa dos Raros — quatro anos de comunicação estratégica que transcendeu o digital, mobilizou o país e pautou a agenda no Supremo Tribunal Federal.',
+    lead: 'Casa Hunter e Casa dos Raros — mais de quatro anos de comunicação estratégica que transcendeu o digital, mobilizou o país e pautou a agenda no Supremo Tribunal Federal.',
     facts: [
       { k: 'Cliente', v: 'Casa Hunter e Casa dos Raros' },
       { k: 'Setor', v: 'Terceiro setor · Doenças raras' },
@@ -282,7 +282,7 @@ export default {
     solution: {
       label: 'A Solução',
       title: 'Comunicação que transcende o digital',
-      p: `A Makewell percebeu que a estratégia não podia limitar-se a publicações em redes sociais. A comunicação precisava de ser o motor de um movimento. Ao longo de quatro anos de parceria, a agência estruturou um ecossistema de comunicação focado em <strong>autoridade, empatia e mobilização</strong>.`,
+      p: `Percebemos que a estratégia não podia limitar-se a publicações em redes sociais. A comunicação precisava de ser o motor de um movimento. Ao longo de mais de quatro anos de parceria, estruturámos um ecossistema de comunicação focado em <strong>autoridade, empatia e mobilização</strong>.`,
       pillars: ['Autoridade', 'Empatia', 'Mobilização'],
     },
     did: {
@@ -290,14 +290,14 @@ export default {
       items: [
         { title: 'Construção de comunidade e crescimento orgânico', ps: [
           `O primeiro passo foi organizar a casa digital. Com um planeamento de conteúdo consistente, focado na educação sobre as doenças e na humanização das pessoas por trás das condições, ajudámos ambas as instituições a construir uma comunidade sólida.`,
-          `Hoje, a Casa Hunter tem mais de <strong>35 mil seguidores engajados</strong>, e a Casa dos Raros, inaugurada como um marco na saúde latino-americana, já ultrapassou os <strong>17 mil seguidores</strong>. Juntas, formam uma rede de mais de 50 mil pessoas unidas por um propósito.`,
+          `Hoje, a Casa Hunter tem mais de <strong>35 mil seguidores envolvidos</strong>, e a Casa dos Raros, inaugurada como um marco na saúde latino-americana, já ultrapassou os <strong>17 mil seguidores</strong>. Juntas, formam uma rede de mais de 50 mil pessoas unidas por um propósito.`,
         ] },
         { title: 'Campanhas nacionais de mobilização', ps: [
           `A Makewell esteve por trás de campanhas de impacto massivo como <strong>"Futuro Não se Apaga"</strong> e <strong>"Somos 13 Milhões"</strong>, esta última em parceria com uma das maiores redes de TV aberta do país. A estratégia visual e o tom de voz desenvolvidos pela agência garantiram que a mensagem chegasse não só aos pacientes, mas também aos decisores políticos, ajudando a pautar discussões no Supremo Tribunal Federal sobre o acesso a tratamentos essenciais.`,
         ] },
         { title: 'Uma série documental nacional sobre doenças raras', ps: [
           `O ponto alto da estratégia <em>Show, Don't Tell</em> foi a comunicação em torno de uma <strong>série documental nacional</strong> sobre doenças raras, disponível numa das principais plataformas de streaming do país. A série acompanha a jornada de sete pacientes, mostrando as suas lutas e vitórias do dia a dia.`,
-          `O papel da Makewell foi fundamental na amplificação do alcance da série: criámos campanhas de lançamento, materiais de apoio e engajamento digital que levaram o trabalho a milhares de espetadores, provando que a comunicação de uma ONG pode (e deve) ter o mesmo nível de excelência das grandes produções de entretenimento.`,
+          `O papel da Makewell foi fundamental na amplificação do alcance da série: criámos campanhas de lançamento, materiais de apoio e envolvimento digital que levaram o trabalho a milhares de espetadores, provando que a comunicação de uma ONG pode (e deve) ter o mesmo nível de excelência das grandes produções de entretenimento.`,
         ] },
       ],
     },
@@ -305,7 +305,7 @@ export default {
       title: 'Os Resultados: muito além dos <em>likes</em>',
       p: 'A parceria de longa data entre a Makewell, a Casa Hunter e a Casa dos Raros prova que o verdadeiro marketing não se mede apenas em métricas de vaidade.',
       stats: [
-        { n: '50K+', l: 'Seguidores engajados' }, { n: '4 anos', l: 'De parceria contínua' },
+        { n: '50K+', l: 'Seguidores envolvidos' }, { n: '4+ anos', l: 'De parceria contínua' },
         { n: 'Streaming', l: 'Série documental nacional' }, { n: 'STF', l: 'Impacto em políticas públicas' },
       ],
       list: [
@@ -337,7 +337,7 @@ export default {
       eyebrow: 'Diagnóstico gratuito',
       h2: 'Quer uma estratégia a este nível?',
       p: 'Vamos falar sobre como transformar a sua marca num movimento.',
-      btn: 'Falar com a equipa →',
+      btn: 'Agendar diagnóstico →',
       href: 'https://wa.me/5582999103246?text=Ol%C3%A1!%20Vi%20o%20case%20da%20Casa%20Hunter%20e%20quero%20uma%20estrat%C3%A9gia%20a%20este%20n%C3%ADvel.',
       lead: 'Case Casa Hunter PT-PT CTA',
     },

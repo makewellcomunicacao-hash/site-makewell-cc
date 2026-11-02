@@ -16,7 +16,7 @@ const seoHead = page.head.replace(/\s*<style[\s\S]*?<\/style>/g, '')
   // favicon/ícones com caminho relativo quebravam nas páginas internas (bug do site antigo): caminho absoluto
   .replace(/href="(?:\.\.\/)*icons\//g, 'href="/icons/')
   // o pré-carregamento aponta para o logo novo ("marketing inteligente") usado no cabeçalho
-  .replace(/(<link rel="preload"[^>]*href=")(?:\.\.\/)*\/?images\/logo-makewell-branca\.webp/g, '$1/images/logo-makewell-mi-branca.webp');
+  .replace(/(<link rel="preload"[^>]*href=")(?:\.\.\/)*\/?images\/logo-makewell-branca\.webp/g, `$1/images/logo-makewell-mi-branca${lang === 'en' ? '-en' : ''}.webp`);
 // og-images novas por página (src/data/og-images.json, gerado com o redesign): troca só og:image e twitter:image
 const ogFile = import.meta.glob('../data/og-images.json', { eager: true, import: 'default' }) as Record<string, Record<string, string>>;
 const ogNew = Object.values(ogFile)[0]?.[page.route];
@@ -27,6 +27,7 @@ const attrs = Object.fromEntries([...page.htmlAttrs.matchAll(/([\w:-]+)(?:="([^"
 // redirect por idioma do navegador: só no .com.br e fora das páginas legais, como hoje
 const enUrl = lang === 'br' && !legal ? url(key, 'en') : null;
 // WhatsApp flutuante (mesmas mensagens do site atual) e "voltar ao topo"
+const HS: Record<Lang, [string, string, string, string]> = { br: ['Anterior', 'Próximo', 'Pausar movimento', 'Retomar movimento'], en: ['Previous', 'Next', 'Pause motion', 'Resume motion'], es: ['Anterior', 'Siguiente', 'Pausar movimiento', 'Reanudar movimiento'], pt: ['Anterior', 'Seguinte', 'Pausar movimento', 'Retomar movimento'] };
 const WA: Record<Lang, { href: string; aria: string; top: string }> = {
   br: { href: 'https://wa.me/5582999103246?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Makewell%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.', aria: 'Falar no WhatsApp', top: 'Voltar ao topo' },
   en: { href: 'https://wa.me/5582999103246?text=Hello!%20I%20came%20through%20Makewell%27s%20website%20and%20would%20like%20more%20information.', aria: 'Chat on WhatsApp', top: 'Back to top' },
@@ -36,8 +37,11 @@ const WA: Record<Lang, { href: string; aria: string; top: string }> = {
 ---
 <!DOCTYPE html>
 <html {...attrs}>
-<head><Fragment set:html={seoHeadFinal} /><link rel="icon" type="image/svg+xml" href="/icons/favicon.svg"><style is:inline set:html={css}></style></head>
+<head><Fragment set:html={seoHeadFinal} /><link rel="icon" type="image/svg+xml" href="/icons/favicon.svg"><style is:inline set:html={css}></style><slot name="head" /></head>
 <body>
+{/* email_off: o Cloudflare (no .com.br, gerenciado pela HostGator) ofusca e-mails e injeta um script síncrono que trava
+    o carregamento; ele respeita estas marcações, então a página inteira fica de fora sem depender do painel */}
+<Fragment set:html="<!--email_off-->" />
 <script is:inline>
   (function () {
     var blocked = ['r', 'mod', 'uri', 'elementor_library', 'et_core_page_resource'];
@@ -81,6 +85,8 @@ n.queue=[];}(window, document,'script',
     menu.classList.toggle('open', o); ham.setAttribute('aria-expanded', o);
     ham.setAttribute('aria-label', o ? ham.getAttribute('data-close') : openLbl);
     document.body.style.overflow = o ? 'hidden' : '';
+    // com o menu aberto, o resto da página fica inerte: o Tab não escapa para o conteúdo escondido atrás
+    document.querySelectorAll('main, footer, .wa-float, .back-to-top, .skip-link').forEach(function (el) { el.inert = o; });
     if (o) { var f = menu.querySelector('a'); if (f) f.focus(); }
   }
   if (ham && menu) {
@@ -89,7 +95,7 @@ n.queue=[];}(window, document,'script',
   }
   document.addEventListener('keydown', function (e) {
     if (e.key !== 'Escape') return;
-    if (lang) { lang.classList.remove('open'); if (trig) trig.setAttribute('aria-expanded', 'false'); }
+    if (lang && lang.classList.contains('open')) { lang.classList.remove('open'); if (trig) { trig.setAttribute('aria-expanded', 'false'); if (lang.contains(document.activeElement)) trig.focus(); } }
     if (menu && menu.classList.contains('open')) { setMenu(false); ham.focus(); }
   });
 })();
@@ -121,7 +127,7 @@ n.queue=[];}(window, document,'script',
   }
 
   // barra de progresso, cabeçalho compacto e "voltar ao topo"
-  var bar = document.querySelector('.scroll-progress'), head = document.querySelector('.site-header'), top = document.getElementById('back-to-top'), ticking = false;
+  var bar = document.querySelector('.scroll-progress'), head = document.querySelector('.site-header'), top = document.getElementById('back-to-top'), wa = document.querySelector('.wa-float'), ticking = false;
   function onScroll() {
     ticking = false;
     if (pending.length) reveal();
@@ -129,6 +135,7 @@ n.queue=[];}(window, document,'script',
     if (bar) bar.style.setProperty('--p', h > 0 ? (y / h).toFixed(4) : 0);
     if (head) head.classList.toggle('scrolled', y > 40);
     if (top) top.classList.toggle('show', y > innerHeight);
+    if (wa) wa.classList.toggle('show', y > innerHeight * .6);
   }
   addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
   onScroll();
@@ -193,11 +200,6 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
     gsap.fromTo(el, { clipPath: 'inset(12% 8% 12% 8% round 28px)', opacity: 0.4 },
       { clipPath: 'inset(0% 0% 0% 0% round 28px)', opacity: 1, duration: 1.4, ease: 'expo.out', clearProps: 'clipPath', scrollTrigger: { trigger: el, start: 'top 90%', once: true } });
   });
-  // capa do vídeo: a apresentadora sobe um pouco enquanto a capa entra na tela
-  main.querySelectorAll<HTMLElement>('.vc-person').forEach((img) => {
-    gsap.set(img, { transition: 'none' });
-    gsap.fromTo(img, { yPercent: 6 }, { yPercent: 0, ease: 'none', scrollTrigger: { trigger: img.parentElement, start: 'top bottom', end: 'center center', scrub: true } });
-  });
   main.querySelectorAll<HTMLElement>('.photo').forEach((img, i) => {
     // fotos em mosaico (mais de uma no mesmo bloco) ficam alinhadas: parallax só nas fotos soltas
     if (hero?.contains(img) || img.parentElement!.querySelectorAll(':scope > .photo').length > 1) return;
@@ -210,6 +212,16 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
     gsap.to(ul, { xPercent: -12, ease: 'none', scrollTrigger: { trigger: ul, start: 'top bottom', end: 'bottom top', scrub: 0.5 } }));
 
   const mm = gsap.matchMedia();
+  // camada 2 do movimento ("deslize com a rolagem"): grupos curtos de destaque (.slide-in: diferenciais, princípios,
+  // primeiros passos) entram vindo da direita, um card após o outro, acompanhando a rolagem; no celular fica a entrada padrão
+  mm.add('(min-width: 900px)', () => {
+    main.querySelectorAll<HTMLElement>('.slide-in').forEach((g) => {
+      const items = [...g.children] as HTMLElement[];
+      items.forEach(take);
+      gsap.fromTo(items, { x: (i: number) => 140 + i * 70, opacity: 0 }, { x: 0, opacity: 1, ease: 'power2.out', stagger: 0.12,
+        scrollTrigger: { trigger: g, start: 'top 88%', end: 'top 42%', scrub: 0.8 } });
+    });
+  });
   // topo: o conteúdo desce mais devagar que a rolagem (profundidade); só no desktop, no celular cortaria as etiquetas
   mm.add('(min-width: 900px)', () => {
     if (heroWrap) gsap.to(heroWrap, { yPercent: 14, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true } });
@@ -254,6 +266,55 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
   main.querySelectorAll('img').forEach((img) => { if (!img.complete) img.addEventListener('load', refreshWhenIdle); });
 }
 </script>
+<script is:inline define:vars={{ hs: HS[lang] }}>
+// Carrossel .hscroll: avanço automático por padrão (6s com mouse, 8s no toque, para dar tempo de ler), com botão
+// play/pausa (WCAG 2.2.2). Mouse em cima, foco ou interação (setas, arrastar, tocar) pausam só por um tempo e o
+// movimento volta sozinho; só a pausa pelo botão para de vez. Setas somem se tudo cabe e ficam aria-disabled no fim.
+// Parado com prefers-reduced-motion.
+document.querySelectorAll('.hscroll').forEach(function (t) {
+  var icon = function (d) { return '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="' + d + '"/></svg>'; };
+  var PAUSE = icon('M9 6v12M15 6v12'), PLAY = '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>';
+  var nav = document.createElement('div'); nav.className = 'hs-nav';
+  nav.innerHTML = '<button type="button" class="hs-btn hs-pause" hidden aria-label="' + hs[2] + '">' + PAUSE + '</button>'
+    + '<button type="button" class="hs-btn" data-d="-1" aria-label="' + hs[0] + '">' + icon('M15 6l-6 6 6 6') + '</button>'
+    + '<button type="button" class="hs-btn" data-d="1" aria-label="' + hs[1] + '">' + icon('M9 6l6 6-6 6') + '</button>';
+  t.after(nav);
+  var pause = nav.children[0], prev = nav.children[1], next = nav.children[2], paused = false, hover = false, idleUntil = 0;
+  var step = function () { var c = t.children[1] || t.children[0]; return c ? c.offsetLeft - t.children[0].offsetLeft : t.clientWidth * .8; };
+  var max = function () { return t.scrollWidth - t.clientWidth - 2; };
+  var update = function () {
+    nav.hidden = max() <= 0;
+    prev.setAttribute('aria-disabled', t.scrollLeft <= 2); next.setAttribute('aria-disabled', t.scrollLeft >= max());
+  };
+  t.addEventListener('scroll', update, { passive: true }); addEventListener('resize', update); update();
+  var rest = function () { idleUntil = Date.now() + 9000; };  // a pessoa mexeu: espera e depois volta a andar sozinho
+  var setPaused = function (p) { paused = p; pause.innerHTML = p ? PLAY : PAUSE; pause.setAttribute('aria-label', hs[p ? 3 : 2]); };
+  nav.addEventListener('click', function (e) {
+    var b = e.target.closest('.hs-btn'); if (!b) return;
+    if (b === pause) { setPaused(!paused); return; }
+    if (b.getAttribute('aria-disabled') === 'true') return;
+    rest(); t.scrollBy({ left: +b.dataset.d * step() });
+  });
+  t.addEventListener('pointerdown', rest); t.addEventListener('touchstart', rest, { passive: true }); t.addEventListener('keydown', rest);
+  ['pointerenter', 'focusin'].forEach(function (ev) { t.addEventListener(ev, function (e) { if (e.pointerType !== 'touch') hover = true; }); });
+  ['pointerleave', 'focusout'].forEach(function (ev) { t.addEventListener(ev, function () { hover = false; }); });
+  // arrastar com mouse (no toque a rolagem nativa já faz); um arrasto não dispara o clique do card
+  var x0 = 0, s0 = 0, moved = false;
+  t.addEventListener('pointerdown', function (e) { if (e.pointerType !== 'mouse' || e.button) return; x0 = e.clientX; s0 = t.scrollLeft; moved = false; t.classList.add('dragging'); });
+  addEventListener('pointermove', function (e) { if (!t.classList.contains('dragging')) return; if (Math.abs(e.clientX - x0) > 4) moved = true; t.scrollLeft = s0 - (e.clientX - x0); });
+  addEventListener('pointerup', function () { if (!t.classList.contains('dragging')) return; t.classList.remove('dragging'); t.scrollTo({ left: Math.round(t.scrollLeft / step()) * step() }); });
+  t.addEventListener('click', function (e) { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches || nav.hidden) return;
+  pause.hidden = false;
+  var vis = false; new IntersectionObserver(function (es) { vis = es[0].isIntersecting; }, { threshold: .5 }).observe(t);
+  var touch = !matchMedia('(hover: hover) and (pointer: fine)').matches;
+  setInterval(function () {
+    if (paused || hover || !vis || document.hidden || Date.now() < idleUntil) return;
+    t.scrollTo({ left: t.scrollLeft >= max() ? 0 : t.scrollLeft + step() });
+  }, touch ? 8000 : 6000);
+});
+</script>
 <Fragment set:html={consent} />
+<Fragment set:html="<!--/email_off-->" />
 </body>
 </html>

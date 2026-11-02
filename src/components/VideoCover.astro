@@ -1,16 +1,16 @@
 ---
-// Capa do vídeo institucional (Home e Sobre): fundo da marca com brilho, título e play à esquerda,
-// apresentadora recortada à direita (quadro do próprio vídeo, sem a legenda gravada). Abre no VideoModal via [data-yt].
+// Capa do vídeo institucional (Home e Sobre): fundo da marca com brilho, título e play à esquerda e o símbolo
+// Makewell em vetor à direita (nítido em qualquer tela). Abre no VideoModal via [data-yt].
 import { UI, type Lang } from '../lib/site';
-interface Props { lang: Lang; aria: string; params?: string; class?: string }
-const { lang, aria, params, class: cls } = Astro.props;
+interface Props { lang: Lang; params?: string; class?: string }
+const { lang, params, class: cls } = Astro.props;
 const t = UI[lang];
 ---
-<button type="button" class:list={['video-poster vcover', cls]} data-yt="A28k_Yxm9cc" data-yt-params={params || undefined} aria-label={aria}>
-  <span class="vc-text" aria-hidden="true">
+<button type="button" class:list={['video-poster vcover', cls]} data-yt="A28k_Yxm9cc" data-yt-params={params || undefined}>
+  <span class="vc-text">
     <span class="vc-kicker">{t.videoKicker}</span>
     <span class="vc-title">{t.videoTitle}</span>
     <span class="vc-cta"><span class="play"><svg width="30" height="30" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="#080808"></path></svg></span>{t.videoCta}</span>
   </span>
-  <img class="vc-person" src="/images/video-apresentadora.webp" alt="" width="510" height="700" loading="lazy" decoding="async" />
+  <svg class="vc-mark" viewBox="4.4 4.4 23.3 23.3" aria-hidden="true" focusable="false"><path d="M23.4,14.7v6.69c0,.26-.25.43-.48.3l-6.83-3.87v4.6l8.36,4.74c1.34.75,2.96-.21,2.96-1.74v-12.98l-4.01,2.26h0Z" fill="#f1ca29"/><path d="M7.68,4.93c-1.34-.75-3.01.21-3.01,1.74v12.97l4.01-2.26v-6.69c0-.26.3-.43.53-.3l6.88,3.87v-4.6L7.68,4.93Z" fill="#f0c950"/><path d="M9.22,21.69s-.03,0-.04.01l-4.5,2.54v1.17c0,1.53,1.67,2.5,3.01,1.74l8.41-4.74v-4.6l-6.87,3.87h0Z" fill="#d88d1b"/><path d="M27.41,7.84v-1.17c0-1.53-1.620-2.5-2.96-1.74l-8.36,4.74v4.6s11.32-6.43,11.32-6.43Z" fill="#d88d1b"/></svg>
 </button>

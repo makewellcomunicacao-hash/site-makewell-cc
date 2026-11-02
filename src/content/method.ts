@@ -183,19 +183,19 @@ export default {
         "Campanhas otimizadas, primeiros leads qualificados chegam, processo comercial em rodagem."
       ],
       [
-        "Mês 3 – 6",
+        "Mês 4 – 6",
         "Escala",
         "Custo por lead decrescente, fechamentos consistentes, primeiros números de ROI consolidados."
       ],
       [
-        "Mês 6+",
+        "Mês 7+",
         "Maturidade",
         "Ecossistema rodando, marca consolidada, orçamentos escalam com confiança de retorno."
       ]
     ],
     "relEyebrow": "Resultados",
     "relH3": "Quer ver o método rodando em cases reais?",
-    "relP": "Casa Hunter: 4 anos de comunicação que impactou 13 milhões de brasileiros. Dr. Felipe Vilela: +26x ROI em advocacia.",
+    "relP": "Casa Hunter: mais de 4 anos de comunicação que deu voz a 13 milhões de brasileiros. Dr. Felipe Vilela: +26x ROI em advocacia.",
     "relLinks": [
       "Ver cases completos &rarr;",
       "Ver os serviços que entregam o método &rarr;"
@@ -220,10 +220,10 @@ export default {
       ],
       [
         "13 mi",
-        "De brasileiros impactados pela comunicação da Casa Hunter"
+        "De brasileiros a quem demos voz com a Casa Hunter"
       ],
       [
-        "4 anos",
+        "4+ anos",
         "De comunicação para a Casa Hunter"
       ]
     ]
@@ -237,7 +237,7 @@ export default {
       "cta": "diagnosis"
     },
     "kicker": "Our Differentiator",
-    "h1": "Method <span class=\"me-gold\">FishWell</span>:",
+    "h1": "The <span class=\"me-gold\">FishWell</span> Method:",
     "h1Sub": "your client's journey, mapped from unknown to recurring",
     "lead": "FishWell is Makewell's proprietary method to map the client's journey within your business, in five stages. Not a generic recipe, but a structured, documented, and measurable process at each phase. Every communication action has a defined place in the revenue funnel.",
     "whyEyebrow": "The problem",
@@ -314,7 +314,7 @@ export default {
           ],
           [
             "Deliverable",
-            "Creative bank, copies and materials"
+            "Creative bank, copy and materials"
           ],
           [
             "Average time",
@@ -349,7 +349,7 @@ export default {
         "title": "Measurement",
         "ps": [
           "Every month, a full report: what was delivered, which metrics hit (and which didn't), why. Not a pretty PDF with charts — it's a strategic discussion with founder/leadership about next steps. Course corrections are data-based, not guesswork.",
-          "Here we also track <strong>business metrics</strong>, not just marketing: leads converted into clients, average ticket, cycle time. This is what allows us to confidently say \"for every $1 invested, you received X back\"."
+          "Here we also track <strong>business metrics</strong>, not just marketing: leads converted into clients, average deal size, cycle time. This is what allows us to confidently say \"for every $1 invested, you received X back\"."
         ],
         "meta": [
           [
@@ -410,19 +410,19 @@ export default {
         "Optimized campaigns, first qualified leads arrive, sales process running."
       ],
       [
-        "Month 3 – 6",
+        "Month 4 – 6",
         "Scale",
         "Declining cost per lead, consistent closings, first consolidated ROI numbers."
       ],
       [
-        "Month 6+",
+        "Month 7+",
         "Maturity",
         "Ecosystem running, established brand, budgets scale with confidence of return."
       ]
     ],
     "relEyebrow": "Results",
     "relH3": "Want to see the method running in real cases?",
-    "relP": "Casa Hunter: 4 years of communication that impacted 13 million Brazilians. Dr. Felipe Vilela: +26x ROI in law.",
+    "relP": "Casa Hunter: over 4 years of communication that gave a voice to 13 million Brazilians. Dr. Felipe Vilela: +26x ROI in law.",
     "relLinks": [
       "See full cases &rarr;",
       "See the services that deliver the method &rarr;"
@@ -431,7 +431,7 @@ export default {
     "ctaP": "Schedule a free strategic diagnosis. It's stage 01 of the method, and it's where everything begins.",
     "ctaHref": "https://wa.me/5582999103246?text=Hello!%20I%20want%20a%20FishWell%20Method%20diagnosis%20for%20my%20business.",
     "ctaOnclick": "try{fbq('track','Lead',{content_name:'Method CTA'})}catch(e){}",
-    "ctaBtn": "Schedule diagnosis &rarr;",
+    "ctaBtn": "Schedule a Diagnosis &rarr;",
     "ctaSec": "See the 5 stages",
     "heroAlt": "Makewell room with bookshelf, glass partition, tripods and yellow sofa",
     "stepsEyebrow": "From unknown to recurring",
@@ -443,14 +443,14 @@ export default {
       ],
       [
         "+20x",
-        "ROI in vascular surgery, Dr. Thielen"
+        "ROI in vascular surgery, Dra. Thielen"
       ],
       [
         "13M",
-        "Brazilians impacted by Casa Hunter’s communication"
+        "Brazilians we gave a voice to with Casa Hunter"
       ],
       [
-        "4 years",
+        "4+ years",
         "Of communication for Casa Hunter"
       ]
     ]
@@ -464,9 +464,9 @@ export default {
       "cta": "diagnostico"
     },
     "kicker": "Nuestro Diferencial",
-    "h1": "Método <span class=\"me-gold\">FishWell</span>:",
-    "h1Sub": "la jornada de tu cliente, mapeada desde lo desconocido hasta la recurrencia",
-    "lead": "FishWell es el método propio de Makewell para mapear la jornada del cliente dentro de tu negocio, en cinco etapas. No es una receta genérica, sino un proceso estructurado, documentado y medible en cada fase. Cada acción de comunicación tiene un lugar definido en el embudo de ingresos.",
+    "h1": "El Método <span class=\"me-gold\">FishWell</span>:",
+    "h1Sub": "el recorrido de tu cliente, mapeado desde lo desconocido hasta la recurrencia",
+    "lead": "FishWell es el método propio de Makewell para mapear el recorrido del cliente dentro de tu negocio, en cinco etapas. No es una receta genérica, sino un proceso estructurado, documentado y medible en cada fase. Cada acción de comunicación tiene un lugar definido en el embudo de ingresos.",
     "whyEyebrow": "El problema",
     "whyH2": "Por qué un <span class=\"me-gold\">método</span> y no consejos sueltos",
     "whySub": "La pregunta que debería guiar cualquier decisión de contratación: <em>¿cómo vas a medir si funcionó?</em> Sin método, la respuesta es \"vamos a ver\".",
@@ -541,7 +541,7 @@ export default {
           ],
           [
             "Entregable",
-            "Banco de creativos, copies y materiales"
+            "Banco de creativos, textos y materiales"
           ],
           [
             "Tiempo promedio",
@@ -576,7 +576,7 @@ export default {
         "title": "Medición",
         "ps": [
           "Cada mes, un informe completo: qué se entregó, qué métricas se alcanzaron (y cuáles no), por qué. No es un PDF bonito con gráficos — es una discusión estratégica con el fundador/liderazgo sobre los próximos pasos. Las correcciones de rumbo se basan en datos, no en intuición.",
-          "Aquí también rastreamos <strong>métricas de negocio</strong>, no solo de marketing: leads convertidos en clientes, ticket promedio, tiempo de ciclo. Esto es lo que nos permite decir con confianza \"por cada €1 invertido, recibiste X de vuelta\"."
+          "Aquí también rastreamos <strong>métricas de negocio</strong>, no solo de marketing: leads convertidos en clientes, ticket promedio, tiempo de ciclo. Esto es lo que nos permite decir con confianza \"por cada unidad invertida, recibiste X de vuelta\"."
         ],
         "meta": [
           [
@@ -637,22 +637,22 @@ export default {
         "Campañas optimizadas, llegan los primeros leads calificados, proceso de ventas en marcha."
       ],
       [
-        "Mes 3 – 6",
+        "Mes 4 – 6",
         "Escala",
         "Costo por lead decreciente, cierres consistentes, primeros números de ROI consolidados."
       ],
       [
-        "Mes 6+",
+        "Mes 7+",
         "Madurez",
         "Ecosistema en marcha, marca establecida, los presupuestos escalan con confianza de retorno."
       ]
     ],
     "relEyebrow": "Resultados",
     "relH3": "¿Quieres ver el método funcionando en casos reales?",
-    "relP": "Casa Hunter: 4 años de comunicación que impactó a 13 millones de brasileños. Dr. Felipe Vilela: +26x ROI en legal.",
+    "relP": "Casa Hunter: más de 4 años de comunicación que dio voz a 13 millones de brasileños. Dr. Felipe Vilela: +26x ROI en legal.",
     "relLinks": [
-      "Vea los casos completos &rarr;",
-      "Vea los servicios que entregan el método &rarr;"
+      "Mira los casos completos &rarr;",
+      "Mira los servicios que entregan el método &rarr;"
     ],
     "ctaH2": "¿Quieres FishWell aplicado a tu negocio?",
     "ctaP": "Agenda un diagnóstico estratégico gratuito. Es la etapa 01 del método, y es donde todo comienza.",
@@ -674,10 +674,10 @@ export default {
       ],
       [
         "13 M",
-        "De brasileños impactados por la comunicación de Casa Hunter"
+        "De brasileños a quienes dimos voz con Casa Hunter"
       ],
       [
-        "4 años",
+        "4+ años",
         "De comunicación para Casa Hunter"
       ]
     ]
@@ -691,7 +691,7 @@ export default {
       "cta": "diagnostico"
     },
     "kicker": "O Nosso Diferencial",
-    "h1": "Método <span class=\"me-gold\">FishWell</span>:",
+    "h1": "O Método <span class=\"me-gold\">FishWell</span>:",
     "h1Sub": "a jornada do seu cliente, mapeada do desconhecido à recorrência",
     "lead": "FishWell é o método proprietário da Makewell para mapear a jornada do cliente dentro do seu negócio, em cinco etapas. Não é uma receita genérica, mas um processo estruturado, documentado e mensurável em cada fase. Cada ação de comunicação tem um lugar definido no funil de receita.",
     "whyEyebrow": "O problema",
@@ -759,12 +759,12 @@ export default {
         "title": "Comunicação",
         "ps": [
           "Agora, a produção. Criativos, copy, vídeos, carrosséis, guiões de landing page. Tudo alinhado à narrativa definida no planeamento. O conteúdo não é feito para \"preencher o calendário\" — é feito para cumprir um papel específico no funil (atrair, educar, converter, reter).",
-          "Aplicamos o nosso framework de criação de conteúdo (neuromarketing + síntese das grandes mentes da publicidade) para garantir que cada peça tem magnetismo, emoção e técnica de conversão."
+          "Aplicamos o nosso framework de criação de conteúdo (neuromarketing + síntese das grandes mentes da publicidade) para garantir que cada peça tenha magnetismo, emoção e técnica de conversão."
         ],
         "meta": [
           [
             "Quem participa",
-            "Criação, copy, equipa de mídia, revisor do cliente"
+            "Criação, copy, equipa de meios, revisor do cliente"
           ],
           [
             "Entrega",
@@ -864,19 +864,19 @@ export default {
         "Campanhas otimizadas, chegada dos primeiros leads qualificados, processo comercial a funcionar."
       ],
       [
-        "Mês 3 – 6",
+        "Mês 4 – 6",
         "Escala",
         "Custo por lead em queda, fechos consistentes, primeiros números de ROI consolidados."
       ],
       [
-        "Mês 6+",
+        "Mês 7+",
         "Maturidade",
         "Ecossistema a funcionar, marca estabelecida, orçamentos a escalar com confiança no retorno."
       ]
     ],
     "relEyebrow": "Resultados",
     "relH3": "Quer ver o método em ação em casos reais?",
-    "relP": "Casa Hunter: 4 anos de comunicação que impactaram 13 milhões de brasileiros. Dr. Felipe Vilela: +26x ROI na área jurídica.",
+    "relP": "Casa Hunter: mais de 4 anos de comunicação que deram voz a 13 milhões de brasileiros. Dr. Felipe Vilela: +26x ROI na área jurídica.",
     "relLinks": [
       "Ver cases completos &rarr;",
       "Ver os serviços que entregam o método &rarr;"
@@ -901,10 +901,10 @@ export default {
       ],
       [
         "13 M",
-        "De brasileiros impactados pela comunicação da Casa Hunter"
+        "De brasileiros a quem demos voz com a Casa Hunter"
       ],
       [
-        "4 anos",
+        "4+ anos",
         "De comunicação para a Casa Hunter"
       ]
     ]
