@@ -22,8 +22,6 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="preload" as="image" href="/images/logo-makewell-branca.webp" type="image/webp">
-<link rel="preconnect" href="https://www.googletagmanager.com">
-<link rel="preconnect" href="https://connect.facebook.net">
 
 <!-- Open Graph -->
 <meta property="og:type" content="article">
@@ -258,10 +256,6 @@
 </head>
 <body>
 <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
-
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFGD8X8"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <header>
   <nav id="nav" role="navigation" aria-label="Menu principal">
@@ -504,6 +498,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <p data-i18n="footerCopy">&copy; 2026 Makewell Comunicação. Todos os direitos reservados. &middot; <a href="/politica-de-privacidade/">Política de Privacidade</a> &middot; <a href="/termos-de-uso/">Termos de Uso</a> &middot; CNPJ 27.238.877/0001-71</p>
 
+  <p class="mw-prefs-line"><button type="button" class="mw-cookie-prefs">Preferências de cookies</button></p>
 </footer>
 
 <!-- Meta Pixel (shim inline — script externo diferido) -->
@@ -521,31 +516,6 @@ n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
 n.queue=[];}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2571294026447618');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none" alt=""
-src="https://www.facebook.com/tr?id=2571294026447618&ev=PageView&noscript=1"
-/></noscript>
-<!-- Deferred: load external tracker scripts after idle -->
-<script>
-(function(){
-  function loadTrackers(){
-    var t=document.createElement('script');t.async=true;
-    t.src='https://connect.facebook.net/en_US/fbevents.js';
-    document.head.appendChild(t);
-    window.dataLayer=window.dataLayer||[];
-    window.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});
-    var j=document.createElement('script');j.async=true;
-    j.src='https://www.googletagmanager.com/gtm.js?id=GTM-NFGD8X8';
-    document.head.appendChild(j);
-  }
-  if('requestIdleCallback' in window){
-    requestIdleCallback(loadTrackers,{timeout:4000});
-  } else {
-    setTimeout(loadTrackers,2000);
-  }
-})();
 </script>
 <script>
 (function(){
@@ -756,6 +726,86 @@ src="https://www.facebook.com/tr?id=2571294026447618&ev=PageView&noscript=1"
     document.addEventListener('click', function(e) { if (!menu.contains(e.target) && e.target !== trigger) closeMenu(); });
     document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
   });
+})();
+</script>
+<!-- Consentimento de cookies (LGPD/GDPR): rastreadores (via GTM e Meta Pixel) só carregam depois de "Aceitar" -->
+<div id="mw-consent" role="region" aria-label="Aviso de cookies" tabindex="-1" hidden>
+  <p>Usamos cookies de análise e de marketing (Google, Meta, Microsoft e OpenAI) somente se você permitir. Saiba mais na <a href="/politica-de-privacidade/">Política de Privacidade</a>.</p>
+  <div class="mw-consent-btns">
+    <button type="button" data-consent="declined">Recusar</button>
+    <button type="button" data-consent="accepted">Aceitar</button>
+  </div>
+</div>
+<style>
+#mw-consent{position:fixed;left:16px;right:16px;bottom:16px;z-index:9990;max-width:720px;margin:0 auto;background:#141414;color:#ddd;border:1px solid #2a2a2a;border-radius:14px;padding:18px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;box-shadow:0 12px 40px rgba(0,0,0,.5);font:14px/1.5 'Segoe UI',system-ui,-apple-system,sans-serif;cursor:auto}
+#mw-consent[hidden]{display:none}
+#mw-consent:focus{outline:none}
+#mw-consent p{margin:0;flex:1 1 300px}
+#mw-consent a{color:#F5A623;text-decoration:underline;cursor:pointer}
+.mw-consent-btns{display:flex;gap:10px;flex:0 0 auto}
+.mw-consent-btns button{min-height:44px;min-width:110px;padding:0 20px;border-radius:999px;border:1px solid #F07820;background:transparent;color:#F4F1EC;font:700 14px 'Segoe UI',system-ui,-apple-system,sans-serif;cursor:pointer}
+.mw-consent-btns button:hover,.mw-consent-btns button:focus-visible{background:#F07820;color:#080808}
+.mw-cookie-prefs{display:inline-flex;align-items:center;min-height:44px;background:none;border:0;padding:0 4px;color:inherit;font:inherit;text-decoration:underline;cursor:pointer}
+</style>
+<script>
+(function(){
+  // v2: o banner antigo ("ao continuar navegando…") não valia como consentimento; todos respondem de novo.
+  // Mudou a lista de ferramentas no GTM? Suba a versão da chave para perguntar de novo.
+  var KEY='mw-consent-v2', NO_TRACKERS=false;
+  function get(){try{return localStorage.getItem(KEY);}catch(e){return null;}}
+  function set(v){try{localStorage.setItem(KEY,v);}catch(e){}}
+  function clear(){try{localStorage.removeItem(KEY);}catch(e){}}
+  var consentAtLoad=get()==='accepted';
+  // shim do Meta Pixel: só enfileira (nada é enviado) para os onclick de Lead não quebrarem
+  if(!NO_TRACKERS&&typeof window.fbq!=='function'){
+    var n=window.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments);};
+    if(!window._fbq)window._fbq=n;n.push=n;n.loaded=true;n.version='2.0';n.queue=[];
+  }
+  function loadTrackers(){
+    if(NO_TRACKERS||window.__mwTrackers||typeof fbq!=='function')return;
+    window.__mwTrackers=true;
+    // eventos de antes do aceite nesta página são descartados; com aceite prévio, vão depois do init
+    var early=fbq.queue?fbq.queue.splice(0):[];
+    fbq('init','2571294026447618');fbq('track','PageView');
+    if(consentAtLoad)early.forEach(function(a){fbq.apply(null,a);});
+    var t=document.createElement('script');t.async=true;
+    t.src='https://connect.facebook.net/en_US/fbevents.js';document.head.appendChild(t);
+    window.dataLayer=window.dataLayer||[];
+    window.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+    var j=document.createElement('script');j.async=true;
+    j.src='https://www.googletagmanager.com/gtm.js?id=GTM-NFGD8X8';document.head.appendChild(j);
+  }
+  function dropTrackerData(){
+    var host=location.hostname.replace(/^www\./,'');
+    document.cookie.split(';').forEach(function(c){
+      var n=c.split('=')[0].trim();
+      if(!/^(_ga|_gid|_gat|_gcl|_fbp|_fbc|_clck|_clsk|_uet|__obref)/.test(n))return;
+      ['', host, '.'+host].forEach(function(d){
+        document.cookie=n+'=; Max-Age=0; path=/'+(d?'; domain='+d:'');
+      });
+    });
+    try{['_gcl_ls','lastExternalReferrer','lastExternalReferrerTime','cookie-consent'].forEach(function(k){localStorage.removeItem(k);});}catch(e){}
+  }
+  var banner=document.getElementById('mw-consent');
+  banner.addEventListener('click',function(e){
+    var v=e.target.getAttribute('data-consent');
+    if(!v)return;
+    set(v);banner.hidden=true;
+    if(v==='accepted')loadTrackers();
+  });
+  document.addEventListener('click',function(e){
+    if(!e.target.closest||!e.target.closest('.mw-cookie-prefs'))return;
+    var was=get();clear();dropTrackerData();
+    if(was==='accepted'){window['ga-disable-G-71YG2WTXNM']=true;location.reload();return;}
+    banner.hidden=false;banner.focus();
+  });
+  if(consentAtLoad){
+    if('requestIdleCallback' in window)requestIdleCallback(loadTrackers,{timeout:4000});
+    else setTimeout(loadTrackers,2000);
+  } else {
+    dropTrackerData();
+    if(get()!=='declined')banner.hidden=false;
+  }
 })();
 </script>
 </body>
