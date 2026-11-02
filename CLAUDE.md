@@ -9,7 +9,8 @@ Site institucional da **Makewell Comunicação** — agência de marketing digit
 - **Stack (nov/2026):** Astro 7, site 100% estático (HTML + CSS inline + JS inline mínimo). Sem frameworks de UI
 - **Deploy:** push na `main` → GitHub Actions (`.github/workflows/deploy.yml`): `dist/br` vai para o GitHub Pages
   deste repositório e `dist/agency` é enviado à `main` do repositório `makewell-agency` (deploy key `AGENCY_DEPLOY_KEY`)
-- **Sem dependências externas no site** (exceto GTM e Meta Pixel, só após consentimento LGPD/GDPR)
+- **Sem dependências externas no site** (exceto GTM e Meta Pixel, só após consentimento LGPD/GDPR; o chat fala com
+  chat.makewell.agency e carrega o Turnstile só quando o visitante abre a janela)
 
 ## Estrutura
 - `src/views/<página>.astro` + `src/content/<página>.ts`: layout e textos de cada página nos 4 idiomas
@@ -25,6 +26,32 @@ Site institucional da **Makewell Comunicação** — agência de marketing digit
 npm ci && npm run build          # gera dist/br e dist/agency
 node scripts/verify.mjs          # tem que terminar em "OK: nada se perdeu"
 ```
+
+## Chat de vendas (Maia)
+Botão flutuante com IA que qualifica o visitante e o encaminha ao WhatsApp do time (+55 82 99910-3246).
+- **Liga/desliga:** `const MAIA` em `src/layouts/Page.astro` (false = botão volta a ser o link direto do WhatsApp).
+  Janela, balão de iniciativa (30s) e anti-robô no navegador: `src/components/ChatWidget.astro`
+- **Servidor:** Worker `makewell-chat` em `chat/` (chat.makewell.agency), conta Cloudflare "Makewell Agency". Publica à
+  parte do site: `cd chat && npx wrangler deploy` (o push na main NÃO publica o Worker). Checagem: `./node_modules/.bin/tsc --noEmit`
+- **Arquivos:** `chat/src/index.ts` (rota /chat, limites, gasto, Turnstile, encaminhamento), `chat/src/prompt.ts` (roteiro,
+  preços e regras da Maia: mudar preço ou tom é aqui), `chat/src/leads.ts` (banco, aviso por e-mail e WhatsApp, painel),
+  `chat/schema.sql`, `chat/wrangler.jsonc` (configurações e IDs)
+- **IA:** kie.ai, `MODEL` = `grok-4-7` (formato Responses); um modelo `claude-*` usa o formato de mensagens. Teto de gasto
+  diário `DAILY_CAP_USD`, somado no D1 (tabela `spend`)
+- **Dados:** conversa no KV `CHAT` por 90 dias; lead (resumo + avaliação quente/morno/frio) no D1 `makewell-leads` por 2 anos
+  (limpeza diária às 6h UTC). O visitante leva ao WhatsApp só a saudação e "Ref. XXXXXXXX"; o resumo vai só para o time
+- **Painel:** chat.makewell.agency/leads (filtros, conversa completa, planilha), atrás do Cloudflare Access (política
+  "Equipe Makewell", login por código no e-mail); o Worker também confere o token do Access (`ACCESS_TEAM`, `ACCESS_AUD`)
+- **Avisos:** e-mail para `NOTIFY_TO` (Email Routing do makewell.agency) e WhatsApp (modelo `novo_lead_site` da Meta, número
+  `META_PHONE_ID`, destinos em `NOTIFY_WA`). Só avisa conversa com 2+ mensagens e nome/empresa; teto de 40 avisos/dia
+- **Anti-robô:** Turnstile "Chat Maia" rodando em chat.makewell.agency/verify (iframe na janela). `TURNSTILE_ENFORCE`:
+  "0" só registra, qualquer outro valor bloqueia conversa nova sem token válido
+- **Segredos (Secrets Store, nunca no código nem no chat):** `KIE_API_KEY`, `META_WA_TOKEN`, `TURNSTILE_SECRET`. Trocar:
+  `npx wrangler secrets-store secret update 20d5e4dd865a460e85d9c002af65c49f --secret-id <id> --remote` (o dono digita)
+- **Logs ao vivo:** `cd chat && npx wrangler tail` (prefixos `[maia]` e `[leads]`)
+- **Nunca** apagar `conv:*` em massa no KV (são conversas reais); teste se apaga pela referência
+- **Privacidade:** o chat, os fornecedores (Cloudflare, kie.ai, xAI, Meta) e os prazos estão nas 4 políticas
+  (`src/legacy/**/*privacy*.json`). Mudou o que o chat coleta ou para onde envia? Atualize as 4 e o aviso do widget
 
 ## Regras Obrigatórias
 
