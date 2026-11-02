@@ -277,7 +277,7 @@ p { text-wrap: pretty; }
 .hscroll > .card { flex: 0 0 min(400px, 82vw); scroll-snap-align: start; }
 .hscroll > * { scroll-snap-align: start; }
 @media (hover: hover) and (pointer: fine) { .hscroll { cursor: grab; } .hscroll.dragging { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; user-select: none; } }
-.hs-nav { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+.hs-nav { display: flex; justify-content: flex-end; gap: 10px; margin-top: 32px; }
 .hs-nav[hidden] { display: none; }
 .hs-btn { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--line); background: none; color: inherit; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: border-color .2s, opacity .2s; }
 .hs-btn:hover:not([aria-disabled="true"]) { border-color: var(--accent); }
@@ -339,7 +339,7 @@ html:has(#mw-consent:not([hidden])) { scroll-padding-bottom: 220px; }
 .mw-typing { color: var(--paper-muted); font-style: italic; }
 .mw-chat-cta { align-self: flex-start; min-height: 44px; }
 .mw-chat-form { display: flex; gap: 8px; padding: 12px 12px 6px; border-top: 1px solid rgba(255,255,255,.08); }
-.mw-chat-form textarea { flex: 1; resize: none; min-height: 44px; max-height: 120px; padding: 11px 14px; border-radius: 14px; border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.05); color: var(--paper); font: 15px/1.4 var(--font); }
+.mw-chat-form textarea { flex: 1; resize: none; min-height: 44px; max-height: 120px; padding: 11px 14px; border-radius: 14px; border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.05); color: var(--paper); font: 16px/1.4 var(--font); } /* 16px: abaixo disso o Safari do iPhone dá zoom na página ao focar */
 .mw-chat-form textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 .mw-chat-send { width: 44px; height: 44px; flex: none; border: 0; border-radius: 50%; background: var(--accent); color: var(--on-accent); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
 .mw-chat-wa { display: block; padding: 8px 18px 14px; font-size: 13px; color: var(--paper-muted); text-align: center; }

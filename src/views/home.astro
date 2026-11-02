@@ -222,7 +222,7 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
       <p class="eyebrow" set:html={c.depo.label} />
       <h2 class="h2" id="depo-title" set:html={c.depo.h2} />
       {c.depo.note && <p class="hm-note" set:html={c.depo.note} />}
-      <div class="reels hscroll hm-reels">
+      <div class="reels hscroll hm-reels no-pin">
         {c.depo.reels.map((r: any) => (
           <button type="button" class="reel" data-yt={r.id} data-vertical>
             <span class="thumb">

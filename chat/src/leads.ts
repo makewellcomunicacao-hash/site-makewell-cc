@@ -21,8 +21,8 @@ export type LeadEnv = {
 type Row = Lead & { ref: string; sid: string; created: string; lang: string; pagina: string };
 
 const PANEL = 'https://chat.makewell.agency/leads';
-const COLS = ['nome', 'empresa', 'segmento', 'local', 'presenca', 'objetivo', 'situacao', 'investimento', 'urgencia', 'decisor', 'interesse', 'avaliacao'] as const;
-const LABELS: Record<string, string> = { nome: 'Nome', empresa: 'Empresa', segmento: 'Segmento', local: 'Local', presenca: 'Site/Instagram', objetivo: 'Objetivo', situacao: 'Hoje',
+const COLS = ['nome', 'email', 'empresa', 'segmento', 'local', 'presenca', 'objetivo', 'situacao', 'investimento', 'urgencia', 'decisor', 'interesse', 'avaliacao'] as const;
+const LABELS: Record<string, string> = { nome: 'Nome', email: 'E-mail', empresa: 'Empresa', segmento: 'Segmento', local: 'Local', presenca: 'Site/Instagram', objetivo: 'Objetivo', situacao: 'Hoje',
   investimento: 'Investimento', urgencia: 'Urgência', decisor: 'Decide', interesse: 'Interesse', avaliacao: 'Avaliação da IA' };
 
 const esc = (s: unknown) => String(s ?? '').replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);

@@ -230,11 +230,11 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
     if (heroWrap) gsap.to(heroWrap, { yPercent: 14, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true } });
   });
   // rolagem horizontal fixa (desktop): a seção para na tela e os cards correm para o lado enquanto se rola para baixo.
-  // Vale para o FishWell e para as faixas .hscroll que não cabem ("Para quem", depoimentos); no celular elas seguem como
+  // Vale para o FishWell e para as faixas .hscroll que não cabem ("Para quem"); os depoimentos (.no-pin) ficam como carrossel automático, porque com poucos vídeos a seção travava para andar quase nada. No celular elas seguem como
   // carrossel de arrastar. Os pins são registrados na ordem da página (refreshPriority) para cada um somar o espaço do anterior.
   mm.add('(min-width: 1100px) and (min-height: 720px)', () => {
     const fish = main.querySelector<HTMLElement>('.hm-fish');
-    const tracks = [...main.querySelectorAll<HTMLElement>('.hscroll:not(.slide-in)')].filter((t) => t.scrollWidth - t.clientWidth > 240); // pouco a andar: trava sem movimento, melhor ficar como carrossel
+    const tracks = [...main.querySelectorAll<HTMLElement>('.hscroll:not(.slide-in):not(.no-pin)')].filter((t) => t.scrollWidth - t.clientWidth > 240); // pouco a andar: trava sem movimento, melhor ficar como carrossel
     const pins: { sec: HTMLElement; track: HTMLElement }[] = [];
     const ol = fish?.querySelector<HTMLElement>('.hm-steps');
     if (fish && ol) { fish.classList.add('hs'); take(ol); ol.querySelectorAll('li').forEach(take); pins.push({ sec: fish, track: ol }); }

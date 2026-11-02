@@ -36,7 +36,8 @@ Botão flutuante com IA que qualifica o visitante e o encaminha ao WhatsApp do t
 - **Arquivos:** `chat/src/index.ts` (rota /chat, limites, gasto, Turnstile, encaminhamento), `chat/src/prompt.ts` (roteiro,
   preços e regras da Maia: mudar preço ou tom é aqui), `chat/src/leads.ts` (banco, aviso por e-mail e WhatsApp, painel),
   `chat/schema.sql`, `chat/wrangler.jsonc` (configurações e IDs)
-- **IA:** kie.ai, `MODEL` = `grok-4-7` (formato Responses); um modelo `claude-*` usa o formato de mensagens. Teto de gasto
+- **IA:** kie.ai, `MODEL` = `claude-haiku-5-5` (escolhido em 02/11/2026 contra Grok 4.7 e Gemini 3.8 Flash: melhor em vendas);
+  aceita `grok-*`, `claude-*` e `gemini-*`. Tudo em streaming; o log `[maia] tempo` mostra quanto a kie.ai demora. Teto de gasto
   diário `DAILY_CAP_USD`, somado no D1 (tabela `spend`)
 - **Dados:** conversa no KV `CHAT` por 90 dias; lead (resumo + avaliação quente/morno/frio) no D1 `makewell-leads` por 2 anos
   (limpeza diária às 6h UTC). O visitante leva ao WhatsApp só a saudação e "Ref. XXXXXXXX"; o resumo vai só para o time

@@ -38,11 +38,15 @@ const PRICE: Record<string, { input: number; output: number }> = {
   'claude-opus-5-5': { input: 1.6, output: 8 },
   'claude-sonnet-5-5': { input: 0.8, output: 4 },
   'claude-haiku-5-5': { input: 0.06, output: 0.3 },
+  'gemini-3-8-flash': { input: 0.15, output: 0.6 }, // aproximado; conferir na tabela da kie.ai
 };
 const MARK = '[[WHATSAPP]]';
 // pedido explícito de atendimento humano ou de como contratar/seguir, nos 4 idiomas (termos soltos como "equipe" ou
 // "pessoa" disparavam encaminhamento por engano)
 const HUMAN = /(falar|conversar) com (uma pessoa|algu[eé]m|um humano|um atendente|um consultor|o time|a equipe|a equipa|voc[eê]s)|atendimento humano|quero contratar|como (fa[cç]o|posso) (pra|para) (contratar|seguir|fechar|come[cç]ar)|(talk|speak|chat) (to|with) (a (person|human|real person)|someone|your team|the team|sales)|how (do|can) i (hire|sign up|get started)|hablar con (una persona|alguien|un humano|un asesor|el equipo|ustedes)|c[oó]mo (contrato|puedo contratar|empiezo)/i;
+
+// a resposta convida para o WhatsApp do time (e não só fala de WhatsApp como canal de venda do cliente)
+const INVITE = /(continuar|seguir|continue|sigue|segue|siga|falar|hablar|talk|chat)[^.?!]{0,40}(no|pelo|en el|por|on|via) whats\s?app|bot[ãa]o|button|bot[óo]n/i;
 
 const LABEL: Record<Lang, { lead: string; cap: string; error: string; end: string }> = {
   br: { lead: 'Olá! Vim pelo site da Makewell (conversa com a Maia).', cap: 'Nosso chat está com muita procura agora. Fale direto com o time pelo WhatsApp, que respondemos rapidinho.', error: 'Tive um problema para responder agora. Pode falar direto com o time pelo WhatsApp?', end: 'Já conversamos bastante por aqui! Para seguir, o melhor é falar com o time pelo WhatsApp.' },
@@ -88,28 +92,63 @@ async function addSpend(env: Env, usd: number) {
     .bind(today(), usd).run().catch((e) => console.error('[maia] spend', String(e)));
 }
 
-// Uma chamada ao modelo pela kie.ai (sem streaming, como no MakeWorks)
-async function ask(env: Env, system: string, messages: Msg[]): Promise<Reply> {
+// Uma chamada ao modelo pela kie.ai, sempre em streaming (SSE): o texto chega aos pedaços em onDelta, para o site mostrar
+// a resposta enquanto ela é escrita. MODEL escolhe o formato: "grok-*" (Responses), "claude-*" (mensagens da Anthropic)
+// ou "gemini-*" (streamGenerateContent)
+async function ask(env: Env, system: string, messages: Msg[], onDelta?: (d: string) => void): Promise<Reply> {
+  const t0 = Date.now(); let tFirst = 0;
   const key = await env.KIE_API_KEY.get();
-  const claude = env.MODEL.startsWith('claude');
-  const [url, body] = claude
-    ? ['https://api.kie.ai/claude/v1/messages', { model: env.MODEL, max_tokens: 2000, stream: false, system, messages }]
-    : ['https://api.kie.ai/grok/v1/responses', { model: env.MODEL, stream: false, reasoning: { effort: 'low' }, max_output_tokens: 1500, input: [{ role: 'system', content: system }, ...messages] }];
+  const m = env.MODEL, kind = m.startsWith('claude') ? 'claude' : m.startsWith('gemini') ? 'gemini' : 'grok';
+  const [url, body] = kind === 'claude'
+    ? ['https://api.kie.ai/claude/v1/messages', { model: m, max_tokens: 1500, stream: true, system, messages }]
+    : kind === 'gemini'
+      ? [`https://api.kie.ai/gemini/v1/models/${m}:streamGenerateContent`, { stream: true, systemInstruction: { parts: [{ text: system }] },
+          contents: messages.map((x) => ({ role: x.role === 'assistant' ? 'model' : 'user', parts: [{ text: x.content }] })),
+          generationConfig: { maxOutputTokens: 1500, thinkingConfig: { thinkingLevel: 'low' } } }]
+      : ['https://api.kie.ai/grok/v1/responses', { model: m, stream: true, reasoning: { effort: 'low' }, max_output_tokens: 1500, input: [{ role: 'system', content: system }, ...messages] }];
   const r = await fetch(url, { method: 'POST', headers: { authorization: `Bearer ${key}`, 'content-type': 'application/json' }, body: JSON.stringify(body), signal: AbortSignal.timeout(40_000) })
     .catch((e) => (console.error('[maia] fetch', String(e)), null));
-  const j = (await r?.json().catch(() => null)) as Record<string, unknown> | null;
-  if (!r?.ok || !j || (typeof j.code === 'number' && j.code !== 200)) {
-    return { ok: false, error: `HTTP ${r?.status} ${JSON.stringify(j)?.slice(0, 300)}` };
+  const tHead = Date.now() - t0;
+  // erro da kie.ai vem como JSON (às vezes com HTTP 200 e "code"), não como SSE
+  if (!r?.ok || !r.body || !(r.headers.get('content-type') ?? '').includes('event-stream')) {
+    return { ok: false, error: `HTTP ${r?.status} ${(await r?.text().catch(() => ''))?.slice(0, 300)}` };
   }
-  const u = (j.usage ?? {}) as Record<string, number>;
-  const p = PRICE[env.MODEL] ?? PRICE['claude-opus-5-5'];
-  const inTok = (u.input_tokens ?? 0) + (u.cache_read_input_tokens ?? 0) * 0.1 + (u.cache_creation_input_tokens ?? 0) * 1.25;
-  const usd = (inTok * p.input + (u.output_tokens ?? 0) * p.output) / 1e6;
-  const text = claude
-    ? ((j.content as { type: string; text?: string }[] | undefined) ?? []).filter((b) => b.type === 'text').map((b) => b.text ?? '').join('')
-    : ((j.output as { type: string; content?: { type: string; text?: string }[] }[] | undefined) ?? [])
-        .filter((o) => o.type === 'message').flatMap((o) => o.content ?? []).filter((x) => x.type === 'output_text').map((x) => x.text ?? '').join('');
-  return { ok: true, text: text.trim(), usd };
+  let text = '', inTok = 0, outTok = 0, buf = '', err = '';
+  const handle = (o: any) => {
+    let d = '';
+    if (o.error) err = JSON.stringify(o.error).slice(0, 300);
+    if (kind === 'grok') {
+      if (o.type === 'response.output_text.delta') d = o.delta ?? '';
+      if (o.type === 'response.completed') { inTok = o.response?.usage?.input_tokens ?? 0; outTok = o.response?.usage?.output_tokens ?? 0; }
+    } else if (kind === 'claude') {
+      if (o.type === 'content_block_delta' && o.delta?.type === 'text_delta') d = o.delta.text ?? '';
+      if (o.type === 'message_start') { const u = o.message?.usage ?? {}; inTok = (u.input_tokens ?? 0) + (u.cache_read_input_tokens ?? 0) * 0.1 + (u.cache_creation_input_tokens ?? 0) * 1.25; }
+      if (o.type === 'message_delta') outTok = o.usage?.output_tokens ?? outTok;
+    } else {
+      for (const part of o.candidates?.[0]?.content?.parts ?? []) if (!part.thought) d += part.text ?? '';
+      if (o.usageMetadata) { inTok = o.usageMetadata.promptTokenCount ?? 0; outTok = (o.usageMetadata.candidatesTokenCount ?? 0) + (o.usageMetadata.thoughtsTokenCount ?? 0); }
+    }
+    if (d) { if (!tFirst) tFirst = Date.now() - t0; text += d; onDelta?.(d); }
+  };
+  try {
+    const reader = r.body.pipeThrough(new TextDecoderStream()).getReader();
+    for (;;) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      buf += value;
+      let i;
+      while ((i = buf.indexOf('\n\n')) >= 0) {
+        const data = buf.slice(0, i).split('\n').filter((l) => l.startsWith('data:')).map((l) => l.slice(5).trim()).join('');
+        buf = buf.slice(i + 2);
+        if (data && data !== '[DONE]') { try { handle(JSON.parse(data)); } catch { /* evento incompleto ou de controle */ } }
+      }
+    }
+  } catch (e) { err ||= String(e); }
+  console.log('[maia] tempo', m, 'cabeçalho', tHead, 'ms, 1º texto', tFirst, 'ms, fim', Date.now() - t0, 'ms');
+  if (err && !text) return { ok: false, error: err };
+  if (!text.trim()) return { ok: false, error: 'resposta vazia' };
+  const p = PRICE[m] ?? PRICE['claude-opus-5-5'];
+  return { ok: true, text: text.trim(), usd: (inTok * p.input + outTok * p.output) / 1e6 };
 }
 
 // Anti-robô (Turnstile). O widget roda numa página deste endereço, embutida no chat (o makewell.com.br não pode entrar na
@@ -161,6 +200,7 @@ function parseLead(raw: string): Record<string, string> | undefined {
 export default {
   async scheduled(_: ScheduledController, env: Env) { await purge(env); },
   async fetch(req: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+    const tReq = Date.now();
     const url = new URL(req.url);
     const reqOrigin = req.headers.get('origin') ?? '';
     const origin = env.ALLOWED_ORIGINS.split(',').map((s) => s.trim()).includes(reqOrigin) ? reqOrigin : '';
@@ -174,7 +214,7 @@ export default {
     if (url.pathname !== '/chat' || req.method !== 'POST') return new Response('not found', { status: 404 });
     if (!origin) return new Response('forbidden', { status: 403 });
 
-    const body = (await req.json().catch(() => null)) as { sid?: string; lang?: string; text?: string; page?: string; ts?: string } | null;
+    const body = (await req.json().catch(() => null)) as { sid?: string; lang?: string; text?: string; page?: string; ts?: string; stream?: boolean } | null;
     const lang = (['br', 'en', 'es', 'pt'].includes(body?.lang ?? '') ? body!.lang : 'br') as Lang;
     const text = (body?.text ?? '').trim();
     if (!text || text.length > MAX_TEXT) return json({ error: 'invalid' }, 400, origin);
@@ -193,38 +233,65 @@ export default {
     if (conv.messages.length >= MAX_TURNS * 2) return fallback(L.end);
     conv.messages.push({ role: 'user', content: text });
 
+    console.log('[maia] tempo antes do modelo', Date.now() - tReq, 'ms');
     const system = `${SYSTEM}\n\n# Contexto da conversa\nIdioma: ${lang}\nData de hoje: ${today()}\nCotação de referência: ${await fx(env)}`;
-    // uma nova tentativa cobre as falhas passageiras da kie.ai (erro interno ou demora)
-    let r = await ask(env, system, conv.messages);
-    if (!r.ok) { console.error('[maia] kie', r.error); r = await ask(env, system, conv.messages); }
-    if (!r.ok) { console.error('[maia] kie (2ª)', r.error); return fallback(L.error); }
-    ctx.waitUntil(addSpend(env, r.usd));
 
-    let { reply, lead } = splitHandoff(r.text);
-    // o modelo às vezes convida para o WhatsApp sem a linha do resumo: se a pessoa pediu atendimento ou a resposta fala do
-    // WhatsApp, pede só o resumo numa chamada à parte (sem isso o botão não aparece)
-    if (!lead && !conv.handoff && (HUMAN.test(text) || /whatsapp/i.test(reply))) {
-      const ex = await ask(env, `${SYSTEM}\n\n# Tarefa agora\nNão responda à pessoa. Escreva apenas a linha ${MARK} com o JSON do resumo desta conversa.`, [...conv.messages, { role: 'assistant', content: reply }, { role: 'user', content: '(sistema: gere o resumo)' }]);
-      // o modelo às vezes devolve só o JSON, sem a marcação
-      if (ex.ok) { ctx.waitUntil(addSpend(env, ex.usd)); lead = splitHandoff(ex.text).lead ?? parseLead(ex.text); }
-      if (!lead) console.error('[maia] resumo não veio', ex.ok ? ex.text.slice(0, 200) : ex.error);
-    }
-    let whatsapp: string | undefined;
-    if (lead) {
-      // O visitante leva só a saudação e uma referência (gerada aqui: o sid vem do navegador); o resumo e a avaliação da
-      // IA ficam no D1. Um lead por conversa: um novo encaminhamento atualiza o mesmo. O time é avisado uma vez, e só
-      // quando a conversa tem pelo menos 2 mensagens e um nome ou empresa (corta disparo automatizado de uma linha só)
-      const ref = (conv.ref ??= crypto.randomUUID().slice(0, 8).toUpperCase());
-      const real = conv.messages.filter((m) => m.role === 'user').length >= 2 && !!(lead.nome?.trim() || lead.empresa?.trim());
-      const notify = real && !conv.notified;
-      if (notify) conv.notified = true;
-      conv.handoff = true; conv.lead = lead;
-      whatsapp = waLink(env, `${L.lead} Ref. ${ref}`);
-      ctx.waitUntil(saveLead(env, { ref, sid, lang, pagina: conv.page ?? '', lead }, notify).catch((e) => console.error('[leads] save', String(e))));
-    }
-    // no histórico fica só o que o visitante viu (e uma nota quando houve encaminhamento)
-    conv.messages.push({ role: 'assistant', content: reply + (lead ? '\n\n(Encaminhado ao WhatsApp do time.)' : '') });
-    await env.CHAT.put(`conv:${sid}`, JSON.stringify(conv), { expirationTtl: TTL });
-    return json({ sid, reply: reply || (whatsapp ? '' : L.error), whatsapp }, 200, origin);
+    // O trabalho é o mesmo nos dois modos; no streaming, cada pedaço visível vai ao site assim que chega. A linha
+    // [[WHATSAPP]] {json} nunca sai: o texto é enviado só até um "[[" (e um "[" solto no fim fica retido até o próximo pedaço)
+    const work = async (emit?: (d: string) => void) => {
+      let full = '', sent = 0;
+      const onDelta = emit && ((d: string) => {
+        full += d;
+        const cut = full.indexOf('[[');
+        const safe = cut >= 0 ? cut : full.endsWith('[') ? full.length - 1 : full.length;
+        if (safe > sent) { emit(full.slice(sent, safe)); sent = safe; }
+      });
+      // uma nova tentativa cobre as falhas passageiras da kie.ai, desde que nada tenha sido mostrado ainda
+      let r = await ask(env, system, conv.messages, onDelta);
+      if (!r.ok && !sent) { console.error('[maia] kie', r.error); full = ''; r = await ask(env, system, conv.messages, onDelta); }
+      if (!r.ok) { console.error('[maia] kie (2ª)', r.error); return { reply: L.error, whatsapp: waLink(env, L.lead) }; }
+      ctx.waitUntil(addSpend(env, r.usd));
+      return finish(r.text);
+    };
+    const finish = async (out: string) => {
+      let { reply, lead } = splitHandoff(out);
+      // o modelo às vezes convida para o WhatsApp sem a linha do resumo: se a pessoa pediu atendimento ou a resposta convida
+      // para o WhatsApp do time, pede só o resumo numa chamada à parte (sem isso o botão não aparece)
+      if (!lead && !conv.handoff && (HUMAN.test(text) || INVITE.test(reply))) {
+        const ex = await ask(env, `${SYSTEM}\n\n# Tarefa agora\nNão responda à pessoa. Escreva apenas a linha ${MARK} com o JSON do resumo desta conversa.`, [...conv.messages, { role: 'assistant', content: reply }, { role: 'user', content: '(sistema: gere o resumo)' }]);
+        // o modelo às vezes devolve só o JSON, sem a marcação
+        if (ex.ok) { ctx.waitUntil(addSpend(env, ex.usd)); lead = splitHandoff(ex.text).lead ?? parseLead(ex.text); }
+        if (!lead) console.error('[maia] resumo não veio', ex.ok ? ex.text.slice(0, 200) : ex.error);
+      }
+      let whatsapp: string | undefined;
+      if (lead) {
+        // O visitante leva só a saudação e uma referência (gerada aqui: o sid vem do navegador); o resumo e a avaliação da
+        // IA ficam no D1. Um lead por conversa: um novo encaminhamento atualiza o mesmo. O time é avisado uma vez, e só
+        // quando a conversa tem pelo menos 2 mensagens e um nome ou empresa (corta disparo automatizado de uma linha só)
+        const ref = (conv.ref ??= crypto.randomUUID().slice(0, 8).toUpperCase());
+        const real = conv.messages.filter((m) => m.role === 'user').length >= 2 && !!(lead.nome?.trim() || lead.empresa?.trim());
+        const notify = real && !conv.notified;
+        if (notify) conv.notified = true;
+        conv.handoff = true; conv.lead = lead;
+        whatsapp = waLink(env, `${L.lead} Ref. ${ref}`);
+        ctx.waitUntil(saveLead(env, { ref, sid, lang, pagina: conv.page ?? '', lead }, notify).catch((e) => console.error('[leads] save', String(e))));
+      }
+      // no histórico fica só o que o visitante viu (e uma nota quando houve encaminhamento)
+      conv.messages.push({ role: 'assistant', content: reply + (lead ? '\n\n(Encaminhado ao WhatsApp do time.)' : '') });
+      await env.CHAT.put(`conv:${sid}`, JSON.stringify(conv), { expirationTtl: TTL });
+      return { sid, reply: reply || (whatsapp ? '' : L.error), whatsapp };
+    };
+
+    if (!body?.stream) return json(await work(), 200, origin);
+    // streaming: uma linha JSON por evento ({"d": pedaço} e, no fim, {"done": true, ...resposta final})
+    const { readable, writable } = new TransformStream<Uint8Array, Uint8Array>();
+    const w = writable.getWriter(), enc = new TextEncoder();
+    const line = (o: unknown) => w.write(enc.encode(JSON.stringify(o) + '\n')).catch(() => {});
+    ctx.waitUntil((async () => {
+      const out = await work((d) => { line({ d }); }).catch((e) => (console.error('[maia] stream', String(e)), { reply: L.error, whatsapp: waLink(env, L.lead) }));
+      await line({ done: true, ...out });
+      await w.close().catch(() => {});
+    })());
+    return new Response(readable, { headers: { 'content-type': 'application/x-ndjson; charset=utf-8', 'cache-control': 'no-store', ...cors(origin) } });
   },
 };

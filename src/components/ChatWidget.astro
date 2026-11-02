@@ -52,7 +52,8 @@ const t = T[lang];
   state.msgs.forEach(function (m) { if (m.who === 'cta') cta(m.text); else bubble(m.who, m.text); });
   function toggle(o) {
     box.hidden = !o; btn.setAttribute('aria-expanded', o); document.documentElement.classList.toggle('mw-chat-open', o);
-    if (o) { verify(); input.focus(); log.scrollTop = log.scrollHeight; } else btn.focus();
+    // no celular o teclado não abre sozinho (cobriria a saudação); com mouse, o campo já fica pronto para digitar
+    if (o) { verify(); if (matchMedia('(hover: hover)').matches) input.focus(); log.scrollTop = log.scrollHeight; } else btn.focus();
   }
   // anti-robô (Turnstile): a verificação roda numa página do endereço do chat, embutida aqui, e só carrega quando o chat
   // abre; o token vai junto com a primeira mensagem. Se a Cloudflare precisar de um clique, o quadro aparece
@@ -95,21 +96,45 @@ const t = T[lang];
     busy = true; input.value = ''; bubble('me', text); state.msgs.push({ who: 'me', text: text }); save();
     var dots = bubble('ai', box.dataset.tTyping); dots.classList.add('mw-typing');
     withToken(function () {
-    var body = { sid: state.sid, lang: box.dataset.lang, text: text, page: location.pathname, ts: state.sid ? '' : ts };
+    var body = { sid: state.sid, lang: box.dataset.lang, text: text, page: location.pathname, ts: state.sid ? '' : ts, stream: true };
     ts = '';
+    var live = null; // balão que recebe a resposta aos pedaços, enquanto a IA escreve
     fetch(box.dataset.endpoint, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) })
-      .then(function (r) { return r.json(); })
+      .then(function (r) {
+        // erros, limites e verificação voltam em JSON; a resposta da IA vem em linhas ({"d": pedaço} e, no fim, {"done": true})
+        if ((r.headers.get('content-type') || '').indexOf('ndjson') < 0 || !r.body) return r.json();
+        var reader = r.body.getReader(), dec = new TextDecoder(), buf = '', last = null;
+        return (function pump() {
+          return reader.read().then(function (x) {
+            if (x.value) buf += dec.decode(x.value, { stream: true });
+            for (var i; (i = buf.indexOf('\n')) >= 0;) {
+              var ln = buf.slice(0, i); buf = buf.slice(i + 1); if (!ln) continue;
+              var o = JSON.parse(ln);
+              if (o.d) {
+                if (!live) { dots.remove(); live = bubble('ai', ''); }
+                live.textContent = (live.textContent + o.d).replace(/^\s+/, ''); log.scrollTop = log.scrollHeight;
+              }
+              if (o.done) last = o;
+            }
+            if (!x.done) return pump();
+            if (!last) throw new Error('stream');
+            return last;
+          });
+        })();
+      })
       .then(function (d) {
         dots.remove(); if (d.sid) state.sid = d.sid;
         // a conversa não começou (token recusado, limite, erro): o token foi gasto, então recomeça a verificação
         if (d.error === 'verify') state.sid = ''; // conversa salva no navegador que já expirou no servidor
         if (!state.sid) { frame.removeAttribute('src'); verify(); }
         var reply = d.reply || (d.error ? box.dataset.tError : '');
-        if (reply) { bubble('ai', reply); state.msgs.push({ who: 'ai', text: reply }); }
+        // o texto final do servidor é o que vale (sem espaços sobrando e sem a linha interna do resumo)
+        if (reply) { if (live) live.textContent = reply; else bubble('ai', reply); state.msgs.push({ who: 'ai', text: reply }); }
+        else if (live) live.remove();
         if (d.whatsapp) { cta(d.whatsapp); state.msgs.push({ who: 'cta', text: d.whatsapp }); }
         save();
       })
-      .catch(function () { dots.remove(); bubble('ai', box.dataset.tError); cta(box.dataset.wa); if (!state.sid) { frame.removeAttribute('src'); verify(); } })
+      .catch(function () { dots.remove(); if (live) live.remove(); bubble('ai', box.dataset.tError); cta(box.dataset.wa); if (!state.sid) { frame.removeAttribute('src'); verify(); } })
       .finally(function () { busy = false; input.focus(); });
     });
   });

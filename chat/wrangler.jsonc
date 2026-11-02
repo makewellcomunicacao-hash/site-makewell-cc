@@ -24,7 +24,7 @@
   ],
   "vars": {
     // pela kie.ai, como no MakeWorks; "claude-opus-5-5" e "claude-sonnet-5-5" também funcionam
-    "MODEL": "grok-4-7",
+    "MODEL": "claude-haiku-5-5",
     "DAILY_CAP_USD": "8",
     "WHATSAPP": "5582999103246",
     "NOTIFY_TO": "contato@makewell.com.br",
