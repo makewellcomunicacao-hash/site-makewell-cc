@@ -1,0 +1,73 @@
+---
+// Chat de vendas (assistente de IA) no botão flutuante. O servidor é o Worker em chat/ (chat.makewell.agency).
+// Nada é carregado antes de o visitante escrever: a saudação é texto fixo daqui. A conversa continua entre páginas
+// (sessionStorage) e, quando o lead está pronto, aparece "Continuar no WhatsApp" com o resumo já escrito.
+import { path, type Lang } from '../lib/site';
+interface Props { lang: Lang; wa: string }
+const { lang, wa } = Astro.props;
+const T: Record<Lang, Record<string, string>> = {
+  br: { open: 'Conversar com a Makewell', title: 'Maia · Makewell', close: 'Fechar conversa', greet: 'Oi! Sou a Maia, assistente de IA da Makewell. Me conta rapidinho: qual é o seu negócio e o que você quer melhorar no marketing hoje?', notice: 'Você está conversando com uma IA. A conversa fica guardada por 90 dias para melhorarmos o atendimento.', privacy: 'Política de privacidade', ph: 'Escreva sua mensagem…', send: 'Enviar', wa: 'Prefiro falar no WhatsApp', cta: 'Continuar no WhatsApp', typing: 'Digitando…', error: 'Não consegui responder agora. Fale com o time pelo WhatsApp, por favor.' },
+  en: { open: 'Chat with Makewell', title: 'Maia · Makewell', close: 'Close chat', greet: "Hi! I'm Maia, Makewell's AI assistant. Tell me a bit about your business — what would you like to improve in your marketing right now?", notice: "You're chatting with an AI. The conversation is kept for 90 days to improve our service.", privacy: 'Privacy policy', ph: 'Type your message…', send: 'Send', wa: "I'd rather use WhatsApp", cta: 'Continue on WhatsApp', typing: 'Typing…', error: "I couldn't reply just now. Please reach the team on WhatsApp." },
+  es: { open: 'Conversar con Makewell', title: 'Maia · Makewell', close: 'Cerrar conversación', greet: '¡Hola! Soy Maia, la asistente de IA de Makewell. Cuéntame: ¿cuál es tu negocio y qué te gustaría mejorar en tu marketing hoy?', notice: 'Estás conversando con una IA. La conversación se guarda durante 90 días para mejorar la atención.', privacy: 'Política de privacidad', ph: 'Escribe tu mensaje…', send: 'Enviar', wa: 'Prefiero hablar por WhatsApp', cta: 'Continuar en WhatsApp', typing: 'Escribiendo…', error: 'No pude responder ahora. Habla con el equipo por WhatsApp, por favor.' },
+  pt: { open: 'Conversar com a Makewell', title: 'Maia · Makewell', close: 'Fechar conversa', greet: 'Olá! Sou a Maia, assistente de IA da Makewell. Conte-me: qual é o seu negócio e o que gostaria de melhorar no seu marketing?', notice: 'Está a conversar com uma IA. A conversa fica guardada durante 90 dias para melhorarmos o atendimento.', privacy: 'Política de privacidade', ph: 'Escreva a sua mensagem…', send: 'Enviar', wa: 'Prefiro falar no WhatsApp', cta: 'Continuar no WhatsApp', typing: 'A escrever…', error: 'Não consegui responder agora. Fale com a equipa pelo WhatsApp, por favor.' },
+};
+const t = T[lang];
+---
+<button type="button" class="wa-float mw-chat-btn" id="mwChatBtn" aria-label={t.open} aria-expanded="false" aria-controls="mwChat">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/><path d="M8.5 11.5h.01M12 11.5h.01M15.5 11.5h.01" stroke-width="2.6"/></svg>
+</button>
+<section class="mw-chat" id="mwChat" role="dialog" aria-label={t.title} hidden data-lang={lang} data-endpoint="https://chat.makewell.agency/chat" data-wa={wa}
+  data-t-typing={t.typing} data-t-error={t.error} data-t-cta={t.cta}>
+  <header class="mw-chat-head">
+    <img class="mw-chat-mark" src="/images/maia-avatar.webp" alt="" width="96" height="96" />
+    <p class="mw-chat-title">{t.title} <span class="mw-chat-badge">IA</span></p>
+    <button type="button" class="mw-chat-close" aria-label={t.close}>&times;</button>
+  </header>
+  <p class="mw-chat-notice">{t.notice} <a href={path('privacy', lang)}>{t.privacy}</a></p>
+  <div class="mw-chat-log" aria-live="polite"><p class="mw-msg mw-ai">{t.greet}</p></div>
+  <form class="mw-chat-form">
+    <textarea rows="1" maxlength="1200" placeholder={t.ph} aria-label={t.ph} required></textarea>
+    <button type="submit" class="mw-chat-send" aria-label={t.send}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+  </form>
+  <a class="mw-chat-wa" href={wa} target="_blank" rel="noopener noreferrer">{t.wa}</a>
+</section>
+<script is:inline>
+(function () {
+  var box = document.getElementById('mwChat'), btn = document.getElementById('mwChatBtn'); if (!box || !btn) return;
+  var log = box.querySelector('.mw-chat-log'), form = box.querySelector('.mw-chat-form'), input = form.querySelector('textarea');
+  var KEY = 'mw-chat-' + box.dataset.lang, state = { sid: '', msgs: [] }, busy = false;
+  try { state = JSON.parse(sessionStorage.getItem(KEY)) || state; } catch (e) {}
+  var save = function () { try { sessionStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} };
+  function bubble(who, text) { var p = document.createElement('p'); p.className = 'mw-msg ' + (who === 'me' ? 'mw-me' : 'mw-ai'); p.textContent = text; log.appendChild(p); log.scrollTop = log.scrollHeight; return p; }
+  function cta(url) {
+    var a = document.createElement('a'); a.className = 'btn btn-primary mw-chat-cta'; a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.textContent = box.dataset.tCta;
+    a.addEventListener('click', function () { try { fbq('track', 'Lead', { content_name: 'Chat IA' }); } catch (e) {} });
+    log.appendChild(a); log.scrollTop = log.scrollHeight;
+  }
+  state.msgs.forEach(function (m) { if (m.who === 'cta') cta(m.text); else bubble(m.who, m.text); });
+  function toggle(o) {
+    box.hidden = !o; btn.setAttribute('aria-expanded', o); document.documentElement.classList.toggle('mw-chat-open', o);
+    if (o) { input.focus(); log.scrollTop = log.scrollHeight; } else btn.focus();
+  }
+  btn.addEventListener('click', function () { toggle(box.hidden); });
+  box.querySelector('.mw-chat-close').addEventListener('click', function () { toggle(false); });
+  box.addEventListener('keydown', function (e) { if (e.key === 'Escape') toggle(false); });
+  input.addEventListener('keydown', function (e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); form.requestSubmit(); } });
+  form.addEventListener('submit', function (e) {
+    e.preventDefault(); var text = input.value.trim(); if (!text || busy) return;
+    busy = true; input.value = ''; bubble('me', text); state.msgs.push({ who: 'me', text: text }); save();
+    var dots = bubble('ai', box.dataset.tTyping); dots.classList.add('mw-typing');
+    fetch(box.dataset.endpoint, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ sid: state.sid, lang: box.dataset.lang, text: text }) })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        dots.remove(); if (d.sid) state.sid = d.sid;
+        var reply = d.reply || (d.error ? box.dataset.tError : '');
+        if (reply) { bubble('ai', reply); state.msgs.push({ who: 'ai', text: reply }); }
+        if (d.whatsapp) { cta(d.whatsapp); state.msgs.push({ who: 'cta', text: d.whatsapp }); }
+        save();
+      })
+      .catch(function () { dots.remove(); bubble('ai', box.dataset.tError); cta(box.dataset.wa); })
+      .finally(function () { busy = false; input.focus(); });
+  });
+})();
+</script>

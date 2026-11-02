@@ -6,6 +6,7 @@
 import css from '../styles/global.css?raw';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import ChatWidget from '../components/ChatWidget.astro';
 import { UI, url, type Lang, type PageKey } from '../lib/site';
 
 interface Props { page: { route: string; htmlAttrs: string; head: string; body: string }; key: PageKey; lang: Lang }
@@ -28,6 +29,8 @@ const attrs = Object.fromEntries([...page.htmlAttrs.matchAll(/([\w:-]+)(?:="([^"
 const enUrl = lang === 'br' && !legal ? url(key, 'en') : null;
 // WhatsApp flutuante (mesmas mensagens do site atual) e "voltar ao topo"
 const HS: Record<Lang, [string, string, string, string]> = { br: ['Anterior', 'Próximo', 'Pausar movimento', 'Retomar movimento'], en: ['Previous', 'Next', 'Pause motion', 'Resume motion'], es: ['Anterior', 'Siguiente', 'Pausar movimiento', 'Reanudar movimiento'], pt: ['Anterior', 'Seguinte', 'Pausar movimento', 'Retomar movimento'] };
+// Maia (assistente de IA do chat, Worker em chat/): desligada até o cliente decidir ligar; com false, o botão flutuante é o WhatsApp
+const MAIA = false;
 const WA: Record<Lang, { href: string; aria: string; top: string }> = {
   br: { href: 'https://wa.me/5582999103246?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Makewell%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.', aria: 'Falar no WhatsApp', top: 'Voltar ao topo' },
   en: { href: 'https://wa.me/5582999103246?text=Hello!%20I%20came%20through%20Makewell%27s%20website%20and%20would%20like%20more%20information.', aria: 'Chat on WhatsApp', top: 'Back to top' },
@@ -68,7 +71,7 @@ n.queue=[];}(window, document,'script',
 <Footer key={key} lang={lang} />
 <slot name="after" />
 <div class="scroll-progress" aria-hidden="true"></div>
-<a href={WA[lang].href} class="wa-float" target="_blank" rel="noopener noreferrer" aria-label={WA[lang].aria}><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.6.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3a.5.5 0 0 0 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg></a>
+{MAIA ? <ChatWidget lang={lang} wa={WA[lang].href} /> : <a href={WA[lang].href} class="wa-float" target="_blank" rel="noopener noreferrer" aria-label={WA[lang].aria}><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.6.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3a.5.5 0 0 0 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg></a>}
 <button type="button" class="back-to-top" id="back-to-top" aria-label={WA[lang].top}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
 <script is:inline>
 (function () {
@@ -226,17 +229,29 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
   mm.add('(min-width: 900px)', () => {
     if (heroWrap) gsap.to(heroWrap, { yPercent: 14, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true } });
   });
-  // Método FishWell (home): a seção fica fixa e as etapas correm na horizontal enquanto se rola para baixo
+  // rolagem horizontal fixa (desktop): a seção para na tela e os cards correm para o lado enquanto se rola para baixo.
+  // Vale para o FishWell e para as faixas .hscroll que não cabem ("Para quem", depoimentos); no celular elas seguem como
+  // carrossel de arrastar. Os pins são registrados na ordem da página (refreshPriority) para cada um somar o espaço do anterior.
   mm.add('(min-width: 1100px) and (min-height: 720px)', () => {
-    const sec = main.querySelector<HTMLElement>('.hm-fish'), ol = sec?.querySelector<HTMLElement>('.hm-steps');
-    if (!sec || !ol) return;
-    sec.classList.add('hs'); take(ol); ol.querySelectorAll('li').forEach(take);
-    const dist = () => ol.scrollWidth - ol.clientWidth;
-    gsap.to(ol.children, { x: () => -dist(), ease: 'none', scrollTrigger: {
-      // refreshPriority: calculado antes dos triggers criados acima, que ficam abaixo do espaço extra do pin
-      trigger: sec, pin: true, start: 'top top', end: () => '+=' + dist(), scrub: 0.6, invalidateOnRefresh: true, refreshPriority: 1,
-      onUpdate: (st) => ol.style.setProperty('--hp', st.progress.toFixed(3)) } });
-    return () => sec.classList.remove('hs');
+    const fish = main.querySelector<HTMLElement>('.hm-fish');
+    const tracks = [...main.querySelectorAll<HTMLElement>('.hscroll:not(.slide-in)')].filter((t) => t.scrollWidth - t.clientWidth > 8);
+    const pins: { sec: HTMLElement; track: HTMLElement }[] = [];
+    const ol = fish?.querySelector<HTMLElement>('.hm-steps');
+    if (fish && ol) { fish.classList.add('hs'); take(ol); ol.querySelectorAll('li').forEach(take); pins.push({ sec: fish, track: ol }); }
+    tracks.forEach((t) => {
+      const sec = t.closest('section'); if (!sec) return;
+      t.scrollLeft = 0; t.classList.add('hs-pinned'); sec.classList.add('hs-pin'); [...t.children].forEach(take);
+      pins.push({ sec, track: t });
+    });
+    pins.sort((a, b) => (a.sec.compareDocumentPosition(b.sec) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1));
+    pins.forEach(({ sec, track }, i) => {
+      const dist = () => track.scrollWidth - track.clientWidth;
+      gsap.to(track.children, { x: () => -dist(), ease: 'none', scrollTrigger: {
+        trigger: sec, pin: true, start: () => (sec.offsetHeight > innerHeight ? 'bottom bottom' : 'top top'), end: () => '+=' + dist(),
+        scrub: 0.6, invalidateOnRefresh: true, refreshPriority: pins.length - i,
+        onUpdate: (st) => track.style.setProperty('--hp', st.progress.toFixed(3)) } });
+    });
+    return () => { fish?.classList.remove('hs'); tracks.forEach((t) => { t.classList.remove('hs-pinned'); t.closest('section')?.classList.remove('hs-pin'); }); };
   });
   // botões principais e "play" seguem levemente o cursor (só com mouse)
   mm.add('(hover: hover) and (pointer: fine)', () => {
@@ -309,7 +324,7 @@ document.querySelectorAll('.hscroll').forEach(function (t) {
   var vis = false; new IntersectionObserver(function (es) { vis = es[0].isIntersecting; }, { threshold: .5 }).observe(t);
   var touch = !matchMedia('(hover: hover) and (pointer: fine)').matches;
   setInterval(function () {
-    if (paused || hover || !vis || document.hidden || Date.now() < idleUntil) return;
+    if (paused || hover || !vis || document.hidden || Date.now() < idleUntil || t.classList.contains('hs-pinned')) return;
     t.scrollTo({ left: t.scrollLeft >= max() ? 0 : t.scrollLeft + step() });
   }, touch ? 8000 : 6000);
 });

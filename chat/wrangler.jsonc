@@ -1,0 +1,20 @@
+// Chat de vendas do site (ver src/index.ts). Deploy: npx wrangler deploy (fora do GitHub Actions do site).
+// Chave da kie.ai: no Secrets Store da conta (default_secrets_store), compartilhável com outros Workers.
+{
+  "name": "makewell-chat",
+  "account_id": "f1cd6a9d13cfcb2082837b06ddacfbe0",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-10-15",
+  "routes": [{ "pattern": "chat.makewell.agency", "custom_domain": true }],
+  "kv_namespaces": [{ "binding": "CHAT", "id": "4482dcd8c5af4eaca420b0a63e579c96" }],
+  // limite por IP: 12 mensagens por minuto
+  "secrets_store_secrets": [{ "binding": "KIE_API_KEY", "store_id": "20d5e4dd865a460e85d9c002af65c49f", "secret_name": "KIE_API_KEY" }],
+  "ratelimits": [{ "name": "RL", "namespace_id": "1001", "simple": { "limit": 12, "period": 60 } }],
+  "vars": {
+    "MODEL": "claude-opus-5-5",
+    "DAILY_CAP_USD": "8",
+    "WHATSAPP": "5582999103246",
+    "ALLOWED_ORIGINS": "https://makewell.com.br,https://makewell.agency,http://127.0.0.1:8811,http://127.0.0.1:8812"
+  },
+  "observability": { "enabled": true }
+}

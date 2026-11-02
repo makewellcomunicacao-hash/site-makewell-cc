@@ -19,7 +19,7 @@ const blocks = [
   { id: c.ids.roi, theme: 't-light', eyebrow: 'ROI', title: c.roiTitle, sub: c.roiSub, grid: true,
     cards: [{ ...c.roi[0], logo: logo('vilela-advogados', 'Vilela Advogados') }, { ...c.roi[1], logo: logo('drathielen', 'Dra. Thielen Szczypkowski') }] },
   { id: c.ids.abroad, theme: 't-light cs-follow', eyebrow: lang === 'en' ? 'International' : 'Internacional', title: c.abroadTitle, sub: c.abroadSub,
-    cards: [{ ...c.nagy, logo: null, href: 'https://nagycustomremodels.com/', ext: true }] },
+    cards: [{ ...c.nagy, logo: logo('nagy', 'Nagy Custom Remodeling'), href: 'https://nagycustomremodels.com/', ext: true }] },
 ];
 const brands = [
   logo('casa-hunter', 'Casa Hunter'), logo('carolina-mergulhao', 'Dra. Carolina Mergulhão'),
@@ -69,8 +69,7 @@ const playIcon = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" st
             <article class="card cs-case">
               <div class="cs-media">
                 <div class="tile cs-logo">
-                  {k.logo ? <img src={k.logo.src} alt={k.logo.alt} loading="lazy" />
-                    : <span class="cs-wordmark" role="img" aria-label={k.name}><b>NAGY</b><small>Custom Remodeling</small></span>}
+                  {k.logo && (() => { const z = logoSize(k.logo.src, 2); return <img src={z.src} alt={k.logo.alt} style={z.style} loading="lazy" />; })()}
                 </div>
                 <div class="cs-metrics" role="list">
                   {k.metrics.map(([n, l, acc]) => (
@@ -106,7 +105,7 @@ const playIcon = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" st
         {c.reels.map((r) => (
           <button type="button" class="reel" data-yt={r.id} data-vertical data-yt-params={c.ytParams || undefined}>
             <span class="thumb">
-              <img src={`/images/depo-${r.id}.webp`} alt={r.name} width="720" height="1280" loading="lazy" />
+              <img src={`/images/depo-${r.id}.webp`} alt={r.name} width="720" height="900" loading="lazy" />
               <span class="cs-play" set:html={playIcon}></span>
             </span>
             <span class="cs-q">{r.q}</span>
@@ -187,9 +186,6 @@ const playIcon = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" st
   @media (min-width: 900px) { .cs-cards:not(.cs-cards-2) .cs-logo { height: 220px; } .cs-cards:not(.cs-cards-2) .cs-media { position: sticky; top: 104px; } }
   @media (max-width: 600px) { .cs-logo { height: 140px; } .cs-logo img { max-height: 84px; } }
   .cs-logo img { max-height: 110px; }
-  .cs-wordmark { display: flex; flex-direction: column; align-items: center; color: #080808; text-align: center; }
-  .cs-wordmark b { font-size: 28px; font-weight: 800; letter-spacing: -.02em; line-height: 1; }
-  .cs-wordmark small { margin-top: 6px; font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; }
   .cs-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
   .cs-metrics > div { border-top: 1px solid var(--line); padding-top: 16px; }
   .card .cs-mn { color: inherit; }

@@ -149,7 +149,7 @@ a { color: inherit; }
 .play.sm { width: 56px; height: 56px; background: rgba(8,8,8,.65); border: 1px solid rgba(244,241,236,.35); box-shadow: none; }
 .reels { display: flex; gap: 16px; overflow-x: auto; padding-bottom: 12px; scroll-snap-type: x mandatory; }
 .reel { flex: 0 0 232px; scroll-snap-align: start; background: none; border: 0; padding: 0; text-align: left; color: inherit; font: inherit; cursor: pointer; }
-.reel .thumb { position: relative; display: block; aspect-ratio: 9/16; border-radius: var(--r-card); overflow: hidden; background: var(--card); }
+.reel .thumb { position: relative; display: block; aspect-ratio: 4/5; border-radius: var(--r-card); overflow: hidden; background: var(--card); }
 .reel .thumb img { width: 100%; height: 100%; object-fit: cover; }
 .modal { position: fixed; inset: 0; z-index: 9995; background: rgba(0,0,0,.88); display: none; align-items: center; justify-content: center; padding: 24px; }
 .modal.open { display: flex; }
@@ -271,7 +271,7 @@ p { text-wrap: pretty; }
 
 /* carrossel horizontal (.hscroll): arrasta com mouse ou dedo, encaixa card a card, setas e avanço automático suave
    (script no Page.astro). Cards de texto com largura padrão; os reels mantêm a largura própria */
-.hscroll { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; overscroll-behavior-x: contain; scrollbar-width: none; padding-bottom: 4px;
+.hscroll { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; overscroll-behavior-x: contain; scrollbar-width: none; padding-block: 12px 40px; margin-block: -12px -40px;
   margin-right: calc((min(100vw, var(--wrap)) - 100vw) / 2 - var(--gutter)); padding-right: var(--gutter); }
 .hscroll::-webkit-scrollbar { display: none; }
 .hscroll > .card { flex: 0 0 min(400px, 82vw); scroll-snap-align: start; }
@@ -305,3 +305,43 @@ p { text-wrap: pretty; }
 html:has(#mw-consent:not([hidden])) { scroll-padding-bottom: 220px; }
 /* CTAs finais centralizados: mesmo respiro entre título e texto que o CTA da home */
 :is(.sv-cta, .fw-cta, .me-cta) :is(h2, .h2) + p { margin-top: 20px; }
+/* folga acima/abaixo do carrossel: a entrada (sobe 28px), o hover (levanta 4px) e a sombra não são cortados pela caixa que rola */
+/* desktop: carrossel vira rolagem horizontal fixa (GSAP); some a navegação e a caixa deixa os cards passarem */
+.hscroll.hs-pinned { overflow: visible; scroll-snap-type: none; cursor: auto; }
+.hscroll.hs-pinned + .hs-nav { display: none; }
+.hs-pin { overflow: clip; }
+.sec.hs-pin { padding-block: 96px 40px; } /* fixa na tela: menos respiro para o título caber abaixo do cabeçalho */
+/* desktop: grupos curtos que cabem na tela (ex.: diferenciais) viram grade alinhada à largura do conteúdo e ao cabeçalho */
+@media (min-width: 900px) { .hscroll.slide-in { display: grid; grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); overflow: visible; margin-right: 0; padding-right: 0; } .hscroll.slide-in > .card { flex: none; } }
+
+/* chat de vendas (componente ChatWidget): painel flutuante em vidro, tela cheia no celular */
+.mw-chat-btn { border: 0; cursor: pointer; }
+.mw-chat { position: fixed; z-index: 1100; right: 20px; bottom: 88px; width: min(390px, calc(100vw - 32px)); height: min(600px, calc(100vh - 120px)); display: flex; flex-direction: column;
+  border-radius: 22px; overflow: hidden; color: var(--paper); background: rgba(20,18,16,.9); -webkit-backdrop-filter: blur(20px) saturate(170%); backdrop-filter: blur(20px) saturate(170%);
+  border: 1px solid rgba(255,255,255,.12); box-shadow: inset 0 1px 0 rgba(255,255,255,.18), 0 30px 80px rgba(0,0,0,.5); }
+.mw-chat[hidden] { display: none; }
+.mw-chat-head { display: flex; align-items: center; gap: 10px; padding: 14px 14px 12px 18px; border-bottom: 1px solid rgba(255,255,255,.08); }
+.mw-chat-mark { width: 26px; height: 26px; flex: none; }
+.mw-chat-title { margin: 0; font-weight: 700; font-size: 16px; flex: 1; }
+.mw-chat-badge { margin-left: 6px; padding: 2px 7px; border-radius: 999px; background: var(--accent); color: var(--on-accent); font-size: 11px; font-weight: 800; vertical-align: 2px; }
+.mw-chat-close { width: 40px; height: 40px; border-radius: 50%; border: 0; background: none; color: var(--paper); font-size: 24px; cursor: pointer; }
+.mw-chat-notice { margin: 0; padding: 10px 18px; font-size: 12px; line-height: 1.45; color: var(--paper-muted); border-bottom: 1px solid rgba(255,255,255,.06); }
+.mw-chat-notice a { color: var(--paper); }
+.mw-chat-log { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; overscroll-behavior: contain; }
+.mw-msg { margin: 0; max-width: 85%; padding: 10px 14px; border-radius: 16px; font-size: 15px; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; }
+.mw-ai { align-self: flex-start; background: rgba(255,255,255,.08); border-bottom-left-radius: 4px; }
+.mw-me { align-self: flex-end; background: var(--accent); color: var(--on-accent); border-bottom-right-radius: 4px; }
+.mw-typing { color: var(--paper-muted); font-style: italic; }
+.mw-chat-cta { align-self: flex-start; min-height: 44px; }
+.mw-chat-form { display: flex; gap: 8px; padding: 12px 12px 6px; border-top: 1px solid rgba(255,255,255,.08); }
+.mw-chat-form textarea { flex: 1; resize: none; min-height: 44px; max-height: 120px; padding: 11px 14px; border-radius: 14px; border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.05); color: var(--paper); font: 15px/1.4 var(--font); }
+.mw-chat-form textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.mw-chat-send { width: 44px; height: 44px; flex: none; border: 0; border-radius: 50%; background: var(--accent); color: var(--on-accent); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+.mw-chat-wa { display: block; padding: 8px 18px 14px; font-size: 13px; color: var(--paper-muted); text-align: center; }
+@media (max-width: 600px) {
+  .mw-chat { inset: 0; width: auto; height: auto; border-radius: 0; padding-bottom: env(safe-area-inset-bottom, 0px); }
+  .mw-chat-open .mw-chat-btn, .mw-chat-open .back-to-top { display: none; }
+  .mw-chat-open body { overflow: hidden; }
+}
+@media (prefers-reduced-transparency: reduce) { .mw-chat { -webkit-backdrop-filter: none; backdrop-filter: none; background: var(--warm-card); } }
+.mw-chat-mark { object-fit: contain; } /* avatar da Maia no topo do chat */

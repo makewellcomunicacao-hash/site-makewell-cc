@@ -91,7 +91,7 @@ const YT = 'JRrnKGNk-UE';
     <section id={c.ids.philosophy} class="t-warm sec">
       <div class="wrap ch-quote">
         <button type="button" class="ch-video" data-yt={YT} data-vertical data-yt-params={c.testimonial.ytParams || undefined} aria-label={c.testimonial.watch}>
-          <img src={`/images/depo-${YT}.webp`} alt="Paola Massari, Casa Hunter" width="720" height="1280" loading="lazy" />
+          <img src={`/images/depo-${YT}.webp`} alt="Paola Massari, Casa Hunter" width="720" height="900" loading="lazy" />
           <span class="play" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="#080808"><polygon points="8,5 19,12 8,19" /></svg></span>
         </button>
         <div class="ch-quote-text">
@@ -183,7 +183,7 @@ const YT = 'JRrnKGNk-UE';
 
   .ch-quote { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 56px 80px; }
   .ch-video { flex: 0 1 340px; min-width: 0; position: relative; display: block; padding: 0; border: 1px solid var(--line); border-radius: 24px; overflow: hidden; background: var(--card); cursor: pointer; margin-inline: auto; }
-  .ch-video img { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; }
+  .ch-video img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
   .ch-video .play { width: 76px; height: 76px; transition: transform .2s ease; }
   .ch-video:hover .play { transform: scale(1.06); }
   .ch-quote-text { flex: 999 1 480px; min-width: 0; }

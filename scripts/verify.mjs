@@ -59,7 +59,9 @@ const TONE = [
 // trocas aprovadas em arquivos (para mais de uma frente de trabalho registrar sem editar este script):
 // approved-text.json = [[antigo, novo], ...] no texto visível; approved-seo.json = { "br/sobre/index.html": [[antigo, novo], ...] } no <head>
 const readJson = (f, d) => (existsSync(new URL(f, import.meta.url)) ? JSON.parse(readFileSync(new URL(f, import.meta.url), 'utf8')) : d);
-TONE.push(...readJson('./approved-text.json', []));
+// approved-text.json: pares [antigo, novo] valem para o site todo; objetos { "file": "br/x/index.html", "pairs": [...] } só naquela página
+const TEXT_FILE = {};
+for (const e of readJson('./approved-text.json', [])) if (Array.isArray(e)) TONE.push(e); else (TEXT_FILE[e.file] ??= []).push(...e.pairs);
 const SEO_FIX = readJson('./approved-seo.json', {});
 const fixSeo = (key, html) => (SEO_FIX[key] ?? []).reduce((t, [a, b]) => t.split(a).join(b), html);
 const tone = (s) => TONE.reduce((t, [a, b]) => t.split(a).join(b), s);
@@ -78,9 +80,9 @@ function content(html) {
   const start = body.indexOf('</header>'), end = body.search(/<footer[\s>]/);
   return body.slice(start > 0 ? start : 0, end > 0 ? end : undefined);
 }
-function lostSentences(oldHtml, newHtml) {
+function lostSentences(oldHtml, newHtml, key) {
   const have = ' ' + words(visible(newHtml.slice(newHtml.indexOf('<body')))) + ' ';
-  return tone(visible(content(oldHtml))).split(/(?<=[.!?:;])\s+|\n+/).map((s) => s.trim())
+  return (TEXT_FILE[key] ?? []).reduce((t, [a, b]) => t.split(a).join(b), tone(visible(content(oldHtml)))).split(/(?<=[.!?:;])\s+|\n+/).map((s) => s.trim())
     .filter((s) => words(s).split(' ').length >= 3 && !have.includes(' ' + words(s) + ' '));
 }
 
@@ -109,7 +111,7 @@ for (const [site, src] of Object.entries(SOURCES)) {
     if (a === b) same++;
     else if (norm(a) === norm(b)) ws++;
     else {
-      const lost = lostSentences(a, b);
+      const lost = lostSentences(a, b, `${site}/${f}`);
       if (lost.length) { fail++; console.log(`TEXTO  ${site}/${f}: ${lost.length} frase(s) sumiram\n        ${lost.slice(0, 5).map((x) => x.slice(0, 140)).join('\n        ')}`); }
       else console.log(`NOVO   ${site}/${f} (redesenhada: SEO igual, nenhum texto perdido)`);
     }
