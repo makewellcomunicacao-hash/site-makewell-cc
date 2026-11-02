@@ -147,7 +147,7 @@ export default {
       eyebrow: 'Video testimonial',
       quote: '“Makewell managed to embrace everything. They are partners, they are caring, they are very emotionally invested in our cause”',
       watch: 'Watch the testimonial from Paola Massari, Casa Hunter',
-      note: '* Testimonials in the original language (Portuguese)', ytParams: 'cc_load_policy=1&cc_lang_pref=en&hl=en',
+      note: '* Testimonials in the original language (Portuguese)', ytParams: 'cc_load_policy=1&cc_lang_pref=en-US&hl=en',
     },
     philosophy: {
       quote: "We don't sell posts. We build bridges.",

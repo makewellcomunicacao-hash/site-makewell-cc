@@ -23,7 +23,7 @@ export default {
       ],
       [
         "Marketing de método",
-        "Toda decisão tem critério. Cada fase tem entregável e métrica. Se algo não performa, a gente sabe exatamente onde ajustar. E você sabe o porquê. Previsibilidade é o produto."
+        "Toda decisão tem critério. Cada fase tem entregável e métrica. Se algo não performa, a gente sabe exatamente onde ajustar. E você sabe o porquê. Transparência é o produto."
       ]
     ],
     "stepsH2": "As <span class=\"me-gold\">5 etapas</span> do FishWell",
@@ -34,7 +34,7 @@ export default {
         "title": "Diagnóstico",
         "ps": [
           "Antes de propor qualquer solução, a gente escuta. Mapeamos o estágio atual do negócio: quem é o cliente ideal, qual a dor real, como está o funil de vendas hoje, onde está o ralo de receita. Usamos entrevistas com cliente final, análise de concorrência e auditoria de canais existentes.",
-          "O entregável dessa fase é um <strong>documento de diagnóstico</strong> com oportunidades priorizadas por impacto e esforço. Não começamos com \"vamos fazer posts\" — começamos com \"o que precisa mudar pra gerar receita previsível?\"."
+          "O entregável dessa fase é um <strong>documento de diagnóstico</strong> com oportunidades priorizadas por impacto e esforço. Não começamos com \"vamos fazer posts\" — começamos com \"o que precisa mudar pra gerar receita?\"."
         ],
         "meta": [
           [
@@ -167,7 +167,7 @@ export default {
         "desc": "Pós-consulta: e-mail, lembretes, conteúdo de continuidade de tratamento"
       }
     ],
-    "funnelResult": "Resultado em cases reais: <strong>+20x ROI</strong> em endocrinologia, dezenas de leads qualificados por mês e agenda lotada em especialidades de alta complexidade.",
+    "funnelResult": "Resultado em cases reais: <strong>+20x ROI</strong> em cirurgia vascular, dezenas de leads qualificados por mês e agenda lotada em especialidades de alta complexidade.",
     "tlEyebrow": "Cronograma",
     "tlH2": "O que <span class=\"me-gold\">esperar</span> por fase",
     "tlSub": "Marketing sério tem cronograma. Aqui vão as expectativas realistas por janela de tempo, sem promessa mágica de \"resultado em 7 dias\".",
@@ -189,7 +189,7 @@ export default {
       ],
       [
         "Mês 6+",
-        "Previsibilidade",
+        "Maturidade",
         "Ecossistema rodando, marca consolidada, orçamentos escalam com confiança de retorno."
       ]
     ],
@@ -216,7 +216,7 @@ export default {
       ],
       [
         "+20x",
-        "ROI em endocrinologia com o Funil Médico"
+        "ROI em cirurgia vascular, Dra. Thielen"
       ],
       [
         "13 mi",
@@ -250,7 +250,7 @@ export default {
       ],
       [
         "Method-based marketing",
-        "Every decision has a criterion. Each phase has a deliverable and a metric. If something doesn't perform, we know exactly where to adjust. And you know why. Predictability is the product."
+        "Every decision has a criterion. Each phase has a deliverable and a metric. If something doesn't perform, we know exactly where to adjust. And you know why. Transparency is the product."
       ]
     ],
     "stepsH2": "The <span class=\"me-gold\">5 stages</span> of FishWell",
@@ -261,7 +261,7 @@ export default {
         "title": "Diagnosis",
         "ps": [
           "Before proposing any solution, we listen. We map the current stage of the business: who the ideal client is, what the real pain is, how the sales funnel looks today, where the revenue drain is. We use interviews with end clients, competitive analysis and audits of existing channels.",
-          "The deliverable of this phase is a <strong>diagnosis document</strong> with opportunities prioritized by impact and effort. We don't start with \"let's do posts\" — we start with \"what needs to change to generate predictable revenue?\"."
+          "The deliverable of this phase is a <strong>diagnosis document</strong> with opportunities prioritized by impact and effort. We don't start with \"let's do posts\" — we start with \"what needs to change to generate revenue?\"."
         ],
         "meta": [
           [
@@ -394,7 +394,7 @@ export default {
         "desc": "Post-consultation: email, reminders, continuity of treatment content"
       }
     ],
-    "funnelResult": "Results in real cases: <strong>+20x ROI</strong> in endocrinology, dozens of qualified leads per month and full schedule in high-complexity specialties.",
+    "funnelResult": "Results in real cases: <strong>+20x ROI</strong> in vascular surgery, dozens of qualified leads per month and full schedule in high-complexity specialties.",
     "tlEyebrow": "Timeline",
     "tlH2": "What to <span class=\"me-gold\">expect</span> per phase",
     "tlSub": "Serious marketing has a timeline. Here are the realistic expectations per time window, without the magic promise of \"results in 7 days\".",
@@ -416,7 +416,7 @@ export default {
       ],
       [
         "Month 6+",
-        "Predictability",
+        "Maturity",
         "Ecosystem running, established brand, budgets scale with confidence of return."
       ]
     ],
@@ -443,7 +443,7 @@ export default {
       ],
       [
         "+20x",
-        "ROI in endocrinology with the Medical Funnel"
+        "ROI in vascular surgery, Dr. Thielen"
       ],
       [
         "13M",
@@ -477,7 +477,7 @@ export default {
       ],
       [
         "Marketing basado en método",
-        "Cada decisión tiene un criterio. Cada fase tiene un entregable y una métrica. Si algo no rinde, sabemos exactamente dónde ajustar. Y tú sabes por qué. La previsibilidad es el producto."
+        "Cada decisión tiene un criterio. Cada fase tiene un entregable y una métrica. Si algo no rinde, sabemos exactamente dónde ajustar. Y tú sabes por qué. La transparencia es el producto."
       ]
     ],
     "stepsH2": "Las <span class=\"me-gold\">5 etapas</span> de FishWell",
@@ -488,7 +488,7 @@ export default {
         "title": "Diagnóstico",
         "ps": [
           "Antes de proponer cualquier solución, escuchamos. Mapeamos la etapa actual del negocio: quién es el cliente ideal, cuál es el dolor real, cómo está hoy el embudo de ventas, dónde está la fuga de ingresos. Usamos entrevistas con clientes finales, análisis de competencia y auditorías de los canales existentes.",
-          "El entregable de esta fase es un <strong>documento de diagnóstico</strong> con oportunidades priorizadas por impacto y esfuerzo. No empezamos con \"hagamos publicaciones\" — empezamos con \"¿qué necesita cambiar para generar ingresos predecibles?\"."
+          "El entregable de esta fase es un <strong>documento de diagnóstico</strong> con oportunidades priorizadas por impacto y esfuerzo. No empezamos con \"hagamos publicaciones\" — empezamos con \"¿qué necesita cambiar para generar ingresos?\"."
         ],
         "meta": [
           [
@@ -621,7 +621,7 @@ export default {
         "desc": "Post-consulta: email, recordatorios, contenido de continuidad del tratamiento"
       }
     ],
-    "funnelResult": "Resultados en casos reales: <strong>+20x ROI</strong> en endocrinología, decenas de leads calificados por mes y agenda llena en especialidades de alta complejidad.",
+    "funnelResult": "Resultados en casos reales: <strong>+20x ROI</strong> en cirugía vascular, decenas de leads calificados por mes y agenda llena en especialidades de alta complejidad.",
     "tlEyebrow": "Cronograma",
     "tlH2": "Qué <span class=\"me-gold\">esperar</span> en cada fase",
     "tlSub": "El marketing serio tiene un cronograma. Aquí están las expectativas realistas por ventana de tiempo, sin la promesa mágica de \"resultados en 7 días\".",
@@ -643,7 +643,7 @@ export default {
       ],
       [
         "Mes 6+",
-        "Previsibilidad",
+        "Madurez",
         "Ecosistema en marcha, marca establecida, los presupuestos escalan con confianza de retorno."
       ]
     ],
@@ -670,7 +670,7 @@ export default {
       ],
       [
         "+20x",
-        "ROI en endocrinología con el Embudo Médico"
+        "ROI en cirugía vascular, Dra. Thielen"
       ],
       [
         "13 M",
@@ -704,7 +704,7 @@ export default {
       ],
       [
         "Marketing baseado em método",
-        "Cada decisão tem um critério. Cada fase tem uma entrega e uma métrica. Se algo não tiver desempenho, sabemos exatamente onde ajustar. E o cliente sabe porquê. A previsibilidade é o produto."
+        "Cada decisão tem um critério. Cada fase tem uma entrega e uma métrica. Se algo não tiver desempenho, sabemos exatamente onde ajustar. E o cliente sabe porquê. A transparência é o produto."
       ]
     ],
     "stepsH2": "As <span class=\"me-gold\">5 etapas</span> do FishWell",
@@ -715,7 +715,7 @@ export default {
         "title": "Diagnóstico",
         "ps": [
           "Antes de propor qualquer solução, ouvimos. Mapeamos a fase atual do negócio: quem é o cliente ideal, qual é a dor real, como está hoje o funil de vendas, onde está a fuga de receita. Usamos entrevistas com clientes finais, análise competitiva e auditorias dos canais existentes.",
-          "A entrega desta fase é um <strong>documento de diagnóstico</strong> com oportunidades priorizadas por impacto e esforço. Não começamos com \"vamos fazer publicações\" — começamos com \"o que precisa de mudar para gerar receita previsível?\"."
+          "A entrega desta fase é um <strong>documento de diagnóstico</strong> com oportunidades priorizadas por impacto e esforço. Não começamos com \"vamos fazer publicações\" — começamos com \"o que precisa de mudar para gerar receita?\"."
         ],
         "meta": [
           [
@@ -848,7 +848,7 @@ export default {
         "desc": "Pós-consulta: email, lembretes, conteúdo de continuidade do tratamento"
       }
     ],
-    "funnelResult": "Resultados em casos reais: <strong>+20x ROI</strong> em endocrinologia, dezenas de leads qualificados por mês e agenda cheia em especialidades de alta complexidade.",
+    "funnelResult": "Resultados em casos reais: <strong>+20x ROI</strong> em cirurgia vascular, dezenas de leads qualificados por mês e agenda cheia em especialidades de alta complexidade.",
     "tlEyebrow": "Cronograma",
     "tlH2": "O que <span class=\"me-gold\">esperar</span> por fase",
     "tlSub": "Marketing a sério tem cronograma. Aqui estão as expectativas realistas por janela de tempo, sem a promessa mágica de \"resultados em 7 dias\".",
@@ -870,7 +870,7 @@ export default {
       ],
       [
         "Mês 6+",
-        "Previsibilidade",
+        "Maturidade",
         "Ecossistema a funcionar, marca estabelecida, orçamentos a escalar com confiança no retorno."
       ]
     ],
@@ -897,7 +897,7 @@ export default {
       ],
       [
         "+20x",
-        "ROI em endocrinologia com o Funil Médico"
+        "ROI em cirurgia vascular, Dra. Thielen"
       ],
       [
         "13 M",

@@ -106,7 +106,7 @@ const playIcon = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" st
         {c.reels.map((r) => (
           <button type="button" class="reel" data-yt={r.id} data-vertical data-yt-params={c.ytParams || undefined}>
             <span class="thumb">
-              <img src={`https://img.youtube.com/vi/${r.id}/hqdefault.jpg`} alt={r.name} width="480" height="360" loading="lazy" />
+              <img src={`/images/depo-${r.id}.webp`} alt={r.name} width="720" height="1280" loading="lazy" />
               <span class="cs-play" set:html={playIcon}></span>
             </span>
             <span class="cs-q">{r.q}</span>

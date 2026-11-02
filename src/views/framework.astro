@@ -58,7 +58,7 @@ const hunter = (s: string) => s.replace('Casa Hunter', `<a href="${path('casaHun
         {t.flow.map(([label, title]) => <li><span class="fw-flow-dot" aria-hidden="true"></span><span class="fw-flow-label">{label}</span><span class="fw-flow-title">{title}</span></li>)}
       </ol>
       <div class="fw-pillars">
-        {t.pillars.map((p, i) => (
+        {t.pillars.map((p, i) => (<>
           <article class="card fw-pillar">
             <div class="fw-pillar-head">
               <p class="fw-pillar-n" aria-hidden="true">0{i + 1}</p>
@@ -74,15 +74,17 @@ const hunter = (s: string) => s.replace('Casa Hunter', `<a href="${path('casaHun
               </div>
             </div>
           </article>
-        ))}
-      </div>
-      <div class="card fw-criamos">
-        <div>
-          <p class="eyebrow">{t.criamos.badge}</p>
-          <h3 class="h3">{t.criamos.title}</h3>
-          <p>{t.criamos.text}</p>
-        </div>
-        <a class="btn btn-primary" href={path('howWeCreate', lang)}>{t.criamos.btn}</a>
+          {i === 1 && (
+          <div class="card fw-criamos">
+            <div>
+              <p class="eyebrow">{t.criamos.badge}</p>
+              <h3 class="h3">{t.criamos.title}</h3>
+              <p>{t.criamos.text}</p>
+            </div>
+            <a class="btn btn-primary" href={path('howWeCreate', lang)}>{t.criamos.btn}</a>
+          </div>
+          )}
+        </>))}
       </div>
     </div>
   </section>
@@ -233,7 +235,7 @@ const hunter = (s: string) => s.replace('Casa Hunter', `<a href="${path('casaHun
   .fw-pillar-body .prose p { margin: 0 0 18px; font-size: 17px; line-height: 1.7; }
   .fw-apply { border-top: 1px solid var(--line); padding-top: 24px; }
   .card p.fw-apply-text { margin: 10px 0 0; font-size: 19px; line-height: 1.5; font-weight: 600; color: var(--paper); }
-  .fw-criamos { margin-top: 16px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px 48px; border-color: var(--accent); }
+  .fw-criamos { margin-top: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px 48px; border-color: var(--accent); }
   .fw-criamos > div { flex: 1 1 420px; min-width: 0; }
   .fw-criamos .h3 { margin-top: 12px; font-size: clamp(24px, 2.4vw, 30px); }
   .fw-vs-title { max-width: 900px; font-size: clamp(30px, 3.4vw, 48px); line-height: 1.1; }

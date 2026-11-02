@@ -99,28 +99,32 @@ n.queue=[];}(window, document,'script',
 (function () {
   if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   var main = document.getElementById('main-content'); if (!main) return;
-  // páginas com um único <article> (ex.: case) têm as seções dentro dele
-  var root = main.children.length === 1 && main.firstElementChild.tagName === 'ARTICLE' ? main.firstElementChild : main;
-  var secs = root.querySelectorAll(':scope > section, :scope > article');
+  // blocos da página: seções (diretas, dentro do wrapper da home ou do article) e o header do article (sobre, case).
+  // O primeiro é o topo e não espera rolagem (evita atrasar a primeira pintura); páginas legais não têm blocos.
+  var blocks = main.querySelectorAll('section, article > header');
   var targets = [];
-  secs.forEach(function (sec, i) {
-    if (i === 0) return; // o hero (ou a página legal inteira) não espera rolagem: evita atrasar a primeira pintura
-    sec.querySelectorAll('.wrap > *, .grid > *, .card').forEach(function (el) { if (targets.indexOf(el) < 0) targets.push(el); });
+  Array.prototype.forEach.call(blocks, function (sec, i) {
+    if (i === 0) return;
+    sec.querySelectorAll('.wrap > *, .grid > *, .card').forEach(function (el) { if (targets.indexOf(el) < 0 && !blocks[0].contains(el)) targets.push(el); });
   });
   targets.forEach(function (el) {
     var p = el.parentElement, k = p ? Array.prototype.indexOf.call(p.children, el) : 0;
     el.style.setProperty('--rv-d', Math.min(k, 5) * 0.08 + 's');
     el.classList.add('rv');
   });
-  var io = new IntersectionObserver(function (es) {
-    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-  targets.forEach(function (el) { io.observe(el); });
+  // revela tudo que já chegou a 92% da altura da tela, inclusive o que uma rolagem rápida "pulou"
+  // (um IntersectionObserver perde elementos que vão de baixo para cima da tela num único quadro)
+  var pending = targets;
+  function reveal() {
+    var lim = innerHeight * 0.92;
+    pending = pending.filter(function (el) { if (el.getBoundingClientRect().top < lim) { el.classList.add('in'); return false; } return true; });
+  }
 
   // barra de progresso, cabeçalho compacto e "voltar ao topo"
   var bar = document.querySelector('.scroll-progress'), head = document.querySelector('.site-header'), top = document.getElementById('back-to-top'), ticking = false;
   function onScroll() {
     ticking = false;
+    if (pending.length) reveal();
     var y = window.scrollY, h = document.documentElement.scrollHeight - innerHeight;
     if (bar) bar.style.setProperty('--p', h > 0 ? (y / h).toFixed(4) : 0);
     if (head) head.classList.toggle('scrolled', y > 40);
@@ -152,6 +156,103 @@ n.queue=[];}(window, document,'script',
   }, { threshold: 0.6 });
   nums.forEach(function (d) { d.el.__mwNum = d; cio.observe(d.el); });
 })();
+</script>
+<script>
+// Movimento premium (GSAP, empacotado pelo Astro, sem CDN). Assume títulos e fotos que o script acima marcou com .rv.
+// Sem GSAP (erro de rede) ou com prefers-reduced-motion, a página fica como está.
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { SplitText } from 'gsap/SplitText';
+
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+  const main = document.getElementById('main-content')!;
+  const hero = main.querySelector('section, article > header'); // mesmo "bloco do topo" do script acima
+  const take = (el: Element) => el.classList.remove('rv', 'in');
+  const lines = (el: HTMLElement, trigger: boolean) => SplitText.create(el, {
+    // aria 'none': o split é só por linhas, então o texto segue legível; o aria-label automático grudava palavras separadas por <br>
+    type: 'lines', mask: 'lines', linesClass: 'ln', autoSplit: true, aria: 'none',
+    onSplit: (s) => gsap.from(s.lines, { yPercent: 110, duration: 1.1, ease: 'expo.out', stagger: 0.09, delay: trigger ? 0 : 0.1,
+      scrollTrigger: trigger ? { trigger: el, start: 'top 88%', once: true } : undefined }),
+  });
+
+  // títulos: o do topo sobe linha a linha ao abrir; os demais, ao entrar na tela
+  const h1 = hero?.querySelector<HTMLElement>('h1');
+  if (h1) { h1.style.animation = 'none'; lines(h1, false); }
+  main.querySelectorAll<HTMLElement>('h2').forEach((h) => { if (hero?.contains(h)) return; take(h); lines(h, true); });
+
+  // topo: o gráfico de fundo sobe e cresce um pouco ao rolar (o conteúdo desce no bloco do desktop, abaixo)
+  const heroWrap = hero?.querySelector('.wrap');
+  const chart = hero?.querySelector('.hm-chart');
+  if (chart) gsap.to(chart, { yPercent: -8, scale: 1.06, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true } });
+
+  // fotos: revelação por recorte ao entrar e parallax suave dentro do vídeo
+  main.querySelectorAll<HTMLElement>('.photo, .video-poster').forEach((el) => {
+    if (hero?.contains(el)) return;
+    take(el);
+    gsap.fromTo(el, { clipPath: 'inset(12% 8% 12% 8% round 28px)', opacity: 0.4 },
+      { clipPath: 'inset(0% 0% 0% 0% round 28px)', opacity: 1, duration: 1.4, ease: 'expo.out', clearProps: 'clipPath', scrollTrigger: { trigger: el, start: 'top 90%', once: true } });
+  });
+  // o GSAP move estes elementos a cada quadro: a transição de transform do CSS deixaria o movimento "borrachudo"
+  main.querySelectorAll<HTMLElement>('.video-poster img').forEach((img) => {
+    gsap.set(img, { transition: 'none' });
+    gsap.fromTo(img, { yPercent: -6, scale: 1.14 }, { yPercent: 6, scale: 1.14, ease: 'none', scrollTrigger: { trigger: img.parentElement, scrub: true } });
+  });
+  main.querySelectorAll<HTMLElement>('.photo').forEach((img, i) => {
+    // fotos em mosaico (mais de uma no mesmo bloco) ficam alinhadas: parallax só nas fotos soltas
+    if (hero?.contains(img) || img.parentElement!.querySelectorAll(':scope > .photo').length > 1) return;
+    gsap.set(img, { transition: 'none' });
+    gsap.fromTo(img, { y: i % 2 ? 36 : -24 }, { y: i % 2 ? -36 : 24, ease: 'none', scrollTrigger: { trigger: img, scrub: true } });
+  });
+
+  // letreiro de temas: além do movimento contínuo, anda com a rolagem
+  main.querySelectorAll('.hm-ticker ul').forEach((ul) =>
+    gsap.to(ul, { xPercent: -12, ease: 'none', scrollTrigger: { trigger: ul, start: 'top bottom', end: 'bottom top', scrub: 0.5 } }));
+
+  const mm = gsap.matchMedia();
+  // topo: o conteúdo desce mais devagar que a rolagem (profundidade); só no desktop, no celular cortaria as etiquetas
+  mm.add('(min-width: 900px)', () => {
+    if (heroWrap) gsap.to(heroWrap, { yPercent: 14, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true } });
+  });
+  // Método FishWell (home): a seção fica fixa e as etapas correm na horizontal enquanto se rola para baixo
+  mm.add('(min-width: 1100px) and (min-height: 720px)', () => {
+    const sec = main.querySelector<HTMLElement>('.hm-fish'), ol = sec?.querySelector<HTMLElement>('.hm-steps');
+    if (!sec || !ol) return;
+    sec.classList.add('hs'); take(ol); ol.querySelectorAll('li').forEach(take);
+    const dist = () => ol.scrollWidth - ol.clientWidth;
+    gsap.to(ol.children, { x: () => -dist(), ease: 'none', scrollTrigger: {
+      // refreshPriority: calculado antes dos triggers criados acima, que ficam abaixo do espaço extra do pin
+      trigger: sec, pin: true, start: 'top top', end: () => '+=' + dist(), scrub: 0.6, invalidateOnRefresh: true, refreshPriority: 1,
+      onUpdate: (st) => ol.style.setProperty('--hp', st.progress.toFixed(3)) } });
+    return () => sec.classList.remove('hs');
+  });
+  // botões principais e "play" seguem levemente o cursor (só com mouse)
+  mm.add('(hover: hover) and (pointer: fine)', () => {
+    // vidro: o reflexo acompanha o mouse
+    document.querySelectorAll<HTMLElement>('.glass').forEach((g) => g.addEventListener('pointermove', (e) => {
+      const r = g.getBoundingClientRect();
+      g.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+      g.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+    }));
+    document.querySelectorAll<HTMLElement>('.btn-primary, .play').forEach((b) => {
+      const x = gsap.quickTo(b, 'x', { duration: 0.5, ease: 'power3' }), y = gsap.quickTo(b, 'y', { duration: 0.5, ease: 'power3' });
+      b.addEventListener('pointermove', (e) => { const r = b.getBoundingClientRect(); x((e.clientX - r.left - r.width / 2) * 0.25); y((e.clientY - r.top - r.height / 2) * 0.35); });
+      b.addEventListener('pointerleave', () => { x(0); y(0); });
+    });
+  });
+
+  // recalcular as posições restaura a rolagem e cortaria no meio uma rolagem suave em andamento (ex.: link "Ver resultados"):
+  // por isso o recálculo do "load" e das imagens lazy só acontece com a rolagem parada
+  ScrollTrigger.config({ autoRefreshEvents: 'visibilitychange,DOMContentLoaded,resize' });
+  let lastScroll = 0, t = 0;
+  addEventListener('scroll', () => { lastScroll = performance.now(); }, { passive: true });
+  const refreshWhenIdle = () => {
+    clearTimeout(t);
+    t = window.setTimeout(() => (performance.now() - lastScroll < 400 ? refreshWhenIdle() : ScrollTrigger.refresh()), 250);
+  };
+  addEventListener('load', refreshWhenIdle);
+  main.querySelectorAll('img').forEach((img) => { if (!img.complete) img.addEventListener('load', refreshWhenIdle); });
+}
 </script>
 <Fragment set:html={consent} />
 </body>

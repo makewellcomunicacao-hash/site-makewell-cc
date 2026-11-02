@@ -55,7 +55,7 @@ const nn = (i: number) => String(i + 1).padStart(2, '0');
         <h2 class="h2">{c.video.title}</h2>
         <p class="lead">{c.video.sub}</p>
         <button type="button" class="video-poster ab-video" data-yt={YT} data-yt-params={c.video.params || undefined} aria-label={c.video.play}>
-          <img src={`https://img.youtube.com/vi/${YT}/maxresdefault.jpg`} alt="" width="1280" height="720" loading="lazy" decoding="async" />
+          <img src="/images/video-institucional.webp" alt="" width="1920" height="1080" loading="lazy" decoding="async" />
           <span class="play" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="#080808"></path></svg></span>
           <span class="ab-video-label">{c.video.label}</span>
         </button>
@@ -103,7 +103,7 @@ const nn = (i: number) => String(i + 1).padStart(2, '0');
       <div class="wrap">
         <p class="eyebrow">{c.audience.eyebrow}</p>
         <h2 class="h2">{c.audience.title}</h2>
-        <p class="lead">{c.audience.sub}</p>
+        {c.audience.sub && <p class="lead">{c.audience.sub}</p>}
         <div class="grid ab-cards" style="--min: 260px">
           {c.audience.items.map((x, i) => (
             <div class="card ab-seg"><span class="num">{nn(i)}</span><div><h3 class="h3" set:html={x.t} /><p>{x.d}</p></div></div>
@@ -148,7 +148,7 @@ const nn = (i: number) => String(i + 1).padStart(2, '0');
       <div class="wrap">
         <p class="eyebrow">{c.gallery.eyebrow}</p>
         <h2 class="h2">{c.gallery.title}</h2>
-        <div class="grid ab-gal-grid" style="--min: 240px">
+        <div class="ab-gal-grid">
           {photos.map((src, i) => <img class="photo" src={src} alt={c.gallery.alts[i]} width="850" height="670" loading="lazy" decoding="async" />)}
         </div>
       </div>
@@ -192,7 +192,7 @@ const nn = (i: number) => String(i + 1).padStart(2, '0');
   .ab-hero-row { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 40px 64px; margin-top: 36px; }
   .ab-lead { flex: 999 1 520px; min-width: 0; margin: 0; max-width: 640px; }
   .ab-lead strong { color: var(--paper); }
-  .ab-stats { flex: 1 1 420px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); gap: 24px; }
+  .ab-stats { flex: 1 1 420px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
   .ab-stat { border-top: 1px solid var(--line); padding-top: 18px; }
   .ab-stat-n { display: block; font-size: 44px; font-weight: 800; letter-spacing: -.03em; line-height: 1; }
   .ab-stat-l { display: block; margin-top: 10px; font-size: 14px; line-height: 1.4; color: var(--muted); }
@@ -213,7 +213,7 @@ const nn = (i: number) => String(i + 1).padStart(2, '0');
   .ab-video { margin-top: 48px; }
   .ab-video .play { width: 104px; height: 104px; }
   @media (max-width: 600px) { .ab-video .play { width: 64px; height: 64px; } .ab-video .play svg { width: 24px; height: 24px; } .ab-video-label { left: 12px; bottom: 12px; padding: 8px 14px; font-size: 13px; } }
-  .ab-video-label { position: absolute; left: 24px; bottom: 24px; background: rgba(8,8,8,.8); color: var(--paper); padding: 10px 18px; border-radius: 999px; font-size: 14px; font-weight: 600; }
+  .ab-video-label { position: absolute; left: 24px; bottom: 24px; background: rgba(20,18,16,.38); -webkit-backdrop-filter: blur(14px) saturate(170%); backdrop-filter: blur(14px) saturate(170%); box-shadow: inset 0 1px 0 rgba(255,255,255,.22), inset 0 0 0 1px rgba(255,255,255,.08), 0 10px 30px rgba(0,0,0,.3); color: var(--paper); padding: 10px 18px; border-radius: 999px; font-size: 14px; font-weight: 600; }
 
   .ab-num-title { margin: 0; max-width: 760px; font-size: clamp(30px, 3.4vw, 48px); line-height: 1.08; }
   .ab-num-sub { margin: 16px 0 0; font-size: 18px; color: var(--muted); }
@@ -244,7 +244,7 @@ const nn = (i: number) => String(i + 1).padStart(2, '0');
   .ab-quote-side strong { color: var(--ink); }
 
   .ab-cards { margin-top: 56px; }
-  .ab-seg { display: flex; flex-direction: column; gap: clamp(28px, 4vw, 56px); }
+  .ab-seg { display: flex; flex-direction: column; gap: clamp(20px, 3vw, 40px); }
   .ab-seg .h3 { font-size: 24px; }
   .ab-seg p { font-size: 15px; line-height: 1.55; }
   @media (max-width: 600px) { .ab-stats { grid-template-columns: repeat(2, 1fr); } .ab-seg { gap: 20px; } }
@@ -268,7 +268,7 @@ const nn = (i: number) => String(i + 1).padStart(2, '0');
   @media (max-width: 600px) { .ab-prin { gap: 36px; margin-top: 48px; } .ab-pr-n { margin-top: 20px; font-size: 44px; } }
 
   .ab-gal { padding-bottom: 0; }
-  .ab-gal-grid { margin-top: 48px; grid-template-columns: minmax(0, 1.5fr) repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(2, clamp(180px, 19vw, 280px)); gap: 16px; }
+  .ab-gal-grid { display: grid; margin-top: 48px; grid-template-columns: minmax(0, 1.5fr) repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(2, clamp(180px, 19vw, 280px)); gap: 16px; }
   .ab-gal-grid img { width: 100%; height: 100%; aspect-ratio: auto; border-radius: 20px; }
   .ab-gal-grid img:first-child { grid-row: span 2; }
   .ab-gal-grid img:last-child { grid-column: span 2; }

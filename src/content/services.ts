@@ -5,7 +5,7 @@ export default {
     "kicker": "O que fazemos",
     "h1a": "Branding + Tráfego + Vendas:",
     "h1b": "o ecossistema que separa marcas de posts",
-    "lead": "A Makewell não entrega serviços isolados. Cada uma das seis áreas abaixo existe pra alimentar as outras, porque conteúdo sem tráfego é invisível, tráfego sem CRM é desperdício e marca sem método é sorte.",
+    "lead": "Não entregamos serviços isolados. Cada uma das seis áreas abaixo existe pra alimentar as outras, porque conteúdo sem tráfego é invisível, tráfego sem CRM é desperdício e marca sem método é sorte.",
     "whyEyebrow": "Por que integrar importa",
     "whyText": "Quando você contrata uma agência tradicional, cada serviço vira um silo: a agência de branding não fala com a de mídia, que não fala com o time de vendas. Resultado: você paga três fornecedores pra produzir três estratégias que não conversam.",
     "whyStrong": "Na Makewell, tudo acontece sob um mesmo teto, com um mesmo time e uma única estratégia.",
@@ -74,7 +74,7 @@ export default {
           ],
           [
             "Pra quem serve",
-            "Negócios que precisam acelerar geração de leads qualificados e previsibilidade."
+            "Negócios que precisam acelerar geração de leads qualificados."
           ],
           [
             "Entregamos",
@@ -104,7 +104,7 @@ export default {
           ],
           [
             "Resultado esperado",
-            "Taxa de conversão maior e previsibilidade sobre o ciclo de venda."
+            "Taxa de conversão maior e clareza sobre o ciclo de venda."
           ]
         ]
       },
@@ -197,7 +197,7 @@ export default {
     "kicker": "What We Do",
     "h1a": "Branding + Traffic + Sales:",
     "h1b": "the ecosystem that separates brands from posts",
-    "lead": "Makewell doesn't deliver isolated services. Each of the six areas below exists to feed the others, because content without traffic is invisible, traffic without CRM is waste and brand without method is luck.",
+    "lead": "We don't deliver isolated services. Each of the six areas below exists to feed the others, because content without traffic is invisible, traffic without CRM is waste and brand without method is luck.",
     "whyEyebrow": "Why integration matters",
     "whyText": "When you hire a traditional agency, each service becomes a silo: the branding agency doesn't talk to the media agency, which doesn't talk to the sales team. Result: you pay three suppliers to produce three strategies that don't communicate.",
     "whyStrong": "At Makewell, everything happens under one roof, with one team and a single strategy.",
@@ -266,7 +266,7 @@ export default {
           ],
           [
             "Who it serves",
-            "Businesses that need to accelerate qualified lead generation and predictability."
+            "Businesses that need to accelerate qualified lead generation."
           ],
           [
             "We deliver",
@@ -296,7 +296,7 @@ export default {
           ],
           [
             "Expected result",
-            "Higher conversion rate and predictability over the sales cycle."
+            "Higher conversion rate and clarity over the sales cycle."
           ]
         ]
       },
@@ -373,10 +373,10 @@ export default {
       "See cases with real results →"
     ],
     "ctaTitle": "Let's design your ecosystem?",
-    "ctaText": "Schedule a free diagnostic and discover which combination of services makes sense for your moment.",
+    "ctaText": "Schedule a free diagnosis and discover which combination of services makes sense for your moment.",
     "ctaHref": "https://wa.me/5582999103246?text=Hello!%20I%20saw%20the%20Services%20page%20and%20want%20a%20diagnostic.",
     "ctaOnclick": "try{fbq('track','Lead',{content_name:'Services CTA'})}catch(e){}",
-    "ctaBtn": "Schedule diagnostic →",
+    "ctaBtn": "Schedule diagnosis →",
     "heroCta": "Schedule a Free Diagnosis",
     "heroSec": "See the 6 services",
     "heroAlt": "Makewell office wall with framed campaigns created by the agency",
@@ -389,7 +389,7 @@ export default {
     "kicker": "Qué Hacemos",
     "h1a": "Branding + Tráfico + Ventas:",
     "h1b": "el ecosistema que separa marcas de publicaciones",
-    "lead": "Makewell no entrega servicios aislados. Cada una de las seis áreas a continuación existe para alimentar a las demás, porque contenido sin tráfico es invisible, tráfico sin CRM es desperdicio y marca sin método es suerte.",
+    "lead": "No entregamos servicios aislados. Cada una de las seis áreas a continuación existe para alimentar a las demás, porque contenido sin tráfico es invisible, tráfico sin CRM es desperdicio y marca sin método es suerte.",
     "whyEyebrow": "Por qué importa la integración",
     "whyText": "Cuando contratas una agencia tradicional, cada servicio se convierte en un silo: la agencia de branding no habla con la agencia de medios, que no habla con el equipo de ventas. Resultado: pagas a tres proveedores para producir tres estrategias que no se comunican.",
     "whyStrong": "En Makewell, todo sucede bajo un mismo techo, con un solo equipo y una sola estrategia.",
@@ -458,7 +458,7 @@ export default {
           ],
           [
             "A quién sirve",
-            "Negocios que necesitan acelerar la generación de leads calificados y previsibilidad."
+            "Negocios que necesitan acelerar la generación de leads calificados."
           ],
           [
             "Entregamos",
@@ -488,7 +488,7 @@ export default {
           ],
           [
             "Resultado esperado",
-            "Mayor tasa de conversión y previsibilidad en el ciclo de ventas."
+            "Mayor tasa de conversión y claridad sobre el ciclo de ventas."
           ]
         ]
       },
@@ -581,7 +581,7 @@ export default {
     "kicker": "O Que Fazemos",
     "h1a": "Branding + Tráfego + Vendas:",
     "h1b": "o ecossistema que separa marcas de posts",
-    "lead": "A Makewell não entrega serviços isolados. Cada uma das seis áreas abaixo existe para alimentar as outras, porque conteúdo sem tráfego é invisível, tráfego sem CRM é desperdício e marca sem método é sorte.",
+    "lead": "Não entregamos serviços isolados. Cada uma das seis áreas abaixo existe para alimentar as outras, porque conteúdo sem tráfego é invisível, tráfego sem CRM é desperdício e marca sem método é sorte.",
     "whyEyebrow": "Por que a integração importa",
     "whyText": "Quando contrata uma agência tradicional, cada serviço vira um silo: a agência de branding não fala com a agência de mídia, que não fala com a equipa comercial. Resultado: paga três fornecedores para produzir três estratégias que não comunicam entre si.",
     "whyStrong": "Na Makewell, tudo acontece debaixo do mesmo teto, com uma única equipa e uma única estratégia.",
@@ -650,7 +650,7 @@ export default {
           ],
           [
             "Para quem",
-            "Negócios que precisam acelerar a geração de leads qualificados com previsibilidade."
+            "Negócios que precisam acelerar a geração de leads qualificados."
           ],
           [
             "O que entregamos",
@@ -680,7 +680,7 @@ export default {
           ],
           [
             "Resultado esperado",
-            "Taxa de conversão mais alta e previsibilidade sobre o ciclo de vendas."
+            "Taxa de conversão mais alta e clareza sobre o ciclo de vendas."
           ]
         ]
       },

@@ -22,6 +22,25 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
 
   <!-- HERO -->
   <section class="t-warm hm-hero" aria-label={c.heroAria}>
+    <!-- fundo: gráfico de resultado (barras crescendo, ROI subindo, CAC caindo); decorativo -->
+    <div class="hm-chart" aria-hidden="true">
+      <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" focusable="false">
+        <defs>
+          <linearGradient id="hmUp" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#F5A623"/><stop offset="1" stop-color="#F07820"/></linearGradient>
+          <linearGradient id="hmArea" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#F07820" stop-opacity=".28"/><stop offset="1" stop-color="#F07820" stop-opacity="0"/></linearGradient>
+          <linearGradient id="hmBar" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#F5A623" stop-opacity=".4"/><stop offset="1" stop-color="#F07820" stop-opacity="0"/></linearGradient>
+          <filter id="hmGlow" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="6"/></filter>
+        </defs>
+        <g class="grid"><line x1="0" x2="1440" y1="100" y2="100"/><line x1="0" x2="1440" y1="200" y2="200"/><line x1="0" x2="1440" y1="300" y2="300"/><line x1="0" x2="1440" y1="400" y2="400"/><line x1="0" x2="1440" y1="500" y2="500"/><line x1="0" x2="1440" y1="600" y2="600"/><line x1="0" x2="1440" y1="700" y2="700"/><line x1="0" x2="1440" y1="800" y2="800"/></g>
+        <g class="bars" fill="url(#hmBar)"><rect class="bar" style="--i:0" x="24" y="840" width="26" height="60" rx="3"/><rect class="bar" style="--i:1" x="84" y="799" width="26" height="101" rx="3"/><rect class="bar" style="--i:2" x="144" y="828" width="26" height="72" rx="3"/><rect class="bar" style="--i:3" x="204" y="767" width="26" height="133" rx="3"/><rect class="bar" style="--i:4" x="264" y="786" width="26" height="114" rx="3"/><rect class="bar" style="--i:5" x="324" y="805" width="26" height="95" rx="3"/><rect class="bar" style="--i:6" x="384" y="724" width="26" height="176" rx="3"/><rect class="bar" style="--i:7" x="444" y="743" width="26" height="157" rx="3"/><rect class="bar" style="--i:8" x="504" y="692" width="26" height="208" rx="3"/><rect class="bar" style="--i:9" x="564" y="741" width="26" height="159" rx="3"/><rect class="bar" style="--i:10" x="624" y="650" width="26" height="250" rx="3"/><rect class="bar" style="--i:11" x="684" y="679" width="26" height="221" rx="3"/><rect class="bar" style="--i:12" x="744" y="618" width="26" height="282" rx="3"/><rect class="bar" style="--i:13" x="804" y="667" width="26" height="233" rx="3"/><rect class="bar" style="--i:14" x="864" y="566" width="26" height="334" rx="3"/><rect class="bar" style="--i:15" x="924" y="605" width="26" height="295" rx="3"/><rect class="bar" style="--i:16" x="984" y="554" width="26" height="346" rx="3"/><rect class="bar" style="--i:17" x="1044" y="503" width="26" height="397" rx="3"/><rect class="bar" style="--i:18" x="1104" y="542" width="26" height="358" rx="3"/><rect class="bar" style="--i:19" x="1164" y="461" width="26" height="439" rx="3"/><rect class="bar" style="--i:20" x="1224" y="480" width="26" height="420" rx="3"/><rect class="bar" style="--i:21" x="1284" y="409" width="26" height="491" rx="3"/><rect class="bar" style="--i:22" x="1344" y="418" width="26" height="482" rx="3"/><rect class="bar" style="--i:23" x="1404" y="357" width="26" height="543" rx="3"/></g>
+        <path class="area" d="M0,900 L0,780 L120,752 L240,716 L360,730 L480,664 L600,634 L720,572 L840,590 L960,486 L1080,446 L1200,350 L1320,270 L1440,170 L1440,900 Z" fill="url(#hmArea)"/>
+        <polyline class="ln dn" points="0,330 160,356 320,348 480,402 640,420 800,470 960,490 1120,548 1280,566 1440,618" pathLength="1"/>
+        <polyline class="ln up glow" points="0,780 120,752 240,716 360,730 480,664 600,634 720,572 840,590 960,486 1080,446 1200,350 1320,270 1440,170" pathLength="1" filter="url(#hmGlow)"/>
+        <polyline class="ln up" points="0,780 120,752 240,716 360,730 480,664 600,634 720,572 840,590 960,486 1080,446 1200,350 1320,270 1440,170" pathLength="1"/>
+        <polyline class="comet" points="0,780 120,752 240,716 360,730 480,664 600,634 720,572 840,590 960,486 1080,446 1200,350 1320,270 1440,170" pathLength="1"/>
+        <g class="dots"><circle class="dot" style="--i:4" cx="480" cy="664" r="5"/><circle class="dot" style="--i:6" cx="720" cy="572" r="5"/><circle class="dot" style="--i:8" cx="960" cy="486" r="5"/><circle class="dot" style="--i:10" cx="1200" cy="350" r="5"/><circle class="dot" style="--i:12" cx="1440" cy="170" r="5"/></g>
+      </svg>
+    </div>
     <div class="wrap">
       <div class="hm-hero-grid">
         <div class="hm-hero-main">
@@ -33,7 +52,7 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
             <a class="btn btn-ghost" href={c.cta2.href} set:html={c.cta2.text} />
           </div>
         </div>
-        <div class="hm-hero-side" role="region" aria-label={c.cardAria}>
+        <div class="hm-hero-side glass" role="region" aria-label={c.cardAria}>
           <p class="hm-card-head"><span set:html={c.cardTitle} /><span set:html={c.cardSub} /></p>
           {c.stats.map((s: any) => (
             <div class="hm-stat"><span class="hm-stat-n" set:html={s.v} /><span class="hm-stat-l" set:html={s.l} /></div>
@@ -71,7 +90,7 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
       <h2 class="h2" id="inst-title" set:html={c.video.title} />
       <p class="lead" set:html={c.video.sub} />
       <button type="button" class="video-poster hm-poster" data-yt="A28k_Yxm9cc" data-yt-params={c.ui.yt || undefined} aria-label={c.video.play}>
-        <img src="/images/escritorio-sala.webp" alt={c.ui.poster} loading="lazy" />
+        <img src="/images/video-institucional.webp" alt="" width="1920" height="1080" loading="lazy" />
         <span class="play" set:html={play} />
         <span class="hm-poster-label" set:html={c.video.duration} />
       </button>
@@ -83,14 +102,15 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
     </div>
   </section>
 
-  <!-- PARA QUEM (BR) / POR QUE A MAKEWELL (intl) -->
-  <section class="t-light sec hm-seg" id={c.seg.id} aria-labelledby="seg-title">
+  <!-- PARA QUEM (5 nichos) e POR QUE A MAKEWELL (3 diferenciais): as mesmas duas seções nas 4 línguas -->
+  {[c.seg, c.why].map((s: any, k: number) => (
+  <section class:list={['t-light sec hm-seg', k && 'line-top hm-why']} id={s.id} aria-labelledby={`${s.id}-title`}>
     <div class="wrap">
-      <p class="eyebrow" set:html={c.seg.tag} />
-      <h2 class="h2" id="seg-title" set:html={c.seg.h2} />
-      <p class="lead" set:html={c.seg.sub} />
-      <div class:list={['grid hm-seg-grid', c.seg.items.length > 3 ? 'hm-5' : 'hm-3']}>
-        {c.seg.items.map((it: any, i: number) => (
+      <p class="eyebrow" set:html={s.tag} />
+      <h2 class="h2" id={`${s.id}-title`} set:html={s.h2} />
+      <p class="lead" set:html={s.sub} />
+      <div class:list={['grid hm-seg-grid', s.items.length > 3 ? 'hm-5' : 'hm-3']}>
+        {s.items.map((it: any, i: number) => (
           <article class="card">
             {it.num ? <span class="hm-num" set:html={it.num} /> : <span class="hm-num" aria-hidden="true">{pad(i)}</span>}
             <h3 class="h3" set:html={it.title} />
@@ -100,6 +120,7 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
       </div>
     </div>
   </section>
+  ))}
 
   <!-- MÉTODO FISHWELL -->
   <section class="t-warm2 sec hm-fish" id={c.method.id} aria-labelledby="method-title">
@@ -158,8 +179,9 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
 
   <!-- CASES -->
   <section class="t-warm sec hm-cases" aria-label={c.cases.hl.tag}>
+    <div class="hm-cases-bg" aria-hidden="true"><span></span><span></span><span></span></div>
     <div class="wrap">
-      <a class="hm-hl" href={path('casaHunter', lang)} aria-label={c.cases.hl.aria}>
+      <a class="hm-hl glass" href={path('casaHunter', lang)} aria-label={c.cases.hl.aria}>
         <div class="hm-hl-text">
           <p class="hm-badges"><span class="hm-badge hm-badge-accent" set:html={c.cases.hl.tag} /><span class="hm-badge" set:html={c.cases.hl.reach} /></p>
           <h3 class="hm-hl-title" set:html={c.cases.hl.title} />
@@ -173,7 +195,7 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
 
       <div class="grid hm-case-grid">
         {c.cases.cards.map((k: any) => (
-          <article class="card hm-case">
+          <article class="card glass hm-case">
             <p class="hm-badges"><span class="hm-badge" set:html={k.sector} /><span class="hm-badge hm-badge-accent" set:html={k.roi} /></p>
             <h3 class="h3 hm-case-title" set:html={k.title} />
             <p class="hm-case-sub" set:html={k.sub} />
@@ -208,7 +230,7 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
         {c.depo.reels.map((r: any) => (
           <button type="button" class="reel" data-yt={r.id} data-vertical>
             <span class="thumb">
-              <img src={`https://img.youtube.com/vi/${r.id}/hqdefault.jpg`} alt={r.name} width="480" height="360" loading="lazy" />
+              <img src={`/images/depo-${r.id}.webp`} alt={r.name} width="720" height="1280" loading="lazy" />
               <span class="play sm" set:html={playSm} />
             </span>
             <span class="hm-reel-q" set:html={r.quote} />
@@ -290,10 +312,44 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
   .hm .h1, .hm .h2, .hm .h3, .hm-hl-title, .hm-next-text, .hm-manifesto p { text-wrap: balance; }
 
   /* hero */
-  .hm-hero { padding-block: clamp(72px, 9vw, 112px) clamp(56px, 7vw, 88px); }
+  /* fundo do hero: gráfico de resultado. Forte à direita (atrás dos números), some à esquerda (título) */
+  .hm-chart { position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .9; }
+  .hm-chart svg { width: 100%; height: 100%; display: block; }
+  .hm-chart::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--warm) 0%, rgba(14,13,11,.92) 30%, rgba(14,13,11,.55) 58%, rgba(14,13,11,.15) 100%), linear-gradient(0deg, rgba(14,13,11,.35) 0%, rgba(14,13,11,0) 18%); }
+  .hm-chart .grid line { stroke: rgba(244,241,236,.05); stroke-width: 1; }
+  .hm-chart .bar { transform-box: fill-box; transform-origin: 50% 100%; animation: hm-bar 1.6s cubic-bezier(.2,.7,.2,1) calc(var(--i) * 45ms + .2s) both, hm-breathe calc(5s + var(--i) * 170ms) ease-in-out calc(2.6s + var(--i) * 90ms) infinite; }
+  .hm-chart .ln { fill: none; stroke-linejoin: round; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; animation: hm-draw 2.4s .5s cubic-bezier(.6,0,.2,1) forwards; }
+  .hm-chart .up { stroke: url(#hmUp); stroke-width: 3.5; }
+  .hm-chart .glow { stroke-width: 10; opacity: .55; }
+  .hm-chart .dn { stroke: rgba(244,241,236,.32); stroke-width: 2; stroke-dasharray: 1; animation-duration: 3s; animation-delay: .9s; }
+  .hm-chart .area { opacity: 0; animation: hm-fade 1.6s 1.6s ease forwards; }
+  .hm-chart .comet { fill: none; stroke: #FFE2B8; stroke-width: 4; stroke-linecap: round; stroke-dasharray: .05 .95; stroke-dashoffset: .05; opacity: 0; filter: drop-shadow(0 0 6px #F5A623); animation: hm-fade .6s 2.9s forwards, hm-comet 5.5s 2.9s linear infinite; }
+  .hm-chart .dot { fill: #F5A623; stroke: var(--warm); stroke-width: 3; opacity: 0; animation: hm-fade .5s ease forwards; animation-delay: calc(1.2s + var(--i) * .16s); }
+  @keyframes hm-bar { from { transform: scaleY(0); } }
+  /* depois de crescer, as barras "respiram" (cada uma no seu tempo) para o gráfico seguir vivo */
+  @keyframes hm-breathe { 50% { transform: scaleY(.93); } }
+  @keyframes hm-draw { to { stroke-dashoffset: 0; } }
+  @keyframes hm-fade { to { opacity: 1; } }
+  @keyframes hm-comet { to { stroke-dashoffset: -.95; } }
+  @media (max-width: 900px) { .hm-chart { opacity: .55; } .hm-chart::after { background: linear-gradient(0deg, var(--warm) 0%, rgba(14,13,11,.7) 40%, rgba(14,13,11,.35) 100%); } }
+  @media (prefers-reduced-motion: reduce) {
+    .hm-chart .bar, .hm-chart .ln, .hm-chart .area, .hm-chart .dot { animation: none; opacity: 1; stroke-dashoffset: 0; }
+    .hm-chart .comet { display: none; }
+  }
+  .hm-hero { padding-block: clamp(72px, 9vw, 112px) calc(clamp(56px, 7vw, 88px) + 57px); } /* +57px: a faixa de temas sobe sobre o fim do hero */
   .hm-hero-grid { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 48px 64px; }
   .hm-hero-main { flex: 999 1 560px; min-width: 0; }
-  .hm-hero-side { flex: 1 1 340px; min-width: 0; }
+  .hm-hero-side { flex: 1 1 400px; min-width: 0; max-width: 560px; border-radius: 28px; padding: 26px clamp(22px, 2.4vw, 32px) 6px; }
+  /* cases em vidro: brilhos laranja/âmbar que se movem devagar e uma grade fina passam desfocados por trás dos cards */
+  .hm-cases { position: relative; isolation: isolate; overflow: hidden; }
+  .hm-cases-bg { position: absolute; inset: 0; z-index: -1; pointer-events: none; background-image: linear-gradient(rgba(244,241,236,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(244,241,236,.04) 1px, transparent 1px); background-size: 96px 96px; }
+  .hm-cases-bg span { position: absolute; border-radius: 50%; filter: blur(60px); opacity: .55; animation: hm-orb 22s ease-in-out infinite alternate; }
+  .hm-cases-bg span:nth-child(1) { width: 46vw; height: 46vw; left: -8vw; top: 4%; background: radial-gradient(closest-side, #F07820, rgba(240,120,32,0)); }
+  .hm-cases-bg span:nth-child(2) { width: 38vw; height: 38vw; right: -6vw; top: 30%; background: radial-gradient(closest-side, #F5A623, rgba(245,166,35,0)); animation-duration: 28s; animation-direction: alternate-reverse; }
+  .hm-cases-bg span:nth-child(3) { width: 30vw; height: 30vw; left: 30%; bottom: -10%; background: radial-gradient(closest-side, #B4530F, rgba(180,83,15,0)); animation-duration: 34s; }
+  @keyframes hm-orb { 50% { transform: translate(8vw, 6vh) scale(1.15); } 100% { transform: translate(-4vw, 10vh) scale(.92); } }
+  @media (max-width: 900px), (prefers-reduced-motion: reduce) { .hm-cases-bg span { animation: none; } }
+  .hm-cases .card.glass { background: rgba(23,21,18,.42); }
   .hm-pill { color: var(--muted); }
   @media (max-width: 520px) { .hm-pill { font-size: 12px; letter-spacing: .1em; } }
   .hm-h1 { font-size: clamp(40px, 5.6vw, 84px); }
@@ -309,7 +365,9 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
   .hm-chips li { border: 1px solid var(--line); border-radius: 999px; padding: 10px 18px; font-size: 14px; color: #D8D3CB; }
   @media (max-width: 520px) { .hm-chips { gap: 8px; margin-top: 48px; } .hm-chips li { padding: 8px 13px; font-size: 13px; } }
   /* faixa de temas: uma linha só. Desktop: fonte menor e centralizada; abaixo de 1100px vira letreiro contínuo */
-  .hm-ticker { border-block: 1px solid var(--line); overflow: hidden; }
+  .hm-ticker { overflow: hidden; }
+  /* faixa de temas em vidro, flutuando sobre a base do gráfico do hero (as barras passam desfocadas por trás) */
+  .hm-ticker { position: relative; z-index: 2; margin-top: -57px; background: rgba(20,18,16,.32); -webkit-backdrop-filter: blur(14px) saturate(170%); backdrop-filter: blur(14px) saturate(170%); border-block: 1px solid rgba(255,255,255,.09); box-shadow: inset 0 1px 0 rgba(255,255,255,.08); }
   .hm-track { display: flex; justify-content: center; }
   .hm-ticker ul { display: flex; flex-wrap: nowrap; margin: 0; padding: 18px 0; list-style: none; white-space: nowrap; }
 
@@ -333,9 +391,9 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
 
   /* vídeo */
   .hm-poster { margin-top: 48px; }
-  .hm-poster img { filter: brightness(.7); }
+  .hm-poster img { filter: none; }
   .hm-poster .play { width: 104px; height: 104px; }
-  .hm-poster-label { position: absolute; left: 24px; bottom: 24px; background: rgba(8,8,8,.8); color: var(--paper); padding: 10px 18px; border-radius: 999px; font-size: 14px; font-weight: 600; }
+  .hm-poster-label { position: absolute; left: 24px; bottom: 24px; background: rgba(20,18,16,.38); -webkit-backdrop-filter: blur(14px) saturate(170%); backdrop-filter: blur(14px) saturate(170%); box-shadow: inset 0 1px 0 rgba(255,255,255,.22), inset 0 0 0 1px rgba(255,255,255,.08), 0 10px 30px rgba(0,0,0,.3); color: var(--paper); padding: 10px 18px; border-radius: 999px; font-size: 14px; font-weight: 600; }
   .hm-photos { margin-top: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .hm-photos .photo { aspect-ratio: 4/3; height: 100%; border-radius: var(--r-card); }
   @media (max-width: 639px) {
@@ -362,7 +420,7 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
     .hm-seg-grid.hm-5 > * { grid-column: span 2; }
     .hm-seg-grid.hm-5 > :nth-child(n+4) { grid-column: span 3; }
   }
-  @media (min-width: 1100px) { .hm-seg-grid.hm-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); } .hm-seg-grid.hm-5 > * { grid-column: auto; } }
+  @media (min-width: 1100px) { .hm-seg-grid.hm-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); } .hm-seg-grid.hm-5 > :nth-child(n) { grid-column: auto; } }
   .hm-seg-grid.hm-3 { grid-template-columns: minmax(0, 1fr); }
   @media (min-width: 900px) { .hm-seg-grid.hm-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
   .hm-num { font-size: 14px; font-weight: 700; color: var(--accent); margin-bottom: 18px; }
@@ -387,6 +445,17 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
   .hm-steps h3 { margin-top: 18px; }
   .hm-steps p { margin: 8px 0 0; font-size: 15px; line-height: 1.55; color: var(--muted); }
   .hm-fish .link-arrow { margin-top: 48px; }
+  /* desktop com GSAP (.hs): seção fixa na tela, etapas correm na horizontal sobre uma linha que se preenche */
+  .hm-fish.hs { min-height: 100vh; display: flex; align-items: center; padding-block: 112px 56px; overflow: clip; }
+  .hm-fish.hs > .wrap { width: 100%; }
+  .hm-fish.hs .hm-steps { position: relative; display: flex; gap: 40px; margin-top: 56px; padding-top: 1px; }
+  .hm-fish.hs .hm-steps::before, .hm-fish.hs .hm-steps::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: var(--line); }
+  .hm-fish.hs .hm-steps::after { height: 2px; top: -1px; background: var(--accent); transform: scaleX(var(--hp, 0)); transform-origin: 0 50%; }
+  .hm-fish.hs .hm-steps li { flex: 0 0 min(460px, 34vw); border-top: 0; }
+  .hm-fish.hs .hm-step-n { font-size: clamp(96px, 9vw, 140px); margin-top: 32px; }
+  .hm-fish.hs .hm-steps h3 { font-size: 28px; margin-top: 24px; }
+  .hm-fish.hs .hm-steps p { font-size: 17px; max-width: 36ch; }
+  .hm-fish.hs .link-arrow { margin-top: 32px; }
 
   /* serviços */
   .hm-svc-grid { --min: 300px; margin-top: 56px; }
@@ -407,7 +476,7 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
   .hm-number p + p { margin-top: 14px; font-size: 16px; line-height: 1.5; color: var(--muted); max-width: 260px; }
 
   /* cases */
-  .hm-hl { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-end; justify-content: space-between; padding: clamp(28px, 5vw, 64px); border-radius: var(--r-big); background: linear-gradient(135deg, #2A1606 0%, var(--warm-card) 60%); border: 1px solid #4A2A10; text-decoration: none; transition: border-color .2s; }
+  .hm-hl { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-end; justify-content: space-between; padding: clamp(28px, 5vw, 64px); border-radius: var(--r-big); background: linear-gradient(135deg, rgba(42,22,6,.6) 0%, rgba(23,21,18,.3) 60%); text-decoration: none; }
   .hm-hl:hover { border-color: var(--accent); }
   .hm-hl-text { flex: 999 1 480px; min-width: 0; }
   .hm-hl-title { margin: 24px 0 0; font-size: clamp(30px, 3.6vw, 52px); line-height: 1.06; letter-spacing: -.03em; font-weight: 800; }

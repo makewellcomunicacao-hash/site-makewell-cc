@@ -8,7 +8,7 @@ export default {
     "heroP": "Estratégia, performance e inteligência para transformar marcas em movimento. <strong>Fale com a gente</strong> e comece agora o novo momento da sua marca.",
     "cta1": {
       "href": "https://wa.me/5582999103246?text=Olá!%20Quero%20agendar%20um%20diagnóstico%20gratuito%20com%20a%20Makewell.",
-      "text": "Agendar Diagnóstico Gratuito",
+      "text": "Agendar diagnóstico gratuito",
       "lead": "Agendar Diagnóstico Gratuito"
     },
     "cta2": {
@@ -104,6 +104,29 @@ export default {
         }
       ]
     },
+    "why": {
+      "id": "why",
+      "tag": "NOSSOS DIFERENCIAIS",
+      "h2": "Por que a <span class=\"gold\">Makewell</span>?",
+      "sub": "Não somos uma agência típica. Temos método próprio, entregamos resultados mensuráveis e tratamos cada cliente como único.",
+      "items": [
+        {
+          "num": "01",
+          "title": "O Método <span>FishWell</span>",
+          "desc": "Um processo de 5 etapas desenvolvido ao longo de 9 anos que transforma investimento em receita mensurável, sem achismo."
+        },
+        {
+          "num": "02",
+          "title": "Resultados <span>mensuráveis</span>",
+          "desc": "Cada ação tem um número, uma meta e um responsável. Você acompanha o ROI em tempo real, sem relatório de vaidade, só o que importa: crescimento."
+        },
+        {
+          "num": "03",
+          "title": "Atendimento <span>exclusivo</span>",
+          "desc": "Cada cliente tem estratégia exclusiva, time dedicado e acesso direto à liderança. Sem terceirização, sem modelo pronto, só estratégia feita pra você."
+        }
+      ]
+    },
     "video": {
       "id": "institucional",
       "label": "Institucional",
@@ -114,9 +137,9 @@ export default {
     },
     "method": {
       "id": "metodo",
-      "tag": "NOSSO DIFERENCIAL",
+      "tag": "NOSSO MÉTODO",
       "h2": "Método <span class=\"gold\">FishWell</span>",
-      "sub": "Como transformamos investimento em receita mensurável e previsível",
+      "sub": "Como transformamos investimento em receita mensurável",
       "steps": [
         {
           "n": "01",
@@ -188,7 +211,7 @@ export default {
         {
           "tag": "Vendas + CRM",
           "title": "Venda mais com o mesmo volume de leads",
-          "desc": "Treinamento em SPIN Selling, processo comercial estruturado e CRM integrado para um funil de vendas eficiente e previsível.",
+          "desc": "Treinamento em SPIN Selling, processo comercial estruturado e CRM integrado para um funil de vendas eficiente e mensurável.",
           "listAria": "Entregáveis de Vendas",
           "li": [
             "Treinamento SPIN Selling",
@@ -257,7 +280,7 @@ export default {
           "sector": "Jurídico",
           "roi": "ROI +26x",
           "title": "Dr. Felipe Vilela",
-          "sub": "Posicionamento + Social + Tráfego",
+          "sub": "Posicionamento + Social + Tráfego + CRM",
           "metricsAria": "Métricas do case jurídico",
           "metrics": [
             {
@@ -304,7 +327,7 @@ export default {
       "nextText": "A próxima história de sucesso <em>pode ser a sua.</em>",
       "cta": {
         "href": "https://wa.me/5582999103246?text=Olá!%20Quero%20resultados%20como%20os%20cases%20da%20Makewell.",
-        "text": "Quero Resultados Assim",
+        "text": "Quero resultados assim",
         "lead": "Quero Resultados Assim"
       },
       "link": "Ver todos os cases →"
@@ -476,12 +499,12 @@ export default {
       ]
     },
     "cta": {
-      "pill": "Diagnóstico Gratuito",
+      "pill": "Diagnóstico gratuito",
       "h2": "Pronto para o marketing<br>que gera receita?",
       "p": "Empresas que investem em estratégia crescem mais rápido. Descubra o potencial real do seu negócio.",
       "btn1": {
         "href": "https://wa.me/5582999103246?text=Olá!%20Quero%20agendar%20um%20diagnóstico%20gratuito%20com%20a%20Makewell.",
-        "text": "Agendar Diagnóstico",
+        "text": "Agendar diagnóstico",
         "lead": "Agendar Diagnóstico"
       },
       "btn2": {
@@ -508,7 +531,7 @@ export default {
     "heroP": "Strategy, performance and intelligence to turn brands into movements. <strong>Talk to us</strong> and start the new chapter of your brand now.",
     "cta1": {
       "href": "https://wa.me/5582999103246?text=Hello!%20I%27d%20like%20to%20schedule%20a%20free%20diagnostic%20with%20Makewell.",
-      "text": "Schedule a Free Diagnostic",
+      "text": "Schedule a Free Diagnosis",
       "lead": "Schedule Free Diagnostic"
     },
     "cta2": {
@@ -577,6 +600,34 @@ export default {
       }
     ],
     "seg": {
+      "id": "publico",
+      "tag": "WHO IT'S FOR",
+      "h2": "Who <span class=\"gold\">Makewell is</span> for",
+      "sub": "For those who have already invested in marketing and haven't seen it show up in revenue.",
+      "items": [
+        {
+          "title": "Law Firms",
+          "desc": "Firms with legal excellence that depend on referrals, can't stand out in a saturated market and watch smaller competitors grow faster. We turn reputation into digital authority that attracts the right client and accelerates growth."
+        },
+        {
+          "title": "Medical Clinics",
+          "desc": "We build the brand of clinics that invest in quality but lose patients to competitors with less structure and more digital presence. Reputation that's hard to control, dependence on referrals and difficulty communicating with confidence and authority."
+        },
+        {
+          "title": "Builders &amp; Developers",
+          "desc": "High investment in the project, a short window to sell and a sales office full of staff, but no digital demand generated before launch. We build the strategy that warms up the audience, positions the product and delivers qualified leads before the keys are even ready."
+        },
+        {
+          "title": "Industries",
+          "desc": "Industrial companies competing in markets where a good product is no longer enough of a differentiator. Long sales cycles, hard-to-reach decision makers and many competitors. We build the digital presence that turns technical expertise into authority and shortens the path to the sale."
+        },
+        {
+          "title": "Hospitals &amp; Nonprofits",
+          "desc": "Hospitals and social organizations with credibility and a strong cause that still can't translate it into a digital presence that drives results and real impact. We work with those who make a difference and haven't yet been found by those who are looking."
+        }
+      ]
+    },
+    "why": {
       "id": "why",
       "tag": "OUR DIFFERENTIALS",
       "h2": "Why <span class=\"gold\">Makewell</span>?",
@@ -585,7 +636,7 @@ export default {
         {
           "num": "01",
           "title": "The <span>FishWell</span> Method",
-          "desc": "A 5-step process developed over 9 years that transforms investment into measurable and predictable revenue — not guesswork."
+          "desc": "A 5-step process developed over 9 years that transforms investment into measurable revenue — not guesswork."
         },
         {
           "num": "02",
@@ -609,9 +660,9 @@ export default {
     },
     "method": {
       "id": "method",
-      "tag": "OUR DIFFERENTIALS",
+      "tag": "OUR METHOD",
       "h2": "The <span class=\"gold\">FishWell</span> Method",
-      "sub": "How we transform investment into measurable and predictable revenue",
+      "sub": "How we transform investment into measurable revenue",
       "steps": [
         {
           "n": "01",
@@ -683,7 +734,7 @@ export default {
         {
           "tag": "Sales + CRM",
           "title": "Sell more with the same volume of leads",
-          "desc": "SPIN Selling training, structured sales process and integrated CRM for an efficient and predictable sales funnel.",
+          "desc": "SPIN Selling training, structured sales process and integrated CRM for an efficient and measurable sales funnel.",
           "listAria": "Sales deliverables",
           "li": [
             "SPIN Selling training",
@@ -752,7 +803,7 @@ export default {
           "sector": "Legal",
           "roi": "ROI +26x",
           "title": "Dr. Felipe Vilela",
-          "sub": "Positioning + Social + Traffic",
+          "sub": "Positioning + Social + Traffic + CRM",
           "metricsAria": "Legal case metrics",
           "metrics": [
             {
@@ -971,12 +1022,12 @@ export default {
       ]
     },
     "cta": {
-      "pill": "Free Diagnostic",
+      "pill": "Free Diagnosis",
       "h2": "Ready for marketing<br>that drives revenue?",
       "p": "Businesses that invest in strategy grow faster. Discover the real potential of your business.",
       "btn1": {
         "href": "https://wa.me/5582999103246?text=Hello!%20I%27d%20like%20to%20schedule%20a%20free%20diagnostic%20with%20Makewell.",
-        "text": "Schedule a Diagnostic",
+        "text": "Schedule a Diagnosis",
         "lead": "Schedule Diagnostic"
       },
       "btn2": {
@@ -987,7 +1038,7 @@ export default {
     },
     "ui": {
       "close": "Close",
-      "yt": "cc_load_policy=1&cc_lang_pref=en&hl=en",
+      "yt": "cc_load_policy=1&cc_lang_pref=en-US&hl=en",
       "photos": [
         "Makewell studio with a yellow armchair and studio light",
         "Framed campaigns created by Makewell",
@@ -1003,7 +1054,7 @@ export default {
     "heroP": "Somos una agencia brasileña que entiende los dos lados: tu negocio y el mercado donde estás ahora. <strong>Habla con nosotros</strong> y empieza el nuevo capítulo de tu marca.",
     "cta1": {
       "href": "https://wa.me/5582999103246?text=Hola!%20Quiero%20agendar%20un%20diagn%C3%B3stico%20gratuito%20con%20Makewell.",
-      "text": "Agendar Diagnóstico Gratuito",
+      "text": "Agendar diagnóstico gratuito",
       "lead": "Schedule Free Diagnostic"
     },
     "cta2": {
@@ -1072,6 +1123,34 @@ export default {
       }
     ],
     "seg": {
+      "id": "publico",
+      "tag": "PARA QUIÉN",
+      "h2": "Para quién es <span class=\"gold\">Makewell</span>",
+      "sub": "Para quienes ya invirtieron en marketing y no vieron el resultado reflejado en los ingresos.",
+      "items": [
+        {
+          "title": "Despachos de Abogados",
+          "desc": "Despachos con excelencia jurídica que dependen de recomendaciones, no logran diferenciarse en un mercado saturado y ven a competidores más pequeños crecer más rápido. Transformamos la reputación en autoridad digital que atrae al cliente correcto y acelera el crecimiento."
+        },
+        {
+          "title": "Clínicas Médicas",
+          "desc": "Construimos la marca de clínicas que invierten en calidad, pero pierden pacientes frente a competidores con menos estructura y más presencia digital. Reputación difícil de controlar, dependencia de recomendaciones y dificultad para comunicarse con seguridad y autoridad."
+        },
+        {
+          "title": "Constructoras &amp; Promotoras",
+          "desc": "Alta inversión en el proyecto, poco tiempo para vender y una sala de ventas llena de personal, pero sin demanda digital generada antes del lanzamiento. Construimos la estrategia que calienta al público, posiciona el producto y entrega leads calificados incluso antes de que las llaves estén listas."
+        },
+        {
+          "title": "Industrias",
+          "desc": "Industrias que compiten en mercados donde un buen producto ya no es diferencial suficiente. Ciclo de venta largo, decisores difíciles de alcanzar y muchos competidores. Construimos la presencia digital que transforma la competencia técnica en autoridad y acorta el camino hasta la venta."
+        },
+        {
+          "title": "Hospitales &amp; Tercer Sector",
+          "desc": "Hospitales y organizaciones sociales con credibilidad y una causa fuerte, pero que aún no logran traducirlo en una presencia digital que genere resultados e impacto real. Trabajamos con quienes marcan la diferencia y aún no han sido encontrados por quienes buscan."
+        }
+      ]
+    },
+    "why": {
       "id": "why",
       "tag": "NUESTROS DIFERENCIALES",
       "h2": "¿Por qué <span class=\"gold\">Makewell</span>?",
@@ -1080,7 +1159,7 @@ export default {
         {
           "num": "01",
           "title": "El Método <span>FishWell</span>",
-          "desc": "Un proceso de 5 pasos, desarrollado a lo largo de 9 años, que transforma inversión en ingresos medibles y predecibles — no en conjeturas."
+          "desc": "Un proceso de 5 pasos, desarrollado a lo largo de 9 años, que transforma inversión en ingresos medibles — no en conjeturas."
         },
         {
           "num": "02",
@@ -1104,9 +1183,9 @@ export default {
     },
     "method": {
       "id": "method",
-      "tag": "NUESTROS DIFERENCIALES",
+      "tag": "NUESTRO MÉTODO",
       "h2": "El Método <span class=\"gold\">FishWell</span>",
-      "sub": "Cómo transformamos inversión en ingresos medibles y predecibles",
+      "sub": "Cómo transformamos inversión en ingresos medibles",
       "steps": [
         {
           "n": "01",
@@ -1178,7 +1257,7 @@ export default {
         {
           "tag": "Ventas + CRM",
           "title": "Vende más con el mismo volumen de leads",
-          "desc": "Capacitación en SPIN Selling, proceso de ventas estructurado y CRM integrado para un embudo de ventas eficiente y predecible.",
+          "desc": "Capacitación en SPIN Selling, proceso de ventas estructurado y CRM integrado para un embudo de ventas eficiente y medible.",
           "listAria": "Entregables de Ventas",
           "li": [
             "Capacitación en SPIN Selling",
@@ -1247,7 +1326,7 @@ export default {
           "sector": "Legal",
           "roi": "ROI +26x",
           "title": "Dr. Felipe Vilela",
-          "sub": "Posicionamiento + Redes + Tráfico",
+          "sub": "Posicionamiento + Redes + Tráfico + CRM",
           "metricsAria": "Métricas del caso legal",
           "metrics": [
             {
@@ -1294,7 +1373,7 @@ export default {
       "nextText": "La próxima historia de éxito <em>podría ser la tuya.</em>",
       "cta": {
         "href": "https://wa.me/5582999103246?text=Hola!%20Quiero%20resultados%20como%20los%20casos%20de%20Makewell.",
-        "text": "Quiero Resultados Así",
+        "text": "Quiero resultados así",
         "lead": "I Want Results Like These"
       },
       "link": "Ver todos los casos →"
@@ -1466,12 +1545,12 @@ export default {
       ]
     },
     "cta": {
-      "pill": "Diagnóstico Gratuito",
+      "pill": "Diagnóstico gratuito",
       "h2": "¿Listo para un marketing<br>que genere ingresos?",
       "p": "Los negocios que invierten en estrategia crecen más rápido. Descubre el potencial real de tu negocio.",
       "btn1": {
         "href": "https://wa.me/5582999103246?text=Hola!%20Quiero%20agendar%20un%20diagn%C3%B3stico%20gratuito%20con%20Makewell.",
-        "text": "Agendar Diagnóstico",
+        "text": "Agendar diagnóstico",
         "lead": "Schedule Diagnostic"
       },
       "btn2": {
@@ -1498,7 +1577,7 @@ export default {
     "heroP": "Somos uma agência brasileira que entende os dois lados: o seu negócio e o mercado onde está agora. <strong>Fale connosco</strong> e comece o novo capítulo da sua marca.",
     "cta1": {
       "href": "https://wa.me/5582999103246?text=Ol%C3%A1!%20Quero%20agendar%20um%20diagn%C3%B3stico%20gratuito%20com%20a%20Makewell.",
-      "text": "Agendar Diagnóstico Gratuito",
+      "text": "Agendar diagnóstico gratuito",
       "lead": "Schedule Free Diagnostic"
     },
     "cta2": {
@@ -1567,6 +1646,34 @@ export default {
       }
     ],
     "seg": {
+      "id": "publico",
+      "tag": "PARA QUEM",
+      "h2": "Para quem é a <span class=\"gold\">Makewell</span>",
+      "sub": "Para quem já investiu em marketing e não viu o resultado refletido na faturação.",
+      "items": [
+        {
+          "title": "Escritórios de Advogados",
+          "desc": "Escritórios com excelência jurídica que dependem de recomendações, não se conseguem diferenciar num mercado saturado e veem concorrentes mais pequenos a crescer mais depressa. Transformamos reputação em autoridade digital que atrai o cliente certo e acelera o crescimento."
+        },
+        {
+          "title": "Clínicas Médicas",
+          "desc": "Construímos a marca de clínicas que investem em qualidade, mas perdem pacientes para concorrentes com menos estrutura e mais presença digital. Reputação difícil de controlar, dependência de recomendações e dificuldade em comunicar com segurança e autoridade."
+        },
+        {
+          "title": "Construtoras &amp; Promotoras",
+          "desc": "Investimento elevado no empreendimento, prazo curto para vender e um espaço de vendas cheio de equipa, mas sem procura digital gerada antes do lançamento. Construímos a estratégia que aquece o público, posiciona o produto e entrega leads qualificados antes mesmo de as chaves estarem prontas."
+        },
+        {
+          "title": "Indústrias",
+          "desc": "Indústrias que competem em mercados onde um bom produto já não é diferencial suficiente. Ciclo de venda longo, decisores difíceis de alcançar e muitos concorrentes. Construímos a presença digital que transforma competência técnica em autoridade e encurta o caminho até à venda."
+        },
+        {
+          "title": "Hospitais &amp; Terceiro Setor",
+          "desc": "Hospitais e organizações sociais com credibilidade e uma causa forte, mas que ainda não conseguem traduzir isso numa presença digital que gere resultados e impacto real. Trabalhamos com quem faz a diferença e ainda não foi encontrado por quem procura."
+        }
+      ]
+    },
+    "why": {
       "id": "why",
       "tag": "OS NOSSOS DIFERENCIAIS",
       "h2": "Porquê a <span class=\"gold\">Makewell</span>?",
@@ -1575,7 +1682,7 @@ export default {
         {
           "num": "01",
           "title": "O Método <span>FishWell</span>",
-          "desc": "Um processo de 5 etapas desenvolvido ao longo de 9 anos que transforma investimento em faturação mensurável e previsível — nada de suposições."
+          "desc": "Um processo de 5 etapas desenvolvido ao longo de 9 anos que transforma investimento em faturação mensurável — nada de suposições."
         },
         {
           "num": "02",
@@ -1599,9 +1706,9 @@ export default {
     },
     "method": {
       "id": "method",
-      "tag": "OS NOSSOS DIFERENCIAIS",
+      "tag": "O NOSSO MÉTODO",
       "h2": "O Método <span class=\"gold\">FishWell</span>",
-      "sub": "Como transformamos investimento em faturação mensurável e previsível",
+      "sub": "Como transformamos investimento em faturação mensurável",
       "steps": [
         {
           "n": "01",
@@ -1673,7 +1780,7 @@ export default {
         {
           "tag": "Vendas + CRM",
           "title": "Venda mais com o mesmo volume de leads",
-          "desc": "Formação em SPIN Selling, processo de vendas estruturado e CRM integrado para um funil de vendas eficiente e previsível.",
+          "desc": "Formação em SPIN Selling, processo de vendas estruturado e CRM integrado para um funil de vendas eficiente e mensurável.",
           "listAria": "Entregáveis de Vendas",
           "li": [
             "Formação em SPIN Selling",
@@ -1742,7 +1849,7 @@ export default {
           "sector": "Jurídico",
           "roi": "ROI +26x",
           "title": "Dr. Felipe Vilela",
-          "sub": "Posicionamento + Social + Tráfego",
+          "sub": "Posicionamento + Social + Tráfego + CRM",
           "metricsAria": "Métricas do case Jurídico",
           "metrics": [
             {
@@ -1789,7 +1896,7 @@ export default {
       "nextText": "A próxima história de sucesso <em>pode ser a sua.</em>",
       "cta": {
         "href": "https://wa.me/5582999103246?text=Ol%C3%A1!%20Quero%20resultados%20como%20os%20cases%20da%20Makewell.",
-        "text": "Quero Resultados Assim",
+        "text": "Quero resultados assim",
         "lead": "I Want Results Like These"
       },
       "link": "Ver todos os cases →"
@@ -1961,12 +2068,12 @@ export default {
       ]
     },
     "cta": {
-      "pill": "Diagnóstico Gratuito",
+      "pill": "Diagnóstico gratuito",
       "h2": "Pronto para um marketing<br>que gera faturação?",
       "p": "Negócios que investem em estratégia crescem mais rápido. Descubra o verdadeiro potencial do seu negócio.",
       "btn1": {
         "href": "https://wa.me/5582999103246?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20gratuito%20com%20a%20Makewell.",
-        "text": "Agendar Diagnóstico",
+        "text": "Agendar diagnóstico",
         "lead": "Schedule Diagnostic"
       },
       "btn2": {

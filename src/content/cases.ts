@@ -157,7 +157,7 @@ export default {
     revEyebrow: 'Real results',
     revTitle: 'What our clients say about Makewell',
     revNote: '* Testimonials in the original language (Portuguese)',
-    ytParams: 'cc_load_policy=1&cc_lang_pref=en&hl=en',
+    ytParams: 'cc_load_policy=1&cc_lang_pref=en-US&hl=en',
     reels: reels([
       ['"Makewell managed to embrace everything. They are partners, they are caring, they are very emotionally invested in our cause"', 'Marketing · Casa Hunter'],
       ['"I am very shy about exposure, and they were always excellent and caring with me"', 'Endocrinology | Metabology'],

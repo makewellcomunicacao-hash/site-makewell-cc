@@ -7,7 +7,12 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { homedir } from 'node:os';
 
-const SOURCES = { br: join(homedir(), 'Downloads/site-makewell-cc'), agency: join(homedir(), 'Downloads/makewell-agency') };
+// base de comparação: o site estático anterior à migração (branch legacy e tag de backup do .agency)
+const SOURCES = {
+  br: { repo: join(homedir(), 'Downloads/site-makewell-cc'), ref: 'legacy' },
+  agency: { repo: join(homedir(), 'Downloads/makewell-agency'), ref: 'backup-pre-astro-2026-11-01' },
+};
+const git = (src, ...args) => execFileSync('git', ['-C', src.repo, ...args], { encoding: 'utf8', maxBuffer: 64 << 20 });
 // arquivos do repositório que não são site (deixam de ser publicados de propósito)
 const NOT_SITE = /^(AGENTS\.md|CLAUDE\.md|generate_og\.py|\.gitignore|\.claude\/.*)$/;
 const SEO_ONLY = process.argv.includes('--seo-only');
@@ -15,6 +20,43 @@ const SEO_ONLY = process.argv.includes('--seo-only');
 const INTENTIONAL = {
   'agency/index.html': 'raiz do .agency vai direto para /en/ (antes: dois saltos via makewell.com.br/en/)',
 };
+// ajuste de tom aprovado em 02/11/2026 (sem promessa de "previsível", sem "não é pra todo mundo", "nós" no lugar de "A Makewell"):
+// aplicado ao texto antigo antes de comparar, para o verificador continuar provando que nada mais sumiu
+const TONE = [
+  ['receita mensurável e previsível', 'receita mensurável'], ['faturação mensurável e previsível', 'faturação mensurável'],
+  ['measurable and predictable revenue', 'measurable revenue'], ['ingresos medibles y predecibles', 'ingresos medibles'],
+  ['eficiente e previsível', 'eficiente e mensurável'], ['efficient and predictable', 'efficient and measurable'], ['eficiente y predecible', 'eficiente y medible'],
+  ['crescimento previsível', 'crescimento consistente'], ['predictable growth', 'consistent growth'], ['crecimiento predecible', 'crecimiento consistente'],
+  ['receita previsível?', 'receita?'], ['predictable revenue?', 'revenue?'], ['ingresos predecibles?', 'ingresos?'],
+  ['A Makewell existe pra resolver', 'Existimos pra resolver'], ['Makewell exists to close', 'We exist to close'],
+  ['Makewell existe para cerrar', 'Existimos para cerrar'], ['A Makewell existe para fechar', 'Existimos para fechar'],
+  ['O que a Makewell faz', 'O que nós fazemos'], ['What Makewell does', 'What we do'], ['Lo que hace Makewell', 'Lo que hacemos'], ['Implanta um', 'Implantamos um'],
+  ['A Makewell não é pra todo mundo, e faz parte da nossa proposta ser clara sobre isso.', ''],
+  ['Makewell isn’t for everyone, and being clear about that is part of our proposition.', ''], ["Makewell isn't for everyone, and being clear about that is part of our proposition.", ''],
+  ['Makewell no es para todos, y ser claros sobre eso es parte de nuestra propuesta.', ''], ['A Makewell não é para todos, e ser claros sobre isso faz parte da nossa proposta.', ''],
+  ['motor de receita previsível', 'motor de receita'], ['predictable revenue engine', 'revenue engine'], ['motor de ingresos predecibles', 'motor de ingresos'],
+  ['Aquisição previsível', 'Aquisição consistente'], ['Predictable acquisition', 'Consistent acquisition'], ['Adquisición predecible', 'Adquisición constante'],
+  ['CAC previsível', 'CAC sob controle'], ['predictable CAC', 'controlled CAC'], ['CAC predecible', 'CAC controlado'],
+  ['A previsibilidade é o produto', 'A transparência é o produto'], ['Previsibilidade é o produto', 'Transparência é o produto'],
+  ['Predictability is the product', 'Transparency is the product'], ['La previsibilidad es el producto', 'La transparencia es el producto'],
+  ['Previsibilidade', 'Maturidade'], ['Predictability', 'Maturity'], ['Previsibilidad', 'Madurez'],
+  ['gerar receita previsível', 'gerar receita'], ['generate predictable revenue', 'generate revenue'], ['generar ingresos predecibles', 'generar ingresos'],
+  ['A Makewell não entrega serviços isolados', 'Não entregamos serviços isolados'], ["Makewell doesn't deliver isolated services", "We don't deliver isolated services"],
+  ['Makewell doesn’t deliver isolated services', 'We don’t deliver isolated services'], ['Makewell no entrega servicios aislados', 'No entregamos servicios aislados'],
+  ['leads qualificados e previsibilidade', 'leads qualificados'], ['leads qualificados com previsibilidade', 'leads qualificados'],
+  ['lead generation and predictability', 'lead generation'], ['leads calificados y previsibilidad', 'leads calificados'],
+  ['e previsibilidade sobre o ciclo', 'e clareza sobre o ciclo'], ['and predictability over the sales cycle', 'and clarity over the sales cycle'],
+  ['y previsibilidad en el ciclo de ventas', 'y claridad sobre el ciclo de ventas'],
+  // padrão de CTA em inglês: "Schedule a Diagnosis" (02/11/2026); os nomes dos eventos Lead não mudam
+  ['Schedule a Free Diagnostic', 'Schedule a Free Diagnosis'], ['Schedule Free Diagnostic', 'Schedule a Free Diagnosis'],
+  ['Schedule a Diagnostic', 'Schedule a Diagnosis'], ['Schedule Diagnostic', 'Schedule a Diagnosis'], ['Schedule diagnostic', 'Schedule diagnosis'],
+  ['Schedule a strategic diagnostic', 'Schedule a strategic diagnosis'],
+  // +20x é o case da Dra. Thielen (cirurgia vascular), como em Home e Cases; o Método dizia endocrinologia (corrigido em 02/11/2026)
+  ['ROI em endocrinologia com o Funil Médico', 'ROI em cirurgia vascular, Dra. Thielen'], ['ROI in endocrinology with the Medical Funnel', 'ROI in vascular surgery, Dr. Thielen'],
+  ['ROI en endocrinología con el Embudo Médico', 'ROI en cirugía vascular, Dra. Thielen'], ['em endocrinologia, dezenas', 'em cirurgia vascular, dezenas'],
+  ['in endocrinology, dozens', 'in vascular surgery, dozens'], ['en endocrinología, decenas', 'en cirugía vascular, decenas'], ['Schedule a free diagnostic and', 'Schedule a free diagnosis and'], ['FREE DIAGNOSTIC', 'FREE DIAGNOSIS'], ['Free Diagnostic', 'Free Diagnosis'],
+];
+const tone = (s) => TONE.reduce((t, [a, b]) => t.split(a).join(b), s);
 
 const SEO_RE = /<title>[\s\S]*?<\/title>|<meta\s[^>]*(?:name|property|http-equiv)="(?:description|keywords|robots|refresh|geo\.[^"]+|og:[^"]+|twitter:[^"]+)"[^>]*>|<link\s[^>]*rel="(?:canonical|alternate)"[^>]*>|<script type="application\/ld\+json">[\s\S]*?<\/script>|<html[^>]*>/g;
 const norm = (s) => s.replace(/\s+/g, ' ').trim();
@@ -32,19 +74,19 @@ function content(html) {
 }
 function lostSentences(oldHtml, newHtml) {
   const have = ' ' + words(visible(newHtml.slice(newHtml.indexOf('<body')))) + ' ';
-  return visible(content(oldHtml)).split(/(?<=[.!?:;])\s+|\n+/).map((s) => s.trim())
+  return tone(visible(content(oldHtml))).split(/(?<=[.!?:;])\s+|\n+/).map((s) => s.trim())
     .filter((s) => words(s).split(' ').length >= 3 && !have.includes(' ' + words(s) + ' '));
 }
 
 let fail = 0;
 for (const [site, src] of Object.entries(SOURCES)) {
-  const files = execFileSync('git', ['-C', src, 'ls-files'], { encoding: 'utf8' }).split('\n').filter((f) => f && !NOT_SITE.test(f));
+  const files = git(src, 'ls-tree', '-r', '--name-only', src.ref).split('\n').filter((f) => f && !NOT_SITE.test(f));
   let missing = 0, same = 0, ws = 0, ogChanged = 0;
   for (const f of files) {
     const out = join(process.env.DIST ?? 'dist', site, f);
     if (!existsSync(out)) { console.log(`FALTA  ${site}/${f}`); missing++; fail++; continue; }
     if (!f.endsWith('.html')) continue;
-    const a = readFileSync(join(src, f), 'utf8'), b = readFileSync(out, 'utf8');
+    const a = git(src, 'show', `${src.ref}:${f}`), b = readFileSync(out, 'utf8');
     // a troca da og-image (imagem de compartilhamento) por página é intencional; o resto do SEO tem de ser idêntico
     const OG = /^<meta (?:property="og:image"|name="twitter:image") content=/;
     const all_a = seo(a), all_b = seo(b);
