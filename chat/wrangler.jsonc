@@ -24,6 +24,8 @@
   ],
   "vars": {
     // pela kie.ai, como no MakeWorks; "claude-opus-5-5" e "claude-sonnet-5-5" também funcionam
+    // "anthropic" = API direta (precisa de ANTHROPIC_API_KEY no Secrets Store); "kie" = kie.ai
+    "PROVIDER": "kie",
     "MODEL": "claude-haiku-5-5",
     "DAILY_CAP_USD": "8",
     "WHATSAPP": "5582999103246",

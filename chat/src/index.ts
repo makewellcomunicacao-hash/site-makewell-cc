@@ -12,6 +12,8 @@ import { panel, purge, saveLead, type LeadEnv } from './leads';
 type Limiter = { limit(o: { key: string }): Promise<{ success: boolean }> };
 export interface Env extends LeadEnv {
   KIE_API_KEY: { get(): Promise<string> }; // Secrets Store da conta
+  ANTHROPIC_API_KEY?: { get(): Promise<string> }; // API direta da Anthropic (PROVIDER="anthropic")
+  PROVIDER: string; // "anthropic" (direto, rápido) ou "kie" (kie.ai)
   RL: Limiter;
   RL_GLOBAL: Limiter;
   MODEL: string;
@@ -37,7 +39,7 @@ const PRICE: Record<string, { input: number; output: number }> = {
   'grok-4-7': { input: 0.8, output: 2.4 },
   'claude-opus-5-5': { input: 1.6, output: 8 },
   'claude-sonnet-5-5': { input: 0.8, output: 4 },
-  'claude-haiku-5-5': { input: 0.06, output: 0.3 },
+  'claude-haiku-5-5': { input: 0.1, output: 0.5 }, // preço da Anthropic (prompts até 100 mil tokens)
   'gemini-3-8-flash': { input: 0.15, output: 0.6 }, // aproximado; conferir na tabela da kie.ai
 };
 const MARK = '[[WHATSAPP]]';
@@ -92,21 +94,33 @@ async function addSpend(env: Env, usd: number) {
     .bind(today(), usd).run().catch((e) => console.error('[maia] spend', String(e)));
 }
 
-// Uma chamada ao modelo pela kie.ai, sempre em streaming (SSE): o texto chega aos pedaços em onDelta, para o site mostrar
-// a resposta enquanto ela é escrita. MODEL escolhe o formato: "grok-*" (Responses), "claude-*" (mensagens da Anthropic)
-// ou "gemini-*" (streamGenerateContent)
+// Uma chamada ao modelo, sempre em streaming (SSE): o texto chega aos pedaços em onDelta, para o site mostrar a resposta
+// enquanto ela é escrita. PROVIDER="anthropic" chama a API da Anthropic direto (a kie.ai segurava 7-10 s antes do primeiro
+// byte); PROVIDER="kie" passa pela kie.ai, e lá MODEL escolhe o formato: "grok-*" (Responses), "claude-*" (mensagens) ou
+// "gemini-*" (streamGenerateContent)
 async function ask(env: Env, system: string, messages: Msg[], onDelta?: (d: string) => void): Promise<Reply> {
   const t0 = Date.now(); let tFirst = 0;
-  const key = await env.KIE_API_KEY.get();
-  const m = env.MODEL, kind = m.startsWith('claude') ? 'claude' : m.startsWith('gemini') ? 'gemini' : 'grok';
-  const [url, body] = kind === 'claude'
+  const direct = env.PROVIDER === 'anthropic';
+  const key = await (direct ? env.ANTHROPIC_API_KEY! : env.KIE_API_KEY).get();
+  const m = env.MODEL, kind = direct || m.startsWith('claude') ? 'claude' : m.startsWith('gemini') ? 'gemini' : 'grok';
+  // na Anthropic, o roteiro fixo vai num bloco com cache (igual em toda conversa) e o contexto da conversa noutro;
+  // esforço baixo e sem raciocínio prévio: é chat, e o que conta é a primeira palavra chegar rápido
+  const sys = direct && system.startsWith(SYSTEM)
+    ? [{ type: 'text', text: SYSTEM, cache_control: { type: 'ephemeral' } }, { type: 'text', text: system.slice(SYSTEM.length).trim() || '-' }]
+    : system;
+  const [url, body] = direct
+    ? ['https://api.anthropic.com/v1/messages', { model: m, max_tokens: 1500, stream: true, system: sys, messages, thinking: { type: 'disabled' }, output_config: { effort: 'low' } }]
+    : kind === 'claude'
     ? ['https://api.kie.ai/claude/v1/messages', { model: m, max_tokens: 1500, stream: true, system, messages }]
     : kind === 'gemini'
       ? [`https://api.kie.ai/gemini/v1/models/${m}:streamGenerateContent`, { stream: true, systemInstruction: { parts: [{ text: system }] },
           contents: messages.map((x) => ({ role: x.role === 'assistant' ? 'model' : 'user', parts: [{ text: x.content }] })),
           generationConfig: { maxOutputTokens: 1500, thinkingConfig: { thinkingLevel: 'low' } } }]
       : ['https://api.kie.ai/grok/v1/responses', { model: m, stream: true, reasoning: { effort: 'low' }, max_output_tokens: 1500, input: [{ role: 'system', content: system }, ...messages] }];
-  const r = await fetch(url, { method: 'POST', headers: { authorization: `Bearer ${key}`, 'content-type': 'application/json' }, body: JSON.stringify(body), signal: AbortSignal.timeout(40_000) })
+  const headers: Record<string, string> = direct
+    ? { 'x-api-key': key, 'anthropic-version': '2026-10-21', 'content-type': 'application/json' }
+    : { authorization: `Bearer ${key}`, 'content-type': 'application/json' };
+  const r = await fetch(url, { method: 'POST', headers, body: JSON.stringify(body), signal: AbortSignal.timeout(40_000) })
     .catch((e) => (console.error('[maia] fetch', String(e)), null));
   const tHead = Date.now() - t0;
   // erro da kie.ai vem como JSON (às vezes com HTTP 200 e "code"), não como SSE
@@ -123,7 +137,11 @@ async function ask(env: Env, system: string, messages: Msg[], onDelta?: (d: stri
     } else if (kind === 'claude') {
       if (o.type === 'content_block_delta' && o.delta?.type === 'text_delta') d = o.delta.text ?? '';
       if (o.type === 'message_start') { const u = o.message?.usage ?? {}; inTok = (u.input_tokens ?? 0) + (u.cache_read_input_tokens ?? 0) * 0.1 + (u.cache_creation_input_tokens ?? 0) * 1.25; }
-      if (o.type === 'message_delta') outTok = o.usage?.output_tokens ?? outTok;
+      if (o.type === 'message_delta') {
+        outTok = o.usage?.output_tokens ?? outTok;
+        // recusa do modelo: vira erro (o site mostra o aviso e o botão do WhatsApp)
+        if (o.delta?.stop_reason === 'refusal') err = `recusa: ${JSON.stringify(o.delta.stop_details ?? '').slice(0, 200)}`;
+      }
     } else {
       for (const part of o.candidates?.[0]?.content?.parts ?? []) if (!part.thought) d += part.text ?? '';
       if (o.usageMetadata) { inTok = o.usageMetadata.promptTokenCount ?? 0; outTok = (o.usageMetadata.candidatesTokenCount ?? 0) + (o.usageMetadata.thoughtsTokenCount ?? 0); }
@@ -145,7 +163,7 @@ async function ask(env: Env, system: string, messages: Msg[], onDelta?: (d: stri
     }
   } catch (e) { err ||= String(e); }
   console.log('[maia] tempo', m, 'cabeçalho', tHead, 'ms, 1º texto', tFirst, 'ms, fim', Date.now() - t0, 'ms');
-  if (err && !text) return { ok: false, error: err };
+  if (err && (!text || err.startsWith('recusa'))) return { ok: false, error: err };
   if (!text.trim()) return { ok: false, error: 'resposta vazia' };
   // sem o evento de uso no fim do streaming, estima pelo tamanho (~3,5 caracteres por token): nunca registra custo zero,
   // senão o teto diário de gasto deixaria de proteger
