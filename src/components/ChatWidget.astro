@@ -6,10 +6,10 @@ import { path, type Lang } from '../lib/site';
 interface Props { lang: Lang; wa: string }
 const { lang, wa } = Astro.props;
 const T: Record<Lang, Record<string, string>> = {
-  br: { teaser: 'Oi! Sou a Maia. Posso te ajudar a ver o que faz sentido para o seu negócio?', open: 'Conversar com a Makewell', title: 'Maia · Makewell', close: 'Fechar conversa', greet: 'Oi! Sou a Maia, assistente de IA da Makewell. Me conta rapidinho: qual é o seu negócio e o que você quer melhorar no marketing hoje?', notice: 'Você está conversando com uma IA. A conversa fica guardada por 90 dias e, se você seguir para o WhatsApp, um resumo vai para o nosso time.', privacy: 'Política de privacidade', ph: 'Escreva sua mensagem…', send: 'Enviar', wa: 'Prefiro falar no WhatsApp', cta: 'Continuar no WhatsApp', typing: 'Digitando…', error: 'Não consegui responder agora. Fale com o time pelo WhatsApp, por favor.' },
-  en: { teaser: "Hi! I'm Maia. Can I help you see what makes sense for your business?", open: 'Chat with Makewell', title: 'Maia · Makewell', close: 'Close chat', greet: "Hi! I'm Maia, Makewell's AI assistant. Tell me a bit about your business: what would you like to improve in your marketing right now?", notice: "You're chatting with an AI. The conversation is kept for 90 days, and if you continue on WhatsApp, a summary goes to our team.", privacy: 'Privacy policy', ph: 'Type your message…', send: 'Send', wa: "I'd rather use WhatsApp", cta: 'Continue on WhatsApp', typing: 'Typing…', error: "I couldn't reply just now. Please reach the team on WhatsApp." },
-  es: { teaser: '¡Hola! Soy Maia. ¿Te ayudo a ver qué tiene sentido para tu negocio?', open: 'Conversar con Makewell', title: 'Maia · Makewell', close: 'Cerrar conversación', greet: '¡Hola! Soy Maia, la asistente de IA de Makewell. Cuéntame: ¿cuál es tu negocio y qué te gustaría mejorar en tu marketing hoy?', notice: 'Estás conversando con una IA. La conversación se guarda durante 90 días y, si sigues por WhatsApp, un resumen llega a nuestro equipo.', privacy: 'Política de privacidad', ph: 'Escribe tu mensaje…', send: 'Enviar', wa: 'Prefiero hablar por WhatsApp', cta: 'Continuar en WhatsApp', typing: 'Escribiendo…', error: 'No pude responder ahora. Habla con el equipo por WhatsApp, por favor.' },
-  pt: { teaser: 'Olá! Sou a Maia. Posso ajudá-lo a perceber o que faz sentido para o seu negócio?', open: 'Conversar com a Makewell', title: 'Maia · Makewell', close: 'Fechar conversa', greet: 'Olá! Sou a Maia, assistente de IA da Makewell. Conte-me: qual é o seu negócio e o que gostaria de melhorar no seu marketing?', notice: 'Está a conversar com uma IA. A conversa fica guardada durante 90 dias e, se seguir para o WhatsApp, um resumo vai para a nossa equipa.', privacy: 'Política de privacidade', ph: 'Escreva a sua mensagem…', send: 'Enviar', wa: 'Prefiro falar no WhatsApp', cta: 'Continuar no WhatsApp', typing: 'A escrever…', error: 'Não consegui responder agora. Fale com a equipa pelo WhatsApp, por favor.' },
+  br: { verify: 'Verificação de segurança', teaser: 'Oi! Sou a Maia. Posso te ajudar a ver o que faz sentido para o seu negócio?', open: 'Conversar com a Makewell', title: 'Maia · Makewell', close: 'Fechar conversa', greet: 'Oi! Sou a Maia, assistente de IA da Makewell. Me conta rapidinho: qual é o seu negócio e o que você quer melhorar no marketing hoje?', notice: 'Você está conversando com uma IA. A conversa fica guardada por 90 dias e, se você seguir para o WhatsApp, um resumo vai para o nosso time.', privacy: 'Política de privacidade', ph: 'Escreva sua mensagem…', send: 'Enviar', wa: 'Prefiro falar no WhatsApp', cta: 'Continuar no WhatsApp', typing: 'Digitando…', error: 'Não consegui responder agora. Fale com o time pelo WhatsApp, por favor.' },
+  en: { verify: 'Security check', teaser: "Hi! I'm Maia. Can I help you see what makes sense for your business?", open: 'Chat with Makewell', title: 'Maia · Makewell', close: 'Close chat', greet: "Hi! I'm Maia, Makewell's AI assistant. Tell me a bit about your business: what would you like to improve in your marketing right now?", notice: "You're chatting with an AI. The conversation is kept for 90 days, and if you continue on WhatsApp, a summary goes to our team.", privacy: 'Privacy policy', ph: 'Type your message…', send: 'Send', wa: "I'd rather use WhatsApp", cta: 'Continue on WhatsApp', typing: 'Typing…', error: "I couldn't reply just now. Please reach the team on WhatsApp." },
+  es: { verify: 'Verificación de seguridad', teaser: '¡Hola! Soy Maia. ¿Te ayudo a ver qué tiene sentido para tu negocio?', open: 'Conversar con Makewell', title: 'Maia · Makewell', close: 'Cerrar conversación', greet: '¡Hola! Soy Maia, la asistente de IA de Makewell. Cuéntame: ¿cuál es tu negocio y qué te gustaría mejorar en tu marketing hoy?', notice: 'Estás conversando con una IA. La conversación se guarda durante 90 días y, si sigues por WhatsApp, un resumen llega a nuestro equipo.', privacy: 'Política de privacidad', ph: 'Escribe tu mensaje…', send: 'Enviar', wa: 'Prefiero hablar por WhatsApp', cta: 'Continuar en WhatsApp', typing: 'Escribiendo…', error: 'No pude responder ahora. Habla con el equipo por WhatsApp, por favor.' },
+  pt: { verify: 'Verificação de segurança', teaser: 'Olá! Sou a Maia. Posso ajudá-lo a perceber o que faz sentido para o seu negócio?', open: 'Conversar com a Makewell', title: 'Maia · Makewell', close: 'Fechar conversa', greet: 'Olá! Sou a Maia, assistente de IA da Makewell. Conte-me: qual é o seu negócio e o que gostaria de melhorar no seu marketing?', notice: 'Está a conversar com uma IA. A conversa fica guardada durante 90 dias e, se seguir para o WhatsApp, um resumo vai para a nossa equipa.', privacy: 'Política de privacidade', ph: 'Escreva a sua mensagem…', send: 'Enviar', wa: 'Prefiro falar no WhatsApp', cta: 'Continuar no WhatsApp', typing: 'A escrever…', error: 'Não consegui responder agora. Fale com a equipa pelo WhatsApp, por favor.' },
 };
 const t = T[lang];
 ---
@@ -23,12 +23,13 @@ const t = T[lang];
 <section class="mw-chat" id="mwChat" role="dialog" aria-label={t.title} hidden data-lang={lang} data-endpoint="https://chat.makewell.agency/chat" data-wa={wa}
   data-t-typing={t.typing} data-t-error={t.error} data-t-cta={t.cta}>
   <header class="mw-chat-head">
-    <img class="mw-chat-mark" src="/images/maia-avatar.webp" alt="" width="96" height="96" />
+    <img class="mw-chat-mark" src="/images/maia-botao.webp" alt="" width="128" height="128" />
     <p class="mw-chat-title">{t.title} <span class="mw-chat-badge">IA</span></p>
     <button type="button" class="mw-chat-close" aria-label={t.close}>&times;</button>
   </header>
   <p class="mw-chat-notice">{t.notice} <a href={path('privacy', lang)}>{t.privacy}</a></p>
   <div class="mw-chat-log" aria-live="polite"><p class="mw-msg mw-ai">{t.greet}</p></div>
+  <iframe class="mw-chat-verify" title={t.verify} hidden></iframe>
   <form class="mw-chat-form">
     <textarea rows="1" maxlength="1200" placeholder={t.ph} aria-label={t.ph} required></textarea>
     <button type="submit" class="mw-chat-send" aria-label={t.send}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
@@ -51,7 +52,23 @@ const t = T[lang];
   state.msgs.forEach(function (m) { if (m.who === 'cta') cta(m.text); else bubble(m.who, m.text); });
   function toggle(o) {
     box.hidden = !o; btn.setAttribute('aria-expanded', o); document.documentElement.classList.toggle('mw-chat-open', o);
-    if (o) { input.focus(); log.scrollTop = log.scrollHeight; } else btn.focus();
+    if (o) { verify(); input.focus(); log.scrollTop = log.scrollHeight; } else btn.focus();
+  }
+  // anti-robô (Turnstile): a verificação roda numa página do endereço do chat, embutida aqui, e só carrega quando o chat
+  // abre; o token vai junto com a primeira mensagem. Se a Cloudflare precisar de um clique, o quadro aparece
+  var frame = box.querySelector('.mw-chat-verify'), api = new URL(box.dataset.endpoint).origin, ts = '', waiting = [];
+  function verify() { if (!state.sid && !frame.getAttribute('src')) frame.src = api + '/verify?o=' + encodeURIComponent(location.origin); }
+  addEventListener('message', function (e) {
+    if (e.origin !== api || !e.data || typeof e.data !== 'object') return;
+    if ('mwShow' in e.data) frame.hidden = !e.data.mwShow;
+    if (e.data.mwToken) ts = String(e.data.mwToken);
+    // token pronto ou verificação indisponível (bloqueador, rede): libera quem espera em vez de segurar 15s
+    if (e.data.mwToken || e.data.mwFail) waiting.splice(0).forEach(function (f) { f(); });
+  });
+  function withToken(f) {
+    if (state.sid || ts) return f();
+    verify(); waiting.push(f);
+    setTimeout(function () { var i = waiting.indexOf(f); if (i >= 0) { waiting.splice(i, 1); f(); } }, 15000);
   }
   btn.addEventListener('click', function () { toggle(box.hidden); });
   // iniciativa: depois de 30s navegando no site (contados entre páginas), um balão chama para a conversa, uma vez por
@@ -77,17 +94,24 @@ const t = T[lang];
     e.preventDefault(); var text = input.value.trim(); if (!text || busy) return;
     busy = true; input.value = ''; bubble('me', text); state.msgs.push({ who: 'me', text: text }); save();
     var dots = bubble('ai', box.dataset.tTyping); dots.classList.add('mw-typing');
-    fetch(box.dataset.endpoint, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ sid: state.sid, lang: box.dataset.lang, text: text, page: location.pathname }) })
+    withToken(function () {
+    var body = { sid: state.sid, lang: box.dataset.lang, text: text, page: location.pathname, ts: state.sid ? '' : ts };
+    ts = '';
+    fetch(box.dataset.endpoint, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) })
       .then(function (r) { return r.json(); })
       .then(function (d) {
         dots.remove(); if (d.sid) state.sid = d.sid;
+        // a conversa não começou (token recusado, limite, erro): o token foi gasto, então recomeça a verificação
+        if (d.error === 'verify') state.sid = ''; // conversa salva no navegador que já expirou no servidor
+        if (!state.sid) { frame.removeAttribute('src'); verify(); }
         var reply = d.reply || (d.error ? box.dataset.tError : '');
         if (reply) { bubble('ai', reply); state.msgs.push({ who: 'ai', text: reply }); }
         if (d.whatsapp) { cta(d.whatsapp); state.msgs.push({ who: 'cta', text: d.whatsapp }); }
         save();
       })
-      .catch(function () { dots.remove(); bubble('ai', box.dataset.tError); cta(box.dataset.wa); })
+      .catch(function () { dots.remove(); bubble('ai', box.dataset.tError); cta(box.dataset.wa); if (!state.sid) { frame.removeAttribute('src'); verify(); } })
       .finally(function () { busy = false; input.focus(); });
+    });
   });
 })();
 </script>

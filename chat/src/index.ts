@@ -18,6 +18,10 @@ export interface Env extends LeadEnv {
   DAILY_CAP_USD: string;
   ALLOWED_ORIGINS: string;
   WHATSAPP: string;
+  // anti-robô: chave secreta no Secrets Store
+  TURNSTILE_SECRET?: { get(): Promise<string> };
+  TURNSTILE_SITEKEY: string;
+  TURNSTILE_ENFORCE: string; // "0" só registra o resultado (observação antes de ligar); qualquer outro valor bloqueia
 }
 
 type Lang = 'br' | 'en' | 'es' | 'pt';
@@ -108,6 +112,37 @@ async function ask(env: Env, system: string, messages: Msg[]): Promise<Reply> {
   return { ok: true, text: text.trim(), usd };
 }
 
+// Anti-robô (Turnstile). O widget roda numa página deste endereço, embutida no chat (o makewell.com.br não pode entrar na
+// lista de hosts do widget): ela devolve o token ao site por postMessage, só para a origem permitida. O token é exigido
+// na primeira mensagem de cada conversa e conferido aqui, inclusive o host em que foi emitido
+const verifyPage = (siteKey: string, parent: string) => new Response(`<!doctype html><meta charset="utf-8"><meta name="robots" content="noindex">
+<style>html,body{margin:0;background:transparent}</style><div id="t"></div><script>
+var O=${JSON.stringify(parent)},post=function(m){parent.postMessage(m,O)};
+window.onTs=function(){turnstile.render('#t',{sitekey:${JSON.stringify(siteKey)},appearance:'interaction-only',
+callback:function(k){post({mwToken:k})},'before-interactive-callback':function(){post({mwShow:true})},
+'after-interactive-callback':function(){post({mwShow:false})},'expired-callback':function(){turnstile.reset()},
+'error-callback':function(){post({mwFail:true})},'unsupported-callback':function(){post({mwFail:true})}})};
+</script><script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTs&render=explicit" async defer onerror="post({mwFail:true})"></script>`,
+  { headers: { 'content-type': 'text/html; charset=utf-8', 'content-security-policy': `frame-ancestors ${parent}`, 'cache-control': 'no-store' } });
+
+async function human(env: Env, token: string, ip: string): Promise<boolean> {
+  // bloqueia por padrão: só deixa passar sem verificação quando TURNSTILE_ENFORCE for exatamente "0" (fase de observação).
+  // Token ausente ou recusado bloqueia; falha da própria Cloudflare (cofre ou siteverify fora do ar) libera, com log,
+  // para uma queda deles não tirar o chat do ar (os limites de requisição e de gasto continuam valendo)
+  const observeOnly = env.TURNSTILE_ENFORCE === '0';
+  if (!token) { console.log('[maia] turnstile sem token'); return observeOnly; }
+  let secret: string;
+  try { secret = await env.TURNSTILE_SECRET!.get(); } catch (e) { console.error('[maia] turnstile cofre', String(e)); return true; }
+  const form = new FormData();
+  form.append('secret', secret); form.append('response', token.slice(0, 2048)); form.append('remoteip', ip);
+  const r = (await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', { method: 'POST', body: form, signal: AbortSignal.timeout(8000) })
+    .then((x) => x.json()).catch(() => null)) as { success?: boolean; hostname?: string } | null;
+  if (!r) { console.error('[maia] turnstile siteverify indisponível'); return true; }
+  const ok = !!r.success && r.hostname === 'chat.makewell.agency';
+  console.log('[maia] turnstile', ok ? 'ok' : 'falhou', token ? '' : '(sem token)', JSON.stringify(r)?.slice(0, 200));
+  return ok || observeOnly;
+}
+
 // Separa a resposta visível da linha [[WHATSAPP]] {json} (que nunca aparece para o visitante)
 function splitHandoff(text: string): { reply: string; lead?: Record<string, string> } {
   const i = text.indexOf(MARK);
@@ -131,11 +166,15 @@ export default {
     const origin = env.ALLOWED_ORIGINS.split(',').map((s) => s.trim()).includes(reqOrigin) ? reqOrigin : '';
     if (req.method === 'OPTIONS') return new Response(null, { status: origin ? 204 : 403, headers: cors(origin) });
     if (url.pathname === '/health') return new Response('ok');
+    if (url.pathname === '/verify') {
+      const parent = url.searchParams.get('o') ?? '';
+      return env.ALLOWED_ORIGINS.split(',').map((s) => s.trim()).includes(parent) ? verifyPage(env.TURNSTILE_SITEKEY, parent) : new Response('forbidden', { status: 403 });
+    }
     if (url.pathname === '/leads' || url.pathname.startsWith('/leads/')) return panel(req, env);
     if (url.pathname !== '/chat' || req.method !== 'POST') return new Response('not found', { status: 404 });
     if (!origin) return new Response('forbidden', { status: 403 });
 
-    const body = (await req.json().catch(() => null)) as { sid?: string; lang?: string; text?: string; page?: string } | null;
+    const body = (await req.json().catch(() => null)) as { sid?: string; lang?: string; text?: string; page?: string; ts?: string } | null;
     const lang = (['br', 'en', 'es', 'pt'].includes(body?.lang ?? '') ? body!.lang : 'br') as Lang;
     const text = (body?.text ?? '').trim();
     if (!text || text.length > MAX_TEXT) return json({ error: 'invalid' }, 400, origin);
@@ -147,7 +186,10 @@ export default {
     if (!(await env.RL_GLOBAL.limit({ key: 'all' })).success || (await spentToday(env)) >= Number(env.DAILY_CAP_USD)) return fallback(L.cap);
 
     const sid = /^[a-zA-Z0-9-]{16,64}$/.test(body?.sid ?? '') ? body!.sid! : crypto.randomUUID();
-    const conv: Conv = (await env.CHAT.get<Conv>(`conv:${sid}`, 'json')) ?? { lang, created: new Date().toISOString(), page: String(body?.page ?? '').slice(0, 200), messages: [] };
+    const saved = await env.CHAT.get<Conv>(`conv:${sid}`, 'json');
+    // conversa nova só começa com o token do anti-robô
+    if (!saved && !(await human(env, String(body?.ts ?? ''), ip))) return json({ error: 'verify', reply: L.error, whatsapp: waLink(env, L.lead) }, 403, origin);
+    const conv: Conv = saved ?? { lang, created: new Date().toISOString(), page: String(body?.page ?? '').slice(0, 200), messages: [] };
     if (conv.messages.length >= MAX_TURNS * 2) return fallback(L.end);
     conv.messages.push({ role: 'user', content: text });
 

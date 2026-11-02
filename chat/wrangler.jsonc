@@ -14,7 +14,8 @@
   "send_email": [{ "name": "EMAIL", "destination_address": "contato@makewell.com.br" }],
   "secrets_store_secrets": [
     { "binding": "KIE_API_KEY", "store_id": "20d5e4dd865a460e85d9c002af65c49f", "secret_name": "KIE_API_KEY" },
-    { "binding": "META_WA_TOKEN", "store_id": "20d5e4dd865a460e85d9c002af65c49f", "secret_name": "META_WA_TOKEN" }
+    { "binding": "META_WA_TOKEN", "store_id": "20d5e4dd865a460e85d9c002af65c49f", "secret_name": "META_WA_TOKEN" },
+    { "binding": "TURNSTILE_SECRET", "store_id": "20d5e4dd865a460e85d9c002af65c49f", "secret_name": "TURNSTILE_SECRET" }
   ],
   // limites por IP (12/min) e geral (40/min); a Cloudflare conta por data center, então o teto de verdade é o gasto diário no D1
   "ratelimits": [
@@ -27,6 +28,9 @@
     "DAILY_CAP_USD": "8",
     "WHATSAPP": "5582999103246",
     "NOTIFY_TO": "contato@makewell.com.br",
+    // anti-robô (Turnstile): chave pública do widget "Chat Maia"; a secreta é TURNSTILE_SECRET no Secrets Store
+    "TURNSTILE_SITEKEY": "0x4AAAAAAFw_AJ111FGUhQnF",
+    "TURNSTILE_ENFORCE": "0",
     // aviso no WhatsApp (ver leads.ts): id do número de teste do app da Maia Connect e os celulares que recebem
     "META_PHONE_ID": "1444518962067713",
     "NOTIFY_WA": "5582999103246",
