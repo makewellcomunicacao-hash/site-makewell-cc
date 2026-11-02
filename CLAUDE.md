@@ -49,6 +49,10 @@ Botão flutuante com IA que qualifica o visitante e o encaminha ao WhatsApp do t
   "0" só registra, qualquer outro valor bloqueia conversa nova sem token válido
 - **Segredos (Secrets Store, nunca no código nem no chat):** `KIE_API_KEY`, `META_WA_TOKEN`, `TURNSTILE_SECRET`. Trocar:
   `npx wrangler secrets-store secret update 20d5e4dd865a460e85d9c002af65c49f --secret-id <id> --remote` (o dono digita)
+- **Lentidão (medido em 02/11/2026):** o Worker leva 0,1 a 0,4 s; a **kie.ai segura 7 a 10 s antes do primeiro byte** e
+  entrega a resposta inteira de uma vez (streaming falso), com Grok, Claude ou Gemini. Pela kie.ai o visitante espera
+  ~9 a 11 s; streaming só ajuda se a fonte envia aos pedaços. Solução: `PROVIDER` = "anthropic" (API direta, ~1 s,
+  precisa de `ANTHROPIC_API_KEY` no Secrets Store e do binding no wrangler.jsonc). Medir com o log `[maia] tempo`
 - **Logs ao vivo:** `cd chat && npx wrangler tail` (prefixos `[maia]` e `[leads]`)
 - **Nunca** apagar `conv:*` em massa no KV (são conversas reais); teste se apaga pela referência
 - **Privacidade:** o chat, os fornecedores (Cloudflare, kie.ai, xAI, Meta) e os prazos estão nas 4 políticas
