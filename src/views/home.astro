@@ -226,7 +226,7 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
         {c.depo.reels.map((r: any) => (
           <button type="button" class="reel" data-yt={r.id} data-vertical>
             <span class="thumb">
-              <img src={`/images/depo-${r.id}.webp`} alt={r.name} width="720" height="900" loading="lazy" />
+              <img src={`/images/depo-${r.id}.webp?v=2`} alt={r.name} width="720" height="900" loading="lazy" />
               <span class="reel-dur" aria-hidden="true">{r.dur}</span>
               <span class="play sm" set:html={playSm} />
             </span>
