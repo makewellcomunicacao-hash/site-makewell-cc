@@ -64,7 +64,7 @@ export default {
         "d": "ROI mais alto já entregue para um único cliente"
       },
       {
-        "v": "100+",
+        "v": "1.000+",
         "d": "Leads captados em um único mês (recorde)"
       },
       {
@@ -288,7 +288,7 @@ export default {
               "l": "ROI"
             },
             {
-              "v": "100+",
+              "v": "1.000+",
               "l": "Leads captados/mês (recorde)"
             },
             {
@@ -376,42 +376,56 @@ export default {
       "reels": [
         {
           "id": "JRrnKGNk-UE",
+          "tag": "Terceiro setor · 4+ anos",
+          "dur": "0:56",
           "name": "Paola Massari",
           "role": "Marketing · Casa Hunter",
           "quote": "\"A Makewell conseguiu abraçar tudo. São parceiros, são queridos, são muito emotivos com a nossa causa\""
         },
         {
           "id": "PoBa9wS9rYM",
+          "tag": "Endocrinologia",
+          "dur": "0:47",
           "name": "Dra. Carolina Mergulhão",
           "role": "Endocrinologia | Metabologia",
           "quote": "\"Eu tenho muita vergonha em exposição, e eles foram sempre muito excelentes e carinhosos\""
         },
         {
           "id": "SjXs-_mmDxI",
+          "tag": "Cirurgia vascular · +20x ROI",
+          "dur": "0:30",
           "name": "Dra. Thielen",
           "role": "Cirurgiã Vascular",
           "quote": "\"Sou muito fã deles! Vocês são os especialistas e a atenção é incomparável\""
         },
         {
           "id": "bJaKzu9WHy0",
+          "tag": "Advocacia",
+          "dur": "0:49",
           "name": "Tereza Cristina",
           "role": "Advogada",
           "quote": "\"Estava com medo de não encontrar uma agência diferenciada\""
         },
         {
           "id": "ij42ilGNbrY",
+          "tag": "Advocacia · +26x ROI",
+          "dur": "1:10",
           "name": "Felipe Vilela",
           "role": "Advogado",
           "quote": "\"Sem vocês eu não conseguiria. Os ganchos, os textos e a qualidade são incríveis\""
         },
         {
           "id": "8ZsBpSb9Rds",
+          "tag": "Medicina",
+          "dur": "0:22",
           "name": "Dr. Rodrigo Medeiros",
           "role": "Médico",
           "quote": "\"O meu Instagram era todo desregrado e a Makewell mudou isso cativando o meu público\""
         },
         {
           "id": "eefbnVm-VTc",
+          "tag": "Medicina",
+          "dur": "0:39",
           "name": "Dra. Anita Costa",
           "role": "Médica",
           "quote": "\"Desde 2022, a Makewell me ajuda com meu posicionamento de marca no Instagram\""
@@ -587,7 +601,7 @@ export default {
         "d": "Highest ROI ever delivered to a single client"
       },
       {
-        "v": "100+",
+        "v": "1,000+",
         "d": "Leads captured in a single month (record)"
       },
       {
@@ -811,7 +825,7 @@ export default {
               "l": "ROI"
             },
             {
-              "v": "100+",
+              "v": "1,000+",
               "l": "Leads/month"
             },
             {
@@ -899,42 +913,56 @@ export default {
       "reels": [
         {
           "id": "JRrnKGNk-UE",
+          "tag": "Nonprofit · 4+ years",
+          "dur": "0:56",
           "name": "Paola Massari",
           "role": "Marketing · Casa Hunter",
           "quote": "\"Makewell managed to embrace everything. They are partners, they are caring, they are very emotionally invested in our cause\""
         },
         {
           "id": "PoBa9wS9rYM",
+          "tag": "Endocrinology",
+          "dur": "0:47",
           "name": "Dra. Carolina Mergulhão",
           "role": "Endocrinology | Metabolism",
           "quote": "\"I am very shy about exposure, and they were always excellent and caring with me\""
         },
         {
           "id": "SjXs-_mmDxI",
+          "tag": "Vascular surgery · +20x ROI",
+          "dur": "0:30",
           "name": "Dra. Thielen",
           "role": "Vascular Surgeon",
           "quote": "\"I am a huge fan! You are the specialists and the attention is incomparable\""
         },
         {
           "id": "bJaKzu9WHy0",
+          "tag": "Law firm",
+          "dur": "0:49",
           "name": "Tereza Cristina",
           "role": "Lawyer",
           "quote": "\"I was afraid I wouldn't find a differentiated agency\""
         },
         {
           "id": "ij42ilGNbrY",
+          "tag": "Law firm · +26x ROI",
+          "dur": "1:10",
           "name": "Felipe Vilela",
           "role": "Lawyer",
           "quote": "\"Without you I couldn't have done it. The hooks, the copy and the quality are incredible\""
         },
         {
           "id": "8ZsBpSb9Rds",
+          "tag": "Medicine",
+          "dur": "0:22",
           "name": "Dr. Rodrigo Medeiros",
           "role": "Doctor",
           "quote": "\"My Instagram was all over the place, and Makewell fixed that by winning over my audience\""
         },
         {
           "id": "eefbnVm-VTc",
+          "tag": "Medicine",
+          "dur": "0:39",
           "name": "Dra. Anita Costa",
           "role": "Doctor",
           "quote": "\"Since 2022, Makewell has helped me with my brand positioning on Instagram\""
@@ -1110,7 +1138,7 @@ export default {
         "d": "El mejor ROI que ya entregamos a un solo cliente"
       },
       {
-        "v": "100+",
+        "v": "1.000+",
         "d": "Leads captados en un solo mes (récord)"
       },
       {
@@ -1334,7 +1362,7 @@ export default {
               "l": "ROI"
             },
             {
-              "v": "100+",
+              "v": "1.000+",
               "l": "Leads/mes"
             },
             {
@@ -1422,42 +1450,56 @@ export default {
       "reels": [
         {
           "id": "JRrnKGNk-UE",
+          "tag": "Tercer sector · 4+ años",
+          "dur": "0:56",
           "name": "Paola Massari",
           "role": "Marketing · Casa Hunter",
           "quote": "\"Makewell logró abrazarlo todo. Son socios, son queridos, están muy comprometidos emocionalmente con nuestra causa\""
         },
         {
           "id": "PoBa9wS9rYM",
+          "tag": "Endocrinología",
+          "dur": "0:47",
           "name": "Dra. Carolina Mergulhão",
           "role": "Endocrinología | Metabolismo",
           "quote": "\"Tengo mucha vergüenza con la exposición, y ellos siempre fueron excelentes y cariñosos conmigo\""
         },
         {
           "id": "SjXs-_mmDxI",
+          "tag": "Cirugía vascular · +20x ROI",
+          "dur": "0:30",
           "name": "Dra. Thielen",
           "role": "Cirujana Vascular",
           "quote": "\"¡Soy muy fan de ellos! Son los especialistas y la atención es incomparable\""
         },
         {
           "id": "bJaKzu9WHy0",
+          "tag": "Abogacía",
+          "dur": "0:49",
           "name": "Tereza Cristina",
           "role": "Abogada",
           "quote": "\"Tenía miedo de no encontrar una agencia diferenciada\""
         },
         {
           "id": "ij42ilGNbrY",
+          "tag": "Abogacía · +26x ROI",
+          "dur": "1:10",
           "name": "Felipe Vilela",
           "role": "Abogado",
           "quote": "\"Sin ustedes no lo hubiera logrado. Los ganchos, los textos y la calidad son increíbles\""
         },
         {
           "id": "8ZsBpSb9Rds",
+          "tag": "Medicina",
+          "dur": "0:22",
           "name": "Dr. Rodrigo Medeiros",
           "role": "Médico",
           "quote": "\"Mi Instagram estaba todo desordenado y Makewell cambió eso conquistando a mi público\""
         },
         {
           "id": "eefbnVm-VTc",
+          "tag": "Medicina",
+          "dur": "0:39",
           "name": "Dra. Anita Costa",
           "role": "Médica",
           "quote": "\"Desde 2022, Makewell me ayuda con mi posicionamiento de marca en Instagram\""
@@ -1633,7 +1675,7 @@ export default {
         "d": "Maior ROI já entregue a um único cliente"
       },
       {
-        "v": "100+",
+        "v": "1.000+",
         "d": "Leads captados num único mês (recorde)"
       },
       {
@@ -1857,7 +1899,7 @@ export default {
               "l": "ROI"
             },
             {
-              "v": "100+",
+              "v": "1.000+",
               "l": "Leads/mês"
             },
             {
@@ -1945,42 +1987,56 @@ export default {
       "reels": [
         {
           "id": "JRrnKGNk-UE",
+          "tag": "Terceiro setor · 4+ anos",
+          "dur": "0:56",
           "name": "Paola Massari",
           "role": "Marketing · Casa Hunter",
           "quote": "\"A Makewell conseguiu abraçar tudo. São parceiros, são queridos, são muito emotivos com a nossa causa\""
         },
         {
           "id": "PoBa9wS9rYM",
+          "tag": "Endocrinologia",
+          "dur": "0:47",
           "name": "Dra. Carolina Mergulhão",
           "role": "Endocrinologia | Metabologia",
           "quote": "\"Tenho muita vergonha em exposição, e eles foram sempre muito excelentes e carinhosos\""
         },
         {
           "id": "SjXs-_mmDxI",
+          "tag": "Cirurgia vascular · +20x ROI",
+          "dur": "0:30",
           "name": "Dra. Thielen",
           "role": "Cirurgiã Vascular",
           "quote": "\"Sou muito fã deles! São os especialistas e a atenção é incomparável\""
         },
         {
           "id": "bJaKzu9WHy0",
+          "tag": "Advocacia",
+          "dur": "0:49",
           "name": "Tereza Cristina",
           "role": "Advogada",
           "quote": "\"Estava com medo de não encontrar uma agência diferenciada\""
         },
         {
           "id": "ij42ilGNbrY",
+          "tag": "Advocacia · +26x ROI",
+          "dur": "1:10",
           "name": "Felipe Vilela",
           "role": "Advogado",
           "quote": "\"Sem vocês não teria conseguido. Os ganchos, os textos e a qualidade são incríveis\""
         },
         {
           "id": "8ZsBpSb9Rds",
+          "tag": "Medicina",
+          "dur": "0:22",
           "name": "Dr. Rodrigo Medeiros",
           "role": "Médico",
           "quote": "\"O meu Instagram estava todo desregrado e a Makewell mudou isso cativando o meu público\""
         },
         {
           "id": "eefbnVm-VTc",
+          "tag": "Medicina",
+          "dur": "0:39",
           "name": "Dra. Anita Costa",
           "role": "Médica",
           "quote": "\"Desde 2022, a Makewell ajuda-me com o meu posicionamento de marca no Instagram\""

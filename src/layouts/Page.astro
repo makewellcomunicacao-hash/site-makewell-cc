@@ -230,7 +230,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
     if (heroWrap) gsap.to(heroWrap, { yPercent: 14, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true } });
   });
   // rolagem horizontal fixa (desktop): a seção para na tela e os cards correm para o lado enquanto se rola para baixo.
-  // Vale para o FishWell e para as faixas .hscroll que não cabem ("Para quem"); os depoimentos (.no-pin) ficam como carrossel automático, porque com poucos vídeos a seção travava para andar quase nada. No celular elas seguem como
+  // Vale para o FishWell e para as faixas .hscroll que não cabem ("Para quem", depoimentos com vídeos maiores); uma faixa com pouco percurso pode ficar só como carrossel com .no-pin. No celular elas seguem como
   // carrossel de arrastar. Os pins são registrados na ordem da página (refreshPriority) para cada um somar o espaço do anterior.
   mm.add('(min-width: 1100px) and (min-height: 720px)', () => {
     const fish = main.querySelector<HTMLElement>('.hm-fish');

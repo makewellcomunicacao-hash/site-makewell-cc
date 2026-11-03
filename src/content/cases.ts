@@ -41,7 +41,7 @@ export default {
           ['A solução:', 'reposicionamento de marca pessoal, linha editorial focada em educação jurídica, campanhas de tráfego pago com segmentação por perfil de cliente e CRM para estruturar o fechamento. SPIN Selling no processo comercial.'],
           ['O que a Makewell fez diferente:', 'tratamos a operação de marketing como um braço comercial. Cada lead qualificado com intenção clara antes de chegar ao time do escritório.'],
         ],
-        metrics: [['+26x', 'ROI consolidado', true], ['100+', 'Leads captados/mês (recorde)'], ['R$400k', 'Faturamento em 1 ano']],
+        metrics: [['+26x', 'ROI consolidado', true], ['1.000+', 'Leads captados/mês (recorde)'], ['R$400k', 'Faturamento em 1 ano']],
         quote: ['"Sem vocês eu não conseguiria. Os ganchos, os textos e a qualidade são incríveis."', 'Felipe Vilela — Advogado'],
       },
       {
@@ -127,7 +127,7 @@ export default {
           ['The solution:', 'personal brand repositioning, editorial line focused on legal education, paid traffic campaigns segmented by client profile and CRM to structure closing. SPIN Selling in the sales process.'],
           ['What Makewell did differently:', "we treated the marketing operation as a commercial arm. Each lead qualified with clear intent before reaching the firm's team."],
         ],
-        metrics: [['+26x', 'Consolidated ROI', true], ['100+', 'Leads captured/month (record)'], ['R$400k', 'Revenue in 1 year']],
+        metrics: [['+26x', 'Consolidated ROI', true], ['1,000+', 'Leads captured/month (record)'], ['R$400k', 'Revenue in 1 year']],
         quote: ['"Without you I couldn\'t have done it. The hooks, the copy and the quality are incredible."', 'Felipe Vilela — Lawyer'],
       },
       {
@@ -213,7 +213,7 @@ export default {
           ['La solución:', 'reposicionamiento de marca personal, línea editorial enfocada en educación jurídica, campañas de tráfico pago segmentadas por perfil de cliente y CRM para estructurar el cierre. SPIN Selling en el proceso comercial.'],
           ['Lo que Makewell hizo diferente:', 'tratamos la operación de marketing como un brazo comercial. Cada lead llegaba calificado con intención clara antes de pasar al equipo del despacho.'],
         ],
-        metrics: [['+26x', 'ROI consolidado', true], ['100+', 'Leads captados/mes (récord)'], ['R$400k', 'Ingresos en 1 año']],
+        metrics: [['+26x', 'ROI consolidado', true], ['1.000+', 'Leads captados/mes (récord)'], ['R$400k', 'Ingresos en 1 año']],
         quote: ['"Sin ustedes no lo hubiera logrado. Los ganchos, los textos y la calidad son increíbles."', 'Felipe Vilela — Abogado'],
       },
       {
@@ -299,7 +299,7 @@ export default {
           ['A solução:', 'reposicionamento de marca pessoal, linha editorial focada em educação jurídica, campanhas de tráfego pago segmentadas por perfil de cliente e CRM para estruturar o fecho. SPIN Selling no processo comercial.'],
           ['O que a Makewell fez de diferente:', 'tratámos a operação de marketing como um braço comercial. Cada lead qualificado com intenção clara antes de chegar à equipa do escritório.'],
         ],
-        metrics: [['+26x', 'ROI consolidado', true], ['100+', 'Leads captados/mês (recorde)'], ['R$400 mil', 'Receita em 1 ano']],
+        metrics: [['+26x', 'ROI consolidado', true], ['1.000+', 'Leads captados/mês (recorde)'], ['R$400 mil', 'Receita em 1 ano']],
         quote: ['"Sem vocês não teria conseguido. Os ganchos, os textos e a qualidade são incríveis."', 'Felipe Vilela — Advogado'],
       },
       {
