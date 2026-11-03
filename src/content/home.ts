@@ -376,7 +376,6 @@ export default {
       "reels": [
         {
           "id": "JRrnKGNk-UE",
-          "tag": "Terceiro setor · 4+ anos",
           "dur": "0:56",
           "name": "Paola Massari",
           "role": "Marketing · Casa Hunter",
@@ -384,7 +383,6 @@ export default {
         },
         {
           "id": "PoBa9wS9rYM",
-          "tag": "Endocrinologia",
           "dur": "0:47",
           "name": "Dra. Carolina Mergulhão",
           "role": "Endocrinologia | Metabologia",
@@ -392,7 +390,6 @@ export default {
         },
         {
           "id": "SjXs-_mmDxI",
-          "tag": "Cirurgia vascular · +20x ROI",
           "dur": "0:30",
           "name": "Dra. Thielen",
           "role": "Cirurgiã Vascular",
@@ -400,7 +397,6 @@ export default {
         },
         {
           "id": "bJaKzu9WHy0",
-          "tag": "Advocacia",
           "dur": "0:49",
           "name": "Tereza Cristina",
           "role": "Advogada",
@@ -408,7 +404,6 @@ export default {
         },
         {
           "id": "ij42ilGNbrY",
-          "tag": "Advocacia · +26x ROI",
           "dur": "1:10",
           "name": "Felipe Vilela",
           "role": "Advogado",
@@ -416,7 +411,6 @@ export default {
         },
         {
           "id": "8ZsBpSb9Rds",
-          "tag": "Medicina",
           "dur": "0:22",
           "name": "Dr. Rodrigo Medeiros",
           "role": "Médico",
@@ -424,7 +418,6 @@ export default {
         },
         {
           "id": "eefbnVm-VTc",
-          "tag": "Medicina",
           "dur": "0:39",
           "name": "Dra. Anita Costa",
           "role": "Médica",
@@ -913,7 +906,6 @@ export default {
       "reels": [
         {
           "id": "JRrnKGNk-UE",
-          "tag": "Nonprofit · 4+ years",
           "dur": "0:56",
           "name": "Paola Massari",
           "role": "Marketing · Casa Hunter",
@@ -921,7 +913,6 @@ export default {
         },
         {
           "id": "PoBa9wS9rYM",
-          "tag": "Endocrinology",
           "dur": "0:47",
           "name": "Dra. Carolina Mergulhão",
           "role": "Endocrinology | Metabolism",
@@ -929,7 +920,6 @@ export default {
         },
         {
           "id": "SjXs-_mmDxI",
-          "tag": "Vascular surgery · +20x ROI",
           "dur": "0:30",
           "name": "Dra. Thielen",
           "role": "Vascular Surgeon",
@@ -937,7 +927,6 @@ export default {
         },
         {
           "id": "bJaKzu9WHy0",
-          "tag": "Law firm",
           "dur": "0:49",
           "name": "Tereza Cristina",
           "role": "Lawyer",
@@ -945,7 +934,6 @@ export default {
         },
         {
           "id": "ij42ilGNbrY",
-          "tag": "Law firm · +26x ROI",
           "dur": "1:10",
           "name": "Felipe Vilela",
           "role": "Lawyer",
@@ -953,7 +941,6 @@ export default {
         },
         {
           "id": "8ZsBpSb9Rds",
-          "tag": "Medicine",
           "dur": "0:22",
           "name": "Dr. Rodrigo Medeiros",
           "role": "Doctor",
@@ -961,7 +948,6 @@ export default {
         },
         {
           "id": "eefbnVm-VTc",
-          "tag": "Medicine",
           "dur": "0:39",
           "name": "Dra. Anita Costa",
           "role": "Doctor",
@@ -1450,7 +1436,6 @@ export default {
       "reels": [
         {
           "id": "JRrnKGNk-UE",
-          "tag": "Tercer sector · 4+ años",
           "dur": "0:56",
           "name": "Paola Massari",
           "role": "Marketing · Casa Hunter",
@@ -1458,7 +1443,6 @@ export default {
         },
         {
           "id": "PoBa9wS9rYM",
-          "tag": "Endocrinología",
           "dur": "0:47",
           "name": "Dra. Carolina Mergulhão",
           "role": "Endocrinología | Metabolismo",
@@ -1466,7 +1450,6 @@ export default {
         },
         {
           "id": "SjXs-_mmDxI",
-          "tag": "Cirugía vascular · +20x ROI",
           "dur": "0:30",
           "name": "Dra. Thielen",
           "role": "Cirujana Vascular",
@@ -1474,7 +1457,6 @@ export default {
         },
         {
           "id": "bJaKzu9WHy0",
-          "tag": "Abogacía",
           "dur": "0:49",
           "name": "Tereza Cristina",
           "role": "Abogada",
@@ -1482,7 +1464,6 @@ export default {
         },
         {
           "id": "ij42ilGNbrY",
-          "tag": "Abogacía · +26x ROI",
           "dur": "1:10",
           "name": "Felipe Vilela",
           "role": "Abogado",
@@ -1490,7 +1471,6 @@ export default {
         },
         {
           "id": "8ZsBpSb9Rds",
-          "tag": "Medicina",
           "dur": "0:22",
           "name": "Dr. Rodrigo Medeiros",
           "role": "Médico",
@@ -1498,7 +1478,6 @@ export default {
         },
         {
           "id": "eefbnVm-VTc",
-          "tag": "Medicina",
           "dur": "0:39",
           "name": "Dra. Anita Costa",
           "role": "Médica",
@@ -1987,7 +1966,6 @@ export default {
       "reels": [
         {
           "id": "JRrnKGNk-UE",
-          "tag": "Terceiro setor · 4+ anos",
           "dur": "0:56",
           "name": "Paola Massari",
           "role": "Marketing · Casa Hunter",
@@ -1995,7 +1973,6 @@ export default {
         },
         {
           "id": "PoBa9wS9rYM",
-          "tag": "Endocrinologia",
           "dur": "0:47",
           "name": "Dra. Carolina Mergulhão",
           "role": "Endocrinologia | Metabologia",
@@ -2003,7 +1980,6 @@ export default {
         },
         {
           "id": "SjXs-_mmDxI",
-          "tag": "Cirurgia vascular · +20x ROI",
           "dur": "0:30",
           "name": "Dra. Thielen",
           "role": "Cirurgiã Vascular",
@@ -2011,7 +1987,6 @@ export default {
         },
         {
           "id": "bJaKzu9WHy0",
-          "tag": "Advocacia",
           "dur": "0:49",
           "name": "Tereza Cristina",
           "role": "Advogada",
@@ -2019,7 +1994,6 @@ export default {
         },
         {
           "id": "ij42ilGNbrY",
-          "tag": "Advocacia · +26x ROI",
           "dur": "1:10",
           "name": "Felipe Vilela",
           "role": "Advogado",
@@ -2027,7 +2001,6 @@ export default {
         },
         {
           "id": "8ZsBpSb9Rds",
-          "tag": "Medicina",
           "dur": "0:22",
           "name": "Dr. Rodrigo Medeiros",
           "role": "Médico",
@@ -2035,7 +2008,6 @@ export default {
         },
         {
           "id": "eefbnVm-VTc",
-          "tag": "Medicina",
           "dur": "0:39",
           "name": "Dra. Anita Costa",
           "role": "Médica",

@@ -227,7 +227,6 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
           <button type="button" class="reel" data-yt={r.id} data-vertical>
             <span class="thumb">
               <img src={`/images/depo-${r.id}.webp`} alt={r.name} width="720" height="900" loading="lazy" />
-              <span class:list={['reel-tag', { 'reel-tag-roi': r.tag.includes('ROI') }]} set:html={r.tag} />
               <span class="reel-dur" aria-hidden="true">{r.dur}</span>
               <span class="play sm" set:html={playSm} />
             </span>
@@ -474,14 +473,11 @@ const playSm = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 2
   /* depoimentos maiores: dão destaque e percurso para a rolagem lateral travada (como "Para quem") */
   @media (min-width: 1100px) { .hm-reels .reel { flex-basis: clamp(200px, min(23vw, (100vh - 450px) * .8), 320px); } } /* também pela altura: em notebook baixo a seção inteira cabe na tela; no celular segue o tamanho do carrossel */
   .hm-reels { margin-top: 48px; align-items: flex-start; margin-right: calc((min(100vw, var(--wrap)) - 100vw) / 2 - var(--gutter)); padding-right: var(--gutter); scroll-padding-inline: 0; scrollbar-width: thin; scrollbar-color: var(--line) transparent; }
-  /* capas dos depoimentos: mesmo tratamento de cor em todas, degradê para leitura, segmento/resultado e duração */
+  /* capas dos depoimentos: rosto e ombros com o ambiente, mesmo tratamento de cor em todas, degradê leve e duração */
   .hm-reels .thumb img { filter: saturate(.9) contrast(1.06); }
   .hm-reels .thumb::after { content: ""; position: absolute; inset: 0; pointer-events: none;
-    background: linear-gradient(to top, rgba(14,13,11,.5), rgba(14,13,11,0) 40%), linear-gradient(to bottom, rgba(14,13,11,.4), rgba(14,13,11,0) 32%); }
+    background: linear-gradient(to top, rgba(14,13,11,.45), rgba(14,13,11,0) 38%); }
   .hm-reels .play { z-index: 2; inset: auto; left: 12px; bottom: 12px; margin: 0; width: 44px; height: 44px; } /* rosto livre: play no canto, em frente à duração */
-  .reel-tag { position: absolute; z-index: 2; left: 12px; top: 12px; max-width: calc(100% - 24px); padding: 5px 11px; border-radius: 999px;
-    background: rgba(14,13,11,.72); color: #F4F1EC; font-size: 12px; font-weight: 700; line-height: 1.4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .reel-tag-roi { background: var(--accent); color: var(--on-accent); }
   .reel-dur { position: absolute; z-index: 2; right: 12px; bottom: 12px; padding: 3px 8px; border-radius: 6px; background: rgba(14,13,11,.72);
     color: #F4F1EC; font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; }
   .hm-reel-q { display: block; margin-top: 16px; font-size: 15px; line-height: 1.5; }
