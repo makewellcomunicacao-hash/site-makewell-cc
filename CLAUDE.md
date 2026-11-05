@@ -55,7 +55,7 @@ Botão flutuante com IA que qualifica o visitante e o encaminha ao WhatsApp do t
   precisa de `ANTHROPIC_API_KEY` no Secrets Store e do binding no wrangler.jsonc). Medir com o log `[maia] tempo`
 - **Logs ao vivo:** `cd chat && npx wrangler tail` (prefixos `[maia]` e `[leads]`)
 - **Nunca** apagar `conv:*` em massa no KV (são conversas reais); teste se apaga pela referência
-- **Privacidade:** o chat, os fornecedores (Cloudflare, kie.ai, xAI, Meta) e os prazos estão nas 4 políticas
+- **Privacidade:** o chat, os fornecedores (Cloudflare, Anthropic, Meta; a kie.ai aparece só como "provedor intermediário", sem o nome, a pedido do usuário) e os prazos estão nas 4 políticas
   (`src/legacy/**/*privacy*.json`). Mudou o que o chat coleta ou para onde envia? Atualize as 4 e o aviso do widget
 
 ## Regras Obrigatórias
