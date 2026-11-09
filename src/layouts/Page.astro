@@ -40,7 +40,7 @@ const WA: Record<Lang, { href: string; aria: string; top: string }> = {
 ---
 <!DOCTYPE html>
 <html {...attrs}>
-<head><Fragment set:html={seoHeadFinal} /><link rel="icon" type="image/svg+xml" href="/icons/favicon.svg"><style is:inline set:html={css}></style><slot name="head" /></head>
+<head><Fragment set:html={seoHeadFinal} /><link rel="icon" type="image/svg+xml" href="/icons/favicon.svg"><link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png"><style is:inline set:html={css}></style><slot name="head" /></head>
 <body>
 {/* email_off: o Cloudflare (no .com.br, gerenciado pela HostGator) ofusca e-mails e injeta um script síncrono que trava
     o carregamento; ele respeita estas marcações, então a página inteira fica de fora sem depender do painel */}
@@ -53,9 +53,6 @@ const WA: Record<Lang, { href: string; aria: string; top: string }> = {
     if (dirty) { window.location.replace(window.location.pathname); }
   })();
 </script>
-{enUrl && <script is:inline define:vars={{ enUrl }}>
-  try { var s = localStorage.getItem('mw-lang'); var b = (navigator.language || '').toLowerCase().indexOf('en') === 0 ? 'en' : 'pt'; if ((s || b) === 'en') location.replace(enUrl); } catch (e) {}
-</script>}
 {!legal && <script is:inline>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -66,6 +63,14 @@ n.queue=[];}(window, document,'script',
 </script>}
 <script is:inline>document.documentElement.classList.add('js');</script>
 <a href="#main-content" class="skip-link">{UI[lang].skip}</a>
+{/* navegador em inglês no .com.br: sugere a versão em inglês sem redirecionar (redirecionar levava o Google para o .agency) */}
+{enUrl && <div class="en-bar" id="en-bar" lang="en" hidden>
+  <span>This site is also available in English.</span> <a href={enUrl}>View in English →</a>
+  <button type="button" aria-label="Close">×</button>
+</div>}
+{enUrl && <script is:inline>
+  (function () { try { if ((navigator.language || '').toLowerCase().indexOf('en') === 0 && localStorage.getItem('mw-lang') !== 'pt') { var b = document.getElementById('en-bar'); b.hidden = false; b.querySelector('button').onclick = function () { try { localStorage.setItem('mw-lang', 'pt'); } catch (e) {} b.hidden = true; var m = document.getElementById('main-content'); if (m) { m.tabIndex = -1; m.focus({ preventScroll: true }); } }; } } catch (e) {} })();
+</script>}
 <Nav key={key} lang={lang} />
 <main id="main-content"><slot /></main>
 <Footer key={key} lang={lang} />

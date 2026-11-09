@@ -18,6 +18,12 @@ a { color: inherit; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
 .skip-link { position: absolute; left: 16px; top: -100px; background: var(--accent); color: var(--on-accent); padding: 10px 16px; border-radius: 0 0 8px 8px; font-weight: 700; z-index: 10001; text-decoration: none; }
 .skip-link:focus { top: 0; }
+.en-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px 12px; padding: 8px 52px; position: relative; background: var(--warm-2); border-bottom: 1px solid var(--warm-line); color: var(--paper-muted); font-size: 14px; line-height: 1.4; text-align: center; }
+.en-bar[hidden] { display: none; }
+.en-bar a { color: var(--accent); font-weight: 600; text-decoration: none; }
+.en-bar a:hover { text-decoration: underline; }
+.en-bar button { position: absolute; right: 4px; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border: 0; background: none; color: var(--paper-muted); font-size: 22px; line-height: 1; cursor: pointer; }
+.en-bar button:hover { color: var(--paper); }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* ── seções e temas ── */
