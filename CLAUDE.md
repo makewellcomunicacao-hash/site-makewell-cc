@@ -58,6 +58,19 @@ Botão flutuante com IA que qualifica o visitante e o encaminha ao WhatsApp do t
 - **Privacidade:** o chat, os fornecedores (Cloudflare, Anthropic, Meta; a kie.ai aparece só como "provedor intermediário", sem o nome, a pedido do usuário) e os prazos estão nas 4 políticas
   (`src/legacy/**/*privacy*.json`). Mudou o que o chat coleta ou para onde envia? Atualize as 4 e o aviso do widget
 
+## Indexação no Google (manutenção)
+- **Nunca redirecionar automaticamente por idioma** (`navigator.language`). O Googlebot renderiza em en-US e passou a ver o .com.br
+  inteiro como redirecionamento para o .agency; até 09/11/2026 só 2 páginas estavam indexadas. O visitante estrangeiro é atendido pela
+  faixa `#en-bar` (`src/layouts/Page.astro`), que só sugere o inglês, e pelo seletor de idioma
+- **Favicon:** o Google o busca na home de cada domínio, inclusive na casca `public-agency/index.html`. O ícone declarado precisa ter
+  tamanho múltiplo de 48px (`icon-192.png`) ou ser SVG. Trocou o ícone? Atualize a casca também
+- **Checagem depois de mudança estrutural:** no Search Console, Inspeção de URL → "Testar URL publicado" na home de cada domínio. O
+  "canônico declarado" tem de ser `https://makewell.com.br/` e `https://makewell.agency/en/`
+- **Subdomínio do chat:** `chat.makewell.agency/robots.txt` bloqueia tudo (não é para busca). A propriedade do .agency no Search Console
+  é de domínio e inclui o subdomínio
+- **Relatório "Páginas":** são normais os grupos de redirecionamento (cascas, http/www), robots.txt (spam `?r=` herdado do WordPress
+  e `/docs/`), noindex e 404. Indexadas caindo, ou 403 em páginas reais, é alerta (de 23/10 a 07/11/2026 o CDN da HostGator barrou o Google)
+
 ## Regras Obrigatórias
 
 ### A cada publicação (git push):
