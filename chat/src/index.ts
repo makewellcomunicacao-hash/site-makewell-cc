@@ -231,6 +231,7 @@ export default {
     const origin = env.ALLOWED_ORIGINS.split(',').map((s) => s.trim()).includes(reqOrigin) ? reqOrigin : '';
     if (req.method === 'OPTIONS') return new Response(null, { status: origin ? 204 : 403, headers: cors(origin) });
     if (url.pathname === '/health') return new Response('ok');
+    if (url.pathname === '/robots.txt') return new Response('User-agent: *\nDisallow: /\n', { headers: { 'content-type': 'text/plain' } });
     if (url.pathname === '/verify') {
       const parent = url.searchParams.get('o') ?? '';
       return env.ALLOWED_ORIGINS.split(',').map((s) => s.trim()).includes(parent) ? verifyPage(env.TURNSTILE_SITEKEY, parent) : new Response('forbidden', { status: 403 });
