@@ -167,7 +167,7 @@ export default {
         "desc": "Pós-consulta: e-mail, lembretes, conteúdo de continuidade de tratamento"
       }
     ],
-    "funnelResult": "Resultado em cases reais: <strong>+20x ROI</strong> em cirurgia vascular, dezenas de leads qualificados por mês e agenda lotada em especialidades de alta complexidade.",
+    "funnelResult": "Resultado em cases reais: <strong>+20x ROI</strong> em cirurgia vascular, dezenas de clientes fechados por mês e agenda lotada em especialidades de alta complexidade.",
     "tlEyebrow": "Cronograma",
     "tlH2": "O que <span class=\"me-gold\">esperar</span> por fase",
     "tlSub": "Marketing sério tem cronograma. Aqui vão as expectativas realistas por janela de tempo, sem promessa mágica de \"resultado em 7 dias\".",
@@ -394,7 +394,7 @@ export default {
         "desc": "Post-consultation: email, reminders, continuity of treatment content"
       }
     ],
-    "funnelResult": "Results in real cases: <strong>+20x ROI</strong> in vascular surgery, dozens of qualified leads per month and full schedule in high-complexity specialties.",
+    "funnelResult": "Results in real cases: <strong>+20x ROI</strong> in vascular surgery, dozens of clients closed per month and full schedule in high-complexity specialties.",
     "tlEyebrow": "Timeline",
     "tlH2": "What to <span class=\"me-gold\">expect</span> per phase",
     "tlSub": "Serious marketing has a timeline. Here are the realistic expectations per time window, without the magic promise of \"results in 7 days\".",
@@ -621,7 +621,7 @@ export default {
         "desc": "Post-consulta: email, recordatorios, contenido de continuidad del tratamiento"
       }
     ],
-    "funnelResult": "Resultados en casos reales: <strong>+20x ROI</strong> en cirugía vascular, decenas de leads calificados por mes y agenda llena en especialidades de alta complejidad.",
+    "funnelResult": "Resultados en casos reales: <strong>+20x ROI</strong> en cirugía vascular, decenas de clientes cerrados por mes y agenda llena en especialidades de alta complejidad.",
     "tlEyebrow": "Cronograma",
     "tlH2": "Qué <span class=\"me-gold\">esperar</span> en cada fase",
     "tlSub": "El marketing serio tiene un cronograma. Aquí están las expectativas realistas por ventana de tiempo, sin la promesa mágica de \"resultados en 7 días\".",
@@ -848,7 +848,7 @@ export default {
         "desc": "Pós-consulta: email, lembretes, conteúdo de continuidade do tratamento"
       }
     ],
-    "funnelResult": "Resultados em casos reais: <strong>+20x ROI</strong> em cirurgia vascular, dezenas de leads qualificados por mês e agenda cheia em especialidades de alta complexidade.",
+    "funnelResult": "Resultados em casos reais: <strong>+20x ROI</strong> em cirurgia vascular, dezenas de clientes fechados por mês e agenda cheia em especialidades de alta complexidade.",
     "tlEyebrow": "Cronograma",
     "tlH2": "O que <span class=\"me-gold\">esperar</span> por fase",
     "tlSub": "Marketing a sério tem cronograma. Aqui estão as expectativas realistas por janela de tempo, sem a promessa mágica de \"resultados em 7 dias\".",

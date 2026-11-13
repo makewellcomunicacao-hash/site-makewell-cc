@@ -64,8 +64,8 @@ export default {
         "d": "ROI mais alto já entregue para um único cliente"
       },
       {
-        "v": "1.000+",
-        "d": "Leads captados em um único mês (recorde)"
+        "v": "100+",
+        "d": "Clientes fechados em um único mês (recorde)"
       },
       {
         "v": "R$400k",
@@ -288,8 +288,8 @@ export default {
               "l": "ROI"
             },
             {
-              "v": "1.000+",
-              "l": "Leads captados/mês (recorde)"
+              "v": "100+",
+              "l": "Clientes fechados/mês (recorde)"
             },
             {
               "v": "R$400k",
@@ -312,7 +312,7 @@ export default {
             },
             {
               "v": "39+",
-              "l": "Leads captados/mês (recorde)"
+              "l": "Clientes fechados/mês"
             },
             {
               "v": "R$100k",
@@ -594,8 +594,8 @@ export default {
         "d": "Highest ROI ever delivered to a single client"
       },
       {
-        "v": "1,000+",
-        "d": "Leads captured in a single month (record)"
+        "v": "100+",
+        "d": "Clients closed in a single month (record)"
       },
       {
         "v": "R$400k",
@@ -818,8 +818,8 @@ export default {
               "l": "ROI"
             },
             {
-              "v": "1,000+",
-              "l": "Leads/month"
+              "v": "100+",
+              "l": "Clients closed/month"
             },
             {
               "v": "R$400k",
@@ -842,7 +842,7 @@ export default {
             },
             {
               "v": "39+",
-              "l": "Leads/month"
+              "l": "Clients closed/month"
             },
             {
               "v": "R$100k",
@@ -1124,8 +1124,8 @@ export default {
         "d": "El mejor ROI que ya entregamos a un solo cliente"
       },
       {
-        "v": "1.000+",
-        "d": "Leads captados en un solo mes (récord)"
+        "v": "100+",
+        "d": "Clientes cerrados en un solo mes (récord)"
       },
       {
         "v": "R$400k",
@@ -1348,8 +1348,8 @@ export default {
               "l": "ROI"
             },
             {
-              "v": "1.000+",
-              "l": "Leads/mes"
+              "v": "100+",
+              "l": "Clientes cerrados/mes"
             },
             {
               "v": "R$400k",
@@ -1372,7 +1372,7 @@ export default {
             },
             {
               "v": "39+",
-              "l": "Leads/mes"
+              "l": "Clientes cerrados/mes"
             },
             {
               "v": "R$100k",
@@ -1654,8 +1654,8 @@ export default {
         "d": "Maior ROI já entregue a um único cliente"
       },
       {
-        "v": "1.000+",
-        "d": "Leads captados num único mês (recorde)"
+        "v": "100+",
+        "d": "Clientes fechados num único mês (recorde)"
       },
       {
         "v": "R$400k",
@@ -1878,8 +1878,8 @@ export default {
               "l": "ROI"
             },
             {
-              "v": "1.000+",
-              "l": "Leads/mês"
+              "v": "100+",
+              "l": "Clientes fechados/mês"
             },
             {
               "v": "R$400k",
@@ -1902,7 +1902,7 @@ export default {
             },
             {
               "v": "39+",
-              "l": "Leads/mês"
+              "l": "Clientes fechados/mês"
             },
             {
               "v": "R$100k",
