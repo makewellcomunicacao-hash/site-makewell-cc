@@ -94,7 +94,9 @@ const t = T[lang];
   form.addEventListener('submit', function (e) {
     e.preventDefault(); var text = input.value.trim(); if (!text || busy) return;
     busy = true; input.value = ''; bubble('me', text); state.msgs.push({ who: 'me', text: text }); save();
-    var dots = bubble('ai', box.dataset.tTyping); dots.classList.add('mw-typing');
+    // três pontinhos animados; o texto ("Digitando…") fica só para leitor de tela
+    var dots = bubble('ai', ''); dots.classList.add('mw-typing');
+    dots.innerHTML = '<span class="sr-only"></span><i></i><i></i><i></i>'; dots.firstChild.textContent = box.dataset.tTyping;
     withToken(function () {
     var body = { sid: state.sid, lang: box.dataset.lang, text: text, page: location.pathname, ts: state.sid ? '' : ts, stream: true };
     ts = '';

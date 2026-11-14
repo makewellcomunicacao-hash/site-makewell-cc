@@ -12,14 +12,18 @@ const { closeLabel, lang } = Astro.props;
 <script is:inline>
 (function () {
   var modal = document.getElementById('videoModal'); if (!modal) return;
-  var frame = modal.querySelector('iframe'), last = null;
+  var frame = modal.querySelector('iframe'), last = null, safety = null;
+  function loaded() { clearTimeout(safety); modal.classList.add('loaded'); }
+  // o load em branco do fechamento (src vazio) não conta
+  frame.addEventListener('load', function () { if (modal.classList.contains('open') && frame.getAttribute('src')) loaded(); });
   // aberto, o resto da página fica inerte: o foco fica entre o fechar e o vídeo
   function inert(o) { document.querySelectorAll('body > *').forEach(function (el) { if (el !== modal && !el.contains(modal) && el.tagName !== 'SCRIPT') el.inert = o; }); }
-  function close() { modal.classList.remove('open', 'vertical'); frame.src = ''; document.body.style.overflow = ''; inert(false); if (last) last.focus(); }
+  function close() { clearTimeout(safety); modal.classList.remove('open', 'vertical', 'loaded'); frame.src = ''; document.body.style.overflow = ''; inert(false); if (last) last.focus(); }
   document.addEventListener('click', function (e) {
     var b = e.target.closest && e.target.closest('[data-yt]'); if (!b) return;
     e.preventDefault(); last = b;
     var extra = b.getAttribute('data-yt-params') || '';
+    modal.classList.remove('loaded'); clearTimeout(safety); safety = setTimeout(loaded, 5000);
     frame.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(b.getAttribute('data-yt')) + '?autoplay=1&rel=0' + (extra ? '&' + extra : '');
     modal.classList.toggle('vertical', b.hasAttribute('data-vertical'));
     modal.classList.add('open'); document.body.style.overflow = 'hidden'; inert(true);

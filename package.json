@@ -10,7 +10,7 @@
     "verify": "node scripts/verify.mjs"
   },
   "dependencies": {
-    "astro": "7.4.4",
+    "astro": "7.4.12",
     "gsap": "3.15.0"
   }
 }

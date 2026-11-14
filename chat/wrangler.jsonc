@@ -15,7 +15,8 @@
   "secrets_store_secrets": [
     { "binding": "KIE_API_KEY", "store_id": "20d5e4dd865a460e85d9c002af65c49f", "secret_name": "KIE_API_KEY" },
     { "binding": "META_WA_TOKEN", "store_id": "20d5e4dd865a460e85d9c002af65c49f", "secret_name": "META_WA_TOKEN" },
-    { "binding": "TURNSTILE_SECRET", "store_id": "20d5e4dd865a460e85d9c002af65c49f", "secret_name": "TURNSTILE_SECRET" }
+    { "binding": "TURNSTILE_SECRET", "store_id": "20d5e4dd865a460e85d9c002af65c49f", "secret_name": "TURNSTILE_SECRET" },
+    { "binding": "ANTHROPIC_API_KEY", "store_id": "20d5e4dd865a460e85d9c002af65c49f", "secret_name": "ANTHROPIC_API_KEY" }
   ],
   // limites por IP (12/min) e geral (40/min); a Cloudflare conta por data center, então o teto de verdade é o gasto diário no D1
   "ratelimits": [
@@ -23,10 +24,12 @@
     { "name": "RL_GLOBAL", "namespace_id": "1002", "simple": { "limit": 40, "period": 60 } }
   ],
   "vars": {
-    // pela kie.ai, como no MakeWorks; "claude-opus-5-5" e "claude-sonnet-5-5" também funcionam
+    // MODEL: "claude-haiku-5-5" (mais barato, melhor em vendas no teste); "claude-sonnet-5-5" e "claude-opus-5-5" também funcionam
     // "anthropic" = API direta (precisa de ANTHROPIC_API_KEY no Secrets Store); "kie" = kie.ai
-    "PROVIDER": "kie",
+    "PROVIDER": "anthropic",
     "MODEL": "claude-haiku-5-5",
+    // respostas estratégicas para converter o lead (o Haiku chama, este modelo responde e a próxima volta ao Haiku); "" desliga
+    "STRATEGY_MODEL": "claude-opus-5-5",
     "DAILY_CAP_USD": "8",
     "WHATSAPP": "5582999103246",
     "NOTIFY_TO": "contato@makewell.com.br",

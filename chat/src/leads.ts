@@ -133,7 +133,10 @@ th,td{text-align:left;padding:10px 8px;border-bottom:1px solid #2a2724;vertical-
 .av{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:700;background:#2a2724}.quente{background:#F07820;color:#080808}.morno{background:#5a4220}
 dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 16px}dt{color:#A8A196}.msg{max-width:720px;padding:10px 14px;border-radius:14px;margin:8px 0;white-space:pre-wrap;background:#1c1a17}
 .me{background:#3a2a18;margin-left:auto}</style><main>${body}</main></html>`,
-  { headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex' } });
+  { headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex',
+    // painel com dados pessoais: não pode ser embutido em moldura, não carrega nada de fora e não vaza o endereço
+    'x-frame-options': 'DENY', 'x-content-type-options': 'nosniff', 'referrer-policy': 'no-referrer',
+    'content-security-policy': "default-src 'none'; style-src 'unsafe-inline'; img-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'none'" } });
 
 // Filtros da lista (e da planilha): busca por texto, avaliação, idioma e período. Tudo vai por parâmetro no SQL
 type Filter = { q: string; av: string; lang: string; de: string; ate: string };

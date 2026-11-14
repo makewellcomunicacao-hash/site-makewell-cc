@@ -36,9 +36,17 @@ Botão flutuante com IA que qualifica o visitante e o encaminha ao WhatsApp do t
 - **Arquivos:** `chat/src/index.ts` (rota /chat, limites, gasto, Turnstile, encaminhamento), `chat/src/prompt.ts` (roteiro,
   preços e regras da Maia: mudar preço ou tom é aqui), `chat/src/leads.ts` (banco, aviso por e-mail e WhatsApp, painel),
   `chat/schema.sql`, `chat/wrangler.jsonc` (configurações e IDs)
-- **IA:** kie.ai, `MODEL` = `claude-haiku-5-5` (escolhido em 02/11/2026 contra Grok 4.7 e Gemini 3.8 Flash: melhor em vendas);
-  aceita `grok-*`, `claude-*` e `gemini-*`. Tudo em streaming; o log `[maia] tempo` mostra quanto a kie.ai demora. Teto de gasto
-  diário `DAILY_CAP_USD`, somado no D1 (tabela `spend`)
+- **IA:** API direta da Anthropic desde 14/11/2026 (`PROVIDER` = "anthropic", chave `ANTHROPIC_API_KEY` no Secrets Store),
+  `MODEL` = `claude-haiku-5-5` (escolhido em 02/11/2026 contra Grok 4.7 e Gemini 3.8 Flash: melhor em vendas). Medido: 1ª palavra em
+  1 a 2,3 s (pela kie.ai eram 18 a 22 s). A kie.ai fica de reserva: `PROVIDER` = "kie" volta para ela (aceita `grok-*`, `claude-*`,
+  `gemini-*`). Sem crédito na Anthropic a API responde 400 "credit balance is too low" e a Maia mostra erro: recarga em
+  console.anthropic.com → Billing. Teto de gasto diário `DAILY_CAP_USD`, somado no D1 (tabela `spend`); log `[maia] tempo`
+- **Resposta estratégica (Opus):** o Haiku conduz; quando a mensagem pede estratégia para converter o lead (plano, canais, orçamento
+  a partir do Sales, várias unidades, objeção de preço, "vou pensar", comparação com agência, pronto para decidir), ele responde só
+  `[[ESTRATEGIA]]` e o `STRATEGY_MODEL` (`claude-opus-5-5`) escreve aquela resposta; a seguinte volta ao Haiku. Até 3 por conversa.
+  Medido: Opus 1ª palavra ~4 a 6 s (Haiku ~1 s). `STRATEGY_MODEL` = "" desliga. Log `[maia] estrategia →`
+- **Idioma:** a Maia responde na língua de quem escreve; os textos fixos (erro, fim, saudação do WhatsApp) seguem o palpite de
+  `chat/src/lang.ts` pela 1ª mensagem (sem sinal claro, o idioma do site)
 - **Dados:** conversa no KV `CHAT` por 90 dias; lead (resumo + avaliação quente/morno/frio) no D1 `makewell-leads` por 2 anos
   (limpeza diária às 6h UTC). O visitante leva ao WhatsApp só a saudação e "Ref. XXXXXXXX"; o resumo vai só para o time
 - **Painel:** chat.makewell.agency/leads (filtros, conversa completa, planilha), atrás do Cloudflare Access (política
@@ -47,15 +55,12 @@ Botão flutuante com IA que qualifica o visitante e o encaminha ao WhatsApp do t
   `META_PHONE_ID`, destinos em `NOTIFY_WA`). Só avisa conversa com 2+ mensagens e nome/empresa; teto de 40 avisos/dia
 - **Anti-robô:** Turnstile "Chat Maia" rodando em chat.makewell.agency/verify (iframe na janela). `TURNSTILE_ENFORCE`:
   "0" só registra, qualquer outro valor bloqueia conversa nova sem token válido
-- **Segredos (Secrets Store, nunca no código nem no chat):** `KIE_API_KEY`, `META_WA_TOKEN`, `TURNSTILE_SECRET`. Trocar:
+- **Segredos (Secrets Store, nunca no código nem no chat):** `ANTHROPIC_API_KEY`, `KIE_API_KEY` (reserva), `META_WA_TOKEN`, `TURNSTILE_SECRET`. Trocar:
   `npx wrangler secrets-store secret update 20d5e4dd865a460e85d9c002af65c49f --secret-id <id> --remote` (o dono digita)
-- **Lentidão (medido em 02/11/2026):** o Worker leva 0,1 a 0,4 s; a **kie.ai segura 7 a 10 s antes do primeiro byte** e
-  entrega a resposta inteira de uma vez (streaming falso), com Grok, Claude ou Gemini. Pela kie.ai o visitante espera
-  ~9 a 11 s; streaming só ajuda se a fonte envia aos pedaços. Solução: `PROVIDER` = "anthropic" (API direta, ~1 s,
-  precisa de `ANTHROPIC_API_KEY` no Secrets Store e do binding no wrangler.jsonc). Medir com o log `[maia] tempo`
+- **Lentidão:** se a Maia ficar lenta, ver o log `[maia] tempo` (`cabeçalho` = espera do provedor). O Worker leva 0,1 a 0,4 s; o resto é espera do provedor (se passar de ~5 s, conferir o status da Anthropic e, em último caso, voltar à kie.ai)
 - **Logs ao vivo:** `cd chat && npx wrangler tail` (prefixos `[maia]` e `[leads]`)
 - **Nunca** apagar `conv:*` em massa no KV (são conversas reais); teste se apaga pela referência
-- **Privacidade:** o chat, os fornecedores (Cloudflare, Anthropic, Meta; a kie.ai aparece só como "provedor intermediário", sem o nome, a pedido do usuário) e os prazos estão nas 4 políticas
+- **Privacidade:** o chat, os fornecedores (Cloudflare, Anthropic, Meta; desde 14/11/2026 sem "provedor intermediário", porque a chamada é direta. Se voltar à kie.ai, recolocar a menção sem citar o nome) e os prazos estão nas 4 políticas
   (`src/legacy/**/*privacy*.json`). Mudou o que o chat coleta ou para onde envia? Atualize as 4 e o aviso do widget
 
 ## Indexação no Google (manutenção)

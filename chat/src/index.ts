@@ -8,6 +8,7 @@
 // já que o contador diário no KV não é atômico), teto de gasto diário, tamanho da mensagem e turnos por conversa.
 import { SYSTEM } from './prompt';
 import { panel, purge, saveLead, type LeadEnv } from './leads';
+import { guessLang } from './lang';
 
 type Limiter = { limit(o: { key: string }): Promise<{ success: boolean }> };
 export interface Env extends LeadEnv {
@@ -17,6 +18,7 @@ export interface Env extends LeadEnv {
   RL: Limiter;
   RL_GLOBAL: Limiter;
   MODEL: string;
+  STRATEGY_MODEL?: string; // modelo das respostas estratégicas (ex.: "claude-opus-5-5"); vazio = só MODEL
   DAILY_CAP_USD: string;
   ALLOWED_ORIGINS: string;
   WHATSAPP: string;
@@ -28,13 +30,18 @@ export interface Env extends LeadEnv {
 
 type Lang = 'br' | 'en' | 'es' | 'pt';
 type Msg = { role: 'user' | 'assistant'; content: string };
-type Conv = { lang: Lang; created: string; page?: string; messages: Msg[]; handoff?: boolean; ref?: string; notified?: boolean; lead?: Record<string, string> };
+type Conv = { lang: Lang; created: string; page?: string; messages: Msg[]; handoff?: boolean; ref?: string; notified?: boolean; lead?: Record<string, string>; opus?: number; ui?: Lang };
 type Reply = { ok: true; text: string; usd: number } | { ok: false; error: string; usd?: number }; // usd no erro: tokens já cobrados
 
 const TTL = 60 * 60 * 24 * 90; // 90 dias, como diz a política de privacidade
 const MAX_TURNS = 30;
 const MAX_TEXT = 1200;
-// Preço na kie.ai em US$ por 1M de tokens (a entrada tem o mesmo desconto da saída)
+// Preço em US$ por 1M de tokens: direto na Anthropic e, na reserva, pela kie.ai (lá a entrada tem o mesmo desconto da saída)
+const PRICE_ANTHROPIC: Record<string, { input: number; output: number }> = {
+  'claude-opus-5-5': { input: 4, output: 20 },
+  'claude-sonnet-5-5': { input: 2, output: 10 },
+  'claude-haiku-5-5': { input: 0.1, output: 0.5 }, // prompts até 100 mil tokens
+};
 const PRICE: Record<string, { input: number; output: number }> = {
   'grok-4-7': { input: 0.8, output: 2.4 },
   'claude-opus-5-5': { input: 1.6, output: 8 },
@@ -43,6 +50,9 @@ const PRICE: Record<string, { input: number; output: number }> = {
   'gemini-3-8-flash': { input: 0.15, output: 0.6 }, // aproximado; conferir na tabela da kie.ai
 };
 const MARK = '[[WHATSAPP]]';
+// o modelo do dia a dia responde só isto quando a mensagem pede uma resposta estratégica (ver work())
+const STRAT = '[[ESTRATEGIA]]';
+const MAX_STRAT = 3; // respostas do modelo estratégico por conversa
 // pedido explícito de atendimento humano ou de como contratar/seguir, nos 4 idiomas (termos soltos como "equipe" ou
 // "pessoa" disparavam encaminhamento por engano)
 const HUMAN = /(falar|conversar) com (uma pessoa|algu[eé]m|um humano|um atendente|um consultor|o time|a equipe|a equipa|voc[eê]s)|atendimento humano|quero contratar|como (fa[cç]o|posso) (pra|para) (contratar|seguir|fechar|come[cç]ar)|(talk|speak|chat) (to|with) (a (person|human|real person)|someone|your team|the team|sales)|how (do|can) i (hire|sign up|get started)|hablar con (una persona|alguien|un humano|un asesor|el equipo|ustedes)|c[oó]mo (contrato|puedo contratar|empiezo)/i;
@@ -98,18 +108,22 @@ async function addSpend(env: Env, usd: number) {
 // enquanto ela é escrita. PROVIDER="anthropic" chama a API da Anthropic direto (a kie.ai segurava 7-10 s antes do primeiro
 // byte); PROVIDER="kie" passa pela kie.ai, e lá MODEL escolhe o formato: "grok-*" (Responses), "claude-*" (mensagens) ou
 // "gemini-*" (streamGenerateContent)
-async function ask(env: Env, system: string, messages: Msg[], onDelta?: (d: string) => void): Promise<Reply> {
+async function ask(env: Env, system: string, messages: Msg[], onDelta?: (d: string) => void, model = env.MODEL): Promise<Reply> {
   const t0 = Date.now(); let tFirst = 0;
   const direct = env.PROVIDER === 'anthropic';
   const key = await (direct ? env.ANTHROPIC_API_KEY! : env.KIE_API_KEY).get();
-  const m = env.MODEL, kind = direct || m.startsWith('claude') ? 'claude' : m.startsWith('gemini') ? 'gemini' : 'grok';
+  const m = model, kind = direct || m.startsWith('claude') ? 'claude' : m.startsWith('gemini') ? 'gemini' : 'grok';
   // na Anthropic, o roteiro fixo vai num bloco com cache (igual em toda conversa) e o contexto da conversa noutro;
   // esforço baixo e sem raciocínio prévio: é chat, e o que conta é a primeira palavra chegar rápido
+  const fb = direct && /^claude-(opus-5-5|sonnet-5-5|fable)/.test(m);
   const sys = direct && system.startsWith(SYSTEM)
     ? [{ type: 'text', text: SYSTEM, cache_control: { type: 'ephemeral' } }, { type: 'text', text: system.slice(SYSTEM.length).trim() || '-' }]
     : system;
   const [url, body] = direct
-    ? ['https://api.anthropic.com/v1/messages', { model: m, max_tokens: 1500, stream: true, system: sys, messages, thinking: { type: 'disabled' }, output_config: { effort: 'low' } }]
+    // o Haiku aceita desligar o raciocínio; no Opus 5.5 e no Sonnet 5.5 isso dá erro 400, então eles ficam no adaptativo com
+    // esforço baixo, e com o fallback automático da Anthropic (se o filtro de segurança recusar, outro modelo responde)
+    ? ['https://api.anthropic.com/v1/messages', { model: m, max_tokens: m === 'claude-haiku-5-5' ? 1500 : 4000, stream: true, system: sys, messages, output_config: { effort: 'low' },
+        ...(m === 'claude-haiku-5-5' ? { thinking: { type: 'disabled' } } : {}), ...(fb ? { fallbacks: 'default' } : {}) }]
     : kind === 'claude'
     ? ['https://api.kie.ai/claude/v1/messages', { model: m, max_tokens: 1500, stream: true, system, messages }]
     : kind === 'gemini'
@@ -118,7 +132,7 @@ async function ask(env: Env, system: string, messages: Msg[], onDelta?: (d: stri
           generationConfig: { maxOutputTokens: 1500, thinkingConfig: { thinkingLevel: 'low' } } }]
       : ['https://api.kie.ai/grok/v1/responses', { model: m, stream: true, reasoning: { effort: 'low' }, max_output_tokens: 1500, input: [{ role: 'system', content: system }, ...messages] }];
   const headers: Record<string, string> = direct
-    ? { 'x-api-key': key, 'anthropic-version': '2026-10-21', 'content-type': 'application/json' }
+    ? { 'x-api-key': key, 'anthropic-version': '2026-10-21', 'content-type': 'application/json', ...(fb ? { 'anthropic-beta': 'server-side-fallback-2026-07-01' } : {}) }
     : { authorization: `Bearer ${key}`, 'content-type': 'application/json' };
   const r = await fetch(url, { method: 'POST', headers, body: JSON.stringify(body), signal: AbortSignal.timeout(40_000) })
     .catch((e) => (console.error('[maia] fetch', String(e)), null));
@@ -169,7 +183,7 @@ async function ask(env: Env, system: string, messages: Msg[], onDelta?: (d: stri
     if (text) console.error('[maia] uso não veio; custo estimado');
     inTok = (system.length + messages.reduce((n, x) => n + x.content.length, 0)) / 3.5; outTok = text.length / 3.5;
   }
-  const p = PRICE[m] ?? PRICE['claude-opus-5-5'];
+  const p = (direct ? PRICE_ANTHROPIC : PRICE)[m] ?? PRICE_ANTHROPIC['claude-opus-5-5'];
   const usd = (inTok * p.input + outTok * p.output) / 1e6;
   if (err && (!text || err.startsWith('recusa'))) return { ok: false, error: err, usd };
   if (!text.trim()) return { ok: false, error: 'resposta vazia', usd };
@@ -247,7 +261,8 @@ export default {
     const ip = req.headers.get('cf-connecting-ip') ?? 'anon';
     if (!(await env.RL.limit({ key: ip })).success) return json({ error: 'rate' }, 429, origin);
 
-    const L = LABEL[lang];
+    // textos fixos na língua de quem escreve (a 1ª mensagem decide; sem sinal claro, o idioma do site)
+    let L = LABEL[guessLang(text, lang) ?? lang];
     const fallback = (reply: string) => json({ reply, whatsapp: waLink(env, L.lead) }, 200, origin);
     if (!(await env.RL_GLOBAL.limit({ key: 'all' })).success || (await spentToday(env)) >= Number(env.DAILY_CAP_USD)) return fallback(L.cap);
 
@@ -256,11 +271,19 @@ export default {
     // conversa nova só começa com o token do anti-robô
     if (!saved && !(await human(env, String(body?.ts ?? ''), ip))) return json({ error: 'verify', reply: L.error, whatsapp: waLink(env, L.lead) }, 403, origin);
     const conv: Conv = saved ?? { lang, created: new Date().toISOString(), page: String(body?.page ?? '').slice(0, 200), messages: [] };
+    conv.ui ??= guessLang(text, lang) ?? undefined; L = LABEL[conv.ui ?? lang];
     if (conv.messages.length >= MAX_TURNS * 2) return fallback(L.end);
     conv.messages.push({ role: 'user', content: text });
 
     console.log('[maia] tempo antes do modelo', Date.now() - tReq, 'ms');
-    const system = `${SYSTEM}\n\n# Contexto da conversa\nIdioma: ${lang}\nData de hoje: ${today()}\nCotação de referência: ${await fx(env)}`;
+    const system = `${SYSTEM}\n\n# Contexto da conversa\nIdioma do site: ${lang}\nData de hoje: ${today()}\nCotação de referência: ${await fx(env)}`;
+    // Resposta estratégica: o modelo do dia a dia (Haiku) conduz a conversa e, quando a mensagem pede estratégia para
+    // converter o lead, responde só [[ESTRATEGIA]]; o modelo estratégico (Opus) escreve essa resposta e a próxima volta ao
+    // Haiku. Só na API direta e até MAX_STRAT vezes por conversa
+    const strat = env.PROVIDER === 'anthropic' && !!env.STRATEGY_MODEL && (conv.opus ?? 0) < MAX_STRAT;
+    const sysDaily = strat ? `${system}\n\n# Respostas estratégicas\nSe a última mensagem da pessoa pedir uma resposta estratégica para converter o lead, responda apenas ${STRAT} e nada mais: pedido de plano ou estratégia de marketing, comparação de canais, orçamento a partir do plano Sales, várias unidades, lançamento, empresa grande, operação fora do Brasil, dúvida técnica difícil de tráfego ou funil, objeção de preço, "vou pensar", comparação com outra agência, ou a pessoa pronta para decidir. Para todo o resto, responda normalmente.` : system;
+    const sysStrat = `${system}\n\n# Esta resposta\nEsta é uma resposta estratégica, e o objetivo é converter o lead: responda com profundidade e exemplos concretos do segmento da pessoa, mostre o valor da Makewell, trate a objeção se houver e conduza para o próximo passo (diagnóstico gratuito ou WhatsApp do time). Mantenha o tom, o tamanho de conversa de chat e todas as regras acima. Nunca escreva ${STRAT}.`;
+    const sysSelf = `${system}\n\n# Esta resposta\nResponda você mesma, normalmente. Nunca escreva ${STRAT}.`;
 
     // O trabalho é o mesmo nos dois modos; no streaming, cada pedaço visível vai ao site assim que chega. A linha
     // [[WHATSAPP]] {json} nunca sai: o texto é enviado só até um "[[" (e um "[" solto no fim fica retido até o próximo pedaço)
@@ -275,18 +298,39 @@ export default {
       // uma nova tentativa cobre as falhas passageiras da kie.ai, desde que nada tenha sido mostrado ainda
       // (recusa não se repete: a segunda tentativa daria o mesmo resultado e cobraria de novo). Todo gasto entra no teto,
       // inclusive o de tentativas que falharam
-      let r = await ask(env, system, conv.messages, onDelta);
+      let r = await ask(env, sysDaily, conv.messages, onDelta);
       if (r.usd) ctx.waitUntil(addSpend(env, r.usd));
       if (!r.ok && !sent && !r.error.startsWith('recusa')) {
         console.error('[maia] modelo', r.error); full = '';
-        r = await ask(env, system, conv.messages, onDelta);
+        r = await ask(env, sysDaily, conv.messages, onDelta);
         if (r.usd) ctx.waitUntil(addSpend(env, r.usd));
+      }
+      // pediu resposta estratégica: nada foi mostrado (o texto fica retido a partir de "[["), então o modelo estratégico
+      // escreve esta resposta; se ele falhar sem mostrar nada (ou o limite acabou), o modelo do dia a dia responde
+      // (marcação no meio do texto só conta se nada foi mostrado ainda: no streaming, o que saiu não volta)
+      if (r.ok && r.text.includes(STRAT) && (r.text.startsWith(STRAT) || !sent)) {
+        full = ''; sent = 0;
+        let s: Reply | null = null;
+        if (strat) {
+          console.log('[maia] estrategia →', env.STRATEGY_MODEL);
+          conv.opus = (conv.opus ?? 0) + 1; // conta também a falha: um erro repetido não chama o Opus a cada mensagem
+          s = await ask(env, sysStrat, conv.messages, onDelta, env.STRATEGY_MODEL);
+          if (s.usd) ctx.waitUntil(addSpend(env, s.usd));
+          if (!s.ok) console.error('[maia] estrategia (falhou)', s.error);
+        }
+        if (s?.ok && !s.text.startsWith(STRAT)) r = s;
+        else if (s && !s.ok && sent) r = s;
+        else {
+          full = ''; sent = 0;
+          r = await ask(env, sysSelf, conv.messages, onDelta);
+          if (r.usd) ctx.waitUntil(addSpend(env, r.usd));
+        }
       }
       if (!r.ok) { console.error('[maia] modelo (falhou)', r.error); return { reply: L.error, whatsapp: waLink(env, L.lead) }; }
       return finish(r.text);
     };
     const finish = async (out: string) => {
-      let { reply, lead } = splitHandoff(out);
+      let { reply, lead } = splitHandoff(out.replaceAll(STRAT, '').trim());
       // o modelo às vezes convida para o WhatsApp sem a linha do resumo: se a pessoa pediu atendimento ou a resposta convida
       // para o WhatsApp do time, pede só o resumo numa chamada à parte (sem isso o botão não aparece)
       if (!lead && !conv.handoff && (HUMAN.test(text) || INVITE.test(reply))) {
