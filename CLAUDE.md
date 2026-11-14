@@ -76,6 +76,20 @@ Botão flutuante com IA que qualifica o visitante e o encaminha ao WhatsApp do t
 - **Relatório "Páginas":** são normais os grupos de redirecionamento (cascas, http/www), robots.txt (spam `?r=` herdado do WordPress
   e `/docs/`), noindex e 404. Indexadas caindo, ou 403 em páginas reais, é alerta (de 23/10 a 07/11/2026 o CDN da HostGator barrou o Google)
 
+## Segurança (manutenção)
+- **Cabeçalhos (painel da Cloudflare, 14/11/2026):** regra "Cabeçalhos de segurança" (Regras → Modificação do cabeçalho de resposta)
+  nas duas zonas, com `X-Frame-Options: SAMEORIGIN` e `Referrer-Policy: strict-origin-when-cross-origin`. **No makewell.agency a regra
+  filtra Nome do host = `makewell.agency`**: sem o filtro, ela pegaria chat.makewell.agency e quebraria a janela anti-robô (iframe).
+  HSTS e nosniff já vêm da Cloudflare/GitHub. O painel `/leads` tem cabeçalhos próprios (CSP, DENY) em `chat/src/leads.ts` (`page()`)
+- **Ligar o anti-robô (`TURNSTILE_ENFORCE` = "1"):** antes, `cd chat && npx wrangler tail --format json`, e uma pessoa real manda a 1ª
+  mensagem numa aba anônima nova (a verificação só roda em conversa nova). Só ligar se o log mostrar `[maia] turnstile ok`; Chrome
+  automatizado sempre dá "sem token". Deu problema depois de ligar: voltar para "0" e `npx wrangler deploy`
+- **Auditoria de 14/11/2026:** sem segredo no código nem no histórico; `.env`, `.git` e código-fonte dão 404 nos 3 hosts; SQL só com
+  parâmetro; XSS escapado no painel e no e-mail; limites por IP/global, teto diário e 30 turnos. Refazer com `/auditar-seguranca`
+- **Teste do chat ao vivo:** um lead de teste dispara aviso real ao time (e-mail/WhatsApp). Apagar depois só pela referência/sid:
+  `npx wrangler d1 execute makewell-leads --remote --command "DELETE FROM leads WHERE ref='X' AND sid='Y'"` e
+  `npx wrangler kv key delete "conv:<sid>" --binding CHAT --remote`
+
 ## Regras Obrigatórias
 
 ### A cada publicação (git push):
