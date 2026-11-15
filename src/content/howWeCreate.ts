@@ -39,7 +39,7 @@ const br = {
   triggers: [
     ['Prova Social', '"Se outros confiam, é seguro."', 'Cases de sucesso, depoimentos em vídeo, números de clientes atendidos.'],
     ['Autoridade', '"Ele sabe o que diz, vou seguir."', 'Mostrar bastidores, método próprio, linguagem firme e dados concretos.'],
-    ['Escassez / Urgência', '"Posso perder essa oportunidade."', 'Vagas limitadas para diagnóstico, tempo de fechamento de carrinho.'],
+    ['Escassez / Urgência', '"Posso perder essa oportunidade."', 'Agenda de diagnósticos com data marcada, prazo real de uma condição especial.'],
     ['Reciprocidade', '"Ele me ajudou, quero retribuir."', 'Conteúdo denso e gratuito que resolve um problema real do cliente.'],
     ['História <em>(storytelling)</em>', '"Eu me identifico com essa jornada."', 'Contar a jornada do herói (o problema, a descoberta da solução, o resultado).'],
   ],
@@ -91,7 +91,7 @@ const en: typeof br = {
       p: `Washington Olivetto and Nizan Guanaes revolutionized advertising by understanding that people don't just want to buy: they want to be entertained and see themselves reflected in the brand. They used intelligent humor, elements of local culture and engaging narratives to create immortal campaigns.`,
       app: `Digital content cannot be robotic. It needs empathy, relatable stories, and immediate identification. Our client's customer needs to look at the post and think: "this was made for me".` },
     { num: 'Pillar 04', title: 'Conversion Engineering', school: 'Rocha &amp; Sobral School',
-      p: 'Classic advertising built brands over the long term. Digital brought conversion engineering. Érico Rocha taught the market to create peaks of desire through logical content sequences (education → anticipation → offer). Pedro Sobral taught that the best content in the world dies without the correct distribution of paid traffic.',
+      p: 'Classic advertising built brands over the long term. Digital brought conversion engineering. Érico Rocha taught the market to create peaks of desire through logical content sequences (education → anticipation → offer). Pedro Sobral taught that the best content in the world dies without the correct distribution of paid media.',
       app: 'Organic content is just the first layer. Every piece of content is thought of as part of a funnel (attraction → engagement → conversion) and designed to be amplified by paid media.' },
   ],
   neuroEyebrow: 'Neuromarketing',
@@ -101,7 +101,7 @@ const en: typeof br = {
   triggers: [
     ['Social Proof', `"If others trust it, it's safe."`, 'Success cases, video testimonials, number of clients served.'],
     ['Authority', `"He knows what he's talking about, I'll follow."`, 'Show behind-the-scenes, proprietary method, firm language and concrete data.'],
-    ['Scarcity / Urgency', '"I might miss this opportunity."', 'Limited slots for diagnosis, cart closing countdown.'],
+    ['Scarcity / Urgency', '"I might miss this opportunity."', 'Diagnosis calendar with set dates, a real deadline for a special condition.'],
     ['Reciprocity', '"He helped me, I want to give back."', 'Dense, free content that solves a real client problem.'],
     ['Story <em>(storytelling)</em>', '"I identify with this journey."', `Tell the hero's journey (the problem, the discovery of the solution, the result).`],
   ],
@@ -163,7 +163,7 @@ const es: typeof br = {
   triggers: [
     ['Prueba Social', '"Si otros confían, es seguro."', 'Casos de éxito, testimonios en video, número de clientes atendidos.'],
     ['Autoridad', '"Sabe de lo que habla, voy a seguirlo."', 'Mostrar bastidores, método propio, lenguaje firme y datos concretos.'],
-    ['Escasez / Urgencia', '"Puedo perder esta oportunidad."', 'Cupos limitados para diagnóstico, cuenta regresiva de cierre.'],
+    ['Escasez / Urgencia', '"Puedo perder esta oportunidad."', 'Agenda de diagnósticos con fecha fijada, plazo real de una condición especial.'],
     ['Reciprocidad', '"Me ayudó, quiero corresponder."', 'Contenido denso y gratuito que resuelve un problema real del cliente.'],
     ['Historia <em>(storytelling)</em>', '"Me identifico con este recorrido."', 'Contar el viaje del héroe (el problema, el descubrimiento de la solución, el resultado).'],
   ],
@@ -225,7 +225,7 @@ const pt: typeof br = {
   triggers: [
     ['Prova Social', '"Se outros confiam, é seguro."', 'Cases de sucesso, testemunhos em vídeo, número de clientes atendidos.'],
     ['Autoridade', '"Ele sabe do que fala, vou seguir."', 'Mostrar bastidores, método proprietário, linguagem firme e dados concretos.'],
-    ['Escassez / Urgência', '"Posso perder esta oportunidade."', 'Vagas limitadas para diagnóstico, contagem decrescente para o fecho.'],
+    ['Escassez / Urgência', '"Posso perder esta oportunidade."', 'Agenda de diagnósticos com data marcada, prazo real de uma condição especial.'],
     ['Reciprocidade', '"Ele ajudou-me, quero retribuir."', 'Conteúdo denso e gratuito que resolve um problema real do cliente.'],
     ['História <em>(storytelling)</em>', '"Identifico-me com esta jornada."', 'Contar a jornada do herói (o problema, a descoberta da solução, o resultado).'],
   ],

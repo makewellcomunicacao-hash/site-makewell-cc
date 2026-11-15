@@ -169,7 +169,7 @@ export default {
       },
       {
         "title": "Onboarding e execução",
-        "desc": "Kickoff com time dedicado, cronograma, reuniões recorrentes e painel de acompanhamento. Do mês um já há entregável real."
+        "desc": "Kickoff com time dedicado, cronograma, reuniões recorrentes e painel de acompanhamento. Já no primeiro mês há entregável real: o diagnóstico e o plano."
       }
     ],
     "moreEyebrow": "Aprofunde",
@@ -195,9 +195,9 @@ export default {
   },
   "en": {
     "kicker": "What We Do",
-    "h1a": "Branding + Traffic + Sales:",
+    "h1a": "Branding + Paid Media + Sales:",
     "h1b": "the ecosystem that separates brands from posts",
-    "lead": "We don't deliver isolated services. Each of the six areas below exists to feed the others, because content without traffic is invisible, traffic without CRM is waste and brand without method is luck.",
+    "lead": "We don't deliver isolated services. Each of the six areas below exists to feed the others, because content without paid media is invisible, paid media without CRM is waste and brand without method is luck.",
     "whyEyebrow": "Why integration matters",
     "whyText": "When you hire a traditional agency, each service becomes a silo: the branding agency doesn't talk to the media agency, which doesn't talk to the sales team. Result: you pay three suppliers to produce three strategies that don't communicate.",
     "whyStrong": "At Makewell, everything happens under one roof, with one team and a single strategy.",
@@ -205,7 +205,7 @@ export default {
     "flow": [
       "Positioning",
       "Content",
-      "Traffic",
+      "Paid Media",
       "Sales + CRM"
     ],
     "svEyebrow": "Services",
@@ -257,7 +257,7 @@ export default {
         ]
       },
       {
-        "title": "Paid Traffic",
+        "title": "Paid Media",
         "lead": "Meta Ads, Google Ads and LinkedIn Ads operated by people who can read P&L, not just platform dashboards.",
         "rows": [
           [
@@ -361,7 +361,7 @@ export default {
       },
       {
         "title": "Onboarding and execution",
-        "desc": "Kickoff with dedicated team, schedule, recurring meetings and tracking dashboard. Real deliverables from month one."
+        "desc": "Kickoff with dedicated team, schedule, recurring meetings and tracking dashboard. Real deliverables from month one: the diagnosis and the plan."
       }
     ],
     "moreEyebrow": "Go deeper",
@@ -444,7 +444,7 @@ export default {
           ],
           [
             "Resultado esperado",
-            "Audiencia calificada y crecimiento orgánico con intención de compra real."
+            "Audiencia cualificada y crecimiento orgánico con intención de compra real."
           ]
         ]
       },
@@ -458,7 +458,7 @@ export default {
           ],
           [
             "A quién sirve",
-            "Negocios que necesitan acelerar la generación de leads calificados."
+            "Negocios que necesitan acelerar la generación de leads cualificados."
           ],
           [
             "Entregamos",
@@ -466,7 +466,7 @@ export default {
           ],
           [
             "Resultado esperado",
-            "Costo por lead decreciente y ROI medido en moneda real — no en impresiones."
+            "Coste por lead decreciente y ROI medido en moneda real — no en impresiones."
           ]
         ]
       },
@@ -510,7 +510,7 @@ export default {
           ],
           [
             "Resultado esperado",
-            "Tráfico orgánico calificado y páginas que convierten visitas en leads."
+            "Tráfico orgánico cualificado y páginas que convierten visitas en leads."
           ]
         ]
       },
@@ -545,7 +545,7 @@ export default {
     "steps": [
       {
         "title": "Diagnóstico estratégico",
-        "desc": "Reunión inicial para entender el negocio, el historial de marketing, los objetivos de ingresos y las brechas actuales. Sin costo, sin compromiso."
+        "desc": "Reunión inicial para entender el negocio, el historial de marketing, los objetivos de ingresos y las brechas actuales. Sin coste, sin compromiso."
       },
       {
         "title": "Propuesta personalizada",
@@ -553,7 +553,7 @@ export default {
       },
       {
         "title": "Onboarding y ejecución",
-        "desc": "Kickoff con equipo dedicado, cronograma, reuniones recurrentes y dashboard de seguimiento. Entregables reales desde el primer mes."
+        "desc": "Kickoff con equipo dedicado, cronograma, reuniones recurrentes y dashboard de seguimiento. Entregables reales desde el primer mes: el diagnóstico y el plan."
       }
     ],
     "moreEyebrow": "Profundiza",
@@ -745,7 +745,7 @@ export default {
       },
       {
         "title": "Onboarding e execução",
-        "desc": "Kickoff com equipa dedicada, cronograma, reuniões recorrentes e dashboard de acompanhamento. Entregas reais desde o primeiro mês."
+        "desc": "Kickoff com equipa dedicada, cronograma, reuniões recorrentes e dashboard de acompanhamento. Entregas reais desde o primeiro mês: o diagnóstico e o plano."
       }
     ],
     "moreEyebrow": "Aprofunde",

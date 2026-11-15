@@ -2,10 +2,10 @@
 // Campos com HTML (h1, h2 com <span class="gold">, <strong>, <em>) são renderizados com set:html.
 export default {
   "br": {
-    "heroAria": "Agência de marketing digital em Maceió e São Paulo — estratégia, performance e inteligência",
+    "heroAria": "Agência de marketing digital em Maceió e São Paulo: estratégia, performance e IA que viram clientes fechados",
     "pill": "Há mais de 9 anos transformando marcas",
-    "h1": "Sua marca no topo<br>com estratégia,<br> <em>performance e inteligência.</em>",
-    "heroP": "Estratégia, performance e inteligência para transformar marcas em movimento. <strong>Fale com a gente</strong> e comece agora o novo momento da sua marca.",
+    "h1": "Marketing que transforma<br>investimento em<br> <em>clientes fechados.</em>",
+    "heroP": "Estratégia, performance e IA para advogados, clínicas, construtoras e indústrias. <strong>Agende um diagnóstico gratuito</strong> e veja onde o seu marketing pode render mais.",
     "cta1": {
       "href": "https://wa.me/5582999103246?text=Olá!%20Quero%20agendar%20um%20diagnóstico%20gratuito%20com%20a%20Makewell.",
       "text": "Agendar diagnóstico gratuito",
@@ -30,7 +30,7 @@ export default {
       },
       {
         "v": "+7 díg.",
-        "l": "Faturamento de Clientes"
+        "l": "Faturamento gerado para clientes"
       },
       {
         "v": "9+",
@@ -312,7 +312,7 @@ export default {
             },
             {
               "v": "39+",
-              "l": "Clientes fechados/mês"
+              "l": "Clientes fechados/mês (média)"
             },
             {
               "v": "R$100k",
@@ -534,8 +534,8 @@ export default {
   "en": {
     "heroAria": "Digital marketing agency for Brazilian businesses in Florida — Miami, Orlando, Tampa, Jacksonville",
     "pill": "Over 9 years transforming brands",
-    "h1": "Your brand at the top<br>with strategy,<br> <em>performance and intelligence.</em>",
-    "heroP": "Strategy, performance and intelligence to turn brands into movements. <strong>Talk to us</strong> and start the new chapter of your brand now.",
+    "h1": "Marketing that turns<br>investment into<br> <em>closed clients.</em>",
+    "heroP": "Strategy, performance and AI for law firms, clinics, builders and industrial companies. <strong>Schedule a free diagnosis</strong> and see where your marketing can deliver more.",
     "cta1": {
       "href": "https://wa.me/5582999103246?text=Hello!%20I%27d%20like%20to%20schedule%20a%20free%20diagnostic%20with%20Makewell.",
       "text": "Schedule a Free Diagnosis",
@@ -570,7 +570,7 @@ export default {
     "tagsAria": "Services",
     "tags": [
       "Branding",
-      "Traffic",
+      "Paid Media",
       "SEO",
       "CRM",
       "AI"
@@ -578,7 +578,7 @@ export default {
     "ticker": [
       "Strategy",
       "Branding",
-      "Paid Traffic",
+      "Paid Media",
       "Social Selling",
       "Automation",
       "SEO",
@@ -701,9 +701,9 @@ export default {
     },
     "services": {
       "id": "services",
-      "desc": "Services: paid traffic, social media, branding, SEO, marketing automation and CRM for Brazilian-owned businesses in the USA",
+      "desc": "Services: paid media, social media, branding, SEO, marketing automation and CRM for Brazilian-owned businesses in the USA",
       "tag": "WHAT WE DO",
-      "h2": "Positioning + Social + <span class=\"gold\">Traffic</span>",
+      "h2": "Positioning + Social + <span class=\"gold\">Paid Media</span>",
       "items": [
         {
           "tag": "Branding",
@@ -719,19 +719,19 @@ export default {
         {
           "tag": "Social + Content",
           "title": "Turn audience into real clients",
-          "desc": "Magnetic content, structured Social Selling and traffic management to consistently turn followers into customers.",
+          "desc": "Magnetic content, structured Social Selling and paid media management to consistently turn followers into customers.",
           "listAria": "Social deliverables",
           "li": [
             "Magnetic content",
             "Structured Social Selling",
-            "Segmented traffic management"
+            "Segmented paid media management"
           ]
         },
         {
-          "tag": "Paid Traffic",
+          "tag": "Paid Media",
           "title": "Appear to those who are ready to buy",
           "desc": "Google Ads, Meta Ads and LinkedIn Ads with advanced targeting and continuous optimization to maximize conversions and ROI.",
-          "listAria": "Paid Traffic deliverables",
+          "listAria": "Paid Media deliverables",
           "li": [
             "Google, Meta &amp; LinkedIn Ads",
             "Advanced targeting",
@@ -810,7 +810,7 @@ export default {
           "sector": "Legal",
           "roi": "ROI +26x",
           "title": "Dr. Felipe Vilela",
-          "sub": "Positioning + Social + Traffic + CRM",
+          "sub": "Positioning + Social + Paid Media + CRM",
           "metricsAria": "Legal case metrics",
           "metrics": [
             {
@@ -833,7 +833,7 @@ export default {
           "sector": "Health",
           "roi": "ROI +20x",
           "title": "Dra. Thielen",
-          "sub": "Positioning + Social + Traffic",
+          "sub": "Positioning + Social + Paid Media",
           "metricsAria": "Health case metrics",
           "metrics": [
             {
@@ -842,7 +842,7 @@ export default {
             },
             {
               "v": "39+",
-              "l": "Clients closed/month"
+              "l": "Clients closed/month (average)"
             },
             {
               "v": "R$100k",
@@ -1022,8 +1022,8 @@ export default {
           "a": "The first qualified leads usually arrive between the second and third month, once campaigns are calibrated. Between the fourth and sixth month, cost per lead drops and ROI consolidates. Branding and SEO build up cumulatively and gain strength month after month. Our FishWell Method ensures continuous monitoring and clear goals at every stage."
         },
         {
-          "q": "Does Makewell serve businesses outside Brazil?",
-          "a": "Yes! We specialize in Brazilian-owned businesses in the United States — especially in Florida, serving clients in Miami, Orlando, Tampa, Jacksonville and throughout the state. We work 100% remotely, so distance is never a barrier. Our team understands both Brazilian business culture and the US market, making us the ideal partner for entrepreneurs who want to grow on both sides."
+          "q": "Does Makewell serve businesses outside Maceió?",
+          "a": "Yes! We are based in Maceió and São Paulo, Brazil, and serve clients across Brazil and the United States 100% remotely. Our team has delivered results for companies in legal, healthcare, retail and services in several regions."
         },
         {
           "q": "Which platforms does Makewell manage?",
@@ -1064,8 +1064,8 @@ export default {
   "es": {
     "heroAria": "Agencia de marketing digital para negocios brasileños en España y Latinoamérica",
     "pill": "Agencia brasileña · Más de 9 años transformando marcas",
-    "h1": "Tu marca en la cima<br>con estrategia,<br> <em>rendimiento e inteligencia.</em>",
-    "heroP": "Somos una agencia brasileña que entiende los dos lados: tu negocio y el mercado donde estás ahora. <strong>Habla con nosotros</strong> y empieza el nuevo capítulo de tu marca.",
+    "h1": "Marketing que convierte<br>la inversión en<br> <em>clientes cerrados.</em>",
+    "heroP": "Estrategia, rendimiento e IA para despachos de abogados, clínicas, constructoras e industrias. <strong>Agenda un diagnóstico gratuito</strong> y descubre dónde puede rendir más tu marketing.",
     "cta1": {
       "href": "https://wa.me/5582999103246?text=Hola!%20Quiero%20agendar%20un%20diagn%C3%B3stico%20gratuito%20con%20Makewell.",
       "text": "Agendar diagnóstico gratuito",
@@ -1152,7 +1152,7 @@ export default {
         },
         {
           "title": "Constructoras &amp; Promotoras",
-          "desc": "Alta inversión en el proyecto, poco tiempo para vender y una sala de ventas llena de personal, pero sin demanda digital generada antes del lanzamiento. Construimos la estrategia que calienta al público, posiciona el producto y entrega leads calificados incluso antes de que las llaves estén listas."
+          "desc": "Alta inversión en el proyecto, poco tiempo para vender y una sala de ventas llena de personal, pero sin demanda digital generada antes del lanzamiento. Construimos la estrategia que calienta al público, posiciona el producto y entrega leads cualificados incluso antes de que las llaves estén listas."
         },
         {
           "title": "Industrias",
@@ -1356,7 +1356,7 @@ export default {
               "l": "Ingresos"
             }
           ],
-          "quote": "\"Sin ustedes no lo hubiera logrado. Los ganchos, los textos y la calidad son increíbles\"",
+          "quote": "\"Sin vosotros no lo habría logrado. Los ganchos, los textos y la calidad son increíbles\"",
           "cite": "Felipe Vilela — Abogado"
         },
         {
@@ -1372,7 +1372,7 @@ export default {
             },
             {
               "v": "39+",
-              "l": "Clientes cerrados/mes"
+              "l": "Clientes cerrados/mes (media)"
             },
             {
               "v": "R$100k",
@@ -1467,7 +1467,7 @@ export default {
           "dur": "1:10",
           "name": "Felipe Vilela",
           "role": "Abogado",
-          "quote": "\"Sin ustedes no lo hubiera logrado. Los ganchos, los textos y la calidad son increíbles\""
+          "quote": "\"Sin vosotros no lo habría logrado. Los ganchos, los textos y la calidad son increíbles\""
         },
         {
           "id": "8ZsBpSb9Rds",
@@ -1549,11 +1549,11 @@ export default {
         },
         {
           "q": "¿Cuánto tiempo se tarda en ver resultados?",
-          "a": "Los primeros leads calificados suelen llegar entre el segundo y el tercer mes, con las campañas ya calibradas. Entre el cuarto y el sexto mes, el costo por lead baja y el ROI se consolida. El branding y el SEO tienen un efecto acumulativo y ganan fuerza mes a mes. Nuestro Método FishWell garantiza seguimiento continuo y metas claras en cada etapa."
+          "a": "Los primeros leads cualificados suelen llegar entre el segundo y el tercer mes, con las campañas ya calibradas. Entre el cuarto y el sexto mes, el coste por lead baja y el ROI se consolida. El branding y el SEO tienen un efecto acumulativo y ganan fuerza mes a mes. Nuestro Método FishWell garantiza seguimiento continuo y metas claras en cada etapa."
         },
         {
-          "q": "¿Makewell atiende a negocios brasileños en España o fuera de Brasil?",
-          "a": "¡Sí! Trabajamos de forma 100% remota desde Brasil, ya atendemos negocios brasileños en Estados Unidos y conversamos con empresarios brasileños en España y Latinoamérica. Nuestro equipo entiende tanto la cultura de negocios brasileña como el mercado donde estás ahora, lo que nos convierte en el socio ideal para crecer de los dos lados."
+          "q": "¿Makewell atiende a empresas fuera de Maceió?",
+          "a": "¡Sí! Tenemos sede en Maceió y São Paulo (Brasil) y atendemos a clientes en todo Brasil y en Estados Unidos de forma 100% remota. Nuestro equipo ya ha entregado resultados a empresas de los sectores jurídico, salud, comercio y servicios en varias regiones."
         },
         {
           "q": "¿Qué plataformas gestiona Makewell?",
@@ -1561,7 +1561,7 @@ export default {
         },
         {
           "q": "¿Cómo funciona el seguimiento de resultados?",
-          "a": "Cada cliente tiene acceso a informes periódicos con métricas reales: ROI, costo por lead, alcance y conversiones. Realizamos reuniones de alineación regulares y tienes contacto directo con el equipo responsable de tu cuenta — sin intermediarios."
+          "a": "Cada cliente tiene acceso a informes periódicos con métricas reales: ROI, coste por lead, alcance y conversiones. Realizamos reuniones de alineación regulares y tienes contacto directo con el equipo responsable de tu cuenta — sin intermediarios."
         }
       ]
     },
@@ -1594,8 +1594,8 @@ export default {
   "pt": {
     "heroAria": "Agência de marketing digital para negócios brasileiros em Portugal",
     "pill": "Agência brasileira · Mais de 9 anos a transformar marcas",
-    "h1": "A sua marca no topo<br>com estratégia,<br> <em>performance e inteligência.</em>",
-    "heroP": "Somos uma agência brasileira que entende os dois lados: o seu negócio e o mercado onde está agora. <strong>Fale connosco</strong> e comece o novo capítulo da sua marca.",
+    "h1": "Marketing que transforma<br>investimento em<br> <em>clientes fechados.</em>",
+    "heroP": "Estratégia, performance e IA para advogados, clínicas, construtoras e indústrias. <strong>Agende um diagnóstico gratuito</strong> e veja onde o seu marketing pode render mais.",
     "cta1": {
       "href": "https://wa.me/5582999103246?text=Ol%C3%A1!%20Quero%20agendar%20um%20diagn%C3%B3stico%20gratuito%20com%20a%20Makewell.",
       "text": "Agendar diagnóstico gratuito",
@@ -1708,7 +1708,7 @@ export default {
         {
           "num": "02",
           "title": "Resultados <span>mensuráveis</span>",
-          "desc": "Cada ação tem um número, um objetivo e um responsável. Acompanha o ROI num painel e num relatório mensal — sem relatórios de vaidade, apenas o que importa: crescimento."
+          "desc": "Cada ação tem um número, um objetivo e um responsável. Acompanhe o ROI num painel e num relatório mensal, sem relatórios de vaidade, apenas o que importa: crescimento."
         },
         {
           "num": "03",
@@ -1902,7 +1902,7 @@ export default {
             },
             {
               "v": "39+",
-              "l": "Clientes fechados/mês"
+              "l": "Clientes fechados/mês (média)"
             },
             {
               "v": "R$100k",
@@ -2082,8 +2082,8 @@ export default {
           "a": "Os primeiros leads qualificados costumam chegar entre o segundo e o terceiro mês, com as campanhas já calibradas. Entre o quarto e o sexto mês, o custo por lead desce e o ROI consolida-se. Branding e SEO têm efeito cumulativo e ganham força mês a mês. O nosso Método FishWell garante acompanhamento contínuo e objetivos claros em cada etapa."
         },
         {
-          "q": "A Makewell atende empresários brasileiros em Portugal?",
-          "a": "Sim! Trabalhamos 100% à distância a partir do Brasil, já atendemos empresas brasileiras nos Estados Unidos e conversamos com empresários brasileiros em Portugal. A nossa equipa entende tanto a cultura de negócios brasileira quanto o mercado português, o que nos torna o parceiro ideal para quem quer crescer dos dois lados do Atlântico."
+          "q": "A Makewell atende empresas fora de Maceió?",
+          "a": "Sim! Temos sede em Maceió e São Paulo (Brasil) e atendemos clientes em todo o Brasil e nos Estados Unidos, 100% à distância. A nossa equipa já entregou resultados a empresas dos setores jurídico, saúde, retalho e serviços em várias regiões."
         },
         {
           "q": "Que plataformas a Makewell gere?",

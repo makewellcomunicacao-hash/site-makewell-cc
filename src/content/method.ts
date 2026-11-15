@@ -167,7 +167,7 @@ export default {
         "desc": "Pós-consulta: e-mail, lembretes, conteúdo de continuidade de tratamento"
       }
     ],
-    "funnelResult": "Resultado em cases reais: <strong>+20x ROI</strong> em cirurgia vascular, dezenas de clientes fechados por mês e agenda lotada em especialidades de alta complexidade.",
+    "funnelResult": "Resultado em cases reais: <strong>+20x ROI</strong> em cirurgia vascular, 39+ clientes fechados por mês e agenda lotada em especialidades de alta complexidade.",
     "tlEyebrow": "Cronograma",
     "tlH2": "O que <span class=\"me-gold\">esperar</span> por fase",
     "tlSub": "Marketing sério tem cronograma. Aqui vão as expectativas realistas por janela de tempo, sem promessa mágica de \"resultado em 7 dias\".",
@@ -175,12 +175,12 @@ export default {
       [
         "Mês 1",
         "Fundação",
-        "Diagnóstico completo + planejamento aprovado + primeiras entregas criativas. Início de campanhas."
+        "Diagnóstico completo e planejamento aprovado."
       ],
       [
         "Mês 2 – 3",
         "Calibração",
-        "Campanhas otimizadas, primeiros leads qualificados chegam, processo comercial em rodagem."
+        "Primeiras entregas criativas e campanhas no ar. Depois, otimização: os primeiros leads qualificados chegam e o processo comercial entra em rodagem."
       ],
       [
         "Mês 4 – 6",
@@ -332,7 +332,7 @@ export default {
         "meta": [
           [
             "Who participates",
-            "Traffic manager + performance analyst"
+            "Paid media manager + performance analyst"
           ],
           [
             "Deliverable",
@@ -394,7 +394,7 @@ export default {
         "desc": "Post-consultation: email, reminders, continuity of treatment content"
       }
     ],
-    "funnelResult": "Results in real cases: <strong>+20x ROI</strong> in vascular surgery, dozens of clients closed per month and full schedule in high-complexity specialties.",
+    "funnelResult": "Results in real cases: <strong>+20x ROI</strong> in vascular surgery, 39+ clients closed per month and full schedule in high-complexity specialties.",
     "tlEyebrow": "Timeline",
     "tlH2": "What to <span class=\"me-gold\">expect</span> per phase",
     "tlSub": "Serious marketing has a timeline. Here are the realistic expectations per time window, without the magic promise of \"results in 7 days\".",
@@ -402,12 +402,12 @@ export default {
       [
         "Month 1",
         "Foundation",
-        "Full diagnosis + approved planning + first creative deliveries. Campaign launch."
+        "Full diagnosis and approved planning."
       ],
       [
         "Month 2 – 3",
         "Calibration",
-        "Optimized campaigns, first qualified leads arrive, sales process running."
+        "First creative deliveries and campaigns go live. Then optimization: the first qualified leads arrive and the sales process starts running."
       ],
       [
         "Month 4 – 6",
@@ -554,7 +554,7 @@ export default {
         "title": "Inversión",
         "ps": [
           "Aquí es donde entra el dinero en campañas: medios pagos en Meta, Google, LinkedIn. Configuramos el tracking (pixel, GA4, GTM), campañas por objetivo de embudo, audiencias segmentadas y creativos en A/B. El presupuesto se distribuye según el diagnóstico — no \"igual para todas las plataformas\".",
-          "Monitoreamos diariamente el costo por lead, el costo de adquisición y el retorno por canal. Si un canal muestra fatiga, reasignamos en horas, no en meses."
+          "Monitoreamos diariamente el coste por lead, el coste de adquisición y el retorno por canal. Si un canal muestra fatiga, reasignamos en horas, no en meses."
         ],
         "meta": [
           [
@@ -621,7 +621,7 @@ export default {
         "desc": "Post-consulta: email, recordatorios, contenido de continuidad del tratamiento"
       }
     ],
-    "funnelResult": "Resultados en casos reales: <strong>+20x ROI</strong> en cirugía vascular, decenas de clientes cerrados por mes y agenda llena en especialidades de alta complejidad.",
+    "funnelResult": "Resultados en casos reales: <strong>+20x ROI</strong> en cirugía vascular, 39+ clientes cerrados al mes y agenda llena en especialidades de alta complejidad.",
     "tlEyebrow": "Cronograma",
     "tlH2": "Qué <span class=\"me-gold\">esperar</span> en cada fase",
     "tlSub": "El marketing serio tiene un cronograma. Aquí están las expectativas realistas por ventana de tiempo, sin la promesa mágica de \"resultados en 7 días\".",
@@ -629,17 +629,17 @@ export default {
       [
         "Mes 1",
         "Fundamento",
-        "Diagnóstico completo + planificación aprobada + primeras entregas creativas. Lanzamiento de campaña."
+        "Diagnóstico completo y planificación aprobada."
       ],
       [
         "Mes 2 – 3",
         "Calibración",
-        "Campañas optimizadas, llegan los primeros leads calificados, proceso de ventas en marcha."
+        "Primeras entregas creativas y campañas en marcha. Después, optimización: llegan los primeros leads cualificados y el proceso de ventas empieza a rodar."
       ],
       [
         "Mes 4 – 6",
         "Escala",
-        "Costo por lead decreciente, cierres consistentes, primeros números de ROI consolidados."
+        "Coste por lead decreciente, cierres consistentes, primeros números de ROI consolidados."
       ],
       [
         "Mes 7+",
@@ -803,7 +803,7 @@ export default {
         "title": "Mensuração",
         "ps": [
           "Todos os meses, um relatório completo: o que foi entregue, quais métricas foram atingidas (e quais não), porquê. Não é um PDF bonito com gráficos — é uma discussão estratégica com o fundador/liderança sobre os próximos passos. As correções de rumo são baseadas em dados, não em achismo.",
-          "Aqui também acompanhamos <strong>métricas de negócio</strong>, não só de marketing: leads convertidos em clientes, ticket médio, tempo de ciclo. É isto que nos permite dizer com confiança \"por cada 1€ investido, recebeu X de volta\"."
+          "Aqui também acompanhamos <strong>métricas de negócio</strong>, não só de marketing: leads convertidos em clientes, ticket médio, tempo de ciclo. É isto que nos permite dizer com confiança \"por cada R$1 investido, recebeu X de volta\"."
         ],
         "meta": [
           [
@@ -848,7 +848,7 @@ export default {
         "desc": "Pós-consulta: email, lembretes, conteúdo de continuidade do tratamento"
       }
     ],
-    "funnelResult": "Resultados em casos reais: <strong>+20x ROI</strong> em cirurgia vascular, dezenas de clientes fechados por mês e agenda cheia em especialidades de alta complexidade.",
+    "funnelResult": "Resultados em casos reais: <strong>+20x ROI</strong> em cirurgia vascular, 39+ clientes fechados por mês e agenda cheia em especialidades de alta complexidade.",
     "tlEyebrow": "Cronograma",
     "tlH2": "O que <span class=\"me-gold\">esperar</span> por fase",
     "tlSub": "Marketing a sério tem cronograma. Aqui estão as expectativas realistas por janela de tempo, sem a promessa mágica de \"resultados em 7 dias\".",
@@ -856,12 +856,12 @@ export default {
       [
         "Mês 1",
         "Fundação",
-        "Diagnóstico completo + planeamento aprovado + primeiras entregas criativas. Lançamento de campanha."
+        "Diagnóstico completo e planeamento aprovado."
       ],
       [
         "Mês 2 – 3",
         "Calibração",
-        "Campanhas otimizadas, chegada dos primeiros leads qualificados, processo comercial a funcionar."
+        "Primeiras entregas criativas e campanhas no ar. Depois, otimização: chegam os primeiros leads qualificados e o processo comercial começa a funcionar."
       ],
       [
         "Mês 4 – 6",

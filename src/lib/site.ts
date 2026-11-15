@@ -67,7 +67,7 @@ export const UI: Record<Lang, {
     taxId: 'CNPJ: 27.238.877/0001-71', places: 'Brasil · EE.UU. · makewell.agency',
   },
   pt: {
-    htmlLang: 'pt-PT', code: 'PT', nav: ['Sobre', 'Serviços', 'Framework', 'Método', 'Cases'], navAria: 'Menu principal',
+    htmlLang: 'pt-PT', code: 'PT', nav: ['Sobre', 'Serviços', 'Framework', 'Método', 'Casos'], navAria: 'Menu principal',
     logoAria: 'Makewell Comunicação — início', logoAlt: 'Makewell Comunicação',
     cta: 'Agendar diagnóstico', ctaAria: 'Agendar diagnóstico gratuito',
     ctaHref: 'https://wa.me/5582999103246?text=Ol%C3%A1!%20Quero%20agendar%20um%20diagn%C3%B3stico%20gratuito%20com%20a%20Makewell.',
