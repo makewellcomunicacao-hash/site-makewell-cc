@@ -5,9 +5,9 @@ export default {
     "kicker": "O que fazemos",
     "h1a": "Branding + Tráfego + Vendas:",
     "h1b": "o ecossistema que separa marcas de posts",
-    "lead": "Não entregamos serviços isolados. Cada uma das seis áreas abaixo existe pra alimentar as outras, porque conteúdo sem tráfego é invisível, tráfego sem CRM é desperdício e marca sem método é sorte.",
+    "lead": "Não entregamos serviços isolados. Cada uma das seis áreas abaixo existe para alimentar as outras, porque conteúdo sem tráfego é invisível, tráfego sem CRM é desperdício e marca sem método é sorte.",
     "whyEyebrow": "Por que integrar importa",
-    "whyText": "Quando você contrata uma agência tradicional, cada serviço vira um silo: a agência de branding não fala com a de mídia, que não fala com o time de vendas. Resultado: você paga três fornecedores pra produzir três estratégias que não conversam.",
+    "whyText": "Quando você contrata uma agência tradicional, cada serviço vira um silo: a agência de branding não fala com a de mídia, que não fala com o time de vendas. Resultado: você paga três fornecedores para produzir três estratégias que não conversam.",
     "whyStrong": "Na Makewell, tudo acontece sob um mesmo teto, com um mesmo time e uma única estratégia.",
     "flowLabel": "Fluxo integrado",
     "flow": [
@@ -22,14 +22,14 @@ export default {
     "services": [
       {
         "title": "Branding + Posicionamento",
-        "lead": "Construímos marcas que significam alguma coisa — não logotipos bonitos. Fundamento de tudo o que vem depois.",
+        "lead": "Construímos marcas que significam alguma coisa, não logotipos bonitos. Fundamento de tudo o que vem depois.",
         "rows": [
           [
             "O que é",
             "Identidade visual + arquitetura verbal + posicionamento estratégico no mercado."
           ],
           [
-            "Pra quem serve",
+            "Para quem serve",
             "Profissionais liberais e empresas em fase de reposicionamento ou lançamento."
           ],
           [
@@ -38,20 +38,20 @@ export default {
           ],
           [
             "Resultado esperado",
-            "Clareza de percepção no mercado e base sólida pra campanhas de performance."
+            "Clareza de percepção no mercado e base sólida para campanhas de performance."
           ]
         ]
       },
       {
         "title": "Social + Conteúdo",
-        "lead": "Conteúdo magnético que educa, posiciona e puxa o cliente certo — não o maior número de seguidores.",
+        "lead": "Conteúdo magnético que educa, posiciona e puxa o cliente certo, não o maior número de seguidores.",
         "rows": [
           [
             "O que é",
             "Planejamento editorial, produção audiovisual, copywriting e social selling."
           ],
           [
-            "Pra quem serve",
+            "Para quem serve",
             "Clientes que já têm marca e precisam de presença consistente em Instagram, LinkedIn ou YouTube."
           ],
           [
@@ -73,7 +73,7 @@ export default {
             "Gestão de mídia paga com foco em conversão, não em alcance."
           ],
           [
-            "Pra quem serve",
+            "Para quem serve",
             "Negócios que precisam acelerar geração de leads qualificados."
           ],
           [
@@ -82,7 +82,7 @@ export default {
           ],
           [
             "Resultado esperado",
-            "Custo por lead decrescente e ROI medido em reais — não em impressões."
+            "Custo por lead decrescente e ROI medido em reais, não em impressões."
           ]
         ]
       },
@@ -95,7 +95,7 @@ export default {
             "Consultoria de vendas + implantação de CRM + treinamento de time comercial."
           ],
           [
-            "Pra quem serve",
+            "Para quem serve",
             "Empresas que recebem leads mas perdem dinheiro no fechamento por falta de processo."
           ],
           [
@@ -110,14 +110,14 @@ export default {
       },
       {
         "title": "SEO + Site",
-        "lead": "Sites que rankeiam no Google e convertem — não apenas \"ficam bonitos\".",
+        "lead": "Sites que rankeiam no Google e convertem, não apenas \"ficam bonitos\".",
         "rows": [
           [
             "O que é",
             "Desenvolvimento web + SEO técnico + landing pages de conversão."
           ],
           [
-            "Pra quem serve",
+            "Para quem serve",
             "Marcas que dependem de busca orgânica ou precisam de páginas de captação."
           ],
           [
@@ -139,7 +139,7 @@ export default {
             "Automação de marketing (e-mail, WhatsApp, ManyChat) e aplicação de IA no funil."
           ],
           [
-            "Pra quem serve",
+            "Para quem serve",
             "Negócios com volume de leads alto e necessidade de triagem automática."
           ],
           [
@@ -148,7 +148,7 @@ export default {
           ],
           [
             "Resultado esperado",
-            "Lead entra pronto pra fechar. Vendedor não perde tempo com perguntas repetidas."
+            "Lead entra pronto para fechar. Vendedor não perde tempo com perguntas repetidas."
           ]
         ]
       }
@@ -157,15 +157,15 @@ export default {
     "startId": "como-contratamos",
     "startEyebrow": "Primeiros passos",
     "startTitle": "Como começamos juntos",
-    "startSub": "Nossos serviços são estruturados — o diagnóstico existe pra apontar qual resolve o seu momento. Quando a necessidade é específica, montamos um escopo sob medida.",
+    "startSub": "Nossos serviços são estruturados. O diagnóstico existe para apontar qual resolve o seu momento. Quando a necessidade é específica, montamos um escopo sob medida.",
     "steps": [
       {
         "title": "Diagnóstico estratégico",
-        "desc": "Reunião inicial pra entender negócio, histórico de marketing, objetivos de receita e gaps atuais. Sem custo, sem compromisso."
+        "desc": "Reunião inicial para entender negócio, histórico de marketing, objetivos de receita e gaps atuais. Sem custo, sem compromisso."
       },
       {
         "title": "Proposta customizada",
-        "desc": "Com base no diagnóstico, indicamos o serviço que resolve o seu momento — ou desenhamos um escopo específico se a necessidade for diferente. Prazo e investimento sempre claros."
+        "desc": "Com base no diagnóstico, indicamos o serviço que resolve o seu momento, ou desenhamos um escopo específico se a necessidade for diferente. Prazo e investimento sempre claros."
       },
       {
         "title": "Onboarding e execução",
@@ -174,14 +174,14 @@ export default {
     ],
     "moreEyebrow": "Aprofunde",
     "moreTitle": "Quer entender o framework por trás da execução?",
-    "moreSub": "Todos os serviços operam dentro de um único framework estruturado — e cada cliente passa por uma jornada definida.",
+    "moreSub": "Todos os serviços operam dentro de um único framework estruturado, e cada cliente passa por uma jornada definida.",
     "moreLinks": [
       "Conheça o Framework Makewell →",
       "Conheça o Método FishWell →",
       "Veja cases com resultados reais →"
     ],
     "ctaTitle": "Vamos desenhar seu ecossistema?",
-    "ctaText": "Agende um diagnóstico gratuito e descubra qual combinação de serviços faz sentido pro seu momento.",
+    "ctaText": "Agende um diagnóstico gratuito e descubra qual combinação de serviços faz sentido para o seu momento.",
     "ctaHref": "https://wa.me/5582999103246?text=Ol%C3%A1!%20Vi%20a%20p%C3%A1gina%20de%20Servi%C3%A7os%20e%20quero%20um%20diagn%C3%B3stico.",
     "ctaOnclick": "fbq('track','Lead',{content_name:'Servicos CTA'})",
     "ctaBtn": "Agendar diagnóstico →",

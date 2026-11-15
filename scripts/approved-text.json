@@ -1058,5 +1058,265 @@
 "Última atualização: 14 de novembro de 2026"
 ]
 ]
+},
+{
+"file": "br/sobre/index.html",
+"pairs": [
+[
+"tráfego e vendas — não como serviços isolados",
+"tráfego e vendas, não como serviços isolados"
+],
+[
+" — é ",
+". É "
+],
+[
+" pra ",
+" para "
+],
+[
+"Pra ",
+"Para "
+]
+]
+},
+{
+"file": "br/cases/casa-hunter-casa-dos-raros/index.html",
+"pairs": [
+[
+"Casa Hunter e Casa dos Raros — mais de quatro anos",
+"Casa Hunter e Casa dos Raros: mais de quatro anos"
+],
+[
+" pra ",
+" para "
+],
+[
+"Pra ",
+"Para "
+]
+]
+},
+{
+"file": "br/cases/index.html",
+"pairs": [
+[
+"Sem storytelling genérico — o que a Makewell entregou, pra quem entregou",
+"Sem storytelling genérico: o que a Makewell entregou, para quem entregou"
+],
+[
+"os resultados falam antes da gente.",
+"os resultados falam antes de nós."
+],
+[
+"em reais — não estimativas, não projeções.",
+"em reais, sem estimativas nem projeções."
+],
+[
+"dependia de indicação — boa em qualidade",
+"dependia de indicação, boa em qualidade"
+],
+[
+"Funil Médico — educação no topo",
+"Funil Médico: educação no topo"
+],
+[
+"mídia paga pro perfil socioeconômico",
+"mídia paga para o perfil socioeconômico"
+],
+[
+"Jacksonville, FL — cozinhas",
+"Jacksonville, FL: cozinhas"
+],
+[
+"construção completa da marca — posicionamento",
+"construção completa da marca: posicionamento"
+],
+[
+"como a gente chega a esses números",
+"como chegamos a esses números"
+],
+[
+"Resultado não é acaso — é método",
+"Resultado não é acaso, é método"
+],
+[
+"Vem entender o que a gente pode construir pro seu negócio.",
+"Venha entender o que podemos construir para o seu negócio."
+],
+[
+" pra ",
+" para "
+],
+[
+"Pra ",
+"Para "
+]
+]
+},
+{
+"file": "br/framework/index.html",
+"pairs": [
+[
+"como serviços separados — trata como",
+"como serviços separados, trata como"
+],
+[
+"consequência do marketing — é objetivo",
+"consequência do marketing, é objetivo"
+],
+[
+"framework M.E.N.T.E. — a metodologia",
+"framework M.E.N.T.E.: a metodologia"
+],
+[
+" pra ",
+" para "
+],
+[
+"Pra ",
+"Para "
+]
+]
+},
+{
+"file": "br/index.html",
+"pairs": [
+[
+" pra ",
+" para "
+],
+[
+"Pra ",
+"Para "
+]
+]
+},
+{
+"file": "br/como-criamos/index.html",
+"pairs": [
+[
+"neuromarketing aplicado — é assim que",
+"neuromarketing aplicado: é assim que"
+],
+[
+"Nossa estante — ",
+"Nossa estante, com "
+],
+[
+" — as mesmas",
+": as mesmas"
+],
+[
+"linguagem técnica — mas responde",
+"linguagem técnica, mas responde"
+],
+[
+"campanhas imortais — como o Garoto",
+"campanhas imortais, como o Garoto"
+],
+[
+"são emocionais — e depois justificadas",
+"são emocionais e depois justificadas"
+],
+[
+" pra ",
+" para "
+],
+[
+"Pra ",
+"Para "
+]
+]
+},
+{
+"file": "br/metodo/index.html",
+"pairs": [
+[
+"a gente sabe exatamente onde ajustar",
+"sabemos exatamente onde ajustar"
+],
+[
+"qualquer solução, a gente escuta.",
+"qualquer solução, escutamos."
+],
+[
+"\"vamos fazer posts\" — começamos com",
+"\"vamos fazer posts\". Começamos com"
+],
+[
+"KPIs — o que será medido, como, por quem — pra que",
+"KPIs (o que será medido, como, por quem) para que"
+],
+[
+"\"encher calendário\" — é feito pra cumprir",
+"\"encher calendário\". É feito para cumprir"
+],
+[
+"no diagnóstico — não \"igualmente",
+"no diagnóstico, não \"igualmente"
+],
+[
+"com gráficos — é discussão",
+"com gráficos, é discussão"
+],
+[
+" pra ",
+" para "
+],
+[
+"Pra ",
+"Para "
+],
+[
+"\"pra cada",
+"\"para cada"
+]
+]
+},
+{
+"file": "br/servicos/index.html",
+"pairs": [
+[
+"significam alguma coisa — não logotipos bonitos",
+"significam alguma coisa, não logotipos bonitos"
+],
+[
+"cliente certo — não o maior",
+"cliente certo, não o maior"
+],
+[
+"em reais — não em impressões",
+"em reais, não em impressões"
+],
+[
+"convertem — não apenas",
+"convertem, não apenas"
+],
+[
+"são estruturados — o diagnóstico existe pra",
+"são estruturados. O diagnóstico existe para"
+],
+[
+"o seu momento — ou desenhamos",
+"o seu momento, ou desenhamos"
+],
+[
+"framework estruturado — e cada cliente",
+"framework estruturado, e cada cliente"
+],
+[
+"faz sentido pro seu momento",
+"faz sentido para o seu momento"
+],
+[
+" pra ",
+" para "
+],
+[
+"Pra ",
+"Para "
+]
+]
 }
 ]

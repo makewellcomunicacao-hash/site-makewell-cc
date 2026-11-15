@@ -6,7 +6,7 @@ export default {
     crumbLabel: 'Você está em', crumbCases: 'Cases',
     kicker: 'Case de Impacto',
     h1: ['Como a Makewell ajudou a dar voz', 'a 13 milhões de brasileiros'],
-    lead: 'Casa Hunter e Casa dos Raros — mais de quatro anos de comunicação estratégica que transcendeu o digital, mobilizou o país e pautou o Supremo Tribunal Federal.',
+    lead: 'Casa Hunter e Casa dos Raros: mais de quatro anos de comunicação estratégica que transcendeu o digital, mobilizou o país e pautou o Supremo Tribunal Federal.',
     facts: [
       { k: 'Cliente', v: 'Casa Hunter e Casa dos Raros' },
       { k: 'Setor', v: 'Terceiro setor · Doenças raras' },

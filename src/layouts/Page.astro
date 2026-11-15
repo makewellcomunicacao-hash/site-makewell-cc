@@ -94,7 +94,7 @@ n.queue=[];}(window, document,'script',
     ham.setAttribute('aria-label', o ? ham.getAttribute('data-close') : openLbl);
     document.body.style.overflow = o ? 'hidden' : '';
     // com o menu aberto, o resto da página fica inerte: o Tab não escapa para o conteúdo escondido atrás
-    document.querySelectorAll('main, footer, .wa-float, .back-to-top, .skip-link').forEach(function (el) { el.inert = o; });
+    document.querySelectorAll('main, footer, .wa-float, .back-to-top, .skip-link, #mwChatTeaser').forEach(function (el) { el.inert = o; });
     if (o) { var f = menu.querySelector('a'); if (f) f.focus(); }
   }
   if (ham && menu) {

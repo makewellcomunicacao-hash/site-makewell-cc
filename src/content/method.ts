@@ -23,7 +23,7 @@ export default {
       ],
       [
         "Marketing de método",
-        "Toda decisão tem critério. Cada fase tem entregável e métrica. Se algo não performa, a gente sabe exatamente onde ajustar. E você sabe o porquê. Transparência é o produto."
+        "Toda decisão tem critério. Cada fase tem entregável e métrica. Se algo não performa, sabemos exatamente onde ajustar. E você sabe o porquê. Transparência é o produto."
       ]
     ],
     "stepsH2": "As <span class=\"me-gold\">5 etapas</span> do FishWell",
@@ -33,8 +33,8 @@ export default {
         "num": "01",
         "title": "Diagnóstico",
         "ps": [
-          "Antes de propor qualquer solução, a gente escuta. Mapeamos o estágio atual do negócio: quem é o cliente ideal, qual a dor real, como está o funil de vendas hoje, onde está o ralo de receita. Usamos entrevistas com cliente final, análise de concorrência e auditoria de canais existentes.",
-          "O entregável dessa fase é um <strong>documento de diagnóstico</strong> com oportunidades priorizadas por impacto e esforço. Não começamos com \"vamos fazer posts\" — começamos com \"o que precisa mudar pra gerar receita?\"."
+          "Antes de propor qualquer solução, escutamos. Mapeamos o estágio atual do negócio: quem é o cliente ideal, qual a dor real, como está o funil de vendas hoje, onde está o ralo de receita. Usamos entrevistas com cliente final, análise de concorrência e auditoria de canais existentes.",
+          "O entregável dessa fase é um <strong>documento de diagnóstico</strong> com oportunidades priorizadas por impacto e esforço. Não começamos com \"vamos fazer posts\". Começamos com \"o que precisa mudar para gerar receita?\"."
         ],
         "meta": [
           [
@@ -55,7 +55,7 @@ export default {
         "num": "02",
         "title": "Planejamento",
         "ps": [
-          "Com o diagnóstico em mãos, desenhamos a estratégia: posicionamento, público-alvo detalhado, linha editorial, estrutura de funil, métricas de sucesso e cronograma. Aqui definimos também KPIs — o que será medido, como, por quem — pra que o time inteiro saiba o que é sucesso.",
+          "Com o diagnóstico em mãos, desenhamos a estratégia: posicionamento, público-alvo detalhado, linha editorial, estrutura de funil, métricas de sucesso e cronograma. Aqui definimos também KPIs (o que será medido, como, por quem) para que o time inteiro saiba o que é sucesso.",
           "Essa fase existe porque <strong>marketing sem planejamento é despesa, não investimento</strong>. Um mês em planejamento economiza seis meses em retrabalho."
         ],
         "meta": [
@@ -77,8 +77,8 @@ export default {
         "num": "03",
         "title": "Comunicação",
         "ps": [
-          "Agora sim, produção. Criativos, copy, vídeos, carrosséis, roteiros de landing page. Tudo alinhado à narrativa definida no planejamento. O conteúdo não é feito pra \"encher calendário\" — é feito pra cumprir função específica no funil (atrair, educar, converter, reter).",
-          "Aplicamos nosso framework de criação de conteúdo (neuromarketing + síntese das grandes mentes da publicidade) pra garantir que cada peça tenha magnetismo, emoção e técnica de conversão."
+          "Agora sim, produção. Criativos, copy, vídeos, carrosséis, roteiros de landing page. Tudo alinhado à narrativa definida no planejamento. O conteúdo não é feito para \"encher calendário\". É feito para cumprir função específica no funil (atrair, educar, converter, reter).",
+          "Aplicamos nosso framework de criação de conteúdo (neuromarketing + síntese das grandes mentes da publicidade) para garantir que cada peça tenha magnetismo, emoção e técnica de conversão."
         ],
         "meta": [
           [
@@ -99,7 +99,7 @@ export default {
         "num": "04",
         "title": "Investimento",
         "ps": [
-          "É aqui que o dinheiro entra em campanhas: mídia paga no Meta, Google, LinkedIn. Configuramos tracking (pixel, GA4, GTM), campanhas por objetivo de funil, públicos segmentados e criativos A/B. O budget é distribuído com base no diagnóstico — não \"igualmente em todas as plataformas\".",
+          "É aqui que o dinheiro entra em campanhas: mídia paga no Meta, Google, LinkedIn. Configuramos tracking (pixel, GA4, GTM), campanhas por objetivo de funil, públicos segmentados e criativos A/B. O budget é distribuído com base no diagnóstico, não \"igualmente em todas as plataformas\".",
           "Acompanhamos diariamente custo por lead, custo por aquisição e retorno por canal. Se um canal dá sinal de fadiga, realocamos em horas, não em meses."
         ],
         "meta": [
@@ -121,8 +121,8 @@ export default {
         "num": "05",
         "title": "Mensuração",
         "ps": [
-          "Todo mês, relatório completo: o que foi entregue, quais métricas bateram (e quais não), por quê. Não é PDF bonito com gráficos — é discussão estratégica com founder/liderança sobre próximos passos. Ajustes de rota são baseados em dado, não em achismo.",
-          "Aqui também acompanhamos <strong>métricas de negócio</strong>, não só marketing: leads virados em clientes, ticket médio, tempo de ciclo. É o que permite dizer com confiança \"pra cada R$1 investido, você recebeu X de volta\"."
+          "Todo mês, relatório completo: o que foi entregue, quais métricas bateram (e quais não), por quê. Não é PDF bonito com gráficos, é discussão estratégica com founder/liderança sobre próximos passos. Ajustes de rota são baseados em dado, não em achismo.",
+          "Aqui também acompanhamos <strong>métricas de negócio</strong>, não só marketing: leads virados em clientes, ticket médio, tempo de ciclo. É o que permite dizer com confiança \"para cada R$1 investido, você recebeu X de volta\"."
         ],
         "meta": [
           [
@@ -141,7 +141,7 @@ export default {
       }
     ],
     "funnelH2": "Exemplo aplicado: o <span class=\"me-gold\">Funil Médico</span>",
-    "funnelSub": "Um dos frameworks derivados do FishWell, construído especificamente pra profissionais de saúde que querem agenda lotada com pacientes particulares.",
+    "funnelSub": "Um dos frameworks derivados do FishWell, construído especificamente para profissionais de saúde que querem agenda lotada com pacientes particulares.",
     "funnelKicker": "Caso aplicado — Nicho de saúde",
     "funnelH3": "Como o Funil Médico estrutura aquisição de pacientes particulares",
     "funnelP": "No nicho médico, não basta rodar anúncio genérico. O paciente particular tem objeções específicas (preço, confiança, diferenciação) e o funil precisa responder cada uma delas em ordem. Nossa estrutura:",

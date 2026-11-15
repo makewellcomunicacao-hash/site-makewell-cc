@@ -8,7 +8,7 @@ export default {
     kicker: 'Quem Somos',
     h1a: 'Não somos uma agência de marketing digital.',
     h1b: 'Somos um braço de crescimento.',
-    lead: `Somos o <strong>braço de comunicação estratégica e crescimento consistente</strong> para profissionais liberais e marcas que não aceitam mediocridade. Trabalhamos há <strong>9 anos</strong> com um método próprio que integra branding, conteúdo, tráfego e vendas — não como serviços isolados, mas como um único ecossistema de receita.`,
+    lead: `Somos o <strong>braço de comunicação estratégica e crescimento consistente</strong> para profissionais liberais e marcas que não aceitam mediocridade. Trabalhamos há <strong>9 anos</strong> com um método próprio que integra branding, conteúdo, tráfego e vendas, não como serviços isolados, mas como um único ecossistema de receita.`,
     statsAria: 'Números da Makewell',
     stats: [{ n: '9+', l: 'Anos de mercado' }, { n: '50+', l: 'Clientes atendidos' }, { n: '+26x', l: 'Melhor ROI histórico' }, { n: '2', l: 'Sedes (Maceió + SP)' }],
     heroAlt: 'Livros de referência de publicidade na estante da Makewell',
@@ -37,11 +37,11 @@ export default {
     thesis: {
       id: 'tese', eyebrow: 'A tese que nos move',
       title: 'Tem um paradoxo no mercado brasileiro de agências: quase todas fazem a mesma promessa genérica, e quase nenhuma entrega integração real.',
-      sub: 'Existimos pra resolver esse gap.',
+      sub: 'Existimos para resolver esse gap.',
       others: { t: 'O que 10 mil agências fazem', d: 'Vendem posts, vendem reels, vendem tráfego isolado. Explicam como o algoritmo do Instagram funciona. Terceirizam o que não sabem fazer. Cobram mensalidade e entregam métrica de vaidade.' },
       us: { t: 'O que nós fazemos', d: `Implantamos um <strong>ecossistema de vendas</strong>: branding que posiciona, conteúdo que educa, tráfego que escala, CRM que converte. Tudo integrado, tudo mensurável, tudo feito dentro de casa, sem terceirização.` },
       quoteA: 'Não vendemos posts.', quoteB: 'Construímos pontes.',
-      question: `A pergunta certa não é <em>"quanto custa um post?"</em> — é <em>"quanto custa continuar sem um sistema que transforme investimento em receita?"</em>.`,
+      question: `A pergunta certa não é <em>"quanto custa um post?"</em>. É <em>"quanto custa continuar sem um sistema que transforme investimento em receita?"</em>.`,
       method: `Marcas que valem alguma coisa não são construídas com dicas de Reels. São construídas com <strong>método, cultura, processo e tempo</strong>.`,
     },
     audience: {
@@ -78,8 +78,8 @@ export default {
       method: 'Conheça o Método FishWell em 5 etapas &rarr;', cases: 'Veja os cases que provam essa tese &rarr;',
     },
     cta: {
-      eyebrow: 'Diagnóstico gratuito', title: 'Pronto pra sair do marketing de dicas?',
-      sub: 'Agende um diagnóstico estratégico e descubra o que a Makewell pode construir pra sua marca.',
+      eyebrow: 'Diagnóstico gratuito', title: 'Pronto para sair do marketing de dicas?',
+      sub: 'Agende um diagnóstico estratégico e descubra o que a Makewell pode construir para sua marca.',
       btn: 'Agendar diagnóstico &rarr;', href: WA + 'Ol%C3%A1!%20Li%20a%20p%C3%A1gina%20Sobre%20e%20quero%20um%20diagn%C3%B3stico%20estrat%C3%A9gico.',
       track: "fbq('track','Lead',{content_name:'Sobre CTA'})",
     },

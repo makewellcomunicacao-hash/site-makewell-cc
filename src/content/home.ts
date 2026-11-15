@@ -123,7 +123,7 @@ export default {
         {
           "num": "03",
           "title": "Atendimento <span>exclusivo</span>",
-          "desc": "Cada cliente tem estratégia exclusiva, time dedicado e acesso direto à liderança. Sem terceirização, sem modelo pronto, só estratégia feita pra você."
+          "desc": "Cada cliente tem estratégia exclusiva, time dedicado e acesso direto à liderança. Sem terceirização, sem modelo pronto, só estratégia feita para você."
         }
       ]
     },
@@ -254,7 +254,7 @@ export default {
         "lead": "Quero resultados assim"
       },
       "hl": {
-        "aria": "Case de Impacto: Casa Hunter e Casa dos Raros — ler case completo",
+        "aria": "Case de Impacto: Casa Hunter e Casa dos Raros, ler case completo",
         "tag": "Case de Impacto",
         "reach": "Voz a 13M de brasileiros",
         "title": "Como a Makewell deu voz a 13 milhões de brasileiros",
