@@ -24,7 +24,7 @@ const t = T[lang];
   data-t-typing={t.typing} data-t-error={t.error} data-t-cta={t.cta}>
   <header class="mw-chat-head">
     <img class="mw-chat-mark" src="/images/maia-botao.webp" alt="" width="128" height="128" />
-    <p class="mw-chat-title">{t.title} <span class="mw-chat-badge">IA</span></p>
+    <p class="mw-chat-title">{t.title} <span class="mw-chat-badge">{lang === 'en' ? 'AI' : 'IA'}</span></p>
     <button type="button" class="mw-chat-close" aria-label={t.close}>&times;</button>
   </header>
   <p class="mw-chat-notice">{t.notice} <a href={path('privacy', lang)}>{t.privacy}</a></p>
@@ -50,10 +50,16 @@ const t = T[lang];
     log.appendChild(a); log.scrollTop = log.scrollHeight;
   }
   state.msgs.forEach(function (m) { if (m.who === 'cta') cta(m.text); else bubble(m.who, m.text); });
+  // no celular (e deitado) o chat ocupa a tela: vira diálogo modal e o resto da página fica inerte, como no menu
+  var full = matchMedia('(max-width: 600px), (max-height: 520px) and (orientation: landscape)');
   function toggle(o) {
     box.hidden = !o; btn.setAttribute('aria-expanded', o); document.documentElement.classList.toggle('mw-chat-open', o);
-    // no celular o teclado não abre sozinho (cobriria a saudação); com mouse, o campo já fica pronto para digitar
-    if (o) { verify(); if (matchMedia('(hover: hover)').matches) input.focus(); log.scrollTop = log.scrollHeight; } else btn.focus();
+    var modal = o && full.matches;
+    if (modal) box.setAttribute('aria-modal', 'true'); else box.removeAttribute('aria-modal');
+    document.querySelectorAll('main, .site-header, footer, .skip-link, .back-to-top, #en-bar').forEach(function (el) { el.inert = modal; });
+    // no celular o teclado não abre sozinho (cobriria a saudação), então o foco vai para o "fechar"; com mouse, o campo
+    // já fica pronto para digitar. Ao fechar, o foco volta ao botão do chat
+    if (o) { verify(); if (matchMedia('(hover: hover)').matches) input.focus(); else box.querySelector('.mw-chat-close').focus(); log.scrollTop = log.scrollHeight; } else btn.focus();
   }
   // anti-robô (Turnstile): a verificação roda numa página do endereço do chat, embutida aqui, e só carrega quando o chat
   // abre; o token vai junto com a primeira mensagem. Se a Cloudflare precisar de um clique, o quadro aparece

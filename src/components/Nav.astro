@@ -13,6 +13,8 @@ const lead = key !== 'home' ? null : lang === 'br'
 const langs: Lang[] = ['br', 'en', 'es', 'pt'];
 const hreflang: Record<Lang, string> = { br: 'pt-BR', en: 'en', es: 'es', pt: 'pt-PT' };
 const globe = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>';
+// nome completo de cada idioma para leitor de tela (a sigla visível fica: BR/EN/ES/PT)
+const LANG_NAME: Record<string, string> = { br: 'Português (Brasil)', en: 'English', es: 'Español', pt: 'Português (Portugal)' };
 ---
 <header class="site-header">
   <div class="wrap">
@@ -25,14 +27,14 @@ const globe = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" strok
       </div>
       <div class="nav-right">
         <div id="lang-dropdown" class="lang">
-          <button class="lang-trigger" id="langDropdownTrigger" aria-haspopup="true" aria-expanded="false" aria-label={`${t.langTrigger} (${t.code})`}>
+          <button class="lang-trigger" id="langDropdownTrigger" aria-controls="langDropdownMenu" aria-expanded="false" aria-label={`${t.langTrigger} (${t.code})`}>
             <Fragment set:html={globe} /><span>{t.code}</span>
           </button>
-          <div class="lang-menu" id="langDropdownMenu" aria-label={t.langMenu}>
+          <div class="lang-menu" id="langDropdownMenu" role="group" aria-label={t.langMenu}>
             {langs.map((l) =>
               l === 'br' && lang === 'br'
-                ? <button data-lang="pt" aria-current="true">BR</button>
-                : <a href={url(key, l)} hreflang={hreflang[l]} aria-current={l === lang ? 'true' : undefined}>{UI[l].code}</a>
+                ? <button data-lang="pt" aria-current="true" aria-label={LANG_NAME.br} lang="pt-BR">BR</button>
+                : <a href={url(key, l)} hreflang={hreflang[l]} lang={hreflang[l]} aria-label={LANG_NAME[l]} aria-current={l === lang ? 'true' : undefined}>{UI[l].code}</a>
             )}
           </div>
         </div>

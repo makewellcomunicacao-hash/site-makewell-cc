@@ -109,14 +109,16 @@ n.queue=[];}(window, document,'script',
 })();
 </script>
 <script is:inline>
-// Movimento: revelação ao rolar e contadores nos números grandes. Sem efeito com prefers-reduced-motion.
+// Movimento: revelação ao rolar e contadores nos números grandes, sem efeito com prefers-reduced-motion. A barra de
+// progresso, o cabeçalho compacto, o "voltar ao topo" e o botão do chat (que no celular só aparece ao rolar) valem sempre
 (function () {
-  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var reduce = !('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches;
   var main = document.getElementById('main-content'); if (!main) return;
+  var targets = [];
+  if (!reduce) {
   // blocos da página: seções (diretas, dentro do wrapper da home ou do article) e o header do article (sobre, case).
   // O primeiro é o topo e não espera rolagem (evita atrasar a primeira pintura); páginas legais não têm blocos.
   var blocks = main.querySelectorAll('section, article > header');
-  var targets = [];
   Array.prototype.forEach.call(blocks, function (sec, i) {
     if (i === 0) return;
     sec.querySelectorAll('.wrap > *, .grid > *, .card').forEach(function (el) { if (targets.indexOf(el) < 0 && !blocks[0].contains(el)) targets.push(el); });
@@ -126,6 +128,7 @@ n.queue=[];}(window, document,'script',
     el.style.setProperty('--rv-d', Math.min(k, 5) * 0.08 + 's');
     el.classList.add('rv');
   });
+  }
   // revela tudo que já chegou a 92% da altura da tela, inclusive o que uma rolagem rápida "pulou"
   // (um IntersectionObserver perde elementos que vão de baixo para cima da tela num único quadro)
   var pending = targets;
@@ -147,7 +150,8 @@ n.queue=[];}(window, document,'script',
   }
   addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
   onScroll();
-  if (top) top.addEventListener('click', function () { scrollTo({ top: 0, behavior: 'smooth' }); });
+  if (top) top.addEventListener('click', function () { scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
+  if (reduce) return;
 
   // contadores: texto curto tipo "+26x", "50+", "R$400k", "13M+", "4 anos" em fonte grande; ignora anos e "01"
   var nums = [];
@@ -172,7 +176,7 @@ n.queue=[];}(window, document,'script',
   nums.forEach(function (d) { d.el.__mwNum = d; cio.observe(d.el); });
 })();
 </script>
-<script>
+{!legal && <script>
 // Movimento premium (GSAP, empacotado pelo Astro, sem CDN). Assume títulos e fotos que o script acima marcou com .rv.
 // Sem GSAP (erro de rede) ou com prefers-reduced-motion, a página fica como está.
 import { gsap } from 'gsap';
@@ -285,7 +289,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
   addEventListener('load', refreshWhenIdle);
   main.querySelectorAll('img').forEach((img) => { if (!img.complete) img.addEventListener('load', refreshWhenIdle); });
 }
-</script>
+</script>}
 <script is:inline define:vars={{ hs: HS[lang] }}>
 // Carrossel .hscroll: avanço automático por padrão (6s com mouse, 8s no toque, para dar tempo de ler), com botão
 // play/pausa (WCAG 2.2.2). Mouse em cima, foco ou interação (setas, arrastar, tocar) pausam só por um tempo e o

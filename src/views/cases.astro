@@ -9,6 +9,7 @@ import { logoSize } from '../lib/logos';
 
 interface Props { page: { htmlAttrs: string; head: string; body: string }; key: PageKey; lang: Lang }
 const { page, key, lang } = Astro.props;
+const WATCH: Record<string, string> = { br: 'Assistir depoimento em vídeo:', en: 'Watch video testimonial:', es: 'Ver testimonio en vídeo:', pt: 'Ver testemunho em vídeo:' }; // nome acessível dos depoimentos
 const c = content[lang];
 
 const logo = (file: string, alt: string) => ({ src: `/images/logo-${file}.webp`, alt });
@@ -69,7 +70,7 @@ const playIcon = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" st
             <article class="card cs-case">
               <div class="cs-media">
                 <div class="tile cs-logo">
-                  {k.logo && (() => { const z = logoSize(k.logo.src, 2); return <img src={z.src} alt={k.logo.alt} style={z.style} loading="lazy" />; })()}
+                  {k.logo && (() => { const z = logoSize(k.logo.src, 2); return <img src={z.src} alt={k.logo.alt} style={z.style} width={z.width} height={z.height} loading="lazy" />; })()}
                 </div>
                 <div class="cs-metrics" role="list">
                   {k.metrics.map(([n, l, acc]) => (
@@ -104,8 +105,9 @@ const playIcon = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" st
       <div class="reels hscroll cs-reels">
         {c.reels.map((r) => (
           <button type="button" class="reel" data-yt={r.id} data-vertical data-yt-params={c.ytParams || undefined}>
+            <span class="sr-only">{WATCH[lang]}</span>
             <span class="thumb">
-              <img src={`/images/depo-${r.id}.webp?v=5`} alt={r.name} width="720" height="900" loading="lazy" />
+              <img src={`/images/depo-${r.id}.webp?v=5`} alt="" width="720" height="900" loading="lazy" />
               <span class="cs-play" set:html={playIcon}></span>
             </span>
             <span class="cs-q">{r.q}</span>
@@ -121,7 +123,7 @@ const playIcon = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" st
     <div class="wrap">
       <p class="cs-label muted">{c.logosLabel}</p>
       <div class="grid cs-brands">
-        {brands.map((l) => { const z = logoSize(l.src); return <div class="tile"><img src={z.src} alt={l.alt} loading="lazy" style={z.style} /></div>; })}
+        {brands.map((l) => { const z = logoSize(l.src); return <div class="tile"><img src={z.src} alt={l.alt} loading="lazy" style={z.style} width={z.width} height={z.height} /></div>; })}
       </div>
       <div class="cs-others">
         <h2 class="h3">{c.othersTitle}</h2>

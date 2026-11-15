@@ -135,7 +135,7 @@ const nn = (i: number) => String(i + 1).padStart(2, '0');
         <h2 class="h2">{c.principles.title}</h2>
         <div class="grid ab-prin slide-in" style="--min: 240px">
           {c.principles.items.map((x, i) => (
-            <div class="ab-pr"><span class="ab-pr-n">{nn(i)}</span><h3 class="h3">{x.t}</h3><p class="muted">{x.d}</p></div>
+            <div class="ab-pr"><span class="ab-pr-n" aria-hidden="true">{nn(i)}</span><h3 class="h3">{x.t}</h3><p class="muted">{x.d}</p></div>
           ))}
         </div>
       </div>

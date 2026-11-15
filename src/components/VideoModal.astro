@@ -5,9 +5,9 @@
 interface Props { closeLabel: string; lang: 'br' | 'en' | 'es' | 'pt' }
 const { closeLabel, lang } = Astro.props;
 ---
-<div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-label={lang === 'en' || lang === 'es' ? 'Video' : 'Vídeo'}>
+<div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-label={lang === 'en' ? 'Video' : 'Vídeo'}>
   <button class="modal-close" type="button" aria-label={closeLabel}>&times;</button>
-  <iframe title="YouTube" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen src=""></iframe>
+  <iframe title={{ br: 'Vídeo do YouTube', en: 'YouTube video', es: 'Vídeo de YouTube', pt: 'Vídeo do YouTube' }[lang]} allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen src=""></iframe>
 </div>
 <script is:inline>
 (function () {
