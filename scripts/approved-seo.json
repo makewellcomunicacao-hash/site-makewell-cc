@@ -7,6 +7,18 @@
   [
    "\"streetAddress\": \"R. Prof. Lourenço Peixoto, 36, Sala 04\",\n      \"addressCountry\": \"BR\"",
    "\"streetAddress\": \"R. Prof. Lourenço Peixoto, 36, Sala 04\",\n      \"postalCode\": \"57035-640\",\n      \"addressCountry\": \"BR\""
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/\">"
+  ],
+  [
+   "\"@type\": \"MarketingAgency\",\n",
+   "\"@type\": \"MarketingAgency\",\n  \"@id\": \"https://makewell.agency/#org\",\n  \"logo\": \"https://makewell.agency/icons/logo-icon.png\",\n  \"image\": \"https://makewell.agency/images/og-home-en.jpg\",\n"
+  ],
+  [
+   "\"@type\": \"WebSite\",\n  \"name\": \"Makewell Communications\",\n  \"url\": \"https://makewell.agency/en/\"\n",
+   "\"@type\": \"WebSite\",\n  \"name\": \"Makewell Communications\",\n  \"url\": \"https://makewell.agency/en/\",\n  \"publisher\": {\"@id\": \"https://makewell.agency/#org\"}\n"
   ]
  ],
  "agency/en/about/index.html": [
@@ -25,18 +37,34 @@
   [
    "predictable growth",
    "consistent growth"
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/sobre/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/about/\">"
   ]
  ],
  "agency/en/cases/index.html": [
   [
    "hreflang=\"x-default\" href=\"https://makewell.com.br/\"",
    "hreflang=\"x-default\" href=\"https://makewell.com.br/cases/\""
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/cases/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/cases/\">"
   ]
  ],
  "agency/en/cases/casa-hunter-casa-dos-raros/index.html": [
   [
    "hreflang=\"x-default\" href=\"https://makewell.com.br/\"",
    "hreflang=\"x-default\" href=\"https://makewell.com.br/cases/casa-hunter-casa-dos-raros/\""
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/cases/casa-hunter-casa-dos-raros/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/cases/casa-hunter-casa-dos-raros/\">"
+  ],
+  [
+   "\"dateModified\": \"2026-04-23\"",
+   "\"dateModified\": \"2026-11-15\""
   ]
  ],
  "agency/en/framework/index.html": [
@@ -55,6 +83,14 @@
   [
    "predictable revenue",
    "measurable revenue"
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/framework/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/framework/\">"
+  ],
+  [
+   "\"dateModified\": \"2026-04-23\"",
+   "\"dateModified\": \"2026-11-15\""
   ]
  ],
  "agency/en/how-we-create/index.html": [
@@ -65,6 +101,14 @@
   [
    "\"image\": \"https://makewell.agency/images/og-home-en.jpg\"",
    "\"image\": \"https://makewell.agency/images/og/howWeCreate-en.jpg\""
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/como-criamos/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/how-we-create/\">"
+  ],
+  [
+   "\"dateModified\": \"2026-04-23\"",
+   "\"dateModified\": \"2026-11-15\""
   ]
  ],
  "agency/en/method/index.html": [
@@ -83,6 +127,14 @@
   [
    "predictable revenue",
    "measurable revenue"
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/metodo/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/method/\">"
+  ],
+  [
+   "\"dateModified\": \"2026-04-23\"",
+   "\"dateModified\": \"2026-11-15\""
   ]
  ],
  "agency/en/privacy-policy/index.html": [
@@ -93,12 +145,20 @@
   [
    "<meta property=\"og:image:height\" content=\"630\">",
    "<meta property=\"og:image:height\" content=\"630\">\n<meta property=\"og:image:alt\" content=\"Privacy Policy | Makewell Communications\">"
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/politica-de-privacidade/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/privacy-policy/\">"
   ]
  ],
  "agency/en/services/index.html": [
   [
    "hreflang=\"x-default\" href=\"https://makewell.com.br/\"",
    "hreflang=\"x-default\" href=\"https://makewell.com.br/servicos/\""
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/servicos/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/services/\">"
   ]
  ],
  "agency/en/terms-of-use/index.html": [
@@ -109,6 +169,10 @@
   [
    "<meta property=\"og:image:height\" content=\"630\">",
    "<meta property=\"og:image:height\" content=\"630\">\n<meta property=\"og:image:alt\" content=\"Terms of Use | Makewell Communications\">"
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/termos-de-uso/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/terms-of-use/\">"
   ]
  ],
  "agency/es/index.html": [
@@ -119,6 +183,18 @@
   [
    "\"streetAddress\": \"R. Prof. Lourenço Peixoto, 36, Sala 04\",\n      \"addressCountry\": \"BR\"",
    "\"streetAddress\": \"R. Prof. Lourenço Peixoto, 36, Sala 04\",\n      \"postalCode\": \"57035-640\",\n      \"addressCountry\": \"BR\""
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/\">"
+  ],
+  [
+   "\"@type\": \"MarketingAgency\",\n",
+   "\"@type\": \"MarketingAgency\",\n  \"@id\": \"https://makewell.agency/#org\",\n  \"logo\": \"https://makewell.agency/icons/logo-icon.png\",\n  \"image\": \"https://makewell.agency/images/og-home-es.jpg\",\n"
+  ],
+  [
+   "\"@type\": \"WebSite\",\n  \"name\": \"Makewell Comunicação\",\n  \"url\": \"https://makewell.agency/es/\"\n",
+   "\"@type\": \"WebSite\",\n  \"name\": \"Makewell Comunicação\",\n  \"url\": \"https://makewell.agency/es/\",\n  \"publisher\": {\"@id\": \"https://makewell.agency/#org\"}\n"
   ]
  ],
  "agency/es/about/index.html": [
@@ -137,6 +213,10 @@
   [
    "crecimiento predecible",
    "crecimiento consistente"
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/sobre/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/about/\">"
   ]
  ],
  "agency/es/cases/index.html": [
@@ -147,12 +227,24 @@
   [
    "Resultados medibles de marketing integrado.",
    "Resultados medibles en marketing."
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/cases/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/cases/\">"
   ]
  ],
  "agency/es/cases/casa-hunter-casa-dos-raros/index.html": [
   [
    "hreflang=\"x-default\" href=\"https://makewell.com.br/\"",
    "hreflang=\"x-default\" href=\"https://makewell.com.br/cases/casa-hunter-casa-dos-raros/\""
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/cases/casa-hunter-casa-dos-raros/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/cases/casa-hunter-casa-dos-raros/\">"
+  ],
+  [
+   "\"dateModified\": \"2026-04-23\"",
+   "\"dateModified\": \"2026-11-15\""
   ]
  ],
  "agency/es/framework/index.html": [
@@ -171,6 +263,14 @@
   [
    "ingresos predecibles",
    "ingresos medibles"
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/framework/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/framework/\">"
+  ],
+  [
+   "\"dateModified\": \"2026-04-23\"",
+   "\"dateModified\": \"2026-11-15\""
   ]
  ],
  "agency/es/how-we-create/index.html": [
@@ -181,6 +281,14 @@
   [
    "\"image\": \"https://makewell.agency/images/og-home-es.jpg\"",
    "\"image\": \"https://makewell.agency/images/og/howWeCreate-es.jpg\""
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/como-criamos/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/how-we-create/\">"
+  ],
+  [
+   "\"dateModified\": \"2026-04-23\"",
+   "\"dateModified\": \"2026-11-15\""
   ]
  ],
  "agency/es/method/index.html": [
@@ -199,18 +307,34 @@
   [
    "ingresos predecibles",
    "ingresos medibles"
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/metodo/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/method/\">"
+  ],
+  [
+   "\"dateModified\": \"2026-04-23\"",
+   "\"dateModified\": \"2026-11-15\""
   ]
  ],
  "agency/es/privacy-policy/index.html": [
   [
    "<meta property=\"og:image:height\" content=\"630\">",
    "<meta property=\"og:image:height\" content=\"630\">\n<meta property=\"og:image:alt\" content=\"Política de Privacidad | Makewell Comunicação\">"
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/politica-de-privacidade/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/privacy-policy/\">"
   ]
  ],
  "agency/es/services/index.html": [
   [
    "hreflang=\"x-default\" href=\"https://makewell.com.br/\"",
    "hreflang=\"x-default\" href=\"https://makewell.com.br/servicos/\""
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/servicos/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/services/\">"
   ]
  ],
  "agency/es/terms-of-use/index.html": [
@@ -221,6 +345,14 @@
   [
    "<meta property=\"og:image:height\" content=\"630\">",
    "<meta property=\"og:image:height\" content=\"630\">\n<meta property=\"og:image:alt\" content=\"Términos de Uso | Makewell Comunicação\">"
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/termos-de-uso/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/terms-of-use/\">"
+  ],
+  [
+   "<title>Términos de Uso | Makewell Comunicação</title>",
+   "<title>Términos de Uso | Makewell</title>"
   ]
  ],
  "agency/pt/index.html": [
@@ -231,6 +363,18 @@
   [
    "\"streetAddress\": \"R. Prof. Lourenço Peixoto, 36, Sala 04\",\n      \"addressCountry\": \"BR\"",
    "\"streetAddress\": \"R. Prof. Lourenço Peixoto, 36, Sala 04\",\n      \"postalCode\": \"57035-640\",\n      \"addressCountry\": \"BR\""
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/\">"
+  ],
+  [
+   "\"@type\": \"MarketingAgency\",\n",
+   "\"@type\": \"MarketingAgency\",\n  \"@id\": \"https://makewell.agency/#org\",\n  \"logo\": \"https://makewell.agency/icons/logo-icon.png\",\n  \"image\": \"https://makewell.agency/images/og-home-pt-pt.jpg\",\n"
+  ],
+  [
+   "\"@type\": \"WebSite\",\n  \"name\": \"Makewell Comunicação\",\n  \"url\": \"https://makewell.agency/pt/\"\n",
+   "\"@type\": \"WebSite\",\n  \"name\": \"Makewell Comunicação\",\n  \"url\": \"https://makewell.agency/pt/\",\n  \"publisher\": {\"@id\": \"https://makewell.agency/#org\"}\n"
   ]
  ],
  "agency/pt/about/index.html": [
@@ -249,6 +393,14 @@
   [
    "crescimento previsível",
    "crescimento consistente"
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/sobre/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/about/\">"
+  ],
+  [
+   "<title>Sobre a Makewell | Agência de Comunicação Estratégica</title>",
+   "<title>Sobre a Makewell | Agência de Marketing Digital</title>"
   ]
  ],
  "agency/pt/cases/index.html": [
@@ -259,12 +411,24 @@
   [
    "Resultados mensuráveis de marketing integrado.",
    "Resultados mensuráveis em marketing."
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/cases/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/cases/\">"
   ]
  ],
  "agency/pt/cases/casa-hunter-casa-dos-raros/index.html": [
   [
    "hreflang=\"x-default\" href=\"https://makewell.com.br/\"",
    "hreflang=\"x-default\" href=\"https://makewell.com.br/cases/casa-hunter-casa-dos-raros/\""
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/cases/casa-hunter-casa-dos-raros/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/cases/casa-hunter-casa-dos-raros/\">"
+  ],
+  [
+   "\"dateModified\": \"2026-04-23\"",
+   "\"dateModified\": \"2026-11-15\""
   ]
  ],
  "agency/pt/framework/index.html": [
@@ -283,6 +447,14 @@
   [
    "receita previsível",
    "receita mensurável"
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/framework/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/framework/\">"
+  ],
+  [
+   "\"dateModified\": \"2026-04-23\"",
+   "\"dateModified\": \"2026-11-15\""
   ]
  ],
  "agency/pt/how-we-create/index.html": [
@@ -293,6 +465,14 @@
   [
    "\"image\": \"https://makewell.agency/images/og-home-pt-pt.jpg\"",
    "\"image\": \"https://makewell.agency/images/og/howWeCreate-pt.jpg\""
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/como-criamos/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/how-we-create/\">"
+  ],
+  [
+   "\"dateModified\": \"2026-04-23\"",
+   "\"dateModified\": \"2026-11-15\""
   ]
  ],
  "agency/pt/method/index.html": [
@@ -311,18 +491,38 @@
   [
    "receita previsível",
    "receita mensurável"
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/metodo/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/method/\">"
+  ],
+  [
+   "\"dateModified\": \"2026-04-23\"",
+   "\"dateModified\": \"2026-11-15\""
   ]
  ],
  "agency/pt/privacy-policy/index.html": [
   [
    "<meta property=\"og:image:height\" content=\"630\">",
    "<meta property=\"og:image:height\" content=\"630\">\n<meta property=\"og:image:alt\" content=\"Política de Privacidade | Makewell Portugal\">"
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/politica-de-privacidade/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/privacy-policy/\">"
   ]
  ],
  "agency/pt/services/index.html": [
   [
    "hreflang=\"x-default\" href=\"https://makewell.com.br/\"",
    "hreflang=\"x-default\" href=\"https://makewell.com.br/servicos/\""
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/servicos/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/services/\">"
+  ],
+  [
+   "<title>Serviços | Branding, Tráfego e Vendas | Makewell Portugal</title>",
+   "<title>Serviços de Marketing Digital | Makewell Portugal</title>"
   ]
  ],
  "agency/pt/terms-of-use/index.html": [
@@ -333,6 +533,14 @@
   [
    "<meta property=\"og:image:height\" content=\"630\">",
    "<meta property=\"og:image:height\" content=\"630\">\n<meta property=\"og:image:alt\" content=\"Termos de Uso | Makewell Comunicação\">"
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/termos-de-uso/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/terms-of-use/\">"
+  ],
+  [
+   "<title>Termos de Uso | Makewell Comunicação</title>",
+   "<title>Termos de Utilização | Makewell</title>"
   ]
  ],
  "br/cases/index.html": [
@@ -347,12 +555,32 @@
   [
    "<meta property=\"og:image:height\" content=\"630\">",
    "<meta property=\"og:image:height\" content=\"630\">\n<meta property=\"og:image:alt\" content=\"Cases Makewell | ROI Real em Cases Reais\">"
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/cases/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/cases/\">"
+  ],
+  [
+   "<title>Cases Makewell | ROI Real em Saúde e Jurídico</title>",
+   "<title>Cases de Marketing: ROI Real em Saúde e Jurídico | Makewell</title>"
+  ],
+  [
+   "<meta property=\"og:image:alt\" content=\"Cases Makewell | ROI Real em Cases Reais\">",
+   "<meta property=\"og:image:alt\" content=\"Cases Makewell: ROI real em saúde e jurídico\">"
   ]
  ],
  "br/cases/casa-hunter-casa-dos-raros/index.html": [
   [
    "hreflang=\"x-default\" href=\"https://makewell.com.br/\"",
    "hreflang=\"x-default\" href=\"https://makewell.com.br/cases/casa-hunter-casa-dos-raros/\""
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/cases/casa-hunter-casa-dos-raros/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/cases/casa-hunter-casa-dos-raros/\">"
+  ],
+  [
+   "\"dateModified\": \"2026-04-23\"",
+   "\"dateModified\": \"2026-11-15\""
   ]
  ],
  "br/como-criamos/index.html": [
@@ -363,6 +591,14 @@
   [
    "\"image\": \"https://makewell.com.br/images/og-home-pt.jpg\"",
    "\"image\": \"https://makewell.com.br/images/og/howWeCreate-br.jpg\""
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/como-criamos/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/how-we-create/\">"
+  ],
+  [
+   "\"dateModified\": \"2026-04-23\"",
+   "\"dateModified\": \"2026-11-15\""
   ]
  ],
  "br/framework/index.html": [
@@ -381,6 +617,14 @@
   [
    "receita previsível",
    "receita mensurável"
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/framework/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/framework/\">"
+  ],
+  [
+   "\"dateModified\": \"2026-04-23\"",
+   "\"dateModified\": \"2026-11-15\""
   ]
  ],
  "br/index.html": [
@@ -399,6 +643,26 @@
   [
    "Não somos uma agência de marketing digital. Somos o braço",
    "Somos o braço"
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/\">"
+  ],
+  [
+   "<title>Makewell | Marketing Inteligente para o Brasil</title>",
+   "<title>Agência de Marketing Digital em Maceió e SP | Makewell</title>"
+  ],
+  [
+   "\"@type\": \"MarketingAgency\",\n",
+   "\"@type\": \"MarketingAgency\",\n  \"@id\": \"https://makewell.com.br/#org\",\n  \"logo\": \"https://makewell.com.br/icons/logo-icon.png\",\n  \"image\": \"https://makewell.com.br/images/og-home-pt.jpg\",\n"
+  ],
+  [
+   "\"@type\": \"WebSite\",\n  \"name\": \"Makewell | Marketing Inteligente\",\n  \"url\": \"https://makewell.com.br/\"\n",
+   "\"@type\": \"WebSite\",\n  \"name\": \"Makewell | Marketing Inteligente\",\n  \"url\": \"https://makewell.com.br/\",\n  \"publisher\": {\"@id\": \"https://makewell.com.br/#org\"}\n"
+  ],
+  [
+   "\"@type\": \"MarketingAgency\",\n  \"@id\": \"https://makewell.com.br/#org\",\n  \"logo\": \"https://makewell.com.br/icons/logo-icon.png\",\n  \"image\": \"https://makewell.com.br/images/og-home-pt.jpg\",\n  \"name\": \"Makewell | Marketing Inteligente\",",
+   "\"@type\": \"MarketingAgency\",\n  \"@id\": \"https://makewell.com.br/#org\",\n  \"logo\": \"https://makewell.com.br/icons/logo-icon.png\",\n  \"image\": \"https://makewell.com.br/images/og-home-pt.jpg\",\n  \"name\": \"Makewell Comunicação\",\n  \"alternateName\": \"Makewell | Marketing Inteligente\","
   ]
  ],
  "br/metodo/index.html": [
@@ -421,12 +685,24 @@
   [
    "receita previsível",
    "receita mensurável"
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/metodo/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/method/\">"
+  ],
+  [
+   "\"dateModified\": \"2026-04-23\"",
+   "\"dateModified\": \"2026-11-15\""
   ]
  ],
  "br/politica-de-privacidade/index.html": [
   [
    "<meta property=\"og:image:height\" content=\"630\">",
    "<meta property=\"og:image:height\" content=\"630\">\n<meta property=\"og:image:alt\" content=\"Política de Privacidade | Makewell Comunicação\">"
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/politica-de-privacidade/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/privacy-policy/\">"
   ]
  ],
  "br/servicos/index.html": [
@@ -441,6 +717,14 @@
   [
    "receita previsível",
    "receita mensurável"
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/servicos/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/services/\">"
+  ],
+  [
+   "<title>Serviços | Branding, Tráfego e Vendas | Makewell</title>",
+   "<title>Serviços de Marketing Digital e Tráfego Pago | Makewell</title>"
   ]
  ],
  "br/sobre/index.html": [
@@ -455,6 +739,14 @@
   [
    "crescimento previsível",
    "crescimento consistente"
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/sobre/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/about/\">"
+  ],
+  [
+   "<title>Sobre a Makewell | Comunicação Estratégica</title>",
+   "<title>Sobre a Makewell | Agência de Marketing em Maceió e SP</title>"
   ]
  ],
  "br/termos-de-uso/index.html": [
@@ -465,6 +757,10 @@
   [
    "<meta property=\"og:image:height\" content=\"630\">",
    "<meta property=\"og:image:height\" content=\"630\">\n<meta property=\"og:image:alt\" content=\"Termos de Uso | Makewell Comunicação\">"
+  ],
+  [
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.com.br/termos-de-uso/\">",
+   "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://makewell.agency/en/terms-of-use/\">"
   ]
  ]
 }
