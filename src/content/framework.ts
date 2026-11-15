@@ -120,7 +120,7 @@ export default {
     whyAlt: `Makewell office wall with framed campaigns created by the agency`,
     whyBody: [
       `The Makewell Framework exists because marketing without methodology is luck. And luck is not a business model.`,
-      `Over 9 years, we tested what works and what wastes client money. In the beginning, we were a creative agency. Then we learned how to run paid media. Then we understood that paid media without CRM is like a leaky bucket. Then we realized that all of it fails if positioning is generic.`,
+      `Over 9 years, we tested what works and what wastes client money. In the beginning, we were a creative agency. Then we learned how to run paid media campaigns. Then we understood that paid media without CRM is like a leaky bucket. Then we realized that all of it fails if positioning is generic.`,
       `The Makewell Framework is the result of that journey: <strong>a methodology that doesn't treat branding, content, paid media and sales as separate services — it treats them as gears of a single revenue engine</strong>.`,
       `If each gear runs at a different agency (or in departments that don't talk to each other inside the same company), the engine stalls. That's why our clients have everything integrated internally: strategy, creation, paid media and CRM under one roof, moving in the same direction.`,
     ],

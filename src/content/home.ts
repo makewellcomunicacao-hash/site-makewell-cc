@@ -532,7 +532,7 @@ export default {
     }
   },
   "en": {
-    "heroAria": "Digital marketing agency for Brazilian businesses in Florida — Miami, Orlando, Tampa, Jacksonville",
+    "heroAria": "Digital marketing agency: strategy, performance and AI that turn investment into closed clients",
     "pill": "Over 9 years transforming brands",
     "h1": "Marketing that turns<br>investment into<br> <em>closed clients.</em>",
     "heroP": "Strategy, performance and AI for law firms, clinics, builders and industrial companies. <strong>Schedule a free diagnosis</strong> and see where your marketing can deliver more.",
@@ -819,7 +819,7 @@ export default {
             },
             {
               "v": "100+",
-              "l": "Clients closed/month"
+              "l": "Clients closed/month (record)"
             },
             {
               "v": "R$400k",
@@ -1062,7 +1062,7 @@ export default {
     }
   },
   "es": {
-    "heroAria": "Agencia de marketing digital para negocios brasileños en España y Latinoamérica",
+    "heroAria": "Agencia de marketing digital: estrategia, rendimiento e IA que convierten la inversión en clientes cerrados",
     "pill": "Agencia brasileña · Más de 9 años transformando marcas",
     "h1": "Marketing que convierte<br>la inversión en<br> <em>clientes cerrados.</em>",
     "heroP": "Estrategia, rendimiento e IA para despachos de abogados, clínicas, constructoras e industrias. <strong>Agenda un diagnóstico gratuito</strong> y descubre dónde puede rendir más tu marketing.",
@@ -1349,7 +1349,7 @@ export default {
             },
             {
               "v": "100+",
-              "l": "Clientes cerrados/mes"
+              "l": "Clientes cerrados/mes (récord)"
             },
             {
               "v": "R$400k",
@@ -1592,7 +1592,7 @@ export default {
     }
   },
   "pt": {
-    "heroAria": "Agência de marketing digital para negócios brasileiros em Portugal",
+    "heroAria": "Agência de marketing digital: estratégia, performance e IA que transformam investimento em clientes fechados",
     "pill": "Agência brasileira · Mais de 9 anos a transformar marcas",
     "h1": "Marketing que transforma<br>investimento em<br> <em>clientes fechados.</em>",
     "heroP": "Estratégia, performance e IA para advogados, clínicas, construtoras e indústrias. <strong>Agende um diagnóstico gratuito</strong> e veja onde o seu marketing pode render mais.",
@@ -1879,7 +1879,7 @@ export default {
             },
             {
               "v": "100+",
-              "l": "Clientes fechados/mês"
+              "l": "Clientes fechados/mês (recorde)"
             },
             {
               "v": "R$400k",

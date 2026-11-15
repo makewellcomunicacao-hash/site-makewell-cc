@@ -118,7 +118,7 @@ export default {
       id: 'thesis', eyebrow: 'The thesis that drives us',
       title: "There's a paradox in the Brazilian agency market: nearly all make the same generic promise, and nearly none deliver real integration.",
       sub: 'We exist to close that gap.',
-      others: { t: 'What most agencies do', d: "They sell posts, sell reels, sell isolated paid media. They explain how the Instagram algorithm works. They outsource what they don't know how to do. They charge a monthly retainer and deliver vanity metrics." },
+      others: { t: 'What most agencies do', d: "They sell posts, sell reels, sell isolated paid campaigns. They explain how the Instagram algorithm works. They outsource what they don't know how to do. They charge a monthly retainer and deliver vanity metrics." },
       us: { t: 'What we do', d: `We deploy a <strong>sales ecosystem</strong>: branding that positions, content that educates, paid media that scales, CRM that converts. All integrated, all measurable, all done in-house, no outsourcing.` },
       quoteA: "We don't sell posts.", quoteB: 'We build bridges.',
       question: `The right question isn't <em>"how much does a post cost?"</em> — it's <em>"how much does it cost to keep going without a system that turns investment into revenue?"</em>.`,
