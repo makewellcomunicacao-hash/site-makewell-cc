@@ -153,6 +153,11 @@ n.queue=[];}(window, document,'script',
   if (top) top.addEventListener('click', function () { scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
   if (reduce) return;
 
+  // animações contínuas (gráfico do topo, letreiro, capa do vídeo) só rodam com o bloco na tela: fora dela, pausam.
+  // O gráfico em SVG refazia o layout a cada quadro durante toda a rolagem da página (engasgos no computador)
+  var live = new IntersectionObserver(function (es) { es.forEach(function (e) { e.target.classList.toggle('off', !e.isIntersecting); }); }, { rootMargin: '100px' });
+  document.querySelectorAll('.hm-chart, .hm-ticker, .vcover').forEach(function (el) { live.observe(el); });
+
   // contadores: texto curto tipo "+26x", "50+", "R$400k", "13M+", "4 anos" em fonte grande; ignora anos e "01"
   var nums = [];
   main.querySelectorAll('p, span, div, strong, dt, dd, b').forEach(function (el) {

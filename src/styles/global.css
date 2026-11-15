@@ -260,6 +260,8 @@ p { text-wrap: pretty; }
 .vcover .vc-mark { position: absolute; z-index: 1; right: 9%; top: 19%; height: 62%; width: auto; filter: drop-shadow(0 0 48px rgba(240,120,32,.45)) drop-shadow(0 30px 60px rgba(0,0,0,.5)); animation: vc-float 7s ease-in-out infinite alternate; }
 @keyframes vc-float { to { translate: 0 -14px; } }
 @media (prefers-reduced-motion: reduce) { .vcover .vc-mark { animation: none; } }
+/* fora da tela, as animações contínuas pausam (classe .off posta pelo Page.astro) e continuam de onde pararam ao voltar */
+.hm-chart.off.off *, .hm-ticker.off.off .hm-track, .vcover.off.off .vc-mark { animation-play-state: paused; } /* .off dobrado: vence as regras de animação das páginas */
 @media (max-width: 600px) {
   .vcover { aspect-ratio: 4 / 5; align-items: flex-start; padding-top: 30px;
     background: radial-gradient(75% 45% at 50% 92%, rgba(240,120,32,.5), rgba(240,120,32,0) 70%),
